@@ -9,7 +9,8 @@ cd Clava
 if not exist clava.zip curl specs.fe.up.pt/tools/clava.zip > clava.zip
 tar -xvf clava.zip
 del clava.zip
-echo java -jar clava.jar %%^* > clava.cmd
+echo @echo off > clava.cmd
+echo java -jar "%%~dp0clava.jar" %%^* >> clava.cmd
 echo: 
 echo Clava successfully installed to %PROGRAMFILES%\Clava
 echo Start Clava by opening clava.cmd. It requires Java to be installed and on the PATH.
