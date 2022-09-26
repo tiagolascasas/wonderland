@@ -8,7 +8,7 @@ if not exist Clava md Clava
 cd Clava
 if not exist clava.zip curl specs.fe.up.pt/tools/clava.zip > clava.zip
 tar -xvf clava.zip
-rem del clava.zip
+del clava.zip
 echo java -jar clava.jar %%^* > clava.cmd
 echo: 
 echo Clava successfully installed to %PROGRAMFILES%\Clava
