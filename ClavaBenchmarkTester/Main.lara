@@ -1,0 +1,26 @@
+import lara.benchmark.PolybenchBenchmarkSet;
+//import lara.benchmark.HiFlipVXBenchmarkSet;
+import weaver.WeaverJps;
+
+aspectdef Main
+	
+	var benchmarks = new PolybenchBenchmarkSet();
+	benchmarks.setBenchmarks("adi", "deriche", "lu");
+	benchmarks.setInputSizes("SMALL");
+
+	var res = [];
+	for (var b of benchmarks) {
+		b.load();
+		var f = [];
+		for (var elem of WeaverJps.search("function")) {
+			if (elem.isImplementation) {
+				f.push(elem.name);
+			}
+		}
+		res.push(f.join(","));
+	}
+	println(res.join("\n"));
+	
+
+	//var benchmarks = new HiFlipVXBenchmarkSet();
+end
