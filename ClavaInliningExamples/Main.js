@@ -10,6 +10,7 @@ laraImport("weaver.Query");
 NormalizeToSubset(Query.root());
 
 // Inline calls in main
+/*
 for (const $call of Query.search("function", "main").search("call")) {
   const inliner = new Inliner();
 
@@ -22,5 +23,9 @@ for (const $call of Query.search("function", "main").search("call")) {
     continue;
   }
 
-  inliner.inline($callParent);
+  inliner.inline($callParent);  
 }
+*/
+
+const inliner = new Inliner();
+inliner.inlineFunctionTree(Query.search("function", "main").first());
