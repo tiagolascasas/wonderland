@@ -1,15 +1,88 @@
 import lara.benchmark.PolybenchBenchmarkSet;
-//import lara.benchmark.HiFlipVXBenchmarkSet;
+import lara.benchmark.HiFlipVXBenchmarkSet;
+import lara.benchmark.CHStoneBenchmarkSet;
+import lara.benchmark.RosettaBenchmarkSet; 
+import lara.benchmark.ParboilBenchmarkSet; 
 import weaver.WeaverJps;
 
 aspectdef Main
-	
-	var benchmarks = new PolybenchBenchmarkSet();
-	benchmarks.setBenchmarks("adi", "deriche", "lu");
-	benchmarks.setInputSizes("SMALL");
+	var b;
 
-	var res = [];
+	b = new PolybenchBenchmarkSet();
+	//printBench(b, ["adi", "deriche", "lu"], "SMALL");
+
+	b = new HiFlipVXBenchmarkSet();
+	//printBench(b, "v2", "N");		//ok
+
+	b = new CHStoneBenchmarkSet();
+	//printBench(b, "adpcm", "N");	//ok
+	//printBench(b, "aes", "N");		//ok
+	//printBench(b, "blowfish", "N");	//ok
+	//printBench(b, "dfadd", "N");	//ok
+	//printBench(b, "dfdiv", "N");	//ok
+	//printBench(b, "dfmul", "N");	//ok
+	//printBench(b, "dfsin", "N");	//ok
+	//printBench(b, "gsm", "N");		//ok
+	//printBench(b, "jpeg", "N");		//ok
+	//printBench(b, "mips", "N");		//ok
+	//printBench(b, "motion", "N");	//ok
+	//printBench(b, "sha", "N");		//ok
+
+	b = new RosettaBenchmarkSet();
+	//printBench(b, "3d-rendering", "N");		//ok
+	//printBench(b, "digit-recognition", "N");	//ok
+	//printBench(b, "face-detection", "N");		//ok
+	//printBench(b, "spam-filter", "N");		//ok
+	//printBench(b, "optical-flow", "current");	//error
+	//printBench(b, "optical-flow", "sintel");	//error
+
+	b = new ParboilBenchmarkSet();
+	//printBench(b, "bfs", "1M");	//ok
+	//printBench(b, "bfs", "NY");	//ok
+	//printBench(b, "bfs", "SF");	//ok
+	//printBench(b, "bfs", "UT");	//ok
+	
+	//printBench(b, "cutcp", "large");	//ok
+	//printBench(b, "cutcp", "small");	//ok
+	
+	//printBench(b, "histo", "large");		//ok
+	//printBench(b, "histo", "default");	//ok
+	
+	printBench(b, "lbm", "long");	//
+	//printBench(b, "lbm", "short");	//ok
+	
+	//printBench(b, "mri-gridding", "small");	//ok
+	
+	//printBench(b, "mri-q", "large");	//ok
+	//printBench(b, "mri-q", "small");	//ok
+	
+	//printBench(b, "sad", "large");	//ok
+	//printBench(b, "sad", "default");	//ok
+	
+	//printBench(b, "sgemm", "medium");	//ok
+	//printBench(b, "sgemm", "small");		//ok
+	
+	//printBench(b, "spmv", "large");	//ok
+	//printBench(b, "spmv", "small");	//ok
+	//printBench(b, "spmv", "medium");	//ok
+
+	//printBench(b, "stencil", "small");	//ok
+	//printBench(b, "stencil", "default");	//ok
+	
+	//printBench(b, "tpacf", "large");		//ok
+	//printBench(b, "tpacf", "small");		//ok
+	//printBench(b, "tpacf", "medium");	//ok
+	
+end
+
+// Prints the name of all functions in the bench, as a sanity check, and compiles and executes the bench
+function printBench(benchmarks, names, sizes) {
+	benchmarks.setBenchmarks(names);
+	benchmarks.setInputSizes(sizes);
+	
 	for (var b of benchmarks) {
+		var res = [];
+		b.getCMaker().setGenerator("MinGW Makefiles");
 		b.load();
 		var f = [];
 		for (var elem of WeaverJps.search("function")) {
@@ -17,10 +90,8 @@ aspectdef Main
 				f.push(elem.name);
 			}
 		}
-		res.push(f.join(","));
+		println(f.join(","));
+		b.compile();
+		b.execute();
 	}
-	println(res.join("\n"));
-	
-
-	//var benchmarks = new HiFlipVXBenchmarkSet();
-end
+}

@@ -171,7 +171,7 @@
     </entry>
     <entry>
       <string>aspect</string>
-      <file>Main.lara</file>
+      <file>Test.js</file>
     </entry>
     <entry>
       <string>ignoreHeaderIncludes</string>
@@ -191,7 +191,10 @@
       <string>include</string>
       <FileList>
         <fileList>
+          <file>..\..\specs-feup\clava-benchmarks\CHStone</file>
           <file>..\..\specs-feup\clava-benchmarks\HiFlipVX</file>
+          <file>..\..\specs-feup\clava-benchmarks\Rosetta</file>
+          <file>..\..\specs-feup\clava-benchmarks\Parboil</file>
         </fileList>
       </FileList>
     </entry>

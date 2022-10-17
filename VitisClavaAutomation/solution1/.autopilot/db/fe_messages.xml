@@ -1,0 +1,15 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="VitisClavaAutomation/src/example.c:5:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="maddc" ARG_PragmaIsValid="1" ARG_PragmaOptions="factor = 32" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="C:/Users/Tiago/Dev/ClavaExperiments/script.tcl:14:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="maddv" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=maddv" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="VitisClavaAutomation/src/example.c:12:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="maddv" ARG_PragmaIsValid="1" ARG_PragmaOptions="factor = 32" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-188" msg_severity="INFO" msg_loc="VitisClavaAutomation/src/example.c:10:0" msg_body="Unrolling loop 'VITIS_LOOP_11_1' (VitisClavaAutomation/src/example.c:11:19) in function 'maddv' partially with a factor of 32">
+        <args Factor="32" LoopLoc="VitisClavaAutomation/src/example.c:11:19" LoopName="VITIS_LOOP_11_1"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

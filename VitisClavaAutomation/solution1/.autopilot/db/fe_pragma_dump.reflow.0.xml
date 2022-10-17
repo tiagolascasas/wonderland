@@ -1,0 +1,3 @@
+<pragmas>
+<pragma file="VitisClavaAutomation/src/example.c" line="12" pragmaType="unroll" parentfunction="maddv" factor="32" skip_exit_check="0"/>
+</pragmas>
