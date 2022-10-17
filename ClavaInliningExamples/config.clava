@@ -5,7 +5,7 @@
       <string>workspace</string>
       <FileList>
         <fileList>
-          <file>inliningA.c</file>
+          <file>before_inlining.c</file>
         </fileList>
       </FileList>
     </entry>
@@ -57,6 +57,10 @@
     </entry>
     <entry>
       <string>parallelParsing</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>api_autoload</string>
       <boolean>true</boolean>
     </entry>
     <entry>
