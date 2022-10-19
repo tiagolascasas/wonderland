@@ -172,7 +172,7 @@
     </entry>
     <entry>
       <string>aspect</string>
-      <file>Main.js</file>
+      <file>VitisIntegrationTester.js</file>
     </entry>
     <entry>
       <string>ignoreHeaderIncludes</string>
