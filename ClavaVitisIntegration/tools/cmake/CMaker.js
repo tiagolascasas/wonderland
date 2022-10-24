@@ -1,19 +1,20 @@
 laraImport("tools.cmake.CMakerUtils");
-laraImport("tools.ToolUtils")
+laraImport("lara.cmake.CMakerSources");
+laraImport("tools.Tool");
+laraImport("tools.ToolUtils");
 
 laraImport("lara.Strings");
 laraImport("lara.Platforms");
 laraImport("lara.Compilation");
-laraImport("lara.cmake.CMakerSources");
 laraImport("lara.util.StringSet");
 laraImport("lara.util.ProcessExecutor");
 
 /**
  * Builds CMake configurations.
  */
-class CMaker /*extends Tool*/ {
+class CMaker extends Tool {
     name;
-    disableWeaving;
+    //disableWeaving;
     makeCommand;
     generator;
     minimumVersion;
@@ -34,15 +35,14 @@ class CMaker /*extends Tool*/ {
     static _DEFAULT_BIN_FOLDER = "bin";
 
     constructor(name, disableWeaving) {
+        super("CMAKER", disableWeaving);
+
         //checkDefined(name, "name", "CMaker");
         if (name === undefined) {
             name = "cmaker-project";
         }
 
         this.name = name;
-        //REFACTORING
-        this.disableWeaving = defaultValue(disableWeaving, false);
-
         this.makeCommand = "make";
         this.generator = undefined;
         this.minimumVersion = this._MINIMUM_VERSION;
@@ -236,41 +236,6 @@ class CMaker /*extends Tool*/ {
         }
 
         return executable;
-    }
-
-    addCurrentAst() {
-        for (var userInclude of Clava.getData().getUserIncludes()) {
-            println("[CMAKER] Adding include: " + userInclude);
-            this.addIncludeFolder(userInclude);
-        }
-
-        // Write current version of the files to a temporary folder and add them
-        var currentAstFolder = Io.getPath(Io.getTempFolder(), "cmaker_current_ast");
-
-        // Clean folder
-        Io.deleteFolderContents(currentAstFolder);
-
-        // Create and populate source folder
-        var srcFolder = Io.getPath(currentAstFolder, "src");
-        for (var $file of Clava.getProgram().descendants("file")) {
-            var destFolder = srcFolder;
-            //if($file.relativeFolderpath !== undefined) {
-            //	destFolder = Io.mkdir(srcFolder, $file.relativeFolderpath);
-            //}
-
-            var filepath = $file.write(destFolder.toString());
-
-            if (!$file.isHeader) {
-                this.getSources().addSource(filepath);
-            }
-
-            //println("Written file:" + filepath);
-        }
-
-        // Add src folder as include
-        this.addIncludeFolder(srcFolder);
-
-        return this;
     }
 
     /**
