@@ -4,7 +4,9 @@
     <entry>
       <string>workspace</string>
       <FileList>
-        <fileList/>
+        <fileList>
+          <file>example.c</file>
+        </fileList>
       </FileList>
     </entry>
     <entry>
@@ -172,7 +174,7 @@
     </entry>
     <entry>
       <string>aspect</string>
-      <file>VitisIntegrationTester.js</file>
+      <file>Test.js</file>
     </entry>
     <entry>
       <string>ignoreHeaderIncludes</string>
@@ -191,7 +193,9 @@
     <entry>
       <string>include</string>
       <FileList>
-        <fileList/>
+        <fileList>
+          <file>tools</file>
+        </fileList>
       </FileList>
     </entry>
     <entry>
