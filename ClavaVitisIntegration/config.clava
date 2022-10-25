@@ -6,6 +6,7 @@
       <FileList>
         <fileList>
           <file>example.c</file>
+          <file>example1.c</file>
         </fileList>
       </FileList>
     </entry>

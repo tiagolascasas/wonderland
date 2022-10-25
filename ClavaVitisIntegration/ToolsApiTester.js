@@ -25,6 +25,9 @@ function testVitisHls() {
     vitis.setPlatform("xcvu5p-flva2104-1-e");
     vitis.setClock(10);
 
+    //vitis.addSource("example.c");
+    //vitis.addSource("example1.c");
+
     var success = vitis.synthesize();
     if (success) {
         println("Synthesis successful!");
@@ -37,7 +40,7 @@ function testVitisHls() {
 
 function main() {
     println("-----------------------------------");
-    testCMaker();
+    //testCMaker();
     println("-----------------------------------");
     testVitisHls();
     println("-----------------------------------");

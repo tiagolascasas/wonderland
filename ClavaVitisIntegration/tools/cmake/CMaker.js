@@ -205,6 +205,16 @@ class CMaker extends Tool {
         return this;
     }
 
+    getMakeOutput() {
+        if (this._lastMakeOutput === undefined) {
+            println("CMaker.getMakeOutput: there is not make output yet");
+            return undefined;
+        }
+
+        return this._lastMakeOutput.getConsoleOutput();
+    }
+
+
     /**
      * param includeFolder String representing an include folder
      */
@@ -216,13 +226,37 @@ class CMaker extends Tool {
         return this;
     }
 
-    getMakeOutput() {
-        if (this._lastMakeOutput === undefined) {
-            println("CMaker.getMakeOutput: there is not make output yet");
-            return undefined;
+    addCurrentAst() {
+        for (var userInclude of Clava.getData().getUserIncludes()) {
+            println("[" + this.toolName + "] Adding include: " + userInclude);
+            this.addIncludeFolder(userInclude);
         }
 
-        return this._lastMakeOutput.getConsoleOutput();
+        // Write current version of the files to a temporary folder and add them
+        var currentAstFolder = Io.getPath(Io.getTempFolder(), "tempfolder_current_ast");
+
+        // Clean folder
+        Io.deleteFolderContents(currentAstFolder);
+
+        // Create and populate source folder
+        var srcFolder = Io.getPath(currentAstFolder, "src");
+        for (var $file of Clava.getProgram().descendants("file")) {
+            var destFolder = srcFolder;
+            //if($file.relativeFolderpath !== undefined) {
+            //	destFolder = Io.mkdir(srcFolder, $file.relativeFolderpath);
+            //}
+            var filepath = $file.write(destFolder.toString());
+
+            if (!$file.isHeader) {
+                this.getSources().addSource(filepath);
+            }
+            //println("Written file:" + filepath);
+        }
+
+        // Add src folder as include
+        this.addIncludeFolder(srcFolder);
+
+        return this;
     }
 
     /**

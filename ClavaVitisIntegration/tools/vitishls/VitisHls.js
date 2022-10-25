@@ -1,15 +1,17 @@
 "use strict";
 
+laraImport("clava.Clava");
+laraImport("lara.util.ProcessExecutor");
 laraImport("tools.Tool");
 laraImport("tools.vitishls.VitisReportParser");
-laraImport("lara.util.ProcessExecutor");
 
 class VitisHls extends Tool {
     topFunction;
     platform;
     clock;
     vitisDir;
-    vitisProjName
+    vitisProjName;
+    sourceFiles = [];
 
     constructor(disableWeaving) {
         super("VitisHls", disableWeaving);
@@ -41,6 +43,10 @@ class VitisHls extends Tool {
         return this;
     }
 
+    addSource(file) {
+        this.sourceFiles.push(file);
+    }
+
     synthesize(verbose = true) {
         Io.deleteFolderContents(this.vitisDir);
         this.#generateTclFile();
@@ -63,8 +69,23 @@ class VitisHls extends Tool {
 
     #getTclInputFiles() {
         var str = "";
-        // hardcoded for now
-        str += "add_files ../woven_code/example.c\n";
+        // make sure the files are woven
+        Clava.writeCode(Clava.getWeavingFolder());
+
+        // if no files were added, we assume that every woven file should be used
+        if (this.sourceFiles.length == 0) {
+            for (var file of Io.getFiles(Clava.getWeavingFolder())) {
+                const exts = [".c", ".cpp", ".h", ".hpp"];
+                const res = exts.some(ext => file.name.includes(ext));
+                if (res)
+                    str += "add_files ../woven_code/" + file.name + "\n"
+            }
+        }
+        else {
+            for (const file of this.sourceFiles) {
+                str += "add_files ../woven_code/" + file + "\n";
+            }
+        }
         return str;
     }
 
