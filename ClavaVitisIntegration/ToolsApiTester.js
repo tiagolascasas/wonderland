@@ -30,7 +30,6 @@ function testVitisHls() {
 
     var success = vitis.synthesize();
     if (success) {
-        println("Synthesis successful!");
         var report = vitis.getSynthesisReport();
         vitis.prettyPrintReport(report);
     }
@@ -39,11 +38,9 @@ function testVitisHls() {
 }
 
 function main() {
-    println("-----------------------------------");
-    //testCMaker();
+    testCMaker();
     println("-----------------------------------");
     testVitisHls();
-    println("-----------------------------------");
 }
 
 main();

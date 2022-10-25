@@ -3,6 +3,7 @@
 laraImport("clava.Clava");
 laraImport("lara.util.ProcessExecutor");
 laraImport("tools.Tool");
+laraImport("tools.ToolUtils");
 laraImport("tools.vitishls.VitisReportParser");
 
 class VitisHls extends Tool {
@@ -14,7 +15,7 @@ class VitisHls extends Tool {
     sourceFiles = [];
 
     constructor(disableWeaving) {
-        super("VitisHls", disableWeaving);
+        super("VITIS-HLS", disableWeaving);
 
         this.topFunction = undefined;
         this.platform = undefined;
@@ -36,7 +37,7 @@ class VitisHls extends Tool {
 
     setClock(clock) {
         if (clock <= 0) {
-            throw new Error("Clock value must be a positive integer!");
+            throw new Error("[" + this.toolName + "] Clock value must be a positive integer!");
         } else {
             this.clock = clock;
         }
@@ -48,6 +49,7 @@ class VitisHls extends Tool {
     }
 
     synthesize(verbose = true) {
+        println("[" + this.toolName + "] Setting up Vitis HLS executor");
         Io.deleteFolderContents(this.vitisDir);
         this.#generateTclFile();
         this.#executeVitis(verbose);
@@ -61,29 +63,34 @@ class VitisHls extends Tool {
     }
 
     #executeVitis(verbose) {
+        println("[" + this.toolName + "] Executing Vitis HLS");
         const pe = new ProcessExecutor();
         pe.setWorkingDir(this.vitisDir);
         pe.setPrintToConsole(verbose);
         pe.execute("vitis_hls", "-f", "script.tcl");
+        println("[" + this.toolName + "] Finished executing Vitis HLS");
     }
 
     #getTclInputFiles() {
         var str = "";
+        const weavingFolder = ToolUtils.parsePath(Clava.getWeavingFolder());
+
         // make sure the files are woven
-        Clava.writeCode(Clava.getWeavingFolder());
+        Clava.writeCode(weavingFolder);
 
         // if no files were added, we assume that every woven file should be used
         if (this.sourceFiles.length == 0) {
+            println("[" + this.toolName + "] No source files specified, assuming current AST is the input");
             for (var file of Io.getFiles(Clava.getWeavingFolder())) {
                 const exts = [".c", ".cpp", ".h", ".hpp"];
                 const res = exts.some(ext => file.name.includes(ext));
                 if (res)
-                    str += "add_files ../woven_code/" + file.name + "\n"
+                    str += "add_files " + weavingFolder + "/" + file.name + "\n"
             }
         }
         else {
             for (const file of this.sourceFiles) {
-                str += "add_files ../woven_code/" + file + "\n";
+                str += "add_files " + weavingFolder + "/" + file + "\n";
             }
         }
         return str;
@@ -103,26 +110,33 @@ class VitisHls extends Tool {
     }
 
     getSynthesisReport() {
+        println("[" + this.toolName + "] Processing synthesis report");
         const parser = new VitisReportParser(this.#getSynthesisReportPath());
         const json = parser.getSanitizedJSON();
         return json;
     }
 
+    preciseStr(n, decimalPlaces) {
+        return (+n).toFixed(decimalPlaces);
+    }
+
     prettyPrintReport(report) {
+        println("----------------------------------------");
         println("Vitis HLS synthesis report");
-        println("--------------------------");
-        println("Targeted a " + report["platform"] + ", with target clock " + report["clockTarget"] + "ns");
         println("");
-        println("Achieved an estimated clock of " + report["clockEstim"] + "ns (" + report["fmax"] + "MHz)");
+        println("Targeted a " + report["platform"] + ", with target clock " + this.preciseStr(report["clockTarget"], 2) + "ns");
+        println("");
+        println("Achieved an estimated clock of " + this.preciseStr(report["clockEstim"], 2) +
+            "ns (" + this.preciseStr(report["fmax"], 2) + "MHz)");
         println("");
         println("Latency of " + report["latency"] + " cycles for top function " + report["topFun"]);
         println("Estimated execution time of " + report["execTime"] + "s");
         println();
         println("Resource usage:");
-        println("FF: " + report["FF"] + "(" + report["perFF"] + "%)");
-        println("LUT: " + report["LUT"] + "(" + report["perLUT"] + "%)");
-        println("BRAM: " + report["BRAM"] + "(" + report["perBRAM"] + "%)");
-        println("DSP: " + report["DSP"] + "(" + report["perDSP"] + "%)");
-        println("--------------------------");
+        println("FF: " + report["FF"] + "(" + this.preciseStr(report["perFF"], 2) + "%)");
+        println("LUT: " + report["LUT"] + "(" + this.preciseStr(report["perLUT"], 2) + "%)");
+        println("BRAM: " + report["BRAM"] + "(" + this.preciseStr(report["perBRAM"], 2) + "%)");
+        println("DSP: " + report["DSP"] + "(" + this.preciseStr(report["perDSP"], 2) + "%)");
+        println("----------------------------------------");
     }
 }

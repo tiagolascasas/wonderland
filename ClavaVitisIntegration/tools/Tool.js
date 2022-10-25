@@ -9,7 +9,7 @@ class Tool {
             throw new Error("Class 'Tool' is abstract and cannot be instantiated");
         }
 
-        this.toolName;
+        this.toolName = toolName;
         this.disableWeaving = defaultValue(disableWeaving, false);
     }
 }
