@@ -7,7 +7,7 @@ class VitisReportParser {
         this.reportPath = reportPath;
     }
 
-    #xmlToJson(xmlString) {
+    #xmlToJson(xml) {
         //https://www.delftstack.com/howto/javascript/javascript-xml-to-json/
         //not a great solution. parsing is incomplete, but that is enough for us
 
@@ -18,6 +18,8 @@ class VitisReportParser {
             jsonData[key] = ((value && Object.keys(value).length) ? value : result[2]) || null;
         }
         return jsonData;
+
+        return json;
     }
 
     getSanitizedJSON() {

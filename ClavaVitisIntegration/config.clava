@@ -5,8 +5,7 @@
       <string>workspace</string>
       <FileList>
         <fileList>
-          <file>example.c</file>
-          <file>example1.c</file>
+          <file>..\..\Taskmark\edge-detect\edge_detect_tasks.c</file>
         </fileList>
       </FileList>
     </entry>
@@ -75,7 +74,9 @@
     <entry>
       <string>external_dependencies</string>
       <StringList>
-        <stringList/>
+        <stringList>
+          <string>https://github.com/specs-feup/clava-benchmarks.git?folder=CHStone</string>
+        </stringList>
       </StringList>
     </entry>
     <entry>
@@ -91,7 +92,7 @@
     </entry>
     <entry>
       <string>C/C++ Standard</string>
-      <pt.up.fe.specs.clava.language.Standard>CXX11</pt.up.fe.specs.clava.language.Standard>
+      <pt.up.fe.specs.clava.language.Standard>C99</pt.up.fe.specs.clava.language.Standard>
     </entry>
     <entry>
       <string>workspace_extra</string>
@@ -175,7 +176,7 @@
     </entry>
     <entry>
       <string>aspect</string>
-      <file>ToolsApiTester.js</file>
+      <file>VitisTester.js</file>
     </entry>
     <entry>
       <string>ignoreHeaderIncludes</string>

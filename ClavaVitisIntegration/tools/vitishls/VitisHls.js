@@ -50,6 +50,7 @@ class VitisHls extends Tool {
 
     synthesize(verbose = true) {
         println("[" + this.toolName + "] Setting up Vitis HLS executor");
+
         Io.deleteFolderContents(this.vitisDir);
         this.#generateTclFile();
         this.#executeVitis(verbose);
@@ -64,10 +65,12 @@ class VitisHls extends Tool {
 
     #executeVitis(verbose) {
         println("[" + this.toolName + "] Executing Vitis HLS");
+
         const pe = new ProcessExecutor();
         pe.setWorkingDir(this.vitisDir);
         pe.setPrintToConsole(verbose);
         pe.execute("vitis_hls", "-f", "script.tcl");
+
         println("[" + this.toolName + "] Finished executing Vitis HLS");
     }
 
@@ -76,6 +79,7 @@ class VitisHls extends Tool {
         const weavingFolder = ToolUtils.parsePath(Clava.getWeavingFolder());
 
         // make sure the files are woven
+        Io.deleteFolderContents(weavingFolder);
         Clava.writeCode(weavingFolder);
 
         // if no files were added, we assume that every woven file should be used
@@ -111,8 +115,11 @@ class VitisHls extends Tool {
 
     getSynthesisReport() {
         println("[" + this.toolName + "] Processing synthesis report");
+
         const parser = new VitisReportParser(this.#getSynthesisReportPath());
         const json = parser.getSanitizedJSON();
+
+        println("[" + this.toolName + "] Finished processing synthesis report");
         return json;
     }
 
@@ -133,10 +140,10 @@ class VitisHls extends Tool {
         println("Estimated execution time of " + report["execTime"] + "s");
         println();
         println("Resource usage:");
-        println("FF: " + report["FF"] + "(" + this.preciseStr(report["perFF"], 2) + "%)");
-        println("LUT: " + report["LUT"] + "(" + this.preciseStr(report["perLUT"], 2) + "%)");
-        println("BRAM: " + report["BRAM"] + "(" + this.preciseStr(report["perBRAM"], 2) + "%)");
-        println("DSP: " + report["DSP"] + "(" + this.preciseStr(report["perDSP"], 2) + "%)");
+        println("FF:   " + report["FF"] + " (" + this.preciseStr(report["perFF"], 2) + "%)");
+        println("LUT:  " + report["LUT"] + " (" + this.preciseStr(report["perLUT"], 2) + "%)");
+        println("BRAM: " + report["BRAM"] + " (" + this.preciseStr(report["perBRAM"], 2) + "%)");
+        println("DSP:  " + report["DSP"] + " (" + this.preciseStr(report["perDSP"], 2) + "%)");
         println("----------------------------------------");
     }
 }
