@@ -2,7 +2,7 @@ digraph GN {
     node [shape=rectangle]
 
     subgraph cluster_0 {
-        label="Sequential Task Graph";
+        label="V0 - Sequential Task Graph";
 		shape=rectangle;
         
         TS [label="<START>"]
@@ -21,7 +21,7 @@ digraph GN {
     }
     
     subgraph cluster_1 {
-        label="Parallel Task Graph";
+        label="V1 - Parallel Task Graph";
 		shape=rectangle;
         
         TTS [label="<START>"]
@@ -41,7 +41,7 @@ digraph GN {
     }
     
     subgraph cluster_2 {
-        label="Multiple Parallel Task Graph";
+        label="V2 - Multiple Parallel Task Graph";
 		shape=rectangle;
         
         TTTS [label="<START>"]
