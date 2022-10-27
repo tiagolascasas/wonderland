@@ -100,7 +100,7 @@ void main()
 
     /* Read input image. */
     input_dsp(N, N, image_buffer1);
-    output_dsp(N, N, image_buffer1);
+    // output_dsp(N, N, image_buffer1);
 
 #if ITER > 0
     int i;
@@ -173,9 +173,9 @@ void main()
 #endif
 
     /* Store binary image. */
-    output_dsp(N, N, image_buffer1);
-    output_dsp(N, N, image_buffer2);
-    output_dsp(N, N, image_buffer3);
+    // output_dsp(N, N, image_buffer1);
+    // output_dsp(N, N, image_buffer2);
+    // output_dsp(N, N, image_buffer3);
     // output_dsp(N, N, filter);
 }
 

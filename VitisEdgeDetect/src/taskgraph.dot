@@ -2,7 +2,9 @@ digraph GN {
     node [shape=rectangle]
 
     subgraph cluster_0 {
-        label="V0 - Sequential Task Graph";
+        label="V0 - Sequential Task Graph
+        One task per cluster
+        (task = function)";
 		shape=rectangle;
         
         TS [label="<START>"]
@@ -21,7 +23,10 @@ digraph GN {
     }
     
     subgraph cluster_1 {
-        label="V1 - Parallel Task Graph";
+        label="V1 - Parallel Task Graph
+        horizontal and vertical gradients are on the same cluster
+        (a function that calls convolve2d twice, with different filters, 
+        and possibly with a dataflow directive inbetween)";
 		shape=rectangle;
         
         TTS [label="<START>"]
@@ -39,9 +44,28 @@ digraph GN {
         TT4 -> TT1 [label="x1000"]
         TT4 -> TTE
     }
+
+        subgraph cluster_2 {
+        label="V2 - Parallel Task Graph
+        horizontal and vertical gradients are the same task
+        (a function that can apply two filters at once)";
+		shape=rectangle;
+        
+        NS [label="<START>"]
+        N1 [label="convolve2d\n(smoothing filter)"]
+        N3 [label="convolve2d_double\n(horizontal and vertical gradient)"]
+        N4 [label="combthreshold"]
+        NE [label="<END>"]
+
+        NS -> N1
+        N1 -> N3
+        N3 -> N4
+        N4 -> N1 [label="x1000"]
+        N4 -> NE
+    }
     
-    subgraph cluster_2 {
-        label="V2 - Multiple Parallel Task Graph";
+    subgraph cluster_3 {
+        label="V3 - Multiple Parallel Task Graph";
 		shape=rectangle;
         
         TTTS [label="<START>"]
