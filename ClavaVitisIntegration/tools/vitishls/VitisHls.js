@@ -4,7 +4,7 @@ laraImport("clava.Clava");
 laraImport("lara.util.ProcessExecutor");
 laraImport("tools.Tool");
 laraImport("tools.ToolUtils");
-laraImport("tools.vitishls.VitisReportParser");
+laraImport("tools.vitishls.VitisHlsReportParser");
 
 class VitisHls extends Tool {
     topFunction;
@@ -21,7 +21,7 @@ class VitisHls extends Tool {
         this.platform = undefined;
         this.clock = undefined;
         this.vitisDir = "VitisHLS";
-        this.vitisProjName = "vitis_hls_project";
+        this.vitisProjName = "VitisHLSClavaProject";
     }
 
     setTopFunction(topFunction) {
@@ -51,10 +51,14 @@ class VitisHls extends Tool {
     synthesize(verbose = true) {
         println("[" + this.toolName + "] Setting up Vitis HLS executor");
 
-        Io.deleteFolderContents(this.vitisDir);
+        this.clean();
         this.#generateTclFile();
         this.#executeVitis(verbose);
         return Io.isFile(this.#getSynthesisReportPath());
+    }
+
+    clean() {
+        Io.deleteFolderContents(this.vitisDir);
     }
 
     #getSynthesisReportPath() {
@@ -116,7 +120,7 @@ class VitisHls extends Tool {
     getSynthesisReport() {
         println("[" + this.toolName + "] Processing synthesis report");
 
-        const parser = new VitisReportParser(this.#getSynthesisReportPath());
+        const parser = new VitisHlsReportParser(this.#getSynthesisReportPath());
         const json = parser.getSanitizedJSON();
 
         println("[" + this.toolName + "] Finished processing synthesis report");

@@ -26,7 +26,7 @@ function testVitisHls() {
 
 function testVitisWithBenchmarks() {
     const benches = new CHStoneBenchmarkSet();
-    const benchNames = ["adpcm", "aes", "blowfish", "mips"];
+    const benchNames = [/*"adpcm", "aes", "blowfish",*/ "mips"];
     benches.setBenchmarks(benchNames);
     benches.setInputSizes(["N"]);
 
@@ -65,9 +65,9 @@ function testVitisWithBenchmarks() {
 }
 
 function main() {
-    //testVitisHls();
+    testVitisHls();
     println("-----------------------------------");
-    testVitisWithBenchmarks();
+    //testVitisWithBenchmarks();
 }
 
 main();

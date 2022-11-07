@@ -1,6 +1,6 @@
 "use strict";
 
-class VitisReportParser {
+class VitisHlsReportParser {
     reportPath;
 
     constructor(reportPath) {
@@ -8,17 +8,15 @@ class VitisReportParser {
     }
 
     #xmlToJson(xml) {
-        //https://www.delftstack.com/howto/javascript/javascript-xml-to-json/
-        //not a great solution. parsing is incomplete, but that is enough for us
+        //parses only the "leaves" of the XML string, which is enough for us. For now.
+        const regex = /(?:<([a-zA-Z'-\d_]*)(?:\s[^>]*)*>)((?:(?!<\1).)*)(?:<\/\1>)|<([a-zA-Z'-]*)(?:\s*)*\/>/gm;
 
-        const jsonData = {};
-        for (const result of xmlString.matchAll(/(?:<(\w*)(?:\s[^>]*)*>)((?:(?!<\1).)*)(?:<\/\1>)|<(\w*)(?:\s*)*\/>/gm)) {
-            const key = result[1] || result[3];
-            const value = result[2] && this.#xmlToJson(result[2]); //recusrion
-            jsonData[key] = ((value && Object.keys(value).length) ? value : result[2]) || null;
+        const json = {};
+        for (const match of xml.matchAll(regex)) {
+            const key = match[1] || match[3];
+            const val = match[2] && this.#xmlToJson(match[2]);
+            json[key] = ((val && Object.keys(val).length) ? val : match[2]) || null;
         }
-        return jsonData;
-
         return json;
     }
 
