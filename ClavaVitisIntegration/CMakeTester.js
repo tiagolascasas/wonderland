@@ -2,7 +2,7 @@
 
 laraImport("weaver.WeaverJps");
 laraImport("weaver.Query");
-laraImport("tools.cmake.CMaker");
+laraImport("lara.cmake.CMaker");
 
 function testCMaker() {
     println("Testing CMaker integration");

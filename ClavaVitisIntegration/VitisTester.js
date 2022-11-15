@@ -3,15 +3,15 @@
 laraImport("weaver.WeaverJps");
 laraImport("weaver.Query");
 laraImport("lara.benchmark.CHStoneBenchmarkSet");
-laraImport("tools.vitishls.VitisHls");
+laraImport("lara.vitishls.VitisHls");
 
 function testVitisHls() {
     println("Testing Vitis HLS integration");
 
-    var vitis = new VitisHls();
-    vitis.setTopFunction("convolve2d");
-    vitis.setPlatform("xcvu5p-flva2104-1-e");
-    vitis.setClock(10);
+    var vitis = new VitisHls("maddv", 5);
+    //vitis.setTopFunction("maddv");
+    //vitis.setPlatform("xcvu5p-flva2104-1-e");
+    //vitis.setClock(10);
 
     //vitis.addSource("example.c");
     //vitis.addSource("example1.c");

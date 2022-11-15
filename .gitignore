@@ -1,1 +1,3 @@
 woven_code
+*.o
+a.out

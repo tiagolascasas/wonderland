@@ -33,7 +33,7 @@
 
 #define K 3
 #define N 512 // 128
-#define T 80  // 127
+#define T 127
 
 int image_buffer1[N][N];
 int image_buffer2[N][N];
@@ -46,6 +46,8 @@ void initialize(int image_buffer2[N][N], int image_buffer3[N][N]);
 
 void combthreshold(int image_buffer1[N][N], int image_buffer2[N][N], int image_buffer3[N][N]);
 
+void horizontal_and_vertical_filtering_task(int image_buffer1[N][N], int image_buffer2[N][N], int image_buffer3[N][N]);
+
 void input_dsp(int height, int width, int buf[height][width])
 {
     for (int i = 0; i < height; i++)
@@ -56,22 +58,14 @@ void input_dsp(int height, int width, int buf[height][width])
             {
                 if (j == 5 || j == width - 5)
                 {
-                    buf[i][j] = 200;
-                    buf[i][j - 1] = 200;
-                    buf[i][j - 2] = 200;
-                    buf[i][j - 3] = 200;
-                    buf[i][j - 4] = 200;
+                    buf[i][j] = 5;
                 }
             }
             else if (i == 5 || i == height - 5)
             {
                 if (j >= 5 && j <= width - 5)
                 {
-                    buf[i][j] = 200;
-                    buf[i - 1][j] = 200;
-                    buf[i - 2][j] = 200;
-                    buf[i - 3][j] = 200;
-                    buf[i - 4][j] = 200;
+                    buf[i][j] = 5;
                 }
             }
             else
@@ -80,20 +74,6 @@ void input_dsp(int height, int width, int buf[height][width])
             }
         }
     }
-}
-
-int checksum(int buf[N][N])
-{
-    int n = 0;
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < N; j++)
-        {
-            n += buf[i][j];
-        }
-    }
-    printf("Checksum: %d\n", n);
-    return n;
 }
 
 void output_dsp(int height, int width, int buf[height][width])
@@ -117,8 +97,9 @@ void output_dsp(int height, int width, int buf[height][width])
     printf("\n\n");
 }
 
-int main()
+void main()
 {
+
     /* Read input image. */
     input_dsp(N, N, image_buffer1);
 
@@ -150,57 +131,50 @@ int main()
 
         convolve2d(image_buffer1, filter, image_buffer3);
 
-        /* Set the values of the filter matrix to the vertical Sobel operator. */
-
-        filter[0][0] = 1;
-        filter[0][1] = 0;
-        filter[0][2] = -1;
-        filter[1][0] = 2;
-        filter[1][1] = 0;
-        filter[1][2] = -2;
-        filter[2][0] = 1;
-        filter[2][1] = 0;
-        filter[2][2] = -1;
-
-        /* Convolve the smoothed matrix with the vertical Sobel kernel. */
-
-        convolve2d(image_buffer3, filter, image_buffer1);
-
-        /* Set the values of the filter matrix to the horizontal Sobel operator. */
-
-        filter[0][0] = 1;
-        filter[0][1] = 2;
-        filter[0][2] = 1;
-        filter[1][0] = 0;
-        filter[1][1] = 0;
-        filter[1][2] = 0;
-        filter[2][0] = -1;
-        filter[2][1] = -2;
-        filter[2][2] = -1;
-
-        /* Convolve the smoothed matrix with the horizontal Sobel kernel. */
-
-        convolve2d(image_buffer3, filter, image_buffer2);
+        horizontal_and_vertical_filtering_task(image_buffer1, image_buffer2, image_buffer3);
 
         /* Take the larger of the magnitudes of the horizontal and vertical
            matrices. Form a binary image by comparing to a threshold and
            storing one of two values. */
 
         combthreshold(image_buffer1, image_buffer2, image_buffer3);
-        if (i == 0)
-        {
-            checksum(image_buffer1);
-            checksum(image_buffer2);
-            checksum(image_buffer3);
-        }
+
 #if ITER > 0
     }
 #endif
 
     /* Store binary image. */
+    // output_dsp(N, N, image_buffer1);
+    // output_dsp(N, N, image_buffer2);
     // output_dsp(N, N, image_buffer3);
+    //  output_dsp(N, N, filter);
+}
 
-    return 0;
+void horizontal_and_vertical_filtering_task(int image_buffer1[N][N], int image_buffer2[N][N], int image_buffer3[N][N])
+{
+    filter[0][0] = 1;
+    filter[0][1] = 0;
+    filter[0][2] = -1;
+    filter[1][0] = 2;
+    filter[1][1] = 0;
+    filter[1][2] = -2;
+    filter[2][0] = 1;
+    filter[2][1] = 0;
+    filter[2][2] = -1;
+
+    convolve2d(image_buffer3, filter, image_buffer1);
+
+    filter[0][0] = 1;
+    filter[0][1] = 2;
+    filter[0][2] = 1;
+    filter[1][0] = 0;
+    filter[1][1] = 0;
+    filter[1][2] = 0;
+    filter[2][0] = -1;
+    filter[2][1] = -2;
+    filter[2][2] = -1;
+
+    convolve2d(image_buffer3, filter, image_buffer2);
 }
 
 void initialize(int image_buffer2[N][N], int image_buffer3[N][N])
@@ -212,6 +186,7 @@ void initialize(int image_buffer2[N][N], int image_buffer3[N][N])
         for (j = 0; j < N; j++)
         {
             image_buffer2[i][j] = 0;
+            // printf("address: %d\n", &image_buffer2[i][j]);
             image_buffer3[i][j] = 0;
         }
     }
@@ -219,7 +194,9 @@ void initialize(int image_buffer2[N][N], int image_buffer3[N][N])
 
 void combthreshold(int image_buffer1[N][N], int image_buffer2[N][N], int image_buffer3[N][N])
 {
+
     int i, j;
+
     int temp1;
     int temp2;
     int temp3;
