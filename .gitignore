@@ -1,3 +1,4 @@
 woven_code
 *.o
+*.exe
 a.out
