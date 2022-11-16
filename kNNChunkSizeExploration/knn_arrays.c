@@ -148,7 +148,7 @@ CLASS_TYPE kNN_Predict(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
                        CLASS_TYPE training_Y[N_TRAINING],
                        DATA_TYPE queryDatapoint[N_FEATURES],
                        DATA_TYPE min[N_FEATURES], DATA_TYPE max[N_FEATURES],
-                       int *id)
+                       int id)
 {
 #pragma HLS FUNCTION_INSTANTIATE variable = id
     double bestDistanceMax = DBL_MAX;
@@ -163,7 +163,7 @@ CLASS_TYPE kNN_Predict(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
 
     for (int i = 0; i < N_TRAINING; i++)
     {
-        double distance = 0.0F;
+        double distance = id;
 
         for (int j = 0; j < N_FEATURES; j++)
         {
@@ -177,6 +177,7 @@ CLASS_TYPE kNN_Predict(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
             double diff = feature - training_X[i][j];
             distance += diff * diff;
         }
+        distance -= id;
 
 #if USE_HEAP == 0
         if (distance < bestDistanceMax)
@@ -194,7 +195,7 @@ CLASS_TYPE kNN_Predict(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
     return voteResult;
 }
 
-#define QUERIES_PER_CHUNK 168
+#define QUERIES_PER_CHUNK 25
 
 void kNN_PredictAll(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
                     CLASS_TYPE training_Y[N_TRAINING],
@@ -207,15 +208,7 @@ void kNN_PredictAll(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
 
     for (int i = 0; i < N; i += QUERIES_PER_CHUNK)
     {
-#pragma HLS UNROLL factor = 96 skip_exit_check
-        int id = i % QUERIES_PER_CHUNK;
-        testing_Y[i] = kNN_Predict(training_X, training_Y, testing_X[i], min, max, &i);
+        testing_Y[i + 0] = kNN_Predict(training_X, training_Y, testing_X[i], min, max, 0);
     }
-
-    for (int i = N; i < N + remainder; i++)
-    {
-#pragma HLS UNROLL
-        int id = i % QUERIES_PER_CHUNK;
-        testing_Y[i] = kNN_Predict(training_X, training_Y, testing_X[i], min, max, &i);
-    }
+	
 }

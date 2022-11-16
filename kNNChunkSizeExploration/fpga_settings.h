@@ -49,7 +49,7 @@
 
 #if SCENARIO == SCENARIO_gen100x8x10000_K20_FLOAT
 #define N_TRAINING 8004
-#define N_TESTING 100	//previous: 1996
+#define N_TESTING 1996	//previous: 1996
 #define N_FEATURES 100
 #define N_CLASSES 8
 #define K 20
