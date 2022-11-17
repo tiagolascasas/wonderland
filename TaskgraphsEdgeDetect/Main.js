@@ -5,12 +5,12 @@ laraImport("weaver.WeaverJps");
 laraImport("lara.vitishls.VitisHls");
 
 const files = {
-	"edge_detect_tasks_V0.c": ["rgbToGrayscale", "convolve2d", "combthreshold"],/*
+	"edge_detect_tasks_V0.c": ["rgbToGrayscale", "convolve2d", "combthreshold"],
 	"edge_detect_tasks_V0_const.c": ["rgbToGrayscale", "convolve2d_smooth", "convolve2d_vert", "convolve2d_horiz", "combthreshold"],
 	"edge_detect_tasks_V1.c": ["rgbToGrayscale", "convolve2d", "horizontal_and_vertical_filtering_task", "combthreshold"],
 	"edge_detect_tasks_V1_const.c": ["rgbToGrayscale", "convolve2d_smooth", "horizontal_and_vertical_filtering_task", "combthreshold"],
 	"edge_detect_tasks_V2.c": ["rgbToGrayscale", "convolve2d_smooth", "convolve2d_parallel", "combthreshold"],
-	"edge_detect_tasks_V2_const.c": ["rgbToGrayscale", "convolve2d_smooth", "convolve2d_vert_horiz", "combthreshold"]*/
+	"edge_detect_tasks_V2_const.c": ["rgbToGrayscale", "convolve2d_smooth", "convolve2d_vert_horiz", "combthreshold"]
 }
 
 var results = "";
