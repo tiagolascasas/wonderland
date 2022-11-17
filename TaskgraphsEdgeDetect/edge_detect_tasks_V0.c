@@ -28,6 +28,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 #define ITER 1000
 
@@ -35,10 +36,13 @@
 #define N 512 // 128
 #define T 80  // 127
 
+int image_buffer0[N][N * 3];
 int image_buffer1[N][N];
 int image_buffer2[N][N];
 int image_buffer3[N][N];
 int filter[K][K];
+
+void rgbToGrayscale(int input_image[N][N * 3], int output_image[N][N]);
 
 void convolve2d(int input_image[N][N], int kernel[K][K], int output_image[N][N]);
 
@@ -120,16 +124,17 @@ void output_dsp(int height, int width, int buf[height][width])
 int main()
 {
     /* Read input image. */
-    input_dsp(N, N, image_buffer1);
+    input_dsp(N, N * 3, image_buffer0);
 
 #if ITER > 0
     int i;
     for (i = 0; i < ITER; i++)
     {
 #endif
-        // NOP
         /* Initialize image_buffer2 and image_buffer3 */
         initialize(image_buffer2, image_buffer3);
+
+        rgbToGrayscale(image_buffer0, image_buffer1);
 
         /* Set the values of the filter matrix to a Gaussian kernel.
            This is used as a low-pass filter which blurs the image so as to
@@ -201,6 +206,24 @@ int main()
     // output_dsp(N, N, image_buffer3);
 
     return 0;
+}
+
+void rgbToGrayscale(int input_image[N][N * 3], int output_image[N][N])
+{
+    int i, j, jj;
+
+    for (i = 0; i < N; i++)
+    {
+        for (j = 0, jj = 0; j < N; j++, jj += 3)
+        {
+            int r = input_image[i][jj];
+            int g = input_image[i][jj + 1];
+            int b = input_image[i][jj + 2];
+
+            float gray = 0.299 * r + 0.587 * g + 0.114 * b;
+            output_image[i][j] = (int)floor(gray);
+        }
+    }
 }
 
 void initialize(int image_buffer2[N][N], int image_buffer3[N][N])
