@@ -97,7 +97,7 @@ void output_dsp(int height, int width, int buf[height][width])
     printf("\n\n");
 }
 
-void main()
+int main()
 {
     input_dsp(N, N, image_buffer0);
 
@@ -128,6 +128,8 @@ void main()
     }
 #endif
     // output_dsp(N, N, image_buffer3);
+
+    return 0;
 }
 
 void rgbToGrayscale(int input_image[N][N * 3], int output_image[N][N])
