@@ -12,22 +12,22 @@ SEP = &
 endif
 
 vd: $(PREFIX)baseline.c
-	$(CC) $(PREFIX)baseline.c $(CFLAGS) -o $(OBJDIR)vd.elf ; $(OBJDIR)vd.elf
+	$(CC) $(PREFIX)baseline.c $(CFLAGS) -o $(OBJDIR)vd$(EXT) $(SEP) $(OBJDIR)vd$(EXT)
 
 v0: $(PREFIX)v0.c $(SRCDIR)common.c
-	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@.elf ; $(OBJDIR)$@.elf
+	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@$(EXT) $(SEP) $(OBJDIR)$@$(EXT)
 
 v0c: $(PREFIX)v0c.c $(SRCDIR)common.c
-	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@.elf ; $(OBJDIR)$@.elf
+	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@$(EXT) $(SEP) $(OBJDIR)$@$(EXT)
 
 v1: $(PREFIX)v1.c $(SRCDIR)common.c
-	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@.elf ; $(OBJDIR)$@.elf
+	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@$(EXT) $(SEP) $(OBJDIR)$@$(EXT)
 
 v1c: $(PREFIX)v1c.c $(SRCDIR)common.c
-	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@.elf ; $(OBJDIR)$@.elf
+	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@$(EXT) $(SEP) $(OBJDIR)$@$(EXT)
 
 v2: $(PREFIX)v2.c $(SRCDIR)common.c
-	$(CC) $(PREFIX)$@.c c$(SRCDIR)ommon.c $(CFLAGS) -o $(OBJDIR)$@.elf ; $(OBJDIR)$@.elf
+	$(CC) $(PREFIX)$@.c c$(SRCDIR)ommon.c $(CFLAGS) -o $(OBJDIR)$@$(EXT) $(SEP) $(OBJDIR)$@$(EXT)
 
 v2c: $(PREFIX)v2c.c $(SRCDIR)common.c
-	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@.elf ; $(OBJDIR)$@.elf
+	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@$(EXT) $(SEP) $(OBJDIR)$@$(EXT)
