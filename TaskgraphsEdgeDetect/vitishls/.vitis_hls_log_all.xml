@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low." projectName="edge_detect_vitishls" solutionName="solution1" date="2022-11-17T00:27:29.183+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2/m_axi_gmem_BREADY' to 0." projectName="edge_detect_vitishls" solutionName="solution1" date="2022-11-17T00:27:27.456+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2/m_axi_gmem_AWUSER' to 0." projectName="edge_detect_vitishls" solutionName="solution1" date="2022-11-17T00:27:27.348+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2/m_axi_gmem_AWREGION' to 0." projectName="edge_detect_vitishls" solutionName="solution1" date="2022-11-17T00:27:27.338+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2/m_axi_gmem_AWQOS' to 0." projectName="edge_detect_vitishls" solutionName="solution1" date="2022-11-17T00:27:27.326+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2/m_axi_gmem_AWPROT' to 0." projectName="edge_detect_vitishls" solutionName="solution1" date="2022-11-17T00:27:27.315+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2/m_axi_gmem_AWCACHE' to 0." projectName="edge_detect_vitishls" solutionName="solution1" date="2022-11-17T00:27:27.305+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2/m_axi_gmem_AWLOCK' to 0." projectName="edge_detect_vitishls" solutionName="solution1" date="2022-11-17T00:27:27.295+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2/m_axi_gmem_AWBURST' to 0." projectName="edge_detect_vitishls" solutionName="solution1" date="2022-11-17T00:27:27.268+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2/m_axi_gmem_AWSIZE' to 0." projectName="edge_detect_vitishls" solutionName="solution1" date="2022-11-17T00:27:27.258+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2/m_axi_gmem_AWLEN' to 0." projectName="edge_detect_vitishls" solutionName="solution1" date="2022-11-17T00:27:27.244+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2/m_axi_gmem_AWID' to 0." projectName="edge_detect_vitishls" solutionName="solution1" date="2022-11-17T00:27:27.234+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2/m_axi_gmem_AWADDR' to 0." projectName="edge_detect_vitishls" solutionName="solution1" date="2022-11-17T00:27:27.217+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2/m_axi_gmem_AWVALID' to 0." projectName="edge_detect_vitishls" solutionName="solution1" date="2022-11-17T00:27:27.206+0000" type="Warning"/>
+        <logs message="WARNING: [HLS 200-885] The II Violation in module 'rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2' (loop 'VITIS_LOOP_165_1_VITIS_LOOP_167_2'): Unable to schedule bus request operation ('gmem_load_2_req', edge_detect_tasks_V0.c:169) on port 'gmem' (edge_detect_tasks_V0.c:169) due to limited memory ports (II = 2). Please consider using a memory core with more ports or partitioning the array.&#xD;&#xA;Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.1;t=hls+guidance;d=200-885.html" projectName="edge_detect_vitishls" solutionName="solution1" date="2022-11-17T00:27:24.626+0000" type="Warning"/>
+        <logs message="WARNING: [HLS 200-885] The II Violation in module 'rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2' (loop 'VITIS_LOOP_165_1_VITIS_LOOP_167_2'): Unable to schedule bus request operation ('gmem_load_1_req', edge_detect_tasks_V0.c:169) on port 'gmem' (edge_detect_tasks_V0.c:169) due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array.&#xD;&#xA;Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.1;t=hls+guidance;d=200-885.html" projectName="edge_detect_vitishls" solutionName="solution1" date="2022-11-17T00:27:24.567+0000" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>
