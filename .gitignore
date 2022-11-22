@@ -3,3 +3,4 @@ woven_code
 *.exe
 a.out
 *.elf
+vitis_hls.log
