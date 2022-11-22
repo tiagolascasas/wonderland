@@ -8,3 +8,5 @@
 
 #define H N
 #define W N
+
+#define CHECKSUM 259845 // for 512x512, K = 3

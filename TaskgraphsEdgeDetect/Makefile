@@ -27,7 +27,7 @@ v1c: $(PREFIX)v1c.c $(SRCDIR)common.c
 	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@$(EXT) $(SEP) $(OBJDIR)$@$(EXT)
 
 v2: $(PREFIX)v2.c $(SRCDIR)common.c
-	$(CC) $(PREFIX)$@.c c$(SRCDIR)ommon.c $(CFLAGS) -o $(OBJDIR)$@$(EXT) $(SEP) $(OBJDIR)$@$(EXT)
+	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@$(EXT) $(SEP) $(OBJDIR)$@$(EXT)
 
 v2c: $(PREFIX)v2c.c $(SRCDIR)common.c
 	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@$(EXT) $(SEP) $(OBJDIR)$@$(EXT)

@@ -35,6 +35,49 @@ void initialize(int temp_buf[H][W], int output[H][W])
     }
 }
 
+void convolve2d(int input_image[H][W], int kernel[K][K], int output_image[H][W])
+{
+    int i;
+    int j;
+    int c;
+    int r;
+    int normal_factor;
+    int sum;
+    int dead_rows;
+    int dead_cols;
+
+    dead_rows = K / 2;
+    dead_cols = K / 2;
+
+    normal_factor = 0;
+    for (r = 0; r < K; r++)
+    {
+        for (c = 0; c < K; c++)
+        {
+            normal_factor += abs(kernel[r][c]);
+        }
+    }
+
+    if (normal_factor == 0)
+        normal_factor = 1;
+
+    for (r = 0; r < N - K + 1; r++)
+    {
+        for (c = 0; c < N - K + 1; c++)
+        {
+            sum = 0;
+            for (i = 0; i < K; i++)
+            {
+                for (j = 0; j < K; j++)
+                {
+                    sum += input_image[r + i][c + j] * kernel[i][j];
+                }
+            }
+            output_image[r + dead_rows][c + dead_cols] = (sum / normal_factor);
+        }
+    }
+}
+
 void combthreshold(int image_gray[H][W], int temp_buf[H][W], int output[H][W])
 {
     int i, j;
@@ -100,7 +143,8 @@ int checksum(int buf[H][W])
             n += buf[i][j];
         }
     }
-    printf("Checksum: %d\n", n);
+    printf("Checksum %s", n == CHECKSUM ? "SUCCESS" : "FAILURE");
+    printf(" (actual: %d, expected: %d)\n", n, CHECKSUM);
     return n;
 }
 
@@ -123,4 +167,154 @@ void output_dsp(int buf[H][W])
     for (int i = 0; i <= W + 1; i++)
         printf("_");
     printf("\n\n");
+}
+
+void convolve2d_smooth(int input_image[H][W], int output_image[H][W])
+{
+    int i;
+    int j;
+    int c;
+    int r;
+    int normal_factor;
+    int sum;
+    int dead_rows;
+    int dead_cols;
+    int kernel[K][K] = {
+        {1, 2, 1},
+        {2, 4, 2},
+        {1, 2, 1}};
+
+    dead_rows = K / 2;
+    dead_cols = K / 2;
+
+    normal_factor = 0;
+    for (r = 0; r < K; r++)
+    {
+        for (c = 0; c < K; c++)
+        {
+            normal_factor += abs(kernel[r][c]);
+        }
+    }
+
+    if (normal_factor == 0)
+        normal_factor = 1;
+
+    /* Convolve the input image with the kernel. */
+    for (r = 0; r < H - K + 1; r++)
+    {
+        // NOP
+        for (c = 0; c < W - K + 1; c++)
+        {
+            sum = 0;
+            for (i = 0; i < K; i++)
+            {
+                // NOP
+                for (j = 0; j < K; j++)
+                {
+                    sum += input_image[r + i][c + j] * kernel[i][j];
+                }
+            }
+            output_image[r + dead_rows][c + dead_cols] = (sum / normal_factor);
+        }
+    }
+}
+
+void convolve2d_vert(int input_image[H][W], int output_image[H][W])
+{
+    int i;
+    int j;
+    int c;
+    int r;
+    int normal_factor;
+    int sum;
+    int dead_rows;
+    int dead_cols;
+    int kernel[K][K] = {
+        {1, 0, -1},
+        {2, 0, -2},
+        {1, 0, -1}};
+
+    dead_rows = K / 2;
+    dead_cols = K / 2;
+
+    normal_factor = 0;
+    for (r = 0; r < K; r++)
+    {
+        for (c = 0; c < K; c++)
+        {
+            normal_factor += abs(kernel[r][c]);
+        }
+    }
+
+    if (normal_factor == 0)
+        normal_factor = 1;
+
+    /* Convolve the input image with the kernel. */
+    for (r = 0; r < H - K + 1; r++)
+    {
+        // NOP
+        for (c = 0; c < W - K + 1; c++)
+        {
+            sum = 0;
+            for (i = 0; i < K; i++)
+            {
+                // NOP
+                for (j = 0; j < K; j++)
+                {
+                    sum += input_image[r + i][c + j] * kernel[i][j];
+                }
+            }
+            output_image[r + dead_rows][c + dead_cols] = (sum / normal_factor);
+        }
+    }
+}
+
+void convolve2d_horiz(int input_image[H][W], int output_image[H][W])
+{
+    int i;
+    int j;
+    int c;
+    int r;
+    int normal_factor;
+    int sum;
+    int dead_rows;
+    int dead_cols;
+    int kernel[K][K] = {
+        {1, 2, 1},
+        {0, 0, 0},
+        {-1, -2, -1}};
+
+    dead_rows = K / 2;
+    dead_cols = K / 2;
+
+    normal_factor = 0;
+    for (r = 0; r < K; r++)
+    {
+        for (c = 0; c < K; c++)
+        {
+            normal_factor += abs(kernel[r][c]);
+        }
+    }
+
+    if (normal_factor == 0)
+        normal_factor = 1;
+
+    /* Convolve the input image with the kernel. */
+    for (r = 0; r < H - K + 1; r++)
+    {
+        // NOP
+        for (c = 0; c < W - K + 1; c++)
+        {
+            sum = 0;
+            for (i = 0; i < K; i++)
+            {
+                // NOP
+                for (j = 0; j < K; j++)
+                {
+                    sum += input_image[r + i][c + j] * kernel[i][j];
+                }
+            }
+            output_image[r + dead_rows][c + dead_cols] = (sum / normal_factor);
+        }
+    }
 }

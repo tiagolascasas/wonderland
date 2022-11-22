@@ -2,186 +2,51 @@
 #include <stdio.h>
 #include <math.h>
 
-#define ITER 1000
+#include "config.h"
+#include "common.h"
 
-#define K 3
-#define N 512 // 128
-#define T 80  // 127
+void convolve2d_vert_horiz(int input_image[H][W], int output_vertical[H][W], int output_horizontal[H][W]);
 
-int image_buffer0[N][N * 3];
-int image_buffer1[N][N];
-int image_buffer2[N][N];
-int image_buffer3[N][N];
-
-void rgbToGrayscale(int input_image[N][N * 3], int output_image[N][N]);
-
-void convolve2d_smooth(int input_image[N][N], int output_image[N][N]);
-
-void convolve2d_vert_horiz(int input_image[N][N], int output_vertical[N][N], int output_horizontal[N][N]);
-
-void initialize(int image_buffer2[N][N], int image_buffer3[N][N]);
-
-void combthreshold(int image_buffer1[N][N], int image_buffer2[N][N], int image_buffer3[N][N]);
-
-void input_dsp(int height, int width, int buf[height][width])
+void edge_detect(int image_rgb[H][W * 3], int image_gray[H][W], int temp_buf[H][W], int output[H][W])
 {
-    for (int i = 0; i < height; i++)
-    {
-        for (int j = 0; j < width; j++)
-        {
-            if (i > 5 && i < height - 5)
-            {
-                if (j == 5 || j == width - 5)
-                {
-                    buf[i][j] = 200;
-                    buf[i][j - 1] = 200;
-                    buf[i][j - 2] = 200;
-                    buf[i][j - 3] = 200;
-                    buf[i][j - 4] = 200;
-                }
-            }
-            else if (i == 5 || i == height - 5)
-            {
-                if (j >= 5 && j <= width - 5)
-                {
-                    buf[i][j] = 200;
-                    buf[i - 1][j] = 200;
-                    buf[i - 2][j] = 200;
-                    buf[i - 3][j] = 200;
-                    buf[i - 4][j] = 200;
-                }
-            }
-            else
-            {
-                buf[i][j] = 0;
-            }
-        }
-    }
-}
+    rgbToGrayscale(image_rgb, image_gray);
 
-int checksum(int buf[N][N])
-{
-    int n = 0;
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < N; j++)
-        {
-            n += buf[i][j];
-        }
-    }
-    printf("Checksum: %d\n", n);
-    return n;
-}
+    convolve2d_smooth(image_gray, output);
 
-void output_dsp(int height, int width, int buf[height][width])
-{
-    for (int i = 0; i <= width + 1; i++)
-        printf("_");
-    printf("\n");
+    convolve2d_vert_horiz(output, image_gray, temp_buf);
 
-    for (int i = 0; i < height; i++)
-    {
-        printf("|");
-        for (int j = 0; j < width; j++)
-        {
-            char c = buf[i][j] == 0 ? ' ' : (buf[i][j] > 0 ? 'X' : 'O');
-            printf("%c", c);
-        }
-        printf("|\n");
-    }
-    for (int i = 0; i <= width + 1; i++)
-        printf("_");
-    printf("\n\n");
+    combthreshold(image_gray, temp_buf, output);
 }
 
 int main()
 {
-    input_dsp(N, N, image_buffer0);
+    int image_rgb[H][W * 3] = {0};
+    int image_gray[H][W] = {0};
+    int temp_buf[H][W] = {0};
+    int output[H][W] = {0};
+
+    input_dsp(image_rgb);
 
 #if ITER > 0
     int i;
     for (i = 0; i < ITER; i++)
     {
 #endif
-        initialize(image_buffer2, image_buffer3);
-
-        rgbToGrayscale(image_buffer0, image_buffer1);
-
-        convolve2d_smooth(image_buffer1, image_buffer3);
-
-        convolve2d_vert_horiz(image_buffer3, image_buffer1, image_buffer2);
-
-        combthreshold(image_buffer1, image_buffer2, image_buffer3);
+        edge_detect(image_rgb, image_gray, temp_buf, output);
         if (i == 0)
         {
-            checksum(image_buffer1);
-            checksum(image_buffer2);
-            checksum(image_buffer3);
+            checksum(output);
         }
 #if ITER > 0
     }
 #endif
     /* Store binary image. */
-    // output_dsp(N, N, image_buffer3);
+    // output_dsp(output);
 
     return 0;
 }
 
-void rgbToGrayscale(int input_image[N][N * 3], int output_image[N][N])
-{
-    int i, j, jj;
-
-    for (i = 0; i < N; i++)
-    {
-        for (j = 0, jj = 0; j < N; j++, jj += 3)
-        {
-            int r = input_image[i][jj];
-            int g = input_image[i][jj + 1];
-            int b = input_image[i][jj + 2];
-
-            float gray = 0.299 * r + 0.587 * g + 0.114 * b;
-            output_image[i][j] = (int)floor(gray);
-        }
-    }
-}
-
-void initialize(int image_buffer2[N][N], int image_buffer3[N][N])
-{
-    int i, j;
-
-    for (i = 0; i < N; i++)
-    {
-        for (j = 0; j < N; j++)
-        {
-            image_buffer2[i][j] = 0;
-            // printf("address: %d\n", &image_buffer2[i][j]);
-            image_buffer3[i][j] = 0;
-        }
-    }
-}
-
-void combthreshold(int image_buffer1[N][N], int image_buffer2[N][N], int image_buffer3[N][N])
-{
-
-    int i, j;
-
-    int temp1;
-    int temp2;
-    int temp3;
-
-    for (i = 0; i < N; i++)
-    {
-        for (j = 0; j < N; ++j)
-        {
-            temp1 = abs(image_buffer1[i][j]);
-            temp2 = abs(image_buffer2[i][j]);
-            temp3 = (temp1 > temp2) ? temp1 : temp2;
-            image_buffer3[i][j] = (temp3 > T) ? 255 : 0;
-        }
-    }
-}
-
-void convolve2d_vert_horiz(int input_image[N][N], int output_vertical[N][N], int output_horizontal[N][N])
+void convolve2d_vert_horiz(int input_image[H][W], int output_vertical[H][W], int output_horizontal[H][W])
 {
     int i;
     int j;
@@ -222,9 +87,9 @@ void convolve2d_vert_horiz(int input_image[N][N], int output_vertical[N][N], int
     if (normal_factor_h == 0)
         normal_factor_h = 1;
 
-    for (r = 0; r < N - K + 1; r++)
+    for (r = 0; r < H - K + 1; r++)
     {
-        for (c = 0; c < N - K + 1; c++)
+        for (c = 0; c < W - K + 1; c++)
         {
             sum_v = 0;
             sum_h = 0;
@@ -238,55 +103,6 @@ void convolve2d_vert_horiz(int input_image[N][N], int output_vertical[N][N], int
             }
             output_vertical[r + dead_rows][c + dead_cols] = (sum_v / normal_factor_v);
             output_horizontal[r + dead_rows][c + dead_cols] = (sum_h / normal_factor_h);
-        }
-    }
-}
-
-void convolve2d_smooth(int input_image[N][N], int output_image[N][N])
-{
-    int i;
-    int j;
-    int c;
-    int r;
-    int normal_factor;
-    int sum;
-    int dead_rows;
-    int dead_cols;
-    int kernel[K][K] = {
-        {1, 2, 1},
-        {2, 4, 2},
-        {1, 2, 1}};
-
-    dead_rows = K / 2;
-    dead_cols = K / 2;
-
-    normal_factor = 0;
-    for (r = 0; r < K; r++)
-    {
-        for (c = 0; c < K; c++)
-        {
-            normal_factor += abs(kernel[r][c]);
-        }
-    }
-
-    if (normal_factor == 0)
-        normal_factor = 1;
-
-    for (r = 0; r < N - K + 1; r++)
-    {
-        // NOP
-        for (c = 0; c < N - K + 1; c++)
-        {
-            sum = 0;
-            for (i = 0; i < K; i++)
-            {
-                // NOP
-                for (j = 0; j < K; j++)
-                {
-                    sum += input_image[r + i][c + j] * kernel[i][j];
-                }
-            }
-            output_image[r + dead_rows][c + dead_cols] = (sum / normal_factor);
         }
     }
 }
