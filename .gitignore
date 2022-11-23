@@ -4,3 +4,4 @@ woven_code
 a.out
 *.elf
 vitis_hls.log
+~$Results.xlsx
