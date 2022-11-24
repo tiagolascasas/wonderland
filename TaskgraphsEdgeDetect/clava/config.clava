@@ -5,12 +5,22 @@
       <string>workspace</string>
       <FileList>
         <fileList>
-          <file>edge_detect_tasks_V0.c</file>
-          <file>edge_detect_tasks_V0_const.c</file>
-          <file>edge_detect_tasks_V1.c</file>
-          <file>edge_detect_tasks_V1_const.c</file>
-          <file>edge_detect_tasks_V2.c</file>
-          <file>edge_detect_tasks_V2_const.c</file>
+          <file>..\src\common.c</file>
+          <file>..\src\common.h</file>
+          <file>..\src\config.h</file>
+          <file>..\src\edge_detect_tasks_baseline.c</file>
+          <file>..\src\edge_detect_tasks_v0.c</file>
+          <file>..\src\edge_detect_tasks_v0c.c</file>
+          <file>..\src\edge_detect_tasks_v1.c</file>
+          <file>..\src\edge_detect_tasks_v1c.c</file>
+          <file>..\src\edge_detect_tasks_v2.c</file>
+          <file>..\src\edge_detect_tasks_v2c.c</file>
+          <file>..\src\edge_detect_tasks_v0ce.c</file>
+          <file>..\src\edge_detect_tasks_v0e.c</file>
+          <file>..\src\edge_detect_tasks_v1ce.c</file>
+          <file>..\src\edge_detect_tasks_v1e.c</file>
+          <file>..\src\edge_detect_tasks_v2ce.c</file>
+          <file>..\src\edge_detect_tasks_v2e.c</file>
         </fileList>
       </FileList>
     </entry>
@@ -199,7 +209,7 @@
       <string>include</string>
       <FileList>
         <fileList>
-          <file>..\..\specs-feup\lara-framework\LaraApi\src-lara</file>
+          <file>..\..\..\specs-feup\lara-framework\LaraApi\src-lara</file>
         </fileList>
       </FileList>
     </entry>

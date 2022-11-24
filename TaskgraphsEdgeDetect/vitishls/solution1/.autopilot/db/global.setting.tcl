@@ -1,5 +1,5 @@
 
-set TopModule "rgbToGrayscale"
+set TopModule "edge_detect"
 set ClockPeriod 5
 set ClockList ap_clk
 set HasVivadoClockPeriod 0
@@ -23,7 +23,7 @@ set ResetRegisterNum 3
 set FsmEncStyle onehot
 set MaxFanout 0
 set RtlPrefix {}
-set RtlSubPrefix rgbToGrayscale_
+set RtlSubPrefix edge_detect_
 set ExtraCCFlags {}
 set ExtraCLdFlags {}
 set SynCheckOptions {}
@@ -42,9 +42,9 @@ set SCTraceFileName mytrace
 set SCTraceFileFormat vcd
 set SCTraceOption all
 set TargetInfo xcvc1902:-vsva2197:-2MP-e-S
-set SourceFiles {sc {} c ../../edge_detect_tasks_V0.c}
-set SourceFlags {sc {} c {{}}}
-set DirectiveFile C:/Users/Tiago/Dev/ClavaExperiments/TaskgraphsEdgeDetect/edge_detect_vitishls/solution1/solution1.directive
+set SourceFiles {sc {} c {../../src/edge_detect_tasks_v0.c ../../src/common.c}}
+set SourceFlags {sc {} c {{} {}}}
+set DirectiveFile C:/Users/Tiago/Dev/Experiments/TaskgraphsEdgeDetect/vitishls/solution1/solution1.directive
 set TBFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

@@ -1,4 +1,4 @@
-# 1 "edge_detect_tasks_V0.c"
+# 1 "src/edge_detect_tasks_v0.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 359 "<built-in>" 3
@@ -143,7 +143,7 @@
     void _ssdm_op_SpecBitsMap() __attribute__ ((nothrow));
     void _ssdm_op_SpecLicense() __attribute__ ((nothrow));
 # 2 "<built-in>" 2
-# 1 "edge_detect_tasks_V0.c" 2
+# 1 "src/edge_detect_tasks_v0.c" 2
 # 1 "E:/Xilinx/Vitis_HLS/2022.1/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdlib.h" 1 3
 
 
@@ -852,7 +852,7 @@ void * __mingw_aligned_realloc (void *_Memory, size_t _Size, size_t _Offset);
 # 209 "E:/Xilinx/Vitis_HLS/2022.1/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\malloc.h" 3
 #pragma pack(pop)
 # 742 "E:/Xilinx/Vitis_HLS/2022.1/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdlib.h" 2 3
-# 2 "edge_detect_tasks_V0.c" 2
+# 2 "src/edge_detect_tasks_v0.c" 2
 # 1 "E:/Xilinx/Vitis_HLS/2022.1/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 1 3
 # 11 "E:/Xilinx/Vitis_HLS/2022.1/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
 # 1 "E:/Xilinx/Vitis_HLS/2022.1/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw_print_push.h" 1 3
@@ -1400,7 +1400,7 @@ void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
 
 # 1 "E:/Xilinx/Vitis_HLS/2022.1/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw_print_pop.h" 1 3
 # 1403 "E:/Xilinx/Vitis_HLS/2022.1/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 2 3
-# 3 "edge_detect_tasks_V0.c" 2
+# 3 "src/edge_detect_tasks_v0.c" 2
 # 1 "E:/Xilinx/Vitis_HLS/2022.1/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 1 3
 # 11 "E:/Xilinx/Vitis_HLS/2022.1/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
 
@@ -1851,154 +1851,102 @@ __extension__ long long __attribute__((__cdecl__)) llrintl (long double);
    extern long double __attribute__((__cdecl__)) _chgsignl (long double);
 # 1581 "E:/Xilinx/Vitis_HLS/2022.1/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
 #pragma pack(pop)
-# 4 "edge_detect_tasks_V0.c" 2
+# 4 "src/edge_detect_tasks_v0.c" 2
+
+# 1 "src/config.h" 1
+# 6 "src/edge_detect_tasks_v0.c" 2
+# 1 "src/common.h" 1
 
 
 
 
-
-
-
-int image_buffer0[512][512 * 3];
-int image_buffer1[512][512];
-int image_buffer2[512][512];
-int image_buffer3[512][512];
-int filter[3][3];
-
-__attribute__((sdx_kernel("rgbToGrayscale", 0))) void rgbToGrayscale(int input_image[512][512 * 3], int output_image[512][512]);
+void initialize(int temp_buf[512][512], int output[512][512]);
 
 void convolve2d(int input_image[512][512], int kernel[3][3], int output_image[512][512]);
 
-void initialize(int image_buffer2[512][512], int image_buffer3[512][512]);
+void combthreshold(int image_gray[512][512], int temp_buf[512][512], int output[512][512]);
 
-void combthreshold(int image_buffer1[512][512], int image_buffer2[512][512], int image_buffer3[512][512]);
+void rgbToGrayscale(int input_image[512][512 * 3], int output_image[512][512]);
 
-void input_dsp(int height, int width, int buf[height][width])
+void input_dsp(int buf[512][512 * 3]);
+
+int checksum(int buf[512][512]);
+
+void output_dsp(int buf[512][512]);
+
+void convolve2d_smooth(int input_image[512][512], int output_image[512][512]);
+
+void convolve2d_vert(int input_image[512][512], int output_image[512][512]);
+
+void convolve2d_horiz(int input_image[512][512], int output_image[512][512]);
+# 7 "src/edge_detect_tasks_v0.c" 2
+
+__attribute__((sdx_kernel("edge_detect", 0))) void edge_detect(int image_rgb[512][512 * 3], int image_gray[512][512], int temp_buf[512][512], int filter[3][3], int output[512][512])
 {
-    VITIS_LOOP_27_1: for (int i = 0; i < height; i++)
-    {
-        VITIS_LOOP_29_2: for (int j = 0; j < width; j++)
-        {
-            if (i > 5 && i < height - 5)
-            {
-                if (j == 5 || j == width - 5)
-                {
-                    buf[i][j] = 200;
-                    buf[i][j - 1] = 200;
-                    buf[i][j - 2] = 200;
-                    buf[i][j - 3] = 200;
-                    buf[i][j - 4] = 200;
-                }
-            }
-            else if (i == 5 || i == height - 5)
-            {
-                if (j >= 5 && j <= width - 5)
-                {
-                    buf[i][j] = 200;
-                    buf[i - 1][j] = 200;
-                    buf[i - 2][j] = 200;
-                    buf[i - 3][j] = 200;
-                    buf[i - 4][j] = 200;
-                }
-            }
-            else
-            {
-                buf[i][j] = 0;
-            }
-        }
-    }
-}
+#line 18 "C:/Users/Tiago/Dev/Experiments/TaskgraphsEdgeDetect/vitishls/solution1/csynth.tcl"
+#pragma HLSDIRECTIVE TOP name=edge_detect
+# 9 "src/edge_detect_tasks_v0.c"
 
-int checksum(int buf[512][512])
-{
-    int n = 0;
-    VITIS_LOOP_64_1: for (int i = 0; i < 512; i++)
-    {
-        VITIS_LOOP_66_2: for (int j = 0; j < 512; j++)
-        {
-            n += buf[i][j];
-        }
-    }
-    printf("Checksum: %d\n", n);
-    return n;
-}
+    rgbToGrayscale(image_rgb, image_gray);
 
-void output_dsp(int height, int width, int buf[height][width])
-{
-    VITIS_LOOP_77_1: for (int i = 0; i <= width + 1; i++)
-        printf("_");
-    printf("\n");
+    filter[0][0] = 1;
+    filter[0][1] = 2;
+    filter[0][2] = 1;
+    filter[1][0] = 2;
+    filter[1][1] = 4;
+    filter[1][2] = 2;
+    filter[2][0] = 1;
+    filter[2][1] = 2;
+    filter[2][2] = 1;
 
-    VITIS_LOOP_81_2: for (int i = 0; i < height; i++)
-    {
-        printf("|");
-        VITIS_LOOP_84_3: for (int j = 0; j < width; j++)
-        {
-            char c = buf[i][j] == 0 ? ' ' : (buf[i][j] > 0 ? 'X' : 'O');
-            printf("%c", c);
-        }
-        printf("|\n");
-    }
-    VITIS_LOOP_91_4: for (int i = 0; i <= width + 1; i++)
-        printf("_");
-    printf("\n\n");
+    convolve2d(image_gray, filter, output);
+
+    filter[0][0] = 1;
+    filter[0][1] = 0;
+    filter[0][2] = -1;
+    filter[1][0] = 2;
+    filter[1][1] = 0;
+    filter[1][2] = -2;
+    filter[2][0] = 1;
+    filter[2][1] = 0;
+    filter[2][2] = -1;
+
+    convolve2d(output, filter, image_gray);
+
+    filter[0][0] = 1;
+    filter[0][1] = 2;
+    filter[0][2] = 1;
+    filter[1][0] = 0;
+    filter[1][1] = 0;
+    filter[1][2] = 0;
+    filter[2][0] = -1;
+    filter[2][1] = -2;
+    filter[2][2] = -1;
+
+    convolve2d(output, filter, temp_buf);
+
+    combthreshold(image_gray, temp_buf, output);
 }
 
 int main()
 {
-    input_dsp(512, 512 * 3, image_buffer0);
+    int image_rgb[512][512 * 3] = {0};
+    int image_gray[512][512] = {0};
+    int temp_buf[512][512] = {0};
+    int filter[3][3] = {0};
+    int output[512][512] = {0};
+
+    input_dsp(image_rgb);
 
 
     int i;
-    VITIS_LOOP_102_1: for (i = 0; i < 1000; i++)
+    VITIS_LOOP_63_1: for (i = 0; i < 1000; i++)
     {
 
-        initialize(image_buffer2, image_buffer3);
-
-        rgbToGrayscale(image_buffer0, image_buffer1);
-
-        filter[0][0] = 1;
-        filter[0][1] = 2;
-        filter[0][2] = 1;
-        filter[1][0] = 2;
-        filter[1][1] = 4;
-        filter[1][2] = 2;
-        filter[2][0] = 1;
-        filter[2][1] = 2;
-        filter[2][2] = 1;
-
-        convolve2d(image_buffer1, filter, image_buffer3);
-
-        filter[0][0] = 1;
-        filter[0][1] = 0;
-        filter[0][2] = -1;
-        filter[1][0] = 2;
-        filter[1][1] = 0;
-        filter[1][2] = -2;
-        filter[2][0] = 1;
-        filter[2][1] = 0;
-        filter[2][2] = -1;
-
-        convolve2d(image_buffer3, filter, image_buffer1);
-
-        filter[0][0] = 1;
-        filter[0][1] = 2;
-        filter[0][2] = 1;
-        filter[1][0] = 0;
-        filter[1][1] = 0;
-        filter[1][2] = 0;
-        filter[2][0] = -1;
-        filter[2][1] = -2;
-        filter[2][2] = -1;
-
-        convolve2d(image_buffer3, filter, image_buffer2);
-
-        combthreshold(image_buffer1, image_buffer2, image_buffer3);
+        edge_detect(image_rgb, image_gray, temp_buf, filter, output);
         if (i == 0)
         {
-            checksum(image_buffer1);
-            checksum(image_buffer2);
-            checksum(image_buffer3);
+            checksum(output);
         }
 
     }
@@ -2007,102 +1955,4 @@ int main()
 
 
     return 0;
-}
-
-__attribute__((sdx_kernel("rgbToGrayscale", 0))) void rgbToGrayscale(int input_image[512][512 * 3], int output_image[512][512])
-{
-#line 13 "C:/Users/Tiago/Dev/ClavaExperiments/TaskgraphsEdgeDetect/edge_detect_vitishls/solution1/csynth.tcl"
-#pragma HLSDIRECTIVE TOP name=rgbToGrayscale
-# 162 "edge_detect_tasks_V0.c"
-
-    int i, j, jj;
-
-    VITIS_LOOP_165_1: for (i = 0; i < 512; i++)
-    {
-        VITIS_LOOP_167_2: for (j = 0, jj = 0; j < 512; j++, jj += 3)
-        {
-            int r = input_image[i][jj];
-            int g = input_image[i][jj + 1];
-            int b = input_image[i][jj + 2];
-
-            float gray = 0.299 * r + 0.587 * g + 0.114 * b;
-            output_image[i][j] = (int)floor(gray);
-        }
-    }
-}
-
-void initialize(int image_buffer2[512][512], int image_buffer3[512][512])
-{
-    int i, j;
-
-    VITIS_LOOP_183_1: for (i = 0; i < 512; i++)
-    {
-        VITIS_LOOP_185_2: for (j = 0; j < 512; j++)
-        {
-            image_buffer2[i][j] = 0;
-            image_buffer3[i][j] = 0;
-        }
-    }
-}
-
-void combthreshold(int image_buffer1[512][512], int image_buffer2[512][512], int image_buffer3[512][512])
-{
-    int i, j;
-    int temp1;
-    int temp2;
-    int temp3;
-
-    VITIS_LOOP_200_1: for (i = 0; i < 512; i++)
-    {
-        VITIS_LOOP_202_2: for (j = 0; j < 512; ++j)
-        {
-            temp1 = abs(image_buffer1[i][j]);
-            temp2 = abs(image_buffer2[i][j]);
-            temp3 = (temp1 > temp2) ? temp1 : temp2;
-            image_buffer3[i][j] = (temp3 > 80) ? 255 : 0;
-        }
-    }
-}
-
-void convolve2d(int input_image[512][512], int kernel[3][3], int output_image[512][512])
-{
-    int i;
-    int j;
-    int c;
-    int r;
-    int normal_factor;
-    int sum;
-    int dead_rows;
-    int dead_cols;
-
-    dead_rows = 3 / 2;
-    dead_cols = 3 / 2;
-
-    normal_factor = 0;
-    VITIS_LOOP_227_1: for (r = 0; r < 3; r++)
-    {
-        VITIS_LOOP_229_2: for (c = 0; c < 3; c++)
-        {
-            normal_factor += abs(kernel[r][c]);
-        }
-    }
-
-    if (normal_factor == 0)
-        normal_factor = 1;
-
-    VITIS_LOOP_238_3: for (r = 0; r < 512 - 3 + 1; r++)
-    {
-        VITIS_LOOP_240_4: for (c = 0; c < 512 - 3 + 1; c++)
-        {
-            sum = 0;
-            VITIS_LOOP_243_5: for (i = 0; i < 3; i++)
-            {
-                VITIS_LOOP_245_6: for (j = 0; j < 3; j++)
-                {
-                    sum += input_image[r + i][c + j] * kernel[i][j];
-                }
-            }
-            output_image[r + dead_rows][c + dead_cols] = (sum / normal_factor);
-        }
-    }
 }

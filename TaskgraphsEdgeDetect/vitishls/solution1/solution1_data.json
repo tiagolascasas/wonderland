@@ -1,8 +1,8 @@
 {
-  "Top": "rgbToGrayscale",
-  "RtlTop": "rgbToGrayscale",
+  "Top": "edge_detect",
+  "RtlTop": "edge_detect",
   "RtlPrefix": "",
-  "RtlSubPrefix": "rgbToGrayscale_",
+  "RtlSubPrefix": "edge_detect_",
   "SourceLanguage": "c",
   "HostMachineBits": "64",
   "FunctionProtocol": "ap_ctrl_chain",
@@ -15,7 +15,7 @@
     "Triple": "fpga64-xilinx-none"
   },
   "Args": {
-    "input_image": {
+    "image_rgb": {
       "index": "0",
       "direction": "inout",
       "srcType": "int*",
@@ -31,20 +31,20 @@
         {
           "type": "register",
           "interface": "s_axi_control",
-          "name": "input_image_1",
+          "name": "image_rgb_1",
           "usage": "address",
           "direction": "in"
         },
         {
           "type": "register",
           "interface": "s_axi_control",
-          "name": "input_image_2",
+          "name": "image_rgb_2",
           "usage": "address",
           "direction": "in"
         }
       ]
     },
-    "output_image": {
+    "image_gray": {
       "index": "1",
       "direction": "inout",
       "srcType": "int*",
@@ -60,16 +60,96 @@
         {
           "type": "register",
           "interface": "s_axi_control",
-          "name": "output_image_1",
+          "name": "image_gray_1",
           "usage": "address",
           "direction": "in"
         },
         {
           "type": "register",
           "interface": "s_axi_control",
-          "name": "output_image_2",
+          "name": "image_gray_2",
           "usage": "address",
           "direction": "in"
+        }
+      ]
+    },
+    "temp_buf": {
+      "index": "2",
+      "direction": "inout",
+      "srcType": "int*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "interface",
+          "interface": "m_axi_gmem",
+          "name": "",
+          "usage": "data",
+          "direction": "inout"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "temp_buf_1",
+          "usage": "address",
+          "direction": "in"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "temp_buf_2",
+          "usage": "address",
+          "direction": "in"
+        }
+      ]
+    },
+    "filter": {
+      "index": "3",
+      "direction": "inout",
+      "srcType": "int*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "interface",
+          "interface": "m_axi_gmem",
+          "name": "",
+          "usage": "data",
+          "direction": "inout"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "filter_1",
+          "usage": "address",
+          "direction": "in"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "filter_2",
+          "usage": "address",
+          "direction": "in"
+        }
+      ]
+    },
+    "output": {
+      "index": "4",
+      "direction": "inout",
+      "srcType": "int*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "interface",
+          "interface": "m_axi_gmem",
+          "name": "",
+          "usage": "data",
+          "direction": "inout"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_control",
+          "name": "",
+          "usage": "address",
+          "direction": "inout"
         }
       ]
     }
@@ -77,120 +157,147 @@
   "HlsSolution": {
     "FlowTarget": "vitis",
     "ConfigTcl": [
-      "config_interface -m_axi_latency=64",
-      "config_interface -m_axi_alignment_byte_size=64",
-      "config_interface -m_axi_max_widen_bitwidth=512",
       "config_interface -default_interface=kernel",
+      "config_interface -m_axi_alignment_byte_size=64",
+      "config_interface -m_axi_latency=64",
+      "config_interface -m_axi_max_widen_bitwidth=512",
       "config_rtl -register_reset_num=3"
     ],
-    "DirectiveTcl": ["set_directive_top rgbToGrayscale -name rgbToGrayscale"],
+    "DirectiveTcl": [
+      "set_directive_top edge_detect -name edge_detect",
+      "set_directive_top edge_detect -name edge_detect"
+    ],
     "ProfileOption": "0",
     "ProfileType": "none",
-    "KernelName": "rgbToGrayscale"
+    "KernelName": "edge_detect"
   },
   "ClockInfo": {
     "ClockName": "ap_clk",
     "ClockPeriod": "5",
     "Uncertainty": "1.35",
     "IsCombinational": "0",
-    "II": "786596",
-    "Latency": "786595"
+    "II": "131621844",
+    "Latency": "131621843"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 5.000 [get_ports ap_clk]"]},
   "Ipx": {
     "Vendor": "xilinx.com",
     "Library": "hls",
-    "Name": "rgbToGrayscale",
+    "Name": "edge_detect",
     "Version": "1.0",
-    "DisplayName": "Rgbtograyscale",
-    "Revision": "2112773187",
+    "DisplayName": "Edge_detect",
+    "Revision": "2112781774",
     "Description": "An IP generated by Vitis HLS",
     "Taxonomy": "\/VITIS_HLS_IP",
     "AutoFamilySupport": "",
-    "ZipFile": "xilinx_com_hls_rgbToGrayscale_1_0.zip"
+    "ZipFile": "xilinx_com_hls_edge_detect_1_0.zip"
   },
   "Files": {
-    "CSource": ["..\/..\/edge_detect_tasks_V0.c"],
+    "CSource": [
+      "..\/..\/src\/edge_detect_tasks_v0.c",
+      "..\/..\/src\/common.c"
+    ],
     "Vhdl": [
-      "impl\/vhdl\/rgbToGrayscale_control_s_axi.vhd",
-      "impl\/vhdl\/rgbToGrayscale_dadd_64ns_64ns_64_5_no_dsp_1.vhd",
-      "impl\/vhdl\/rgbToGrayscale_dmul_64ns_64ns_64_4_med_dsp_1.vhd",
-      "impl\/vhdl\/rgbToGrayscale_flow_control_loop_pipe_sequential_init.vhd",
-      "impl\/vhdl\/rgbToGrayscale_fpext_32ns_64_1_no_dsp_1.vhd",
-      "impl\/vhdl\/rgbToGrayscale_fptrunc_64ns_32_1_no_dsp_1.vhd",
-      "impl\/vhdl\/rgbToGrayscale_gmem_m_axi.vhd",
-      "impl\/vhdl\/rgbToGrayscale_rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2.vhd",
-      "impl\/vhdl\/rgbToGrayscale_rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2_mask_table_ROM_AUTObkb.vhd",
-      "impl\/vhdl\/rgbToGrayscale_sitodp_32ns_64_4_no_dsp_1.vhd",
-      "impl\/vhdl\/rgbToGrayscale.vhd"
+      "impl\/vhdl\/edge_detect_control_s_axi.vhd",
+      "impl\/vhdl\/edge_detect_convolve2d_286_288_290_1.vhd",
+      "impl\/vhdl\/edge_detect_convolve2d_286_288_290_1_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_55_2.vhd",
+      "impl\/vhdl\/edge_detect_convolve2d_286_288_290_1_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_66_4.vhd",
+      "impl\/vhdl\/edge_detect_dadd_64ns_64ns_64_5_no_dsp_1.vhd",
+      "impl\/vhdl\/edge_detect_dmul_64ns_64ns_64_4_med_dsp_1.vhd",
+      "impl\/vhdl\/edge_detect_edge_detect_Pipeline_VITIS_LOOP_12_2.vhd",
+      "impl\/vhdl\/edge_detect_edge_detect_Pipeline_VITIS_LOOP_12_2_mask_table_ROM_AUTO_1R.vhd",
+      "impl\/vhdl\/edge_detect_edge_detect_Pipeline_VITIS_LOOP_88_1_VITIS_LOOP_90_2.vhd",
+      "impl\/vhdl\/edge_detect_flow_control_loop_pipe_sequential_init.vhd",
+      "impl\/vhdl\/edge_detect_fpext_32ns_64_1_no_dsp_1.vhd",
+      "impl\/vhdl\/edge_detect_fptrunc_64ns_32_1_no_dsp_1.vhd",
+      "impl\/vhdl\/edge_detect_gmem_m_axi.vhd",
+      "impl\/vhdl\/edge_detect_mul_32s_32s_32_1_1.vhd",
+      "impl\/vhdl\/edge_detect_sdiv_32ns_32ns_32_16_1.vhd",
+      "impl\/vhdl\/edge_detect_sitodp_32ns_64_4_no_dsp_1.vhd",
+      "impl\/vhdl\/edge_detect.vhd"
     ],
     "Verilog": [
-      "impl\/verilog\/rgbToGrayscale_control_s_axi.v",
-      "impl\/verilog\/rgbToGrayscale_dadd_64ns_64ns_64_5_no_dsp_1.v",
-      "impl\/verilog\/rgbToGrayscale_dmul_64ns_64ns_64_4_med_dsp_1.v",
-      "impl\/verilog\/rgbToGrayscale_flow_control_loop_pipe_sequential_init.v",
-      "impl\/verilog\/rgbToGrayscale_fpext_32ns_64_1_no_dsp_1.v",
-      "impl\/verilog\/rgbToGrayscale_fptrunc_64ns_32_1_no_dsp_1.v",
-      "impl\/verilog\/rgbToGrayscale_gmem_m_axi.v",
-      "impl\/verilog\/rgbToGrayscale_rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2.v",
-      "impl\/verilog\/rgbToGrayscale_rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2_mask_table_ROM_AUTObkb.dat",
-      "impl\/verilog\/rgbToGrayscale_rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2_mask_table_ROM_AUTObkb.v",
-      "impl\/verilog\/rgbToGrayscale_sitodp_32ns_64_4_no_dsp_1.v",
-      "impl\/verilog\/rgbToGrayscale.v"
+      "impl\/verilog\/edge_detect_control_s_axi.v",
+      "impl\/verilog\/edge_detect_convolve2d_286_288_290_1.v",
+      "impl\/verilog\/edge_detect_convolve2d_286_288_290_1_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_55_2.v",
+      "impl\/verilog\/edge_detect_convolve2d_286_288_290_1_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_66_4.v",
+      "impl\/verilog\/edge_detect_dadd_64ns_64ns_64_5_no_dsp_1.v",
+      "impl\/verilog\/edge_detect_dmul_64ns_64ns_64_4_med_dsp_1.v",
+      "impl\/verilog\/edge_detect_edge_detect_Pipeline_VITIS_LOOP_12_2.v",
+      "impl\/verilog\/edge_detect_edge_detect_Pipeline_VITIS_LOOP_12_2_mask_table_ROM_AUTO_1R.dat",
+      "impl\/verilog\/edge_detect_edge_detect_Pipeline_VITIS_LOOP_12_2_mask_table_ROM_AUTO_1R.v",
+      "impl\/verilog\/edge_detect_edge_detect_Pipeline_VITIS_LOOP_88_1_VITIS_LOOP_90_2.v",
+      "impl\/verilog\/edge_detect_flow_control_loop_pipe_sequential_init.v",
+      "impl\/verilog\/edge_detect_fpext_32ns_64_1_no_dsp_1.v",
+      "impl\/verilog\/edge_detect_fptrunc_64ns_32_1_no_dsp_1.v",
+      "impl\/verilog\/edge_detect_gmem_m_axi.v",
+      "impl\/verilog\/edge_detect_mul_32s_32s_32_1_1.v",
+      "impl\/verilog\/edge_detect_sdiv_32ns_32ns_32_16_1.v",
+      "impl\/verilog\/edge_detect_sitodp_32ns_64_4_no_dsp_1.v",
+      "impl\/verilog\/edge_detect.v"
     ],
     "SwDriver": [
-      "impl\/misc\/drivers\/rgbToGrayscale_v1_0\/data\/rgbToGrayscale.mdd",
-      "impl\/misc\/drivers\/rgbToGrayscale_v1_0\/data\/rgbToGrayscale.tcl",
-      "impl\/misc\/drivers\/rgbToGrayscale_v1_0\/src\/Makefile",
-      "impl\/misc\/drivers\/rgbToGrayscale_v1_0\/src\/xrgbtograyscale.c",
-      "impl\/misc\/drivers\/rgbToGrayscale_v1_0\/src\/xrgbtograyscale.h",
-      "impl\/misc\/drivers\/rgbToGrayscale_v1_0\/src\/xrgbtograyscale_hw.h",
-      "impl\/misc\/drivers\/rgbToGrayscale_v1_0\/src\/xrgbtograyscale_linux.c",
-      "impl\/misc\/drivers\/rgbToGrayscale_v1_0\/src\/xrgbtograyscale_sinit.c"
+      "impl\/misc\/drivers\/edge_detect_v1_0\/data\/edge_detect.mdd",
+      "impl\/misc\/drivers\/edge_detect_v1_0\/data\/edge_detect.tcl",
+      "impl\/misc\/drivers\/edge_detect_v1_0\/src\/Makefile",
+      "impl\/misc\/drivers\/edge_detect_v1_0\/src\/xedge_detect.c",
+      "impl\/misc\/drivers\/edge_detect_v1_0\/src\/xedge_detect.h",
+      "impl\/misc\/drivers\/edge_detect_v1_0\/src\/xedge_detect_hw.h",
+      "impl\/misc\/drivers\/edge_detect_v1_0\/src\/xedge_detect_linux.c",
+      "impl\/misc\/drivers\/edge_detect_v1_0\/src\/xedge_detect_sinit.c"
     ],
     "IpMisc": ["impl\/misc\/logo.png"],
     "Subcore": [
-      "impl\/misc\/rgbToGrayscale_dadd_64ns_64ns_64_5_no_dsp_1_ip.tcl",
-      "impl\/misc\/rgbToGrayscale_dmul_64ns_64ns_64_4_med_dsp_1_ip.tcl",
-      "impl\/misc\/rgbToGrayscale_fpext_32ns_64_1_no_dsp_1_ip.tcl",
-      "impl\/misc\/rgbToGrayscale_fptrunc_64ns_32_1_no_dsp_1_ip.tcl",
-      "impl\/misc\/rgbToGrayscale_sitodp_32ns_64_4_no_dsp_1_ip.tcl"
+      "impl\/misc\/edge_detect_dadd_64ns_64ns_64_5_no_dsp_1_ip.tcl",
+      "impl\/misc\/edge_detect_dmul_64ns_64ns_64_4_med_dsp_1_ip.tcl",
+      "impl\/misc\/edge_detect_fpext_32ns_64_1_no_dsp_1_ip.tcl",
+      "impl\/misc\/edge_detect_fptrunc_64ns_32_1_no_dsp_1_ip.tcl",
+      "impl\/misc\/edge_detect_sdiv_32ns_32ns_32_16_1_ip.tcl",
+      "impl\/misc\/edge_detect_sitodp_32ns_64_4_no_dsp_1_ip.tcl"
     ],
     "CsynthXml": "syn\/report\/csynth.xml",
     "DebugDir": ".debug",
     "KernelXml": "..\/kernel.xml",
     "Xo": "",
     "XoHlsDir": "",
-    "ProtoInst": [".debug\/rgbToGrayscale.protoinst"]
+    "ProtoInst": [
+      ".debug\/edge_detect.protoinst",
+      ".debug\/rgbToGrayscale.protoinst"
+    ]
   },
   "SubcoreInfo": {
     "HasXpmMemory": false,
     "HasClockedDsp": false,
     "Ip": [
       {
-        "Name": "rgbToGrayscale_dadd_64ns_64ns_64_5_no_dsp_1_ip",
+        "Name": "edge_detect_dadd_64ns_64ns_64_5_no_dsp_1_ip",
         "Vlnv": "xilinx.com:ip:floating_point:7.1",
-        "Params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Add CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 4 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name rgbToGrayscale_dadd_64ns_64ns_64_5_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Add_Subtract CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
+        "Params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Add CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 4 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name edge_detect_dadd_64ns_64ns_64_5_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Add_Subtract CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
       },
       {
-        "Name": "rgbToGrayscale_dmul_64ns_64ns_64_4_med_dsp_1_ip",
+        "Name": "edge_detect_dmul_64ns_64ns_64_4_med_dsp_1_ip",
         "Vlnv": "xilinx.com:ip:floating_point:7.1",
-        "Params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 3 CONFIG.c_mult_usage Medium_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name rgbToGrayscale_dmul_64ns_64ns_64_4_med_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Multiply CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
+        "Params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 3 CONFIG.c_mult_usage Medium_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name edge_detect_dmul_64ns_64ns_64_4_med_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Multiply CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
       },
       {
-        "Name": "rgbToGrayscale_fpext_32ns_64_1_no_dsp_1_ip",
+        "Name": "edge_detect_fpext_32ns_64_1_no_dsp_1_ip",
         "Vlnv": "xilinx.com:ip:floating_point:7.1",
-        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 0 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name rgbToGrayscale_fpext_32ns_64_1_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken false CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Float_to_Float CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 0 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name edge_detect_fpext_32ns_64_1_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken false CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Float_to_Float CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
       },
       {
-        "Name": "rgbToGrayscale_fptrunc_64ns_32_1_no_dsp_1_ip",
+        "Name": "edge_detect_fptrunc_64ns_32_1_no_dsp_1_ip",
         "Vlnv": "xilinx.com:ip:floating_point:7.1",
-        "Params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 0 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name rgbToGrayscale_fptrunc_64ns_32_1_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken false CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Float_to_Float CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+        "Params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 0 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name edge_detect_fptrunc_64ns_32_1_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken false CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Float_to_Float CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
       },
       {
-        "Name": "rgbToGrayscale_sitodp_32ns_64_4_no_dsp_1_ip",
+        "Name": "edge_detect_sdiv_32ns_32ns_32_16_1_ip",
+        "Vlnv": "xilinx.com:ip:div_gen:5.1",
+        "Params": "CONFIG.dividend_and_quotient_width 32 CONFIG.divisor_width 32 CONFIG.operand_sign Signed CONFIG.latency_configuration Manual CONFIG.latency 15 CONFIG.ACLKEN true"
+      },
+      {
+        "Name": "edge_detect_sitodp_32ns_64_4_no_dsp_1_ip",
         "Vlnv": "xilinx.com:ip:floating_point:7.1",
-        "Params": "CONFIG.a_precision_type Custom CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 32 CONFIG.c_a_fraction_width 0 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 2 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name rgbToGrayscale_sitodp_32ns_64_4_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Fixed_to_Float CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
+        "Params": "CONFIG.a_precision_type Custom CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 32 CONFIG.c_a_fraction_width 0 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 2 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name edge_detect_sitodp_32ns_64_4_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Fixed_to_Float CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
       }
     ]
   },
@@ -200,7 +307,7 @@
       "busTypeName": "aximm",
       "mode": "slave",
       "dataWidth": "32",
-      "addrWidth": "6",
+      "addrWidth": "7",
       "portPrefix": "s_axi_control_",
       "paramPrefix": "C_S_AXI_CONTROL_",
       "ports": [
@@ -387,58 +494,142 @@
         },
         {
           "offset": "0x10",
-          "name": "input_image_1",
+          "name": "image_rgb_1",
           "access": "W",
-          "description": "Data signal of input_image",
+          "description": "Data signal of image_rgb",
           "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "input_image",
+              "name": "image_rgb",
               "access": "W",
-              "description": "Bit 31 to 0 of input_image"
+              "description": "Bit 31 to 0 of image_rgb"
             }]
         },
         {
           "offset": "0x14",
-          "name": "input_image_2",
+          "name": "image_rgb_2",
           "access": "W",
-          "description": "Data signal of input_image",
+          "description": "Data signal of image_rgb",
           "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "input_image",
+              "name": "image_rgb",
               "access": "W",
-              "description": "Bit 63 to 32 of input_image"
+              "description": "Bit 63 to 32 of image_rgb"
             }]
         },
         {
           "offset": "0x1c",
-          "name": "output_image_1",
+          "name": "image_gray_1",
           "access": "W",
-          "description": "Data signal of output_image",
+          "description": "Data signal of image_gray",
           "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "output_image",
+              "name": "image_gray",
               "access": "W",
-              "description": "Bit 31 to 0 of output_image"
+              "description": "Bit 31 to 0 of image_gray"
             }]
         },
         {
           "offset": "0x20",
-          "name": "output_image_2",
+          "name": "image_gray_2",
           "access": "W",
-          "description": "Data signal of output_image",
+          "description": "Data signal of image_gray",
           "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "output_image",
+              "name": "image_gray",
               "access": "W",
-              "description": "Bit 63 to 32 of output_image"
+              "description": "Bit 63 to 32 of image_gray"
+            }]
+        },
+        {
+          "offset": "0x28",
+          "name": "temp_buf_1",
+          "access": "W",
+          "description": "Data signal of temp_buf",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "temp_buf",
+              "access": "W",
+              "description": "Bit 31 to 0 of temp_buf"
+            }]
+        },
+        {
+          "offset": "0x2c",
+          "name": "temp_buf_2",
+          "access": "W",
+          "description": "Data signal of temp_buf",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "temp_buf",
+              "access": "W",
+              "description": "Bit 63 to 32 of temp_buf"
+            }]
+        },
+        {
+          "offset": "0x34",
+          "name": "filter_1",
+          "access": "W",
+          "description": "Data signal of filter",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "filter",
+              "access": "W",
+              "description": "Bit 31 to 0 of filter"
+            }]
+        },
+        {
+          "offset": "0x38",
+          "name": "filter_2",
+          "access": "W",
+          "description": "Data signal of filter",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "filter",
+              "access": "W",
+              "description": "Bit 63 to 32 of filter"
+            }]
+        },
+        {
+          "offset": "0x40",
+          "name": "output_r_1",
+          "access": "W",
+          "description": "Data signal of output_r",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "output_r",
+              "access": "W",
+              "description": "Bit 31 to 0 of output_r"
+            }]
+        },
+        {
+          "offset": "0x44",
+          "name": "output_r_2",
+          "access": "W",
+          "description": "Data signal of output_r",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "output_r",
+              "access": "W",
+              "description": "Bit 63 to 32 of output_r"
             }]
         }
       ],
@@ -448,14 +639,35 @@
           "mode": "s_axilite",
           "register_option": "0",
           "offset": "16",
-          "argName": "input_image"
+          "argName": "image_rgb"
         },
         {
           "constraint_type": "pragma interface",
           "mode": "s_axilite",
           "register_option": "0",
           "offset": "28",
-          "argName": "output_image"
+          "argName": "image_gray"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "40",
+          "argName": "temp_buf"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "52",
+          "argName": "filter"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "64",
+          "argName": "output"
         }
       ]
     },
@@ -566,13 +778,13 @@
           "max_read_burst_length": "16",
           "max_write_burst_length": "16",
           "max_widen_bitwidth": "512",
-          "argName": "input_image"
+          "argName": "image_rgb"
         },
         {
           "constraint_type": "bitwidth",
           "orig_bitwidth": "32",
           "final_bitwidth": "512",
-          "argName": "input_image"
+          "argName": "image_rgb"
         },
         {
           "constraint_type": "pragma interface",
@@ -585,13 +797,70 @@
           "max_read_burst_length": "16",
           "max_write_burst_length": "16",
           "max_widen_bitwidth": "512",
-          "argName": "output_image"
+          "argName": "image_gray"
         },
         {
           "constraint_type": "bitwidth",
           "orig_bitwidth": "32",
           "final_bitwidth": "512",
-          "argName": "output_image"
+          "argName": "image_gray"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "m_axi",
+          "register_option": "0",
+          "offset": "slave",
+          "latency": "64",
+          "num_read_outstanding": "16",
+          "num_write_outstanding": "16",
+          "max_read_burst_length": "16",
+          "max_write_burst_length": "16",
+          "max_widen_bitwidth": "512",
+          "argName": "temp_buf"
+        },
+        {
+          "constraint_type": "bitwidth",
+          "orig_bitwidth": "32",
+          "final_bitwidth": "512",
+          "argName": "temp_buf"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "m_axi",
+          "register_option": "0",
+          "offset": "slave",
+          "latency": "64",
+          "num_read_outstanding": "16",
+          "num_write_outstanding": "16",
+          "max_read_burst_length": "16",
+          "max_write_burst_length": "16",
+          "max_widen_bitwidth": "512",
+          "argName": "filter"
+        },
+        {
+          "constraint_type": "bitwidth",
+          "orig_bitwidth": "32",
+          "final_bitwidth": "512",
+          "argName": "filter"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "m_axi",
+          "register_option": "0",
+          "offset": "slave",
+          "latency": "64",
+          "num_read_outstanding": "16",
+          "num_write_outstanding": "16",
+          "max_read_burst_length": "16",
+          "max_write_burst_length": "16",
+          "max_widen_bitwidth": "512",
+          "argName": "output"
+        },
+        {
+          "constraint_type": "bitwidth",
+          "orig_bitwidth": "32",
+          "final_bitwidth": "512",
+          "argName": "output"
         }
       ]
     }
@@ -607,7 +876,7 @@
     },
     "s_axi_control_AWADDR": {
       "dir": "in",
-      "width": "6"
+      "width": "7"
     },
     "s_axi_control_WVALID": {
       "dir": "in",
@@ -635,7 +904,7 @@
     },
     "s_axi_control_ARADDR": {
       "dir": "in",
-      "width": "6"
+      "width": "7"
     },
     "s_axi_control_RVALID": {
       "dir": "out",
@@ -870,21 +1139,69 @@
   },
   "ModuleInfo": {
     "Hierarchy": {
-      "ModuleName": "rgbToGrayscale",
-      "Instances": [{
-          "ModuleName": "rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2",
-          "InstanceName": "grp_rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2_fu_82"
-        }]
+      "ModuleName": "edge_detect",
+      "Instances": [
+        {
+          "ModuleName": "edge_detect_Pipeline_VITIS_LOOP_12_2",
+          "InstanceName": "grp_edge_detect_Pipeline_VITIS_LOOP_12_2_fu_163"
+        },
+        {
+          "ModuleName": "convolve2d_286_288_290_1",
+          "InstanceName": "grp_convolve2d_286_288_290_1_fu_176",
+          "Instances": [
+            {
+              "ModuleName": "convolve2d_286_288_290_1_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_55_2",
+              "InstanceName": "grp_convolve2d_286_288_290_1_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_55_2_fu_212"
+            },
+            {
+              "ModuleName": "convolve2d_286_288_290_1_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_66_4",
+              "InstanceName": "grp_convolve2d_286_288_290_1_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_66_4_fu_222"
+            }
+          ]
+        },
+        {
+          "ModuleName": "edge_detect_Pipeline_VITIS_LOOP_88_1_VITIS_LOOP_90_2",
+          "InstanceName": "grp_edge_detect_Pipeline_VITIS_LOOP_88_1_VITIS_LOOP_90_2_fu_187"
+        }
+      ]
     },
     "Info": {
-      "rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2": {
+      "edge_detect_Pipeline_VITIS_LOOP_12_2": {
         "FunctionProtocol": "ap_ctrl_hs",
         "isTaskLevelControl": "0",
         "isPipelined": "1",
         "isCombinational": "0",
         "isOneStateSeq": "0"
       },
-      "rgbToGrayscale": {
+      "convolve2d_286_288_290_1_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_55_2": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "convolve2d_286_288_290_1_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_66_4": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "convolve2d_286_288_290_1": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "edge_detect_Pipeline_VITIS_LOOP_88_1_VITIS_LOOP_90_2": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "edge_detect": {
         "FunctionProtocol": "ap_ctrl_chain",
         "isTaskLevelControl": "0",
         "isPipelined": "0",
@@ -893,12 +1210,12 @@
       }
     },
     "Metrics": {
-      "rgbToGrayscale_Pipeline_VITIS_LOOP_165_1_VITIS_LOOP_167_2": {
+      "edge_detect_Pipeline_VITIS_LOOP_12_2": {
         "Latency": {
-          "LatencyBest": "786524",
-          "LatencyAvg": "786524",
-          "LatencyWorst": "786524",
-          "PipelineII": "786524",
+          "LatencyBest": "786590",
+          "LatencyAvg": "786590",
+          "LatencyWorst": "786590",
+          "PipelineII": "786590",
           "PipelineDepth": "",
           "PipelineType": "no"
         },
@@ -908,11 +1225,11 @@
           "Estimate": "3.650"
         },
         "Loops": [{
-            "Name": "VITIS_LOOP_165_1_VITIS_LOOP_167_2",
+            "Name": "VITIS_LOOP_10_1_VITIS_LOOP_12_2",
             "TripCount": "262144",
-            "Latency": "786522",
+            "Latency": "786588",
             "PipelineII": "3",
-            "PipelineDepth": "92"
+            "PipelineDepth": "160"
           }],
         "Area": {
           "BRAM_18K": "0",
@@ -921,10 +1238,10 @@
           "DSP": "6",
           "AVAIL_DSP": "1968",
           "UTIL_DSP": "~0",
-          "FF": "3967",
+          "FF": "4119",
           "AVAIL_FF": "1799680",
           "UTIL_FF": "~0",
-          "LUT": "11197",
+          "LUT": "11376",
           "AVAIL_LUT": "899840",
           "UTIL_LUT": "1",
           "URAM": "0",
@@ -932,12 +1249,161 @@
           "UTIL_URAM": "0"
         }
       },
-      "rgbToGrayscale": {
+      "convolve2d_286_288_290_1_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_55_2": {
         "Latency": {
-          "LatencyBest": "786595",
-          "LatencyAvg": "786595",
-          "LatencyWorst": "786595",
-          "PipelineII": "786596",
+          "LatencyBest": "83",
+          "LatencyAvg": "83",
+          "LatencyWorst": "83",
+          "PipelineII": "83",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "5.00",
+          "Uncertainty": "1.35",
+          "Estimate": "3.650"
+        },
+        "Loops": [{
+            "Name": "VITIS_LOOP_53_1_VITIS_LOOP_55_2",
+            "TripCount": "9",
+            "Latency": "81",
+            "PipelineII": "1",
+            "PipelineDepth": "74"
+          }],
+        "Area": {
+          "FF": "801",
+          "AVAIL_FF": "1799680",
+          "UTIL_FF": "~0",
+          "LUT": "2585",
+          "AVAIL_LUT": "899840",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "1934",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "1968",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "463",
+          "UTIL_URAM": "0"
+        }
+      },
+      "convolve2d_286_288_290_1_Pipeline_VITIS_LOOP_64_3_VITIS_LOOP_66_4": {
+        "Latency": {
+          "LatencyBest": "43436702",
+          "LatencyAvg": "43436702",
+          "LatencyWorst": "43436702",
+          "PipelineII": "43436702",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "5.00",
+          "Uncertainty": "1.35",
+          "Estimate": "3.650"
+        },
+        "Loops": [{
+            "Name": "VITIS_LOOP_64_3_VITIS_LOOP_66_4",
+            "TripCount": "260100",
+            "Latency": "43436700",
+            "PipelineII": "167",
+            "PipelineDepth": "168"
+          }],
+        "Area": {
+          "DSP": "0",
+          "AVAIL_DSP": "1968",
+          "UTIL_DSP": "0",
+          "FF": "8227",
+          "AVAIL_FF": "1799680",
+          "UTIL_FF": "~0",
+          "LUT": "41509",
+          "AVAIL_LUT": "899840",
+          "UTIL_LUT": "4",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "1934",
+          "UTIL_BRAM": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "463",
+          "UTIL_URAM": "0"
+        }
+      },
+      "convolve2d_286_288_290_1": {
+        "Latency": {
+          "LatencyBest": "43436867",
+          "LatencyAvg": "43436867",
+          "LatencyWorst": "43436867",
+          "PipelineII": "43436867",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "5.00",
+          "Uncertainty": "1.35",
+          "Estimate": "3.650"
+        },
+        "Area": {
+          "DSP": "0",
+          "AVAIL_DSP": "1968",
+          "UTIL_DSP": "0",
+          "FF": "14581",
+          "AVAIL_FF": "1799680",
+          "UTIL_FF": "~0",
+          "LUT": "65920",
+          "AVAIL_LUT": "899840",
+          "UTIL_LUT": "7",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "1934",
+          "UTIL_BRAM": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "463",
+          "UTIL_URAM": "0"
+        }
+      },
+      "edge_detect_Pipeline_VITIS_LOOP_88_1_VITIS_LOOP_90_2": {
+        "Latency": {
+          "LatencyBest": "524364",
+          "LatencyAvg": "524364",
+          "LatencyWorst": "524364",
+          "PipelineII": "524364",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "5.00",
+          "Uncertainty": "1.35",
+          "Estimate": "3.650"
+        },
+        "Loops": [{
+            "Name": "VITIS_LOOP_88_1_VITIS_LOOP_90_2",
+            "TripCount": "262144",
+            "Latency": "524362",
+            "PipelineII": "2",
+            "PipelineDepth": "76"
+          }],
+        "Area": {
+          "FF": "40528",
+          "AVAIL_FF": "1799680",
+          "UTIL_FF": "2",
+          "LUT": "2172",
+          "AVAIL_LUT": "899840",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "1934",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "1968",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "463",
+          "UTIL_URAM": "0"
+        }
+      },
+      "edge_detect": {
+        "Latency": {
+          "LatencyBest": "131621843",
+          "LatencyAvg": "131621843",
+          "LatencyWorst": "131621843",
+          "PipelineII": "131621844",
           "PipelineDepth": "",
           "PipelineType": "no"
         },
@@ -953,12 +1419,12 @@
           "DSP": "6",
           "AVAIL_DSP": "1968",
           "UTIL_DSP": "~0",
-          "FF": "8849",
+          "FF": "64777",
           "AVAIL_FF": "1799680",
-          "UTIL_FF": "~0",
-          "LUT": "19762",
+          "UTIL_FF": "3",
+          "LUT": "89650",
           "AVAIL_LUT": "899840",
-          "UTIL_LUT": "2",
+          "UTIL_LUT": "9",
           "URAM": "0",
           "AVAIL_URAM": "463",
           "UTIL_URAM": "0"
@@ -969,7 +1435,7 @@
   "GenerateBdFiles": "0",
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2022-11-17 00:27:31 +0000",
+    "Time": "2022-11-22 23:34:31 +0000",
     "ToolName": "vitis_hls",
     "ToolVersion": "2022.1"
   }

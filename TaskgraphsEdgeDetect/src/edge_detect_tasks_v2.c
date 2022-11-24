@@ -109,6 +109,7 @@ void convolve2d_parallel(int input_image[H][W], int vertical_filter[K][K], int h
     normal_factor_h = 0;
     for (r = 0; r < K; r++)
     {
+#pragma HLS unroll
         for (c = 0; c < K; c++)
         {
             normal_factor_v += abs(vertical_filter[r][c]);
@@ -127,10 +128,12 @@ void convolve2d_parallel(int input_image[H][W], int vertical_filter[K][K], int h
         // NOP
         for (c = 0; c < W - K + 1; c++)
         {
+#pragma HLS pipeline
             sum_v = 0;
             sum_h = 0;
             for (i = 0; i < K; i++)
             {
+#pragma HLS unroll
                 // NOP
                 for (j = 0; j < K; j++)
                 {

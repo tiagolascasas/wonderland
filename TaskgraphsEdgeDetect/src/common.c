@@ -5,12 +5,14 @@
 
 void rgbToGrayscale(int input_image[H][W * 3], int output_image[H][W])
 {
+    // #pragma HLS interface
     int i, j, jj;
 
     for (i = 0; i < H; i++)
     {
         for (j = 0, jj = 0; j < W; j++, jj += 3)
         {
+#pragma HLS pipeline
             int r = input_image[i][jj];
             int g = input_image[i][jj + 1];
             int b = input_image[i][jj + 2];
@@ -52,6 +54,7 @@ void convolve2d(int input_image[H][W], int kernel[K][K], int output_image[H][W])
     normal_factor = 0;
     for (r = 0; r < K; r++)
     {
+#pragma HLS unroll
         for (c = 0; c < K; c++)
         {
             normal_factor += abs(kernel[r][c]);
@@ -65,9 +68,11 @@ void convolve2d(int input_image[H][W], int kernel[K][K], int output_image[H][W])
     {
         for (c = 0; c < N - K + 1; c++)
         {
+#pragma HLS pipeline
             sum = 0;
             for (i = 0; i < K; i++)
             {
+#pragma HLS unroll
                 for (j = 0; j < K; j++)
                 {
                     sum += input_image[r + i][c + j] * kernel[i][j];
@@ -89,6 +94,7 @@ void combthreshold(int image_gray[H][W], int temp_buf[H][W], int output[H][W])
     {
         for (j = 0; j < W; ++j)
         {
+#pragma HLS pipeline
             temp1 = abs(image_gray[i][j]);
             temp2 = abs(temp_buf[i][j]);
             temp3 = (temp1 > temp2) ? temp1 : temp2;
@@ -190,6 +196,7 @@ void convolve2d_smooth(int input_image[H][W], int output_image[H][W])
     normal_factor = 0;
     for (r = 0; r < K; r++)
     {
+#pragma HLS unroll
         for (c = 0; c < K; c++)
         {
             normal_factor += abs(kernel[r][c]);
@@ -205,9 +212,11 @@ void convolve2d_smooth(int input_image[H][W], int output_image[H][W])
         // NOP
         for (c = 0; c < W - K + 1; c++)
         {
+#pragma HLS pipeline
             sum = 0;
             for (i = 0; i < K; i++)
             {
+#pragma HLS unroll
                 // NOP
                 for (j = 0; j < K; j++)
                 {
@@ -240,6 +249,7 @@ void convolve2d_vert(int input_image[H][W], int output_image[H][W])
     normal_factor = 0;
     for (r = 0; r < K; r++)
     {
+#pragma HLS unroll
         for (c = 0; c < K; c++)
         {
             normal_factor += abs(kernel[r][c]);
@@ -255,9 +265,11 @@ void convolve2d_vert(int input_image[H][W], int output_image[H][W])
         // NOP
         for (c = 0; c < W - K + 1; c++)
         {
+#pragma HLS pipeline
             sum = 0;
             for (i = 0; i < K; i++)
             {
+#pragma HLS unroll
                 // NOP
                 for (j = 0; j < K; j++)
                 {
@@ -290,6 +302,7 @@ void convolve2d_horiz(int input_image[H][W], int output_image[H][W])
     normal_factor = 0;
     for (r = 0; r < K; r++)
     {
+#pragma HLS unroll
         for (c = 0; c < K; c++)
         {
             normal_factor += abs(kernel[r][c]);
@@ -305,9 +318,11 @@ void convolve2d_horiz(int input_image[H][W], int output_image[H][W])
         // NOP
         for (c = 0; c < W - K + 1; c++)
         {
+#pragma HLS pipeline
             sum = 0;
             for (i = 0; i < K; i++)
             {
+#pragma HLS unroll
                 // NOP
                 for (j = 0; j < K; j++)
                 {

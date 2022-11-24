@@ -31,3 +31,22 @@ v2: $(PREFIX)v2.c $(SRCDIR)common.c
 
 v2c: $(PREFIX)v2c.c $(SRCDIR)common.c
 	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@$(EXT) $(SEP) $(OBJDIR)$@$(EXT)
+
+v0e: $(PREFIX)v0e.c $(SRCDIR)common.c
+	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@$(EXT) $(SEP) $(OBJDIR)$@$(EXT)
+
+v0ce: $(PREFIX)v0ce.c $(SRCDIR)common.c
+	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@$(EXT) $(SEP) $(OBJDIR)$@$(EXT)
+
+v1e: $(PREFIX)v1e.c $(SRCDIR)common.c
+	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@$(EXT) $(SEP) $(OBJDIR)$@$(EXT)
+
+v1ce: $(PREFIX)v1ce.c $(SRCDIR)common.c
+	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@$(EXT) $(SEP) $(OBJDIR)$@$(EXT)
+
+v2e: $(PREFIX)v2e.c $(SRCDIR)common.c
+	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@$(EXT) $(SEP) $(OBJDIR)$@$(EXT)
+
+v2ce: $(PREFIX)v2ce.c $(SRCDIR)common.c
+	$(CC) $(PREFIX)$@.c $(SRCDIR)common.c $(CFLAGS) -o $(OBJDIR)$@$(EXT) $(SEP) $(OBJDIR)$@$(EXT)
+

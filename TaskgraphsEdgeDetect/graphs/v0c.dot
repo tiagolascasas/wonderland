@@ -1,0 +1,18 @@
+digraph static_call_graph {
+	rankdir=LR;
+	node [shape=rectangle]
+
+	"edge_detect" [label="edge_detect\nExecTime: 0.0247235\nFF: 3.63%\nLUT: 9.45%\nBRAM: 3.63%\nDSP: 0.3%"]
+	"rgbToGrayscale" [label="rgbToGrayscale\nExecTime: 0.0028711\nFF: 0.49%\nLUT: 2.2%\nBRAM: 0.49%\nDSP: 0.3%"]
+	"convolve2d_smooth" [label="convolve2d_smooth\nExecTime: 0.0085448\nFF: 0.1%\nLUT: 0.29%\nBRAM: 0.1%\nDSP: 0%"]
+	"convolve2d_vert" [label="convolve2d_vert\nExecTime: 0.0085448\nFF: 0.09%\nLUT: 0.27%\nBRAM: 0.09%\nDSP: 0%"]
+	"convolve2d_horiz" [label="convolve2d_horiz\nExecTime: 0.0085448\nFF: 0.09%\nLUT: 0.28%\nBRAM: 0.09%\nDSP: 0%"]
+	"combthreshold" [label="combthreshold\nExecTime: 0.0019142\nFF: 2.53%\nLUT: 1.21%\nBRAM: 2.53%\nDSP: 0%"]
+
+	"edge_detect"->"rgbToGrayscale" [label="int *[1536], int *[512]"];
+	"edge_detect"->"convolve2d_smooth" [label="int *[512], int *[512]"];
+	"edge_detect"->"convolve2d_vert" [label="int *[512], int *[512]"];
+	"edge_detect"->"convolve2d_horiz" [label="int *[512], int *[512]"];
+	"edge_detect"->"combthreshold" [label="int *[512], int *[512], int *[512]"];
+	"main"->"edge_detect" [label="int *[1536], int *[512], int *[512], int *[512]"];
+}

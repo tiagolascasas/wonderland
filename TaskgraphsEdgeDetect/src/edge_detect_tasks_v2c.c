@@ -75,6 +75,7 @@ void convolve2d_vert_horiz(int input_image[H][W], int output_vertical[H][W], int
 
     for (r = 0; r < K; r++)
     {
+#pragma HLS unroll
         for (c = 0; c < K; c++)
         {
             normal_factor_v += abs(vertical_filter[r][c]);
@@ -91,10 +92,12 @@ void convolve2d_vert_horiz(int input_image[H][W], int output_vertical[H][W], int
     {
         for (c = 0; c < W - K + 1; c++)
         {
+#pragma HLS pipeline
             sum_v = 0;
             sum_h = 0;
             for (i = 0; i < K; i++)
             {
+#pragma HLS unroll
                 for (j = 0; j < K; j++)
                 {
                     sum_v += input_image[r + i][c + j] * vertical_filter[i][j];

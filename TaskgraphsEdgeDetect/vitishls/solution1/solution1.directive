@@ -1,8 +1,13 @@
 <AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
     <sourceFile name="">
-        <directive functionName="rgbToGrayscale" label="" functionLabel="">
+        <directive functionName="edge_detect" label="" functionLabel="">
             <pragma name="TOP">
-                <option name="name" value="rgbToGrayscale"/>
+                <option name="name" value="edge_detect"/>
+            </pragma>
+        </directive>
+        <directive functionName="edge_detect" label="" functionLabel="">
+            <pragma name="TOP">
+                <option name="name" value="edge_detect"/>
             </pragma>
         </directive>
     </sourceFile>

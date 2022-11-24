@@ -1,0 +1,16 @@
+digraph static_call_graph {
+	rankdir=LR;
+	node [shape=rectangle]
+
+	"edge_detect" [label="edge_detect\nExecTime: 0.0133296\nFF: 0.88%\nLUT: 5.37%\nBRAM: 0.88%\nDSP: 1.27%"]
+	"rgbToGrayscale" [label="rgbToGrayscale\nExecTime: 0.0028711\nFF: 0.49%\nLUT: 2.2%\nBRAM: 0.49%\nDSP: 0.3%"]
+	"convolve2d_smooth" [label="convolve2d_smooth\nExecTime: 0.0085448\nFF: 0.1%\nLUT: 0.29%\nBRAM: 0.1%\nDSP: 0%"]
+	"convolve2d_vert_horiz" [label="convolve2d_vert_horiz\nExecTime: 0.0085448\nFF: 0.11%\nLUT: 0.37%\nBRAM: 0.11%\nDSP: 0%"]
+	"combthreshold" [label="combthreshold\nExecTime: 0.0019142\nFF: 2.53%\nLUT: 1.21%\nBRAM: 2.53%\nDSP: 0%"]
+
+	"edge_detect"->"rgbToGrayscale" [label="int *[1536], int *[512]"];
+	"edge_detect"->"convolve2d_smooth" [label="int *[512], int *[512]"];
+	"edge_detect"->"convolve2d_vert_horiz" [label="int *[512], int *[512], int *[512]"];
+	"edge_detect"->"combthreshold" [label="int *[512], int *[512], int *[512]"];
+	"main"->"edge_detect" [label="int *[1536], int *[512]"];
+}

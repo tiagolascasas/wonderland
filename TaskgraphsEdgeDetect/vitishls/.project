@@ -29,37 +29,52 @@
 		<link>
 			<name>source</name>
 			<type>2</type>
-			<location>C:/Users/Tiago/Dev/ClavaExperiments/TaskgraphsEdgeDetect/edge_detect_vitishls/.apc/.src</location>
+			<location>C:/Users/Tiago/Dev/Experiments/TaskgraphsEdgeDetect/vitishls/.apc/.src</location>
 		</link>
 		<link>
 			<name>testbench</name>
 			<type>2</type>
-			<location>C:/Users/Tiago/Dev/ClavaExperiments/TaskgraphsEdgeDetect/edge_detect_vitishls/.apc/.tb</location>
+			<location>C:/Users/Tiago/Dev/Experiments/TaskgraphsEdgeDetect/vitishls/.apc/.tb</location>
 		</link>
 		<link>
 			<name>solution1/constraints</name>
 			<type>2</type>
-			<location>C:/Users/Tiago/Dev/ClavaExperiments/TaskgraphsEdgeDetect/edge_detect_vitishls/solution1/.tcls</location>
+			<location>C:/Users/Tiago/Dev/Experiments/TaskgraphsEdgeDetect/vitishls/solution1/.tcls</location>
 		</link>
 		<link>
-			<name>source/edge_detect_tasks_V0.c</name>
+			<name>source/common.c</name>
 			<type>1</type>
-			<location>C:/Users/Tiago/Dev/ClavaExperiments/TaskgraphsEdgeDetect/edge_detect_tasks_V0.c</location>
+			<location>C:/Users/Tiago/Dev/Experiments/TaskgraphsEdgeDetect/src/common.c</location>
+		</link>
+		<link>
+			<name>source/common.h</name>
+			<type>1</type>
+			<location>C:/Users/Tiago/Dev/Experiments/TaskgraphsEdgeDetect/src/common.h</location>
+		</link>
+		<link>
+			<name>source/config.h</name>
+			<type>1</type>
+			<location>C:/Users/Tiago/Dev/Experiments/TaskgraphsEdgeDetect/src/config.h</location>
+		</link>
+		<link>
+			<name>source/edge_detect_tasks_v0.c</name>
+			<type>1</type>
+			<location>C:/Users/Tiago/Dev/Experiments/TaskgraphsEdgeDetect/src/edge_detect_tasks_v0.c</location>
 		</link>
 		<link>
 			<name>solution1/constraints/.xml.directive</name>
 			<type>1</type>
-			<location>C:/Users/Tiago/Dev/ClavaExperiments/TaskgraphsEdgeDetect/edge_detect_vitishls/solution1/solution1.directive</location>
+			<location>C:/Users/Tiago/Dev/Experiments/TaskgraphsEdgeDetect/vitishls/solution1/solution1.directive</location>
 		</link>
 		<link>
 			<name>solution1/constraints/directives.tcl</name>
 			<type>1</type>
-			<location>C:/Users/Tiago/Dev/ClavaExperiments/TaskgraphsEdgeDetect/edge_detect_vitishls/solution1/directives.tcl</location>
+			<location>C:/Users/Tiago/Dev/Experiments/TaskgraphsEdgeDetect/vitishls/solution1/directives.tcl</location>
 		</link>
 		<link>
 			<name>solution1/constraints/script.tcl</name>
 			<type>1</type>
-			<location>C:/Users/Tiago/Dev/ClavaExperiments/TaskgraphsEdgeDetect/edge_detect_vitishls/solution1/script.tcl</location>
+			<location>C:/Users/Tiago/Dev/Experiments/TaskgraphsEdgeDetect/vitishls/solution1/script.tcl</location>
 		</link>
 	</linkedResources>
 </projectDescription>
