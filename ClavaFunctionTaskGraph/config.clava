@@ -8,7 +8,7 @@
           <file>..\TaskgraphsEdgeDetect\src\common.c</file>
           <file>..\TaskgraphsEdgeDetect\src\common.h</file>
           <file>..\TaskgraphsEdgeDetect\src\config.h</file>
-          <file>..\TaskgraphsEdgeDetect\src\edge_detect_tasks_v2e.c</file>
+          <file>..\TaskgraphsEdgeDetect\src\edge_detect_tasks_v0.c</file>
         </fileList>
       </FileList>
     </entry>
@@ -177,7 +177,7 @@
     </entry>
     <entry>
       <string>aspect</string>
-      <file>Main.js</file>
+      <file>TestTaskGraph.js</file>
     </entry>
     <entry>
       <string>ignoreHeaderIncludes</string>
