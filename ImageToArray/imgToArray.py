@@ -1,10 +1,12 @@
-import io
+import os
 import sys
 import numpy as np
 from PIL import Image
 
 
-def imgToBytes(fname):
+def imgToBytes(fname, height, width):
+    size = height * width
+
     with open(fname, "rb") as image:
         f = image.read()
         b = bytearray(f)
@@ -12,29 +14,30 @@ def imgToBytes(fname):
 
         idx = []
         i = 0
-        while i < 32 * 3 - 2:
+        while i < width * 3 - 2:
             idx.append(i + 2)
             idx.append(i + 1)
             idx.append(i)
             i += 3
 
         newlist = []
-        for i in range(32):
+        for i in range(height):
             for j in reversed(idx):
-                newlist.append(b[i * 32 * 3 + j])
+                newlist.append(b[i * width * 3 + j])
         newlist.reverse()
 
         return list(newlist)
 
 
-def bytesToC(arr):
+def bytesToC(arr, name, height, width):
     s = ",".join(map(str, arr))
-    f = open("img.h", "w+")
+    f = open(name + "_" + str(height) + "_" + str(width) + ".h", "w+")
     f.write(s)
     f.close()
 
 
-def bytesToImg(img):
+def cToBytes(img, height, width):
+    name = img.split(".")[0]
     file = open(img, mode='r')
     all = file.read()
     file.close()
@@ -43,21 +46,32 @@ def bytesToImg(img):
     intarr = list(map(int, split))
 
     bytearr = np.array(intarr, dtype=np.uint8)
-    im = Image.fromarray(bytearr.reshape(32, 32, 3))
-    im.save("imgconverted.bmp")
+    return bytearr
+
+
+def bytesToImg(arr, name, height, width):
+    im = Image.fromarray(arr.reshape(height, width, 3))
+    im.save(name + "_converted.bmp")
 
 
 def main():
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 5:
         print("error")
         return
 
-    if sys.argv[1] == "-b":
-        arr = imgToBytes(sys.argv[2])
-        bytesToC(arr)
+    mode = sys.argv[1]
+    img = sys.argv[2]
+    height = int(sys.argv[3])
+    width = int(sys.argv[4])
+    name = os.path.basename(img).split(".")[0]
 
-    if sys.argv[1] == "-i":
-        bytesToImg(sys.argv[2])
+    if mode == "-b":
+        arr = imgToBytes(img, height, width)
+        bytesToC(arr, name, height, width)
+
+    if mode == "-i":
+        arr = cToBytes(img, height, width)
+        bytesToImg(arr, name, height, width)
 
 
 main()
