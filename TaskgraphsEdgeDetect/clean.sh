@@ -1,0 +1,2 @@
+rm *.bmp
+rm *.dat

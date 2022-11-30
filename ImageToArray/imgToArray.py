@@ -49,13 +49,16 @@ def cToBytes(img, height, width):
     return bytearr
 
 
-def bytesToImg(arr, name, height, width):
-    im = Image.fromarray(arr.reshape(height, width, 3))
+def bytesToImg(arr, name, height, width, color):
+    if color == "g":
+        im = Image.fromarray(arr.reshape(height, width))
+    else:
+        im = Image.fromarray(arr.reshape(height, width, 3))
     im.save(name + "_converted.bmp")
 
 
 def main():
-    if len(sys.argv) != 5:
+    if len(sys.argv) != 6:
         print("error")
         return
 
@@ -63,6 +66,7 @@ def main():
     img = sys.argv[2]
     height = int(sys.argv[3])
     width = int(sys.argv[4])
+    color = sys.argv[5]
     name = os.path.basename(img).split(".")[0]
 
     if mode == "-b":
@@ -71,7 +75,7 @@ def main():
 
     if mode == "-i":
         arr = cToBytes(img, height, width)
-        bytesToImg(arr, name, height, width)
+        bytesToImg(arr, name, height, width, color)
 
 
 main()

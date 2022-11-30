@@ -78,6 +78,18 @@ void convolve2d(int input_image[H][W], int kernel[K][K], int output_image[H][W])
                     sum += input_image[r + i][c + j] * kernel[i][j];
                 }
             }
+            /*
+            sum += input_image[r + 0][c + 0] * kernel[0][0];
+            sum += input_image[r + 0][c + 1] * kernel[0][1];
+            sum += input_image[r + 0][c + 2] * kernel[0][2];
+            sum += input_image[r + 1][c + 0] * kernel[1][0];
+            sum += input_image[r + 1][c + 1] * kernel[1][1];
+            sum += input_image[r + 1][c + 2] * kernel[1][2];
+            sum += input_image[r + 2][c + 0] * kernel[2][0];
+            sum += input_image[r + 2][c + 1] * kernel[2][1];
+            sum += input_image[r + 2][c + 2] * kernel[2][2];
+            */
+
             output_image[r + dead_rows][c + dead_cols] = (sum / normal_factor);
         }
     }
