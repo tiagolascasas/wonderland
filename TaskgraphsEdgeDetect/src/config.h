@@ -10,11 +10,15 @@
 #define H N
 #define W N
 
+#define CONV_SMOOTH 0
+#define CONV_VERT 1
+#define CONV_HORIZ 2
+
 #define CHECKSUM 259845 // for 512x512, K = 3, T = 80
 
 // Version-specific params
 #ifndef SCENARIO
-#define SCENARIO V0
+#define SCENARIO V0E
 #endif
 
 #define V0 1
@@ -32,5 +36,16 @@
 
 #if SCENARIO == V0
 #define MAIN_ALL
+#define SET_FILTER
+#endif
+
+#if SCENARIO == V0C
+#define MAIN_ALL
+#endif
+
+#if SCENARIO == V0CE
+#endif
+
+#if SCENARIO == V0E
 #define SET_FILTER
 #endif

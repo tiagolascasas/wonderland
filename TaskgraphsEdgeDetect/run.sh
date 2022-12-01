@@ -1,5 +1,5 @@
 rm *.bmp
-gcc src/*.c -lm -o bin/edgedetect.elf
+gcc src/*.c -lm -o bin/edgedetect.elf -D OUTS
 ./bin/edgedetect.elf
 python ../ImageToArray/imgToArray.py -i input.dat 512 512 rgb
 python ../ImageToArray/imgToArray.py -i grayscale.dat 512 512 g
