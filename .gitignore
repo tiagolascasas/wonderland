@@ -5,5 +5,9 @@ a.out
 *.elf
 vitis_hls.log
 ~$Results.xlsx
-solution1
+solution1/syn
+solution1/impl
+solution1/.autopilot
+solution1/.debug
 *converted.bmp
+syn

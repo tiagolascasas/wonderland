@@ -1,5 +1,6 @@
 #include <chrono>
 #include <iostream>
+#include <cmath>
 using namespace std::chrono;
 using namespace std;
 
@@ -7,18 +8,22 @@ using namespace std;
 #define N2 100000
 #define N3 1000000
 
-void foo(int *X, int n, int *res)
+#pragma clava kernel
+#pragma clava data kernel : [{auto : "auto" }, {scalar : "auto" }, {auto : "auto" }]
+void foo(int *X, int *res)
 {
     int c = 0;
-    for (int i = 0; i < n; i++)
-        c += i;
+    for (int i = 0; i < 5000; i++)
+        c += pow(i * 2, 2);
     *res = c;
 }
 
-void bar(int *X, int *Y, int *Z, int n, int *res)
+#pragma clava kernel
+#pragma clava data kernel : [{auto : "auto" }, {auto : "auto" }, {auto : "auto" }, {scalar : "auto" }, {auto : "auto" }]
+void bar(int *X, int *Y, int *Z, int *res)
 {
     int c = 0;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < 5000; i++)
         c += i;
     *res = c;
 }
@@ -29,7 +34,7 @@ int main()
 
     int A[N1] = {0};
     auto start = high_resolution_clock::now();
-    foo(A, N1, &res);
+    foo(A, &res);
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop - start);
     cout << "{" << N1 << "} : " << duration.count() << endl;
@@ -38,14 +43,14 @@ int main()
     int C[N1] = {0};
     int D[N1] = {0};
     start = high_resolution_clock::now();
-    bar(B, C, D, N1, &res);
+    bar(B, C, D, &res);
     stop = high_resolution_clock::now();
     duration = duration_cast<microseconds>(stop - start);
     cout << "{" << N1 << "," << N1 << "," << N1 << "} : " << duration.count() << endl;
 
     int E[N2] = {0};
     start = high_resolution_clock::now();
-    foo(E, N2, &res);
+    foo(E, &res);
     stop = high_resolution_clock::now();
     duration = duration_cast<microseconds>(stop - start);
     cout << "{" << N2 << "} : " << duration.count() << endl;
@@ -54,14 +59,14 @@ int main()
     int G[N2] = {0};
     int H[N2] = {0};
     start = high_resolution_clock::now();
-    bar(F, G, H, N2, &res);
+    bar(F, G, H, &res);
     stop = high_resolution_clock::now();
     duration = duration_cast<microseconds>(stop - start);
     cout << "{" << N2 << "," << N2 << "," << N2 << "} : " << duration.count() << endl;
 
     int I[N3] = {0};
     start = high_resolution_clock::now();
-    foo(I, N3, &res);
+    foo(I, &res);
     stop = high_resolution_clock::now();
     duration = duration_cast<microseconds>(stop - start);
     cout << "{" << N3 << "} : " << duration.count() << endl;
@@ -70,7 +75,7 @@ int main()
     int K[N3] = {0};
     int L[N3] = {0};
     start = high_resolution_clock::now();
-    bar(J, K, L, N3, &res);
+    bar(J, K, L, &res);
     stop = high_resolution_clock::now();
     duration = duration_cast<microseconds>(stop - start);
     cout << "{" << N3 << "," << N3 << "," << N3 << "} : " << duration.count() << endl;
