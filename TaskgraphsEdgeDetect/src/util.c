@@ -1,5 +1,5 @@
-#include "config.h"
 #include <stdio.h>
+#include "config.h"
 
 int checksum(int buf[H * W])
 {

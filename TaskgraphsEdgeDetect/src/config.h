@@ -18,7 +18,7 @@
 
 // Version-specific params
 #ifndef SCENARIO
-#define SCENARIO V0E
+#define SCENARIO V0
 #endif
 
 #define V0 1

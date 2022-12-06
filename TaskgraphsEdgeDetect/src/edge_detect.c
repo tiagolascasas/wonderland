@@ -139,6 +139,11 @@ void combthreshold(int image_gray[H * W], int temp_buf[H * W], int output[H * W]
     }
 }
 
+#pragma clava kernel
+#pragma clava data kernel : [{                                                 \
+    auto : "auto" },                                                           \
+    {auto : "auto" }, {auto : "auto" }, {auto : "auto" },                    \
+                                         {auto : "auto" }, {auto : "auto" }]
 void edge_detect(int image_rgb[H * W * 3],
 #ifdef MAIN_ALL
                  int image_gray[H * W],
@@ -225,7 +230,11 @@ void edge_detect(int image_rgb[H * W * 3],
 int main()
 {
     int image_rgb[H * W * 3] = {
-#include "img_512_512.h"
+#ifdef OUTS
+#include "img_512_512.dat"
+#else
+0
+#endif
     };
 #ifdef MAIN_ALL
     int image_gray[H * W] = {0};
