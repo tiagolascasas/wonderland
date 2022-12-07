@@ -1,0 +1,19 @@
+#include <chrono>
+#include <iostream>
+#include <cmath>
+
+void foo_Kernel(int *X, int *res) {
+   int c = 0;
+   for(int i = 0; i < 5000; i++) {
+      c += pow(i * 2, 2);
+   }
+   *res = c;
+}
+
+void bar_Kernel(int *X, int *Y, int *Z, int *res) {
+   int c = 0;
+   for(int i = 0; i < 5000; i++) {
+      c += i;
+   }
+   *res = c;
+}

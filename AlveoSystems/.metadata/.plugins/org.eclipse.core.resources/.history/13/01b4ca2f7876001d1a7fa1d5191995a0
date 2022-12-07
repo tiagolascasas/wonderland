@@ -1,0 +1,4 @@
+
+¨
+
+foo_Kernel$9ae77430-792d-4338-aa5d-3ec2b01dbb0c"ó/tools/Xilinx/Vitis/2022.2/bin/unwrapped/lnx64.o/v++  --vivado.prop "run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}" --advanced.misc "report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}" --advanced.misc "report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}" --target sw_emu --compile -I../src --config foo_Kernel-compile.cfg -obuild/foo_Kernel.xo ../src/krnl.cpp 

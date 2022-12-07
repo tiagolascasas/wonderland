@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="link" dir="">
+  <FileSets>
+    <FileSet Name="kernel_bar_Kernel" Type="DesignSrcs">
+      <File Path="/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_system_hw_link/Emulation-SW/binary_container_1.build/link/int/xo/bar_Kernel/bar_Kernel/cpu_sources/krnl.cpp"/>
+      <Config/>
+    </FileSet>
+    <FileSet Name="kernel_foo_Kernel" Type="DesignSrcs">
+      <File Path="/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_system_hw_link/Emulation-SW/binary_container_1.build/link/int/xo/foo_Kernel/foo_Kernel/cpu_sources/krnl.cpp"/>
+      <Config/>
+    </FileSet>
+  </FileSets>
+  <Runs/>
+</project>

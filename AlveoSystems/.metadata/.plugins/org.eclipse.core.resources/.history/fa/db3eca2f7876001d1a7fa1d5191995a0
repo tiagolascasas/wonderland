@@ -1,0 +1,87 @@
+<dict>
+  <key>main-file</key>
+  <string>/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/Emulation-SW/build/foo_Kernel/foo_Kernel/foo_Kernel/solution/.autopilot/db/krnl.pp.0.cpp</string>
+  <key>diagnostics</key>
+  <array>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/src/krnl.cpp</string>
+      <key>line</key>
+      <integer>3</integer>
+      <key>column</key>
+      <integer>33</integer>
+      <key>message</key>
+      <string>unused parameter &apos;X&apos;</string>
+      <key>ID</key>
+      <integer>5292</integer>
+      <key>WarningOption</key>
+      <string>unused-parameter</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/Emulation-SW/build/foo_Kernel/foo_Kernel/foo_Kernel.tcl</string>
+      <key>line</key>
+      <integer>29</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=top_XLX_SEP_ PragmaContext=directive_XLX_SEP_ PragmaFunction=foo_Kernel_XLX_SEP_ PragmaOptions=name=foo_Kernel_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/src/krnl.cpp</string>
+      <key>line</key>
+      <integer>17</integer>
+      <key>column</key>
+      <integer>33</integer>
+      <key>message</key>
+      <string>unused parameter &apos;X&apos;</string>
+      <key>ID</key>
+      <integer>5292</integer>
+      <key>WarningOption</key>
+      <string>unused-parameter</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/src/krnl.cpp</string>
+      <key>line</key>
+      <integer>17</integer>
+      <key>column</key>
+      <integer>41</integer>
+      <key>message</key>
+      <string>unused parameter &apos;Y&apos;</string>
+      <key>ID</key>
+      <integer>5292</integer>
+      <key>WarningOption</key>
+      <string>unused-parameter</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/src/krnl.cpp</string>
+      <key>line</key>
+      <integer>17</integer>
+      <key>column</key>
+      <integer>49</integer>
+      <key>message</key>
+      <string>unused parameter &apos;Z&apos;</string>
+      <key>ID</key>
+      <integer>5292</integer>
+      <key>WarningOption</key>
+      <string>unused-parameter</string>
+    </dict>
+  </array>
+</dict>

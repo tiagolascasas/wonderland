@@ -1,0 +1,37 @@
+21:43:42 **** Incremental Build of configuration Emulation-SW for project communication_latency_model ****
+make -j12 all 
+g++ -std=c++1y -DVITIS_PLATFORM=xilinx_u250_gen3x16_xdma_4_1_202210_1 -D__USE_XOPEN2K8 -I/opt/xilinx/xrt/include/ -I/tools/Xilinx/Vitis_HLS/2022.2/include/ -O0 -g -Wall -c -fmessage-length=0 -o "src/OCLH_main.o" "../src/OCLH_main.cpp"
+g++ -std=c++1y -DVITIS_PLATFORM=xilinx_u250_gen3x16_xdma_4_1_202210_1 -D__USE_XOPEN2K8 -I/opt/xilinx/xrt/include/ -I/tools/Xilinx/Vitis_HLS/2022.2/include/ -O0 -g -Wall -c -fmessage-length=0 -o "src/OCL_Helpers.o" "../src/OCL_Helpers.cpp"
+/tools/Xilinx/Vitis/2022.2/bin/emconfigutil --od . --nd 1  --platform xilinx_u250_gen3x16_xdma_4_1_202210_1
+g++ -std=c++1y -DVITIS_PLATFORM=xilinx_u250_gen3x16_xdma_4_1_202210_1 -D__USE_XOPEN2K8 -I/opt/xilinx/xrt/include/ -I/tools/Xilinx/Vitis_HLS/2022.2/include/ -O0 -g -Wall -c -fmessage-length=0 -o "src/main.o" "../src/main.cpp"
+../src/OCLH_main.cpp:16: warning: ignoring #pragma clava ocl_insert_globals [-Wunknown-pragmas]
+   16 | #pragma clava ocl_insert_globals
+      | 
+../src/OCLH_main.cpp:25: warning: ignoring #pragma clava ocl_insert_kernel_initializations [-Wunknown-pragmas]
+   25 |    #pragma clava ocl_insert_kernel_initializations
+      | 
+../src/main.cpp:18: warning: ignoring #pragma clava kernel [-Wunknown-pragmas]
+   18 | #pragma clava kernel
+      | 
+../src/main.cpp:20: warning: ignoring #pragma clava data [-Wunknown-pragmas]
+   20 | #pragma clava data kernel : [{auto : "auto" }, {auto : "auto" }]
+      | 
+../src/main.cpp:59: warning: ignoring #pragma clava kernel [-Wunknown-pragmas]
+   59 | #pragma clava kernel
+      | 
+../src/main.cpp:61: warning: ignoring #pragma clava data [-Wunknown-pragmas]
+   61 | #pragma clava data kernel : [{auto : "auto" }, {auto : "auto" }, {auto : "auto" }, {auto : "auto" }]
+      | 
+g++ -o "communication_latency_model" src/OCLH_main.o src/OCL_Helpers.o src/main.o -lxilinxopencl -lpthread -lrt -lstdc++ -L/opt/xilinx/xrt/lib/ -Wl,-rpath-link,/opt/xilinx/xrt/lib
+
+****** configutil v2022.2 (64-bit)
+  **** SW Build 3671529 on 2022-10-13-17:52:11
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+INFO: [ConfigUtil 60-895]   Target platform: /opt/xilinx/platforms/xilinx_u250_gen3x16_xdma_4_1_202210_1/xilinx_u250_gen3x16_xdma_4_1_202210_1.xpfm
+INFO: [ConfigUtil 60-1578]   This platform contains Xilinx Shell Archive '/opt/xilinx/platforms/xilinx_u250_gen3x16_xdma_4_1_202210_1/hw/hw.xsa'
+INFO: [ConfigUtil 60-1032] Extracting hardware platform to .
+emulation configuration file `emconfig.json` is created in . directory 
+
+21:43:46 Build Finished (took 3s.325ms)
+

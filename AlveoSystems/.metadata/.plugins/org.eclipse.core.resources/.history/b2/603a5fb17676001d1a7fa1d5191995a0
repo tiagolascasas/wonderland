@@ -1,0 +1,26 @@
+
+static void foo_KernelCode(int *X, int *res) {
+   int c = 0;
+   for(int i = 0; i < 5000; i++) {
+      #pragma HLS unroll
+      c += pow(i * 2, 2);
+   }
+   *res = c;
+}
+
+void foo_Kernel(int *X, int *res) {
+   foo_KernelCode(X, res);
+}
+
+static void bar_KernelCode(int *X, int *Y, int *Z, int *res) {
+   int c = 0;
+   for(int i = 0; i < 5000; i++) {
+      #pragma HLS unroll
+      c += pow(i * 2, 2);
+   }
+   *res = c;
+}
+
+void bar_Kernel(int *X, int *Y, int *Z, int *res) {
+   bar_KernelCode(X, Y, Z, res);
+}

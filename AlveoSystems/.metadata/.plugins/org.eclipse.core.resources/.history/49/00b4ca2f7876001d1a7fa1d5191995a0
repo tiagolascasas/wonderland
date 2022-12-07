@@ -1,0 +1,168 @@
+<ENTRY>
+{
+ "thisFile": "/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/Emulation-SW/build/foo_Kernel.xo.compile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Wed Dec  7 21:40:35 2022",
+ "timestampMillis": "1670449235785",
+ "buildStep": {
+  "cmdId": "0fd73638-72ad-4b11-8fe2-79a4259fc34f",
+  "name": "v++",
+  "logFile": "/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/Emulation-SW/build/foo_Kernel/foo_Kernel.steps.log",
+  "commandLine": "/tools/Xilinx/Vitis/2022.2/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" --target sw_emu --compile -I../src --config foo_Kernel-compile.cfg -obuild/foo_Kernel.xo ../src/krnl.cpp ",
+  "args": [
+   "--target",
+   "sw_emu",
+   "--compile",
+   "-I../src",
+   "--config",
+   "foo_Kernel-compile.cfg",
+   "-obuild/foo_Kernel.xo",
+   "../src/krnl.cpp"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/Emulation-SW/foo_Kernel-compile.cfg",
+    "content": "platform=xilinx_u250_gen3x16_xdma_4_1_202210_1\nsave-temps=1\nkernel=foo_Kernel\ndebug=1\nmessageDb=build/foo_Kernel.mdb\ntemp_dir=build\nreport_dir=build/reports\nlog_dir=build/logs\n\n[advanced]\nmisc=solution_name=foo_Kernel\n\n[hls]\nmax_memory_ports=foo_Kernel"
+   }
+  ],
+  "cwd": "/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/Emulation-SW"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Wed Dec  7 21:40:35 2022",
+ "timestampMillis": "1670449235786",
+ "status": {
+  "cmdId": "0fd73638-72ad-4b11-8fe2-79a4259fc34f",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Wed Dec  7 21:40:38 2022",
+ "timestampMillis": "1670449238159",
+ "buildSummary": {
+  "hardwarePlatform": "xilinx_u250_gen3x16_xdma_4_1_202210_1.xpfm",
+  "hardwareDsa": "",
+  "platformDirectory": "/opt/xilinx/platforms/xilinx_u250_gen3x16_xdma_4_1_202210_1",
+  "runtime": "OpenCL",
+  "systemConfig": "Linux",
+  "flow": "BF_COMPILE",
+  "target": "TT_SW_EMU",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "foo_Kernel",
+     "file": "/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/Emulation-SW/build/foo_Kernel.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/src/krnl.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "Vitis V++ Compiler Release 2022.2. SW Build 3671529 on 2022-10-13-17:52:11"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Wed Dec  7 21:40:38 2022",
+ "timestampMillis": "1670449238160",
+ "buildStep": {
+  "cmdId": "6595843f-5121-4080-afad-2c1c976476c0",
+  "name": "vitis_hls",
+  "logFile": "/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/Emulation-SW/build/foo_Kernel/foo_Kernel/vitis_hls.log",
+  "commandLine": "vitis_hls -f /home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/Emulation-SW/build/foo_Kernel/foo_Kernel/foo_Kernel.tcl -messageDb vitis_hls.pb",
+  "args": [
+   "vitis_hls",
+   "-f",
+   "/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/Emulation-SW/build/foo_Kernel/foo_Kernel/foo_Kernel.tcl",
+   "-messageDb",
+   "vitis_hls.pb"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/Emulation-SW"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Wed Dec  7 21:40:38 2022",
+ "timestampMillis": "1670449238161",
+ "status": {
+  "cmdId": "6595843f-5121-4080-afad-2c1c976476c0",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Wed Dec  7 21:40:48 2022",
+ "timestampMillis": "1670449248133",
+ "status": {
+  "cmdId": "6595843f-5121-4080-afad-2c1c976476c0",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Wed Dec  7 21:40:48 2022",
+ "timestampMillis": "1670449248139",
+ "status": {
+  "cmdId": "0fd73638-72ad-4b11-8fe2-79a4259fc34f",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Wed Dec  7 21:40:48 2022",
+ "timestampMillis": "1670449248197",
+ "report": {
+  "path": "/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/Emulation-SW/build/reports/foo_Kernel/foo_Kernel_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Wed Dec  7 21:40:48 2022",
+ "timestampMillis": "1670449248197",
+ "report": {
+  "path": "/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/Emulation-SW/build/foo_Kernel_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

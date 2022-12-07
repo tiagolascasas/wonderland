@@ -9,7 +9,7 @@ using namespace std;
 #define N3 1000000
 
 #pragma clava kernel
-#pragma clava data kernel : [{auto : "auto" }, {scalar : "auto" }, {auto : "auto" }]
+#pragma clava data kernel : [{auto : "auto" }, {auto : "auto" }]
 void foo(int *X, int *res)
 {
     int c = 0;
@@ -19,7 +19,7 @@ void foo(int *X, int *res)
 }
 
 #pragma clava kernel
-#pragma clava data kernel : [{auto : "auto" }, {auto : "auto" }, {auto : "auto" }, {scalar : "auto" }, {auto : "auto" }]
+#pragma clava data kernel : [{auto : "auto" }, {auto : "auto" }, {auto : "auto" }, {auto : "auto" }]
 void bar(int *X, int *Y, int *Z, int *res)
 {
     int c = 0;

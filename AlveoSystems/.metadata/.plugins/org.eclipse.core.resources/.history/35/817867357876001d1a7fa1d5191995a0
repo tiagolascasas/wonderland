@@ -1,0 +1,8 @@
+save-temps=1
+temp_dir=package.build
+target=sw_emu
+platform=xilinx_u250_gen3x16_xdma_4_1_202210_1
+
+[package]
+out_dir=./package
+sd_file=../../communication_latency_model/Emulation-SW/emconfig.json

@@ -1,0 +1,36 @@
+{
+ "session": {
+  "name": "Emulation-HW",
+  "uuid": "41c69422-33d5-49a3-bce2-c7551e4b4cb1",
+  "description": "Vitis IDE session Emulation-HW",
+  "timestamp": "0",
+  "report_file": {
+   "scheme": "FTP",
+   "host": "",
+   "port": 0,
+   "path": "",
+   "query": "",
+   "fragment": "",
+   "media_type": "",
+   "encoding": "",
+   "data": ""
+  },
+  "proto_file": {
+   "scheme": "FILE",
+   "host": "",
+   "port": 0,
+   "path": "/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model/Emulation-HW/guidance.pb",
+   "query": "",
+   "fragment": "",
+   "media_type": "",
+   "encoding": "",
+   "data": ""
+  },
+  "build_target": "",
+  "config_files": []
+ },
+ "violation_count": 0,
+ "waived_count": 0,
+ "affirmation_count": 0
+}
+

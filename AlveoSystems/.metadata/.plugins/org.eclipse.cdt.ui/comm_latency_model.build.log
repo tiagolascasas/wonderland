@@ -1,0 +1,6 @@
+22:44:12 **** Incremental Build of configuration Emulation-HW for project comm_latency_model ****
+make -j12 all 
+make: Nothing to be done for 'all'.
+
+22:44:12 Build Finished (took 123ms)
+

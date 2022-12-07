@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="foo_Kernel" dir="">
+  <FileSets>
+    <FileSet Name="kernel_foo_Kernel" Type="DesignSrcs">
+      <File Path="/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/src/krnl.cpp"/>
+      <Config/>
+    </FileSet>
+  </FileSets>
+  <Runs/>
+</project>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root versionMajor="1" versionMinor="5">
+  <kernel name="bar_Kernel" language="c" vlnv="xilinx.com:hls:bar_Kernel:1.0" attributes="" hash="" preferredWorkGroupSizeMultiple="0" workGroupSize="1" debug="true" compileOptions=" -g -I /home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/src" profileType="" interrupt="true" hwControlProtocol="ap_ctrl_chain" countedAutoRestart="0" deadlockDetection="local" mailbox="none" swReset="false">
+    <ports>
+      <port name="M_AXI_GMEM" mode="master" range="0xFFFFFFFF" dataWidth="32" portType="addressable" base="0x0"/>
+      <port name="S_AXI_CONTROL" mode="slave" range="0x40" dataWidth="32" portType="addressable" base="0x0"/>
+    </ports>
+    <args>
+      <arg name="X" addressQualifier="1" id="0" port="M_AXI_GMEM" size="0x8" offset="0x10" hostOffset="0x0" hostSize="0x8" type="void*"/>
+      <arg name="Y" addressQualifier="1" id="1" port="M_AXI_GMEM" size="0x8" offset="0x1C" hostOffset="0x0" hostSize="0x8" type="void*"/>
+      <arg name="Z" addressQualifier="1" id="2" port="M_AXI_GMEM" size="0x8" offset="0x28" hostOffset="0x0" hostSize="0x8" type="void*"/>
+      <arg name="res" addressQualifier="1" id="3" port="M_AXI_GMEM" size="0x8" offset="0x34" hostOffset="0x0" hostSize="0x8" type="void*"/>
+    </args>
+    <compileWorkGroupSize x="1" y="1" z="1"/>
+    <maxWorkGroupSize x="1" y="1" z="1"/>
+  </kernel>
+</root>

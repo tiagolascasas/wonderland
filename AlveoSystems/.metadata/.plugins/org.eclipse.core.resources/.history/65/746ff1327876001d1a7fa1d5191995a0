@@ -1,0 +1,19 @@
+INFO: [v++ 60-1306] Additional information associated with this v++ link can be found at:
+	Reports: /home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_system_hw_link/Emulation-SW/binary_container_1.build/reports/link
+	Log files: /home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_system_hw_link/Emulation-SW/binary_container_1.build/logs/link
+INFO: [v++ 60-1548] Creating build summary session with primary output /home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_system_hw_link/Emulation-SW/binary_container_1.xclbin.link_summary, at Wed Dec  7 21:41:46 2022
+INFO: [v++ 60-1315] Creating rulecheck session with output '/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_system_hw_link/Emulation-SW/binary_container_1.build/reports/link/link_guidance.html', at Wed Dec  7 21:41:46 2022
+INFO: [v++ 60-895]   Target platform: /opt/xilinx/platforms/xilinx_u250_gen3x16_xdma_4_1_202210_1/xilinx_u250_gen3x16_xdma_4_1_202210_1.xpfm
+INFO: [v++ 60-1578]   This platform contains Xilinx Shell Archive '/opt/xilinx/platforms/xilinx_u250_gen3x16_xdma_4_1_202210_1/hw/hw.xsa'
+INFO: [v++ 74-78] Compiler Version string: 2022.2
+INFO: [v++ 60-629] Linking for software emulation target
+INFO: [v++ 60-423]   Target device: xilinx_u250_gen3x16_xdma_4_1_202210_1
+INFO: [v++ 60-645] kernel flags are '-g -I /home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/src -g'
+INFO: [v++ 60-645] kernel flags are '-g -I /home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/src -g'
+ERROR: [v++ 17-1309] Gcc: /home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_system_hw_link/Emulation-SW/binary_container_1.build/link/int/xo/bar_Kernel/bar_Kernel/cpu_sources/krnl.cpp:12: multiple definition of `foo_Kernel'
+ERROR: [v++ 17-1309] Gcc: foo_Kernel/foo_Kernel.csim_cu.a(krnl.o):/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_system_hw_link/Emulation-SW/binary_container_1.build/link/int/xo/foo_Kernel/foo_Kernel/cpu_sources/krnl.cpp:12: first defined here
+ERROR: [v++ 17-1309] Gcc: /home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_system_hw_link/Emulation-SW/binary_container_1.build/link/int/xo/bar_Kernel/bar_Kernel/cpu_sources/krnl.cpp:26: multiple definition of `bar_Kernel'
+ERROR: [v++ 17-1309] Gcc: foo_Kernel/foo_Kernel.csim_cu.a(krnl.o):/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_system_hw_link/Emulation-SW/binary_container_1.build/link/int/xo/foo_Kernel/foo_Kernel/cpu_sources/krnl.cpp:26: first defined here
+ERROR: [v++ 60-398] g++ failed
+ERROR: [v++ 60-626] Kernel link failed to complete
+ERROR: [v++ 60-703] Failed to finish linking
