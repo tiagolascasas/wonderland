@@ -1322,3 +1322,69 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 14:43:45.534
 !MESSAGE Tool usage for 'TCF_SYSTEM_DEBUG' updated to '3'
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-12-12 15:01:16.639
+!MESSAGE Indexed 'alveo_edge_detect_v0ce_partitioned_kernels' (1 sources, 0 headers) in 0.018 sec: 28 declarations; 36 references; 2 unresolved inclusions; 0 syntax errors; 40 unresolved names (38%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-12-12 15:01:26.784
+!MESSAGE Indexed 'alveo_edge_detect_v0ce_partitioned' (1 sources, 235 headers) in 6 sec: 44,198 declarations; 50,610 references; 1 unresolved inclusions; 642 syntax errors; 15,213 unresolved names (14%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-12-12 15:01:26.786
+!MESSAGE Indexed 'alveo_edge_detect_v0ce_partitioned_system' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-12-12 15:01:26.787
+!MESSAGE Indexed 'alveo_edge_detect_v0ce_partitioned_system_hw_link' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 15:22:14.073
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '22'
+
+!ENTRY com.xilinx.sdx.core 1 0 2022-12-12 15:22:18.437
+!MESSAGE Build step failed, canceling full build chain.
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 15:22:18.437
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '23'
+
+!ENTRY com.xilinx.sdx.core 1 0 2022-12-12 15:22:39.127
+!MESSAGE Build step failed, canceling full build chain.
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 15:22:39.128
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '24'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 15:23:19.343
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '25'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 15:23:49.228
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '11'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 15:23:53.936
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '26'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 15:24:10.990
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '12'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 15:24:32.781
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '27'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 15:24:33.413
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '28'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 15:24:33.804
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '29'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 15:24:48.149
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '13'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 15:25:03.133
+!MESSAGE Tool usage for 'TCF_SYSTEM_DEBUG' updated to '4'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 15:25:45.245
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '30'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 15:25:45.843
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '31'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 15:25:46.211
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '32'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 15:26:00.289
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '14'

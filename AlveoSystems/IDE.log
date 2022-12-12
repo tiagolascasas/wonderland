@@ -128,3 +128,7 @@
 14:36:44 INFO  : Launching executable: Emulation-SW/comm_latency_model  ${project_loc:comm_latency_model_system}/Emulation-SW/binary_container_1.xclbin
 14:39:22 INFO  : Added kernel '[kernel_foo_N0 - comm_latency_model_kernels/src/kernel_foo_N0.cpp]' in binary container 'binary_container_1' of project 'comm_latency_model_system_hw_link'
 14:43:45 INFO  : Launching executable: Emulation-SW/comm_latency_model  ${project_loc:comm_latency_model_system}/Emulation-SW/binary_container_1.xclbin
+15:04:54 INFO  : Removed kernel '[krnl_vadd - alveo_edge_detect_v0ce_partitioned_kernels/null]' in binary container 'binary_container_1' of project 'alveo_edge_detect_v0ce_partitioned_system_hw_link'
+15:04:58 INFO  : Added kernel '[combthreshold - alveo_edge_detect_v0ce_partitioned_kernels/src/kernel_combthreshold.cpp]' in binary container 'binary_container_1' of project 'alveo_edge_detect_v0ce_partitioned_system_hw_link'
+15:05:02 INFO  : Added kernel '[rgbToGrayscale - alveo_edge_detect_v0ce_partitioned_kernels/src/kernel_grayscale.cpp]' in binary container 'binary_container_1' of project 'alveo_edge_detect_v0ce_partitioned_system_hw_link'
+15:25:03 INFO  : Launching executable: Emulation-SW/alveo_edge_detect_v0ce_partitioned  ${project_loc:alveo_edge_detect_v0ce_partitioned_system}/Emulation-SW/binary_container_1.xclbin

@@ -239,3 +239,19 @@ timestamp=[2022-12-12 14:43:16], mode=BUILD, duration=0:00:00.201, duration_ms=2
 timestamp=[2022-12-12 14:43:17], mode=BUILD, duration=0:00:00.200, duration_ms=200, data={name=comm_latency_model_kernels, configuration=Emulation-SW, clean_build=false}
 timestamp=[2022-12-12 14:43:17], mode=BUILD, duration=0:00:00.347, duration_ms=347, data={name=comm_latency_model_system_hw_link, configuration=Emulation-SW, clean_build=false}
 timestamp=[2022-12-12 14:43:32], mode=BUILD, duration=0:00:14.279, duration_ms=14279, data={name=comm_latency_model_system, configuration=Emulation-SW, clean_build=false}
+timestamp=[2022-12-12 15:01:15], mode=APP_CREATION, duration=0:00:02.652, duration_ms=2652, data={name=alveo_edge_detect_v0ce_partitioned, project_type=datacenter, os=NA, processor=null, runtime=OpenCL, platform=xilinx_u250_gen3x16_xdma_4_1_202210_1, application_type=application}
+timestamp=[2022-12-12 15:22:14], mode=BUILD, duration=0:00:00.006, duration_ms=6, data={name=alveo_edge_detect_v0ce_partitioned, configuration=Emulation-SW, clean_build=true}
+timestamp=[2022-12-12 15:22:18], mode=BUILD, duration=0:00:04.151, duration_ms=4151, data={name=alveo_edge_detect_v0ce_partitioned, configuration=Emulation-SW, clean_build=false}
+timestamp=[2022-12-12 15:22:39], mode=BUILD, duration=0:00:01.893, duration_ms=1893, data={name=alveo_edge_detect_v0ce_partitioned, configuration=Emulation-SW, clean_build=false}
+timestamp=[2022-12-12 15:23:19], mode=BUILD, duration=0:00:02.344, duration_ms=2344, data={name=alveo_edge_detect_v0ce_partitioned, configuration=Emulation-SW, clean_build=false}
+timestamp=[2022-12-12 15:23:49], mode=BUILD, duration=0:00:23.565, duration_ms=23565, data={name=alveo_edge_detect_v0ce_partitioned_kernels, configuration=Emulation-SW, clean_build=false}
+timestamp=[2022-12-12 15:23:53], mode=BUILD, duration=0:00:00.185, duration_ms=185, data={name=alveo_edge_detect_v0ce_partitioned_kernels, configuration=Emulation-SW, clean_build=false}
+timestamp=[2022-12-12 15:24:10], mode=BUILD, duration=0:00:16.843, duration_ms=16843, data={name=alveo_edge_detect_v0ce_partitioned_system_hw_link, configuration=Emulation-SW, clean_build=false}
+timestamp=[2022-12-12 15:24:32], mode=BUILD, duration=0:00:00.189, duration_ms=189, data={name=alveo_edge_detect_v0ce_partitioned, configuration=Emulation-SW, clean_build=false}
+timestamp=[2022-12-12 15:24:33], mode=BUILD, duration=0:00:00.187, duration_ms=187, data={name=alveo_edge_detect_v0ce_partitioned_kernels, configuration=Emulation-SW, clean_build=false}
+timestamp=[2022-12-12 15:24:33], mode=BUILD, duration=0:00:00.189, duration_ms=189, data={name=alveo_edge_detect_v0ce_partitioned_system_hw_link, configuration=Emulation-SW, clean_build=false}
+timestamp=[2022-12-12 15:24:48], mode=BUILD, duration=0:00:14.334, duration_ms=14334, data={name=alveo_edge_detect_v0ce_partitioned_system, configuration=Emulation-SW, clean_build=false}
+timestamp=[2022-12-12 15:25:45], mode=BUILD, duration=0:00:02.550, duration_ms=2550, data={name=alveo_edge_detect_v0ce_partitioned, configuration=Emulation-SW, clean_build=false}
+timestamp=[2022-12-12 15:25:45], mode=BUILD, duration=0:00:00.176, duration_ms=176, data={name=alveo_edge_detect_v0ce_partitioned_kernels, configuration=Emulation-SW, clean_build=false}
+timestamp=[2022-12-12 15:25:46], mode=BUILD, duration=0:00:00.177, duration_ms=177, data={name=alveo_edge_detect_v0ce_partitioned_system_hw_link, configuration=Emulation-SW, clean_build=false}
+timestamp=[2022-12-12 15:26:00], mode=BUILD, duration=0:00:14.070, duration_ms=14070, data={name=alveo_edge_detect_v0ce_partitioned_system, configuration=Emulation-SW, clean_build=false}
