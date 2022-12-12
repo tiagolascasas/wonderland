@@ -711,3 +711,294 @@ For details check the Console and Problems tabs.
 
 !ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 22:50:54.563
 !MESSAGE Tool usage for 'TCF_SYSTEM_DEBUG' updated to '6'
+
+!ENTRY com.xilinx.sdx.core 1 0 2022-12-07 23:41:52.596
+!MESSAGE Build step failed, canceling full build chain.
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:41:52.596
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '35'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:42:23.036
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '36'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:42:31.105
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '37'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:42:56.160
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '33'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:46:19.641
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '38'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:46:35.842
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '34'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:46:57.631
+!MESSAGE Tool usage for 'TCF_SYSTEM_DEBUG' updated to '7'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:50:03.529
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '39'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:50:04.014
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '40'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:50:04.527
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '41'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:50:17.965
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '35'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:52:57.468
+!MESSAGE Tool usage for 'TCF_SYSTEM_DEBUG' updated to '8'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:53:15.426
+!MESSAGE Tool usage for 'TCF_SYSTEM_DEBUG' updated to '9'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:54:01.825
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '42'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:54:02.332
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '43'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:54:06.274
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '44'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:54:10.115
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '45'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:54:13.412
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '46'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:54:13.923
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '47'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:54:14.438
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '48'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:54:27.955
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '36'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-07 23:55:52.963
+!MESSAGE Tool usage for 'TCF_SYSTEM_DEBUG' updated to '10'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:03:21.799
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '49'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:03:22.307
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '50'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:03:22.813
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '51'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:03:36.190
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '37'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:04:47.130
+!MESSAGE Tool usage for 'TCF_SYSTEM_DEBUG' updated to '11'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:08:41.951
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '52'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:08:45.621
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '53'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:09:08.211
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '38'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:09:24.193
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '39'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:09:37.617
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '40'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:09:42.948
+!MESSAGE Tool usage for 'TCF_SYSTEM_DEBUG' updated to '12'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:11:49.204
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '54'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:11:52.011
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '55'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:11:55.936
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '56'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:12:05.532
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '57'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:12:29.462
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '41'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:12:45.405
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '42'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:12:58.828
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '43'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:13:51.867
+!MESSAGE Tool usage for 'TCF_SYSTEM_DEBUG' updated to '13'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:14:41.278
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '58'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:14:41.744
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '59'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:14:42.211
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '60'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:14:55.597
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '44'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:15:02.338
+!MESSAGE Tool usage for 'TCF_SYSTEM_DEBUG' updated to '14'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:16:00.164
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '61'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:16:00.684
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '62'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:16:01.025
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '63'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:16:14.454
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '45'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:17:05.244
+!MESSAGE Tool usage for 'TCF_SYSTEM_DEBUG' updated to '15'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:18:47.355
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '64'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:18:48.682
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '65'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:18:49.286
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '66'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:19:42.752
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '46'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:20:36.373
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '67'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:24:59.570
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '47'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:24:59.709
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '68'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-08 00:25:14.446
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '48'
+!SESSION 2022-12-12 01:45:34.147 -----------------------------------------------
+eclipse.buildId=2022.2
+java.version=11.0.11
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.osgi 4 0 2022-12-12 01:45:34.648
+!MESSAGE Bundle reference:file:org.apache.log4j_1.2.15.v201012070815.jar not found.
+
+!ENTRY org.eclipse.osgi 4 0 2022-12-12 01:45:34.671
+!MESSAGE Bundle reference:file:org.slf4j.impl.log4j12_1.7.2.v20131105-2200.jar not found.
+
+!ENTRY org.eclipse.core.resources 2 10035 2022-12-12 01:45:35.774
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.ui 4 4 2022-12-12 01:45:38.187
+!MESSAGE Plug-in 'org.eclipse.ui.editors' contributed an invalid Menu Extension (Path: 'navigate' is invalid): org.eclipse.ui.edit.text.gotoLastEditPosition
+
+!ENTRY com.xilinx.sdk.utils 0 0 2022-12-12 01:45:42.305
+!MESSAGE XSCT Command: [plnx-install-path  ; ::scw::scw_mode gui], Thread: Thread-10
+
+!ENTRY com.xilinx.sdk.utils 0 0 2022-12-12 01:45:42.305
+!MESSAGE XSCT Command: [set sdk::sdk_chan tcfchan#0], Thread: Thread-19
+
+!ENTRY com.xilinx.sdk.utils 0 0 2022-12-12 01:45:42.305
+!MESSAGE XSCT Command: [::hsi::utils::init_repo], Thread: Worker-0: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2022-12-12 01:45:42.310
+!MESSAGE XSCT command with result: [plnx-install-path  ; ::scw::scw_mode gui], Result: [null, ]. Thread: Thread-10
+
+!ENTRY com.xilinx.sdk.utils 0 0 2022-12-12 01:45:42.311
+!MESSAGE XSCT command with result: [set sdk::sdk_chan tcfchan#0], Result: [null, tcfchan#0]. Thread: Thread-19
+
+!ENTRY com.xilinx.sdk.utils 0 0 2022-12-12 01:45:42.312
+!MESSAGE XSCT Command: [setws /home/tls/Desktop/Experiments/AlveoSystems], Thread: Thread-19
+
+!ENTRY com.xilinx.sdk.utils 0 0 2022-12-12 01:45:42.888
+!MESSAGE XSCT command with result: [::hsi::utils::init_repo], Result: [null, ]. Thread: Worker-0: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2022-12-12 01:45:42.889
+!MESSAGE XSCT command with result: [setws /home/tls/Desktop/Experiments/AlveoSystems], Result: [null, ]. Thread: Thread-19
+
+!ENTRY com.xilinx.sdk.utils 0 0 2022-12-12 01:45:42.889
+!MESSAGE XSCT Command: [set query_var1 $::env(RDI_DATADIR)], Thread: Worker-0: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2022-12-12 01:45:42.890
+!MESSAGE XSCT command with result: [set query_var1 $::env(RDI_DATADIR)], Result: [null, /tools/Xilinx/Vitis/2022.2/data]. Thread: Worker-0: Initializing s/w repositories
+
+!ENTRY org.eclipse.launchbar.core 2 0 2022-12-12 02:10:19.307
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2022-12-12 02:10:19.307
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2022-12-12 02:10:19.307
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY com.xilinx.sdx.core 1 0 2022-12-12 02:30:59.408
+!MESSAGE Build step failed, canceling full build chain.
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 02:30:59.410
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '1'
+
+!ENTRY com.xilinx.sdx.core 1 0 2022-12-12 02:31:34.327
+!MESSAGE Build step failed, canceling full build chain.
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 02:31:34.328
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '2'
+
+!ENTRY com.xilinx.sdx.core 1 0 2022-12-12 02:32:33.701
+!MESSAGE Build step failed, canceling full build chain.
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 02:32:33.702
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '3'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 02:33:10.063
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '4'
+
+!ENTRY com.xilinx.sdx.core 1 0 2022-12-12 02:33:38.723
+!MESSAGE Build step failed, canceling full build chain.
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 02:33:38.724
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '1'
+
+!ENTRY com.xilinx.sdx.core 1 0 2022-12-12 02:37:13.968
+!MESSAGE Build step failed, canceling full build chain.
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 02:37:13.969
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '2'
+
+!ENTRY com.xilinx.sdx.core 1 0 2022-12-12 02:42:08.568
+!MESSAGE Build step failed, canceling full build chain.
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 02:42:08.569
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '3'
+
+!ENTRY com.xilinx.sdx.core 1 0 2022-12-12 02:44:52.254
+!MESSAGE Build step failed, canceling full build chain.
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 02:44:52.254
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '4'
+
+!ENTRY com.xilinx.sdx.core 1 0 2022-12-12 02:49:41.508
+!MESSAGE Build step failed, canceling full build chain.
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 02:49:41.509
+!MESSAGE Tool usage for 'SDX_BUILD' updated to '5'
+
+!ENTRY com.xilinx.sdk.utils 1 0 2022-12-12 02:52:42.498
+!MESSAGE Tool usage for 'SDX_NO_OP_BUILD' updated to '5'

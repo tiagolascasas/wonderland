@@ -1,6 +1,11 @@
-22:44:12 **** Incremental Build of configuration Emulation-HW for project comm_latency_model ****
+02:52:41 **** Incremental Build of configuration Emulation-SW for project comm_latency_model ****
 make -j12 all 
-make: Nothing to be done for 'all'.
+g++ -std=c++1y -DVITIS_PLATFORM=xilinx_u250_gen3x16_xdma_4_1_202210_1 -D__USE_XOPEN2K8 -I/opt/xilinx/xrt/include/ -I/tools/Xilinx/Vitis_HLS/2022.2/include/ -O0 -g -Wall -c -fmessage-length=0 -o "src/OCLH_main.o" "../src/OCLH_main.cpp"
+g++ -std=c++1y -DVITIS_PLATFORM=xilinx_u250_gen3x16_xdma_4_1_202210_1 -D__USE_XOPEN2K8 -I/opt/xilinx/xrt/include/ -I/tools/Xilinx/Vitis_HLS/2022.2/include/ -O0 -g -Wall -c -fmessage-length=0 -o "src/main.o" "../src/main.cpp"
+../src/OCLH_main.cpp:13: warning: ignoring #pragma clava ocl_insert_kernel_initializations [-Wunknown-pragmas]
+   13 |    #pragma clava ocl_insert_kernel_initializations
+      | 
+g++ -o "comm_latency_model" src/OCLH_main.o src/OCL_Helpers.o src/main.o -lxilinxopencl -lpthread -lrt -lstdc++ -L/opt/xilinx/xrt/lib/ -Wl,-rpath-link,/opt/xilinx/xrt/lib
 
-22:44:12 Build Finished (took 123ms)
+02:52:42 Build Finished (took 916ms)
 
