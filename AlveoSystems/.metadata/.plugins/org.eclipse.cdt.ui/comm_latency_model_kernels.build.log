@@ -1,33 +1,6 @@
-02:49:21 **** Incremental Build of configuration Emulation-SW for project comm_latency_model_kernels ****
+14:43:17 **** Incremental Build of configuration Emulation-SW for project comm_latency_model_kernels ****
 make -j12 all 
-/tools/Xilinx/Vitis/2022.2/bin/v++ --target sw_emu --compile -I"../src" --config kernel_foo-compile.cfg -o"build/kernel_foo.xo" "../src/kernel.cpp"
-Option Map File Used: '/tools/Xilinx/Vitis/2022.2/data/vitis/vpp/optMap.xml'
+make: Nothing to be done for 'all'.
 
-****** v++ v2022.2 (64-bit)
-  **** SW Build 3671529 on 2022-10-13-17:52:11
-    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-
-INFO: [v++ 60-1306] Additional information associated with this v++ compile can be found at:
-	Reports: /home/tls/Desktop/Experiments/AlveoSystems/comm_latency_model_kernels/Emulation-SW/build/reports/kernel_foo
-	Log files: /home/tls/Desktop/Experiments/AlveoSystems/comm_latency_model_kernels/Emulation-SW/build/logs/kernel_foo
-Running Dispatch Server on port: 38911
-INFO: [v++ 60-1548] Creating build summary session with primary output /home/tls/Desktop/Experiments/AlveoSystems/comm_latency_model_kernels/Emulation-SW/build/kernel_foo.xo.compile_summary, at Mon Dec 12 02:49:33 2022
-INFO: [v++ 60-1315] Creating rulecheck session with output '/home/tls/Desktop/Experiments/AlveoSystems/comm_latency_model_kernels/Emulation-SW/build/reports/kernel_foo/kernel_foo_guidance.html', at Mon Dec 12 02:49:33 2022
-INFO: [v++ 60-895]   Target platform: /opt/xilinx/platforms/xilinx_u250_gen3x16_xdma_4_1_202210_1/xilinx_u250_gen3x16_xdma_4_1_202210_1.xpfm
-INFO: [v++ 60-1578]   This platform contains Xilinx Shell Archive '/opt/xilinx/platforms/xilinx_u250_gen3x16_xdma_4_1_202210_1/hw/hw.xsa'
-INFO: [v++ 74-78] Compiler Version string: 2022.2
-INFO: [v++ 60-585] Compiling for software emulation target
-INFO: [v++ 60-423]   Target device: xilinx_u250_gen3x16_xdma_4_1_202210_1
-INFO: [v++ 60-242] Creating kernel: 'kernel_foo'
-
-===>The following messages were generated while  performing high-level synthesis for kernel: kernel_foo Log file: /home/tls/Desktop/Experiments/AlveoSystems/comm_latency_model_kernels/Emulation-SW/build/kernel_foo/kernel_foo/vitis_hls.log :
-ERROR: [v++ 214-157] Top function not found: there is no function named 'kernel_foo'
-ERROR: [v++ 60-300] Failed to build kernel(ip) kernel_foo, see log for details: /home/tls/Desktop/Experiments/AlveoSystems/comm_latency_model_kernels/Emulation-SW/build/kernel_foo/kernel_foo/vitis_hls.log
-ERROR: [v++ 60-773] In '/home/tls/Desktop/Experiments/AlveoSystems/comm_latency_model_kernels/Emulation-SW/build/kernel_foo/kernel_foo/vitis_hls.log', caught Tcl error: ERROR: [HLS 214-157] Top function not found: there is no function named 'kernel_foo'
-ERROR: [v++ 60-599] Kernel compilation failed to complete
-ERROR: [v++ 60-592] Failed to finish compilation
-INFO: [v++ 60-1653] Closing dispatch client.
-make: *** [makefile:62: build/kernel_foo.xo] Error 1
-
-02:49:41 Build Finished (took 19s.606ms)
+14:43:17 Build Finished (took 174ms)
 

@@ -34,7 +34,7 @@
 #define V2CE 11
 #define V2E 12
 
-#if SCENARIO == V0
+#if SCENARIO == V0CE
 #define MAIN_ALL
 #define SET_FILTER
 #endif

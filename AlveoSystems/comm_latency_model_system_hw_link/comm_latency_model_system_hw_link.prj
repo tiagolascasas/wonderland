@@ -3,14 +3,77 @@
   <configuration name="Emulation-SW" id="com.xilinx.ide.accel.config.hwlink.sw_emu.1124482392">
     <configBuildOptions xsi:type="hwlink:LinkOptions">
       <binaryContainers name="binary_container_1">
-        <kernels name="kernel_foo" projectName="comm_latency_model_kernels"/>
+        <kernels name="kernel_foo_N1" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N1_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N2" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N2_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N3" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N3_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N4" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N4_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N5" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N5_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N0" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N0_1" slr="">
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
       </binaryContainers>
     </configBuildOptions>
     <lastBuildOptions xsi:type="hwlink:LinkOptions">
       <binaryContainers name="binary_container_1">
-        <kernels name="foo" projectName="comm_latency_model_kernels">
-          <computeUnits name="foo_1" slr="">
+        <kernels name="kernel_foo_N1" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N1_1" slr="">
             <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N2" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N2_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N3" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N3_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N4" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N4_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N5" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N5_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N0" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N0_1" slr="">
             <args name="res" master="true" memory=""/>
           </computeUnits>
         </kernels>
@@ -20,8 +83,40 @@
   <configuration name="Emulation-HW" id="com.xilinx.ide.accel.config.hwlink.hw_emu.228114347">
     <configBuildOptions xsi:type="hwlink:LinkOptions" target="hw_emu">
       <binaryContainers name="binary_container_1">
-        <kernels name="kernel_foo" projectName="comm_latency_model_kernels">
-          <computeUnits name="kernel_foo_1" slr=""/>
+        <kernels name="kernel_foo_N1" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N1_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N2" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N2_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N3" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N3_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N4" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N4_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N5" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N5_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N0" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N0_1" slr="">
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
         </kernels>
       </binaryContainers>
     </configBuildOptions>
@@ -47,8 +142,40 @@
   <configuration name="Hardware" id="com.xilinx.ide.accel.config.hwlink.hw.838780323">
     <configBuildOptions xsi:type="hwlink:LinkOptions" target="hw">
       <binaryContainers name="binary_container_1">
-        <kernels name="kernel_foo" projectName="comm_latency_model_kernels">
-          <computeUnits name="kernel_foo_1" slr=""/>
+        <kernels name="kernel_foo_N1" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N1_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N2" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N2_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N3" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N3_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N4" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N4_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N5" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N5_1" slr="">
+            <args name="X" master="true" memory=""/>
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+        <kernels name="kernel_foo_N0" projectName="comm_latency_model_kernels">
+          <computeUnits name="kernel_foo_N0_1" slr="">
+            <args name="res" master="true" memory=""/>
+          </computeUnits>
         </kernels>
       </binaryContainers>
     </configBuildOptions>
