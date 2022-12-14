@@ -1,9 +1,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-
+#include <chrono>
+#include <iostream>
 #include "config.h"
 #include "util.h"
+
+using namespace std;
+using namespace std::chrono;
 
 void rgbToGrayscale(int input_image[H * W * 3], int output_image[H * W])
 {
@@ -140,9 +144,9 @@ void combthreshold(int image_gray[H * W], int temp_buf[H * W], int output[H * W]
 }
 
 #pragma clava kernel
-#pragma clava data kernel : [{                                                 \
-    auto : "auto" },                                                           \
-    {auto : "auto" }, {auto : "auto" }, {auto : "auto" },                    \
+#pragma clava data kernel : [{                            \
+    auto : "auto" },                                      \
+    {auto : "auto" }, {auto : "auto" }, {auto : "auto" }, \
                                          {auto : "auto" }, {auto : "auto" }]
 void edge_detect(int image_rgb[H * W * 3],
 #ifdef MAIN_ALL
@@ -230,11 +234,7 @@ void edge_detect(int image_rgb[H * W * 3],
 int main()
 {
     int image_rgb[H * W * 3] = {
-#ifdef OUTS
 #include "img_512_512.dat"
-#else
-0
-#endif
     };
 #ifdef MAIN_ALL
     int image_gray[H * W] = {0};
@@ -247,6 +247,7 @@ int main()
     output_dsp_rgb(image_rgb, "input.dat");
 #endif
 
+    auto start = high_resolution_clock::now();
 #if ITER > 0
     int i;
     for (i = 0; i < ITER; i++)
@@ -263,10 +264,20 @@ int main()
 #if ITER > 0
     }
 #endif
+    auto stop = high_resolution_clock::now();
+
 // print image
 #ifdef OUTS
     output_dsp(output, "output.dat");
 #endif
+
+    int actual = 0;
+    int real = 2455650;
+    for (int i = 0; i < 262144; i++)
+    {
+        actual += output[i];
+    }
+    cout << "Checksum: real = " << real << ", actual = " << actual << (real == actual ? " (VERIFIED)" : " (ERROR)") << endl;
 
     return 0;
 }

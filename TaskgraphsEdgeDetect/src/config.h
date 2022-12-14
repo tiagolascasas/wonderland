@@ -18,7 +18,7 @@
 
 // Version-specific params
 #ifndef SCENARIO
-#define SCENARIO V0
+#define SCENARIO V0CE
 #endif
 
 #define V0 1
@@ -34,7 +34,7 @@
 #define V2CE 11
 #define V2E 12
 
-#if SCENARIO == V0CE
+#if SCENARIO == V0
 #define MAIN_ALL
 #define SET_FILTER
 #endif
