@@ -265,6 +265,9 @@ int main()
     }
 #endif
     auto stop = high_resolution_clock::now();
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop - start);
+    std::cout << "Duration: " << duration.count() << std::endl;
 
 // print image
 #ifdef OUTS
