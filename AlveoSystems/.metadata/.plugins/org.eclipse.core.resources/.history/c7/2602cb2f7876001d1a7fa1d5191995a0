@@ -1,6 +1,0 @@
-2022-12-07T21:41:34.76743500255-21:41:34 **** Incremental Build of configuration Emulation-SW for project communication_latency_model_kernels ****
-000-make -j12 all 
-000-make: Nothing to be done for 'all'.
-00255-
-21:41:34 Build Finished (took 120ms)
-

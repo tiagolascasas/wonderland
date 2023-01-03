@@ -1,9 +1,0 @@
-<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" name="foo_Kernel" top="foo_Kernel">
-    <files>
-        <file name="/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/src/krnl.cpp" sc="0" tb="false" cflags="-g -I/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/src" csimflags="" blackbox="false"/>
-    </files>
-    <solutions>
-        <solution name="solution" status=""/>
-    </solutions>
-</AutoPilot:project>
-

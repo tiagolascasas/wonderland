@@ -1,6 +1,0 @@
-14:43:17 **** Incremental Build of configuration Emulation-SW for project comm_latency_model_kernels ****
-make -j12 all 
-make: Nothing to be done for 'all'.
-
-14:43:17 Build Finished (took 174ms)
-

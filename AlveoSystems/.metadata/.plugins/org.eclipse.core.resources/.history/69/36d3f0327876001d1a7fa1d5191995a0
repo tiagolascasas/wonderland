@@ -1,7 +1,0 @@
-bar_Kernel/bar_Kernel.csim_cu.a(krnl.o): In function `foo_Kernel':
-/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_system_hw_link/Emulation-SW/binary_container_1.build/link/int/xo/bar_Kernel/bar_Kernel/cpu_sources/krnl.cpp:12: multiple definition of `foo_Kernel'
-foo_Kernel/foo_Kernel.csim_cu.a(krnl.o):/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_system_hw_link/Emulation-SW/binary_container_1.build/link/int/xo/foo_Kernel/foo_Kernel/cpu_sources/krnl.cpp:12: first defined here
-bar_Kernel/bar_Kernel.csim_cu.a(krnl.o): In function `bar_Kernel':
-/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_system_hw_link/Emulation-SW/binary_container_1.build/link/int/xo/bar_Kernel/bar_Kernel/cpu_sources/krnl.cpp:26: multiple definition of `bar_Kernel'
-foo_Kernel/foo_Kernel.csim_cu.a(krnl.o):/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_system_hw_link/Emulation-SW/binary_container_1.build/link/int/xo/foo_Kernel/foo_Kernel/cpu_sources/krnl.cpp:26: first defined here
-collect2: error: ld returned 1 exit status

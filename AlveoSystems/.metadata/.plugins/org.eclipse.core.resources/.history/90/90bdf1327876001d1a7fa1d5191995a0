@@ -1,1 +1,0 @@
-/tools/Xilinx/Vitis/2022.2/bin/v++ --target sw_emu --link --config binary_container_1-link.cfg -obinary_container_1.xclbin ../../communication_latency_model_kernels/Emulation-SW/build/bar_Kernel.xo ../../communication_latency_model_kernels/Emulation-SW/build/foo_Kernel.xo

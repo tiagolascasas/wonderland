@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;communication_latency_model_kernels/src/kernels.cpp&apos; to &apos;krnl.cpp&apos;" description="Rename resource &apos;kernels.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/kernels.cpp" name="krnl.cpp" stamp="1670370080298" updateReferences="true"/>
-</session>

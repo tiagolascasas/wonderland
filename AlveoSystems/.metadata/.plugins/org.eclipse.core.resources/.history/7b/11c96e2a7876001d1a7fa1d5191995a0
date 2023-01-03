@@ -1,19 +1,0 @@
-2022-12-07T21:34:04.58315200255-21:34:04 **** Incremental Build of configuration Emulation-SW for project communication_latency_model ****
-000-make -j12 all 
-000-g++ -std=c++1y -DVITIS_PLATFORM=xilinx_u250_gen3x16_xdma_4_1_202210_1 -D__USE_XOPEN2K8 -I/opt/xilinx/xrt/include/ -I/tools/Xilinx/Vitis_HLS/2022.2/include/ -O0 -g -Wall -c -fmessage-length=0 -o "src/main.o" "../src/main.cpp"
-000/communication_latency_model/src/main.cpp18-1-1ignoring #pragma clava kernel [-Wunknown-pragmas]1-../src/main.cpp:18: warning: ignoring #pragma clava kernel [-Wunknown-pragmas]
-000-   18 | #pragma clava kernel
-000-      | 
-000/communication_latency_model/src/main.cpp20-1-1ignoring #pragma clava data [-Wunknown-pragmas]1-../src/main.cpp:20: warning: ignoring #pragma clava data [-Wunknown-pragmas]
-000-   20 | #pragma clava data kernel : [{auto : "auto" }, {auto : "auto" }]
-000-      | 
-000/communication_latency_model/src/main.cpp59-1-1ignoring #pragma clava kernel [-Wunknown-pragmas]1-../src/main.cpp:59: warning: ignoring #pragma clava kernel [-Wunknown-pragmas]
-000-   59 | #pragma clava kernel
-000-      | 
-000/communication_latency_model/src/main.cpp61-1-1ignoring #pragma clava data [-Wunknown-pragmas]1-../src/main.cpp:61: warning: ignoring #pragma clava data [-Wunknown-pragmas]
-000-   61 | #pragma clava data kernel : [{auto : "auto" }, {auto : "auto" }, {auto : "auto" }, {auto : "auto" }]
-000-      | 
-000-g++ -o "communication_latency_model" src/OCLH_main.o src/OCL_Helpers.o src/main.o -lxilinxopencl -lpthread -lrt -lstdc++ -L/opt/xilinx/xrt/lib/ -Wl,-rpath-link,/opt/xilinx/xrt/lib
-00255-
-21:34:05 Build Finished (took 919ms)
-

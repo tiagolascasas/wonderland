@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<Runs Version="1" Minor="0">
-	<Run Id="foo_Kernel" LaunchDir="/home/tls/Desktop/Experiments/AlveoSystems/communication_latency_model_kernels/Emulation-SW/build/foo_Kernel/foo_Kernel" FlowId="Build_IP" FromStepId="vitis_hls" ToStepId="vitis_hls"/>
-</Runs>
-

@@ -1,7 +1,0 @@
-2022-12-06T23:42:57.2900700255-23:42:57 **** Clean-only build of configuration Emulation-SW for project communication_latency_model_system ****
-000-make clean 
-000-rm -rf ./package.build
-000-rm -rf package
-00255-
-23:42:57 Build Finished (took 124ms)
-
