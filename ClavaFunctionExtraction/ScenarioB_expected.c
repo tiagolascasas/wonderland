@@ -40,6 +40,16 @@ void buzz(int A[N], int B[N])
     }
 }
 
+void extracted_function(int *A, int *B, int *C, int *D, int *var1, int *var2, int *var3)
+{
+    bar(B, C);
+    *var2 = fizz(C, D);
+    A[0] = *var1;
+    A[1] = *var2;
+    *var3 = foo(A, B);
+    buzz(B, D);
+}
+
 int main()
 {
     int A[N] = {[0 ... N - 1] = 10};
@@ -57,16 +67,9 @@ int main()
     // Scenario B: extract a set of statements with function calls
     // into their own function
 
-#pragma clava begin_extract
-
-    bar(B, C);
-    int var2 = fizz(C, D);
-    A[0] = var1;
-    A[1] = var2;
-    int var3 = foo(A, B);
-    buzz(B, D);
-
-#pragma clava end_extract
+    int var2;
+    int var3;
+    extracted_function(A, B, C, D, &var1, &var2, &var3);
 
     // force a use of some variables
     printf("%d\n", var2);
