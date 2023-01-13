@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <cstdio>
 #include "config.h"
 
 int checksum(int buf[H * W])
