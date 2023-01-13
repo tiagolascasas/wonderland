@@ -31,7 +31,8 @@ def imgToBytes(fname, height, width):
 
 def bytesToC(arr, name, height, width):
     s = ",".join(map(str, arr))
-    f = open(name + "_" + str(height) + "_" + str(width) + ".h", "w+")
+    f = open(name +  # "_" + str(height) + "_" + str(width) +
+             ".dat", "w+")
     f.write(s)
     f.close()
 
@@ -64,8 +65,8 @@ def main():
 
     mode = sys.argv[1]
     img = sys.argv[2]
-    height = int(sys.argv[3])
-    width = int(sys.argv[4])
+    width = int(sys.argv[3])
+    height = int(sys.argv[4])
     color = sys.argv[5]
     name = os.path.basename(img).split(".")[0]
 

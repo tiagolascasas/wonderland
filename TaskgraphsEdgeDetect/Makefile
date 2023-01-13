@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-lm
-SRCDIR = ./src/
-OBJDIR = ./bin/
+SRCDIR = ./src-specialized/
+OBJDIR = ./bin-specialized/
 PREFIX = $(SRCDIR)edge_detect_tasks_
 EXT = .elf
 SEP = ;

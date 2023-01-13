@@ -14,3 +14,6 @@ syn
 Emulation-SW
 Emulation-HW
 Hardware
+output*.dat
+bin-generic
+bin-specialized
