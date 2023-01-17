@@ -234,7 +234,8 @@ void edge_detect(int image_rgb[H * W * 3],
 int main()
 {
     int image_rgb[H * W * 3] = {
-#include "img_512_512.dat"
+        //#include "img_512_512.dat"
+        0
     };
 #ifdef MAIN_ALL
     int image_gray[H * W] = {0};

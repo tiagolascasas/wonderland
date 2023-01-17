@@ -16,8 +16,8 @@ class CPUTaskEstimator {
     fromTaskList(taskList) {
         const timer = new Timer("MICROSECONDS", this.filename);
 
-        for (call in taskList) {
-            timer.time($call, `${call.name},`, undefined);
+        for (const cl of taskList) {
+            timer.time(cl, `${cl.name},`, cl);
         }
     }
 }

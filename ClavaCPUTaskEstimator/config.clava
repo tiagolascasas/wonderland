@@ -5,7 +5,7 @@
       <string>workspace</string>
       <FileList>
         <fileList>
-          <file>..\TaskgraphsEdgeDetect\src</file>
+          <file>..\TaskgraphsEdgeDetect\src-specialized</file>
         </fileList>
       </FileList>
     </entry>
