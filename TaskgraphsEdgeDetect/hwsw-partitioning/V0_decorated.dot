@@ -1,0 +1,21 @@
+digraph static_call_graph {
+	rankdir=LR;
+	node [shape=rectangle]
+
+    "edge_detect_seg0" [label="edge_detect_seg0*\n"]
+	"edge_detect_seg1" [label="edge_detect_seg1\n"]
+    "edge_detect_seg2" [label="edge_detect_seg2\n"]
+    "edge_detect_seg3" [label="edge_detect_seg3\n"]
+	"rgbToGrayscale" [label="rgbToGrayscale\n"]
+	"convolve2d" [label="convolve2d\n"]
+	"convolve2d(1)" [label="convolve2d(1)\n"]
+	"convolve2d(2)" [label="convolve2d(2)\n"]
+	"combthreshold" [label="combthreshold\n"]
+
+	"edge_detect_seg0"->"rgbToGrayscale" [label="int *[1536], int *[512]"];
+	"edge_detect_seg1"->"convolve2d" [label="int *[512], int *[3], int *[512]"];
+	"edge_detect"->"combthreshold" [label="int *[512], int *[512], int *[512]"];
+	"edge_detect"->"convolve2d(1)" [label="int *[512], int *[3], int *[512]"];
+	"edge_detect"->"convolve2d(2)" [label="int *[512], int *[3], int *[512]"];
+	"main"->"edge_detect_seg0" [label="int *[1536], int *[512], int *[512], int *[3], int *[512]"];
+}

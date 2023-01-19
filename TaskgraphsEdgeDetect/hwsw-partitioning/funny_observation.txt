@@ -1,0 +1,4 @@
+one-way, with config: 3622
+one-way, no config: 6499
+two-way, with config: 6438
+two-way, no config: 9440

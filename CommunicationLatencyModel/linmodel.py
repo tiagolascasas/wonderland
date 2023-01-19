@@ -1,3 +1,4 @@
+import sys
 import numpy as np
 import csv
 from io import StringIO
@@ -8,11 +9,11 @@ import matplotlib.pyplot as plt
 def main():
     model_name = "CommLatency"
 
-    csv1 = "Int_Roundtrip.csv"
+    csv1 = sys.argv[1]
     m1, b1, x1, y1 = linreg(csv1)
     modelToJS(m1, b1, model_name + "RoundTrip")
 
-    csv2 = "Int_Oneway.csv"
+    csv2 = sys.argv[2]
     m2, b2, x2, y2 = linreg(csv2)
     modelToJS(m2, b2, model_name + "OneWay")
 
@@ -39,6 +40,7 @@ def linreg(csv_name):
 
     with open(csv_name, newline='') as csvfile:
         reader = csv.reader(csvfile, delimiter=",")
+        next(reader, None)
         for row in reader:
             x_raw.append(int(row[0]))
             y_raw.append(int(row[1]))
