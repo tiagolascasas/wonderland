@@ -5,22 +5,7 @@
       <string>workspace</string>
       <FileList>
         <fileList>
-          <file>..\src\common.c</file>
-          <file>..\src\common.h</file>
-          <file>..\src\config.h</file>
-          <file>..\src\edge_detect_tasks_baseline.c</file>
-          <file>..\src\edge_detect_tasks_v0.c</file>
-          <file>..\src\edge_detect_tasks_v0c.c</file>
-          <file>..\src\edge_detect_tasks_v1.c</file>
-          <file>..\src\edge_detect_tasks_v1c.c</file>
-          <file>..\src\edge_detect_tasks_v2.c</file>
-          <file>..\src\edge_detect_tasks_v2c.c</file>
-          <file>..\src\edge_detect_tasks_v0ce.c</file>
-          <file>..\src\edge_detect_tasks_v0e.c</file>
-          <file>..\src\edge_detect_tasks_v1ce.c</file>
-          <file>..\src\edge_detect_tasks_v1e.c</file>
-          <file>..\src\edge_detect_tasks_v2ce.c</file>
-          <file>..\src\edge_detect_tasks_v2e.c</file>
+          <file>..\TaskgraphsEdgeDetect\hwsw-partitioning\processed_code\V0CE</file>
         </fileList>
       </FileList>
     </entry>
@@ -105,7 +90,7 @@
     </entry>
     <entry>
       <string>C/C++ Standard</string>
-      <pt.up.fe.specs.clava.language.Standard>C17</pt.up.fe.specs.clava.language.Standard>
+      <pt.up.fe.specs.clava.language.Standard>CXX17</pt.up.fe.specs.clava.language.Standard>
     </entry>
     <entry>
       <string>workspace_extra</string>
@@ -209,7 +194,7 @@
       <string>include</string>
       <FileList>
         <fileList>
-          <file>..\..\..\specs-feup\lara-framework\LaraApi\src-lara</file>
+          <file>..\..\specs-feup\lara-framework\LaraApi\src-lara</file>
         </fileList>
       </FileList>
     </entry>
@@ -223,7 +208,7 @@
     </entry>
     <entry>
       <string>Copy files in sources</string>
-      <boolean>false</boolean>
+      <boolean>true</boolean>
     </entry>
     <entry>
       <string>Generate CMake Integration Helper Files</string>

@@ -1,0 +1,38 @@
+digraph static_call_graph {
+	rankdir=TB;
+	node [shape=rectangle, fontname="Arial"]
+    edge [fontname="Consolas"]
+
+    "main_begin" [label="main_begin\n", shape="ellipse"]
+	"edge_detect_set_smooth_filter" [label="edge_detect_set_smooth_filter\n"]
+    "edge_detect_set_vert_filter" [label="edge_detect_set_vert_filter\n"]
+    "edge_detect_set_horiz_filter" [label="edge_detect_set_horiz_filter\n"]
+	"rgbToGrayscale" [label="rgbToGrayscale\n"]
+	"convolve2d_1" [label="convolve2d (1)\n"]
+	"convolve2d_2" [label="convolve2d (2)\n"]
+	"convolve2d_3" [label="convolve2d (3)\n"]
+	"combthreshold" [label="combthreshold\n"]
+    "main_end" [label="main_end\n", shape="ellipse"]
+
+    "main_begin" -> "rgbToGrayscale" [label="image_rgb\nimage_gray"]
+    "main_begin" -> "edge_detect_set_smooth_filter" [label="filter"]
+    "edge_detect_set_smooth_filter" -> "convolve2d_1" [label="filter"]
+    "rgbToGrayscale" -> "convolve2d_1" [label="image_gray"]
+    "main_begin" -> "convolve2d_1" [label="output"]
+    "edge_detect_set_smooth_filter" -> "edge_detect_set_vert_filter" [label="filter"]
+    "edge_detect_set_vert_filter" -> "convolve2d_2" [label="filter"]
+    "convolve2d_1" -> "convolve2d_2" [label="output"]
+    "rgbToGrayscale" -> "convolve2d_2" [label="image_gray"]
+    "edge_detect_set_vert_filter" -> "edge_detect_set_horiz_filter" [label="filter"]
+    "edge_detect_set_horiz_filter" -> "convolve2d_3" [label="filter"]
+    "convolve2d_1" -> "convolve2d_3" [label="output"]
+    "main_begin" -> "convolve2d_3" [label="temp_buf"]
+    "convolve2d_1" -> "combthreshold" [label="output"]
+    "convolve2d_2" -> "combthreshold" [label="image_gray"]
+    "convolve2d_3" -> "combthreshold" [label="temp_buf"]
+    "combthreshold" -> "main_end" [label="output"]
+
+    "rgbToGrayscale" -> "edge_detect_set_smooth_filter" [style="dotted"]
+    "convolve2d_1" -> "edge_detect_set_vert_filter" [style="dotted"]
+    "convolve2d_2" -> "edge_detect_set_horiz_filter" [style="dotted"]
+}

@@ -17,3 +17,5 @@ Hardware
 output*.dat
 bin-generic
 bin-specialized
+*.bkp
+~$*
