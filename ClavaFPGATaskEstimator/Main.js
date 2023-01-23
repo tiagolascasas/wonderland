@@ -5,29 +5,27 @@ laraImport("weaver.WeaverJps");
 laraImport("weaver.Query");
 laraImport("lara.vitishls.VitisHls");
 
-function vitisIndividualFuns(funs) {
-    var results = "Task,execTime,latency,fmax,%FF,%LUT,%BRAM,%DSP\n";
+function vitisIndividualFuns() {
+    var results = "";
 
-    for (const fun of funs) {
-        println(fun);
+   const funs = files[file];
 
-        var vitis = new VitisHls(fun, 5, "xcvc1902-vsvd1760-2MP-e-S");
-        vitis.setFlowTarget("vitis");
-        vitis.addSource("V0CE/edge_detect.cpp");
-        vitis.addSource("V0CE/util.cpp");
-        vitis.addSource("V0CE/util.h");
-        vitis.addSource("V0CE/config.h");
-        var success = vitis.synthesize();
+   for (const fun of funs) {
+       println(fun);
 
-        if (success) {
-            var report = vitis.getSynthesisReport();
-            vitis.prettyPrintReport(report);
-            results += `${fun},${report["execTimeWorst"]},${report["latencyWorst"]},${report["fmax"]},`;
-            results += `${report["perFF"]},${report["perLUT"]},${report["perBRAM"]},${report["perDSP"]}\n`;
-        }
-        println(results);
-    }
-    results += "\n";
+       var vitis = new VitisHls(fun, 5, "xcvc1902-vsvd1760-2MP-e-S");
+       vitis.setFlowTarget("vitis");
+       var success = vitis.synthesize();
+
+       if (success) {
+           var report = vitis.getSynthesisReport();
+           vitis.prettyPrintReport(report);
+           results += `${file},${fun},${report["execTimeWorst"]},${report["latencyWorst"]},${report["fmax"]},`;
+           results += `${report["perFF"]},${report["perLUT"]},${report["perBRAM"]},${report["perDSP"]}\n`;
+       }
+       println(results);
+   }
+   results += "\n";
 }
 
 function callGraphs() {
@@ -54,5 +52,5 @@ function callGraphs() {
     println('}');
 }
 
-vitisIndividualFuns(["edge_detect", "rgbToGrayscale", "convolve2d", "combthreshold"]);
+vitisEdgeDetect();
 //callGraphs();

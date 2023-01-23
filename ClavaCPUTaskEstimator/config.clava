@@ -5,7 +5,7 @@
       <string>workspace</string>
       <FileList>
         <fileList>
-          <file>..\TaskgraphsEdgeDetect\src-specialized</file>
+          <file>..\TaskgraphsEdgeDetect\hwsw-partitioning\processed_code\V0CE</file>
         </fileList>
       </FileList>
     </entry>
