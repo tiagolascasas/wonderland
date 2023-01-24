@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?><project>
+    	
+    <version>1.0</version>
+    	
+    <configs>
+        		
+        <config default="true" name="edge_detect_V0" category="opl">
+            			
+            <ref name="CPLEXBaselinePartitioningModel.mod" type="model">
+			</ref>
+            			
+            <ref name="CPLEXBaselinePartitioningModel.ops" type="setting">
+			</ref>
+            			
+            <ref name="edge_detect_V0.dat" type="data">
+			</ref>
+            		
+        </config>
+        	
+    </configs>
+    	
+
+</project>

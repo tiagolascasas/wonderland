@@ -110,7 +110,7 @@ void set_filter_smooth(int filter[K * K]) {
     filter[8] = 1;
 }
 
-void set_filter_vert(int filter[K * K]) {
+void set_filter_vertical(int filter[K * K]) {
     filter[0] = 1;
     filter[1] = 0;
     filter[2] = -1;
@@ -122,7 +122,7 @@ void set_filter_vert(int filter[K * K]) {
     filter[8] = -1;
 }
 
-void set_filter_horiz(int filter[K * K]) {
+void set_filter_horizontal(int filter[K * K]) {
     filter[0] = 1;
     filter[1] = 2;
     filter[2] = 1;
@@ -146,11 +146,11 @@ void edge_detect(int image_rgb[H * W * 3],
 
     convolve2d(image_gray, filter, output);
 
-    set_filter_vert(filter);
+    set_filter_vertical(filter);
 
     convolve2d(output, filter, image_gray);
 
-    set_filter_horiz(filter);
+    set_filter_horizontal(filter);
 
     convolve2d(output, filter, temp_buf);
 

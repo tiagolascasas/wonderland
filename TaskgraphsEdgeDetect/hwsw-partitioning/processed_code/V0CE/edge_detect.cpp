@@ -29,12 +29,8 @@ void rgbToGrayscale(int input_image[H * W * 3], int output_image[H * W])
     }
 }
 
-void convolve2d(
-    int input_image[H * W],
-    int version,
-    int output_image[H * W])
+void convolve2d_smooth(int input_image[H * W], int output_image[H * W])
 {
-#pragma HLS FUNCTION_INSTANTIATE variable=version
     int i;
     int j;
     int c;
@@ -45,42 +41,129 @@ void convolve2d(
     int dead_cols;
 
     int filter[K * K];
-    if (version == CONV_SMOOTH)
+    filter[0] = 1;
+    filter[1] = 2;
+    filter[2] = 1;
+    filter[3] = 2;
+    filter[4] = 4;
+    filter[5] = 2;
+    filter[6] = 1;
+    filter[7] = 2;
+    filter[8] = 1;
+
+    dead_rows = K / 2;
+    dead_cols = K / 2;
+
+    normal_factor = 0;
+    for (r = 0; r < K; r++)
     {
-        filter[0] = 1;
-        filter[1] = 2;
-        filter[2] = 1;
-        filter[3] = 2;
-        filter[4] = 4;
-        filter[5] = 2;
-        filter[6] = 1;
-        filter[7] = 2;
-        filter[8] = 1;
+#pragma HLS unroll
+        for (c = 0; c < K; c++)
+        {
+            normal_factor += abs(filter[r * K + c]);
+        }
     }
-    if (version == CONV_VERT)
+
+    if (normal_factor == 0)
+        normal_factor = 1;
+
+    for (r = 0; r < H - K + 1; r++)
     {
-        filter[0] = 1;
-        filter[1] = 0;
-        filter[2] = -1;
-        filter[3] = 2;
-        filter[4] = 0;
-        filter[5] = -2;
-        filter[6] = 1;
-        filter[7] = 0;
-        filter[8] = -1;
+        for (c = 0; c < W - K + 1; c++)
+        {
+#pragma HLS pipeline
+            sum = 0;
+            for (i = 0; i < K; i++)
+            {
+#pragma HLS unroll
+                for (j = 0; j < K; j++)
+                {
+                    sum += input_image[(r + i) * W + (c + j)] * filter[i * K + j];
+                }
+            }
+            output_image[(r + dead_rows) * W + (c + dead_cols)] = (sum / normal_factor);
+        }
     }
-    if (version == CONV_HORIZ)
+}
+
+void convolve2d_vertical( int input_image[H * W], int output_image[H * W])
+{
+    int i;
+    int j;
+    int c;
+    int r;
+    int normal_factor;
+    int sum;
+    int dead_rows;
+    int dead_cols;
+
+    int filter[K * K];
+    filter[0] = 1;
+    filter[1] = 0;
+    filter[2] = -1;
+    filter[3] = 2;
+    filter[4] = 0;
+    filter[5] = -2;
+    filter[6] = 1;
+    filter[7] = 0;
+    filter[8] = -1;
+
+    dead_rows = K / 2;
+    dead_cols = K / 2;
+
+    normal_factor = 0;
+    for (r = 0; r < K; r++)
     {
-        filter[0] = 1;
-        filter[1] = 2;
-        filter[2] = 1;
-        filter[3] = 0;
-        filter[4] = 0;
-        filter[5] = 0;
-        filter[6] = -1;
-        filter[7] = -2;
-        filter[8] = -1;
+#pragma HLS unroll
+        for (c = 0; c < K; c++)
+        {
+            normal_factor += abs(filter[r * K + c]);
+        }
     }
+
+    if (normal_factor == 0)
+        normal_factor = 1;
+
+    for (r = 0; r < H - K + 1; r++)
+    {
+        for (c = 0; c < W - K + 1; c++)
+        {
+#pragma HLS pipeline
+            sum = 0;
+            for (i = 0; i < K; i++)
+            {
+#pragma HLS unroll
+                for (j = 0; j < K; j++)
+                {
+                    sum += input_image[(r + i) * W + (c + j)] * filter[i * K + j];
+                }
+            }
+            output_image[(r + dead_rows) * W + (c + dead_cols)] = (sum / normal_factor);
+        }
+    }
+}
+
+void convolve2d_horizontal( int input_image[H * W], int output_image[H * W])
+{
+    int i;
+    int j;
+    int c;
+    int r;
+    int normal_factor;
+    int sum;
+    int dead_rows;
+    int dead_cols;
+
+    int filter[K * K];
+    filter[0] = 1;
+    filter[1] = 2;
+    filter[2] = 1;
+    filter[3] = 0;
+    filter[4] = 0;
+    filter[5] = 0;
+    filter[6] = -1;
+    filter[7] = -2;
+    filter[8] = -1;
 
     dead_rows = K / 2;
     dead_cols = K / 2;
@@ -146,11 +229,11 @@ void edge_detect(int image_rgb[H * W * 3],
 
     rgbToGrayscale(image_rgb, image_gray);
 
-    convolve2d(image_gray, CONV_SMOOTH, output);
+    convolve2d_smooth(image_gray, output);
 
-    convolve2d(output, CONV_VERT, image_gray);
+    convolve2d_vertical(output, image_gray);
 
-    convolve2d(output, CONV_HORIZ, temp_buf);
+    convolve2d_horizontal(output, temp_buf);
 
     combthreshold(image_gray, temp_buf, output);
 }

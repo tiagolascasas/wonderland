@@ -1,0 +1,26 @@
+/*********************************************
+ * OPL 22.1.1.0 Data
+ * Author: Tiago
+ * Creation Date: 23 Jan 2023 at 18:50:28
+ *********************************************/
+
+ // CPLEX data follows the format in Attributes.xlsx
+
+//---- Tasks ----
+NumTasks = 0;
+Label = [];
+
+//---- Software Time ----
+SoftwareTime = [];
+
+//---- Hardware Time ----
+HardwareTime = [];
+
+//---- Hardware Properties ----
+UsageFF = [];
+UsageLUT = [];
+UsageBRAM = [];
+UsageDSP = [];
+
+//---- Edge Information ----
+ 

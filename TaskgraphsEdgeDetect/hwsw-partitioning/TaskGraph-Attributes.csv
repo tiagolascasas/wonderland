@@ -1,0 +1,30 @@
+Task,Software execTime (us),Hardware execTime (us),Hardware Properties,,,,,,,
+,,,execTime (s),latency,fmax,%FF,%LUT,%BRAM,%DSP,
+rgbToGrayscale,143601,2871,0.002871159,786619,273.9726027,1.33%,5.05%,0.00%,0.56%,
+convolve2d,14467,8546,0.00854607,2341389,273.9726027,2.65%,13.34%,0.00%,1.07%,
+combthreshold,245034,1914,0.001914188,524435,273.9726027,7.83%,2.16%,0.00%,0.00%,
+set_filter_smooth,0,0,2.56E-07,70,273.9726027,0.34%,1.04%,0.00%,0.00%,
+set_filter_vertical,0,0,2.56E-07,70,273.9726027,0.34%,1.04%,0.00%,0.00%,
+set_filter_horizontal,0,0,2.56E-07,70,273.9726027,0.34%,1.04%,0.00%,0.00%,
+edge_detect,435372,534535,0.534535196,146447999,273.9726027,11.21%,19.56%,0.00%,1.63%,
+,,,,,,,,,,
+,,,,,,,,,,
+Array,#Elem,DataType (bytes),OnewayCopyTime (us),RoundtripCopyTime (us),,Communication Model,,,,
+image_rgb,786432,4,4562,6672,,Oneway,m,0.001458285,,
+image_gray,262144,4,1504,2208,,,b,-25.20222613,,
+temp_buf,262144,4,1504,2208,,Roundtrip,m,0.002128473,,
+filter,9,4,-25,-24,,,b,-24.06611252,,
+output,262144,4,1504,2208,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,rgbToGrayscale,convolve2d (1),convolve2d (2),convolve2d (3),combthreshold,set_filter_smooth,set_filter_vertical,set_filter_horizontal,main_begin,main_end
+rgbToGrayscale,0,1504,1504,0,0,0,0,0,0,0
+convolve2d (1),0,0,1504,1504,1504,0,0,0,0,0
+convolve2d (2),0,0,0,0,1504,0,0,0,0,0
+convolve2d (3),0,0,0,0,1504,0,0,0,0,0
+combthreshold,0,0,0,0,0,0,0,0,0,1504
+set_filter_smooth,0,-25,0,0,0,0,-25,0,0,0
+set_filter_vertical,0,0,-25,0,0,0,0,-25,0,0
+set_filter_horizontal,0,0,0,-25,0,0,0,0,0,0
+main_begin,6066,1504,0,1504,0,-25,0,0,0,0
+main_end,0,0,0,0,0,0,0,0,0,0
