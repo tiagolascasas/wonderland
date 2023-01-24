@@ -225,7 +225,6 @@ void edge_detect(int image_rgb[H * W * 3],
 {
     int image_gray[H * W] = {0};
     int temp_buf[H * W] = {0};
-    int filter[K * K] = {0};
 
     rgbToGrayscale(image_rgb, image_gray);
 

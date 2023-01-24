@@ -1,0 +1,27 @@
+digraph static_call_graph {
+	rankdir=TB;
+	node [shape=rectangle, fontname="Arial"]
+    edge [fontname="Consolas"]
+
+    "main_begin" [label="main_begin\n", shape="ellipse"]
+    "edge_detect_localdata" [label="edge_detect_localdata"]
+	"rgbToGrayscale" [label="rgbToGrayscale\n"]
+	"convolve2d_smooth" [label="convolve2d_smooth\n"]
+	"convolve2d_vertical" [label="convolve2d_vertical\n"]
+	"convolve2d_horizontal" [label="convolve2d_horizontal\n"]
+	"combthreshold" [label="combthreshold\n"]
+    "main_end" [label="main_end\n", shape="ellipse"]
+
+    "main_begin" -> "rgbToGrayscale" [label="image_rgb"]
+    "main_begin" -> "convolve2d_smooth" [label="output"]
+    "edge_detect_localdata" -> "rgbToGrayscale" [label="image_gray"]
+    "edge_detect_localdata" -> "convolve2d_horizontal" [label="temp_buf"]
+    "rgbToGrayscale" -> "convolve2d_smooth" [label="image_gray"]
+    "rgbToGrayscale" -> "convolve2d_vertical" [label="image_gray"]
+    "convolve2d_smooth" -> "convolve2d_vertical" [label="output"]
+    "convolve2d_smooth" -> "convolve2d_horizontal" [label="output"]
+    "convolve2d_smooth" -> "combthreshold" [label="output"]
+    "convolve2d_vertical" -> "combthreshold" [label="image_gray"]
+    "convolve2d_horizontal" -> "combthreshold" [label="temp_buf"]
+    "combthreshold" -> "main_end" [label="output"]
+}
