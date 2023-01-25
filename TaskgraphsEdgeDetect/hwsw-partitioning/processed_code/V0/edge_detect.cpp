@@ -160,8 +160,7 @@ void edge_detect(int image_rgb[H * W * 3],
 int main()
 {
     int image_rgb[H * W * 3] = {
-//#include "img_512_512.dat"
-0
+#include "img_512_512.dat"
     };
     int image_gray[H * W] = {0};
     int temp_buf[H * W] = {0};
