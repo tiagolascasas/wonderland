@@ -193,9 +193,7 @@
     <entry>
       <string>include</string>
       <FileList>
-        <fileList>
-          <file>..\..\specs-feup\lara-framework\LaraApi\src-lara</file>
-        </fileList>
+        <fileList/>
       </FileList>
     </entry>
     <entry>

@@ -21,6 +21,7 @@ UsageFF = [];
 UsageLUT = [];
 UsageBRAM = [];
 UsageDSP = [];
+Slack = 70;
 
 //---- Edge Information ----
- 
+Communication = [];

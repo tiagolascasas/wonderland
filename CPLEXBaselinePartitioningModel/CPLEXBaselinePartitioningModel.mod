@@ -28,9 +28,8 @@ dvar boolean ToHardware[Tasks];
 minimize
 	sum (i in Tasks) (  
 		HardwareTime[i] * ToHardware[i] + 
-		SoftwareTime[i] * (1 - ToHardware[i]) +
-		sum (j in Tasks)
-			(Communication[i][j] * (ToHardware[i] != ToHardware[j]))
+		SoftwareTime[i] * (1 - ToHardware[i]) 
+		//+ sum (j in Tasks) (Communication[i][j] * (ToHardware[i] != ToHardware[j]))
 	);
 
 subject to {
