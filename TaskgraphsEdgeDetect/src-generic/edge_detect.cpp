@@ -232,8 +232,6 @@ void edge_detect(int *image_rgb,
     combthreshold(image_gray, temp_buf, output, width, height);
 }
 
-int main()
-{
 int image_rgb[H * W * 3] = {
 #include IMAGE
     };
@@ -244,6 +242,8 @@ int image_rgb[H * W * 3] = {
 #endif
     int output[H * W] = {0};
 
+int main()
+{
 #ifdef OUTS
     output_dsp_rgb(image_rgb, "input.dat");
 #endif
