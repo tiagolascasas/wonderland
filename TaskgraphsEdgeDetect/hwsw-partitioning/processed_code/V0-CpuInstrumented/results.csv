@@ -1,0 +1,14 @@
+count,43
+now,0
+set_filter_horizontal,0
+floor,0
+edge_detect,618527
+duration_cast,1
+combthreshold,348706
+operator<<,31
+abs,0
+operator-,0
+rgbToGrayscale,180917
+set_filter_smooth,0
+convolve2d,29546
+set_filter_vertical,0
