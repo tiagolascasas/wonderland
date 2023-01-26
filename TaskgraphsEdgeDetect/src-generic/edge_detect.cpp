@@ -270,22 +270,20 @@ int image_rgb[H * W * 3] = {
     std::cout << "Duration: " << duration.count() << std::endl;
 
 // print image
-//#ifdef OUTS
-    
     char buf[256];
     strcpy(buf, IMAGE);
 
     char outname[256];
     sprintf(outname, "output_%s.dat", strtok(buf, "."));
     output_dsp(output, outname, W, H);
-//#endif
 
     int actual = 0;
     int real = CHECKSUM;
-    for (int i = 0; i < 262144; i++)
+    for (int i = 0; i < H * W; i++)
     {
         actual += output[i];
     }
+    cout << endl << "Edge detect for " << W << "x" << H << " image finished" << endl;
     cout << "Checksum: expected = " << real << ", actual = " << actual << (real == actual ? " (VERIFIED)" : " (ERROR)") << endl;
 
     return 0;

@@ -1,18 +1,6 @@
 #include <cstdio>
 #include "config.h"
 
-int checksum(int buf[H * W])
-{
-    int n = 0;
-    for (int i = 0; i < H * W; i++)
-    {
-        n += buf[i];
-    }
-    printf("Checksum %s", n == CHECKSUM ? "SUCCESS" : "FAILURE");
-    printf(" (actual: %d, expected: %d)\n", n, CHECKSUM);
-    return n;
-}
-
 void output_dsp(int *buf, char *name, int width, int height)
 {
     FILE *file = fopen(name, "w");
