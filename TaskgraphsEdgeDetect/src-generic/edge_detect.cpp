@@ -267,7 +267,7 @@ int image_rgb[H * W * 3] = {
 #endif
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop - start);
-    std::cout << "Duration: " << duration.count() << std::endl;
+    std::cout << endl << "Duration: " << duration.count() << std::endl;
 
 // print image
     char buf[256];
@@ -283,7 +283,7 @@ int image_rgb[H * W * 3] = {
     {
         actual += output[i];
     }
-    cout << endl << "Edge detect for " << W << "x" << H << " image finished" << endl;
+    cout << "Edge detect for " << W << "x" << H << " image finished" << endl;
     cout << "Checksum: expected = " << real << ", actual = " << actual << (real == actual ? " (VERIFIED)" : " (ERROR)") << endl;
 
     return 0;
