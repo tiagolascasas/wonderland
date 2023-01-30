@@ -12,7 +12,7 @@
             <ref name="CPLEXBaselinePartitioningModel.ops" type="setting">
 			</ref>
             			
-            <ref name="edge_detect_V0.dat" type="data">
+            <ref name="Data/edge_detect_V0.dat" type="data">
 			</ref>
             		
         </config>
@@ -25,7 +25,33 @@
             <ref name="CPLEXBaselinePartitioningModel.ops" type="setting">
 			</ref>
             			
-            <ref name="edge_detect_V0CE.dat" type="data">
+            <ref name="Data/edge_detect_V0CE.dat" type="data">
+			</ref>
+            		
+        </config>
+        		
+        <config default="false" name="edge_detect_V0_downclocked" category="opl">
+            			
+            <ref name="CPLEXBaselinePartitioningModel.mod" type="model">
+			</ref>
+            			
+            <ref name="CPLEXBaselinePartitioningModel.ops" type="setting">
+			</ref>
+            			
+            <ref name="Data/edge_detect_V0_downclocked.dat" type="data">
+			</ref>
+            		
+        </config>
+        		
+        <config default="false" name="edge_detect_V0CE_downclocked" category="opl">
+            			
+            <ref name="CPLEXBaselinePartitioningModel.mod" type="model">
+			</ref>
+            			
+            <ref name="CPLEXBaselinePartitioningModel.ops" type="setting">
+			</ref>
+            			
+            <ref name="Data/edge_detect_V0CE.dat" type="data">
 			</ref>
             		
         </config>

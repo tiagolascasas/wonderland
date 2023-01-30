@@ -1,0 +1,40 @@
+/*********************************************
+ * OPL 22.1.1.0 Data
+ * Author: Tiago
+ * Creation Date: 23 Jan 2023 at 15:51:39
+ *********************************************/
+
+// CPLEX data follows the format in Attributes.xlsx
+
+//---- Tasks ----
+NumTasks = 10;
+Label = ["rgbToGrayscale","convolve2d (1)","convolve2d (2)","convolve2d (3)",
+"combthreshold","set_filter_smooth","set_filter_vertical", "set_filter_horizontal",
+"main_begin", "main_end"];
+
+//---- Software Time ----
+SoftwareTime = [143601, 14467, 14467, 14467, 245034, 0, 0, 0, 0, 0];
+
+//---- Hardware Time ----
+HardwareTime = [7866, 23414, 23414, 23414, 5244, 1, 1, 1, 0, 0];
+
+//---- Hardware Properties ----
+UsageFF = [0.48, 0.87, 0.87, 0.87, 2.53, 0.27, 0.27, 0.27, 0, 0];
+UsageLUT = [2.11, 6.43, 6.43, 6.43, 1.21, 0.93, 0.93, 0.93, 0, 0];
+UsageBRAM = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+UsageDSP = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+Slack = 70;
+
+//---- Edge Information ----
+Communication = [
+	[0,1504,1504,0,0,0,0,0,0,0],
+	[0,0,1504,1504,1504,0,0,0,0,0],
+	[0,0,0,0,1504,0,0,0,0,0],
+	[0,0,0,0,1504,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,1504],
+	[0,0,0,0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0],
+	[6066,1504,0,1504,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0]
+]; 

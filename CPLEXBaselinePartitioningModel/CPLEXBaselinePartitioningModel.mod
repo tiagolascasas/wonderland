@@ -55,9 +55,13 @@ float ExecTime = sum (i in Tasks) (
 					sum (j in Tasks)
 						(ToHardware[i] != ToHardware[j] ? Communication[i][j] : 0)
 				);
+float CommTime = sum (i in Tasks) (
+					sum (j in Tasks)
+						(ToHardware[i] != ToHardware[j] ? Communication[i][j] : 0));
   
 execute {
     writeln("Finished generating a solution using ILP");
   	for (i in ToHardwareSolution) writeln(i);
-	writeln("Total solution time (HW/SW partitioning overall execution time): " + ExecTime + " microsseconds");
+	writeln("Total solution time (HW/SW partitioning overall execution time): " + ExecTime + " us");
+	writeln("Time spent on communication: " + CommTime + " us");
 }

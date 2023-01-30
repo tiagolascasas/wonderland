@@ -1,0 +1,35 @@
+/*********************************************
+ * OPL 22.1.1.0 Data
+ * Author: Tiago
+ * Creation Date: 24 Jan 2023 at 01:11:35
+ *********************************************/
+
+ //---- Tasks ----
+NumTasks = 8;
+Label = ["edge_detect_localdata", "rgbToGrayscale", "convolve2d_smooth", "convolve2d_vertical",	
+			"convolve2d_horizontal", "combthreshold", "main_begin", "main_end"];
+
+//---- Software Time ----
+SoftwareTime = [0, 149827, 17706, 15607, 15607, 5244, 0, 0];
+
+//---- Hardware Time ----
+HardwareTime = [0, 7866, 23410, 5697, 5697, 1914, 0, 0];
+
+//---- Hardware Properties ----
+UsageFF = [0, 1.33, 0.34, 1.36, 0.30, 7.83, 0, 0];
+UsageLUT = [0, 5.05, 1.04, 1.63, 0.99, 2.16, 0, 0];
+UsageBRAM = [0, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0];
+UsageDSP = [0, 0.56, 0.00, 0.00, 0.00, 0.00, 0, 0];
+Slack = 70;
+
+//---- Edge Information ----
+Communication = [
+	[0,1504,0,0,1504,0,0,0],
+	[0,0,1504,1504,0,0,0,0],
+	[0,0,0,1504,1504,1504,0,0],
+	[0,0,0,0,0,1504,0,0],
+	[0,0,0,0,0,1504,0,0],
+	[0,0,0,0,0,0,0,1504],
+	[0,4562,1504,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0]
+];
