@@ -1,8 +1,8 @@
 "use strict";
 
     class CommLatencyOneWayLinearModel {
-        static #m = 0.0023236828181779426;
-        static #b = 81.79622399724622;
+        static #m = 0.0023216419041647922;
+        static #b = 83.36910879635161;
 
         static predict(x) {
             return x * this.#m + this.#b;
