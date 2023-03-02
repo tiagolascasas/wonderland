@@ -14,7 +14,7 @@ digraph static_call_graph {
 	"combthreshold" [label="combthreshold\n"]
     "main_end" [label="main_end\n", shape="ellipse"]
 
-    "main_begin" -> "rgbToGrayscale" [label="image_rgb,\nimage_gray\n  {6116}"]
+    "main_begin" -> "rgbToGrayscale" [label="image_rgb{6116} ,\nimage_gray {1529\n  "]
     "main_begin" -> "set_smooth_filter" [label="  filter\n  {0}"]
     "set_smooth_filter" -> "convolve2d_1" [label="filter\n {0}"]
     "rgbToGrayscale" -> "convolve2d_1" [label="image_gray\n  {1529}"]
