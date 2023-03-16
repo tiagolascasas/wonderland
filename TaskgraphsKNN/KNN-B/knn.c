@@ -81,22 +81,22 @@ void kNN_MinMaxNormalize(DATA_TYPE min[N_FEATURES], DATA_TYPE max[N_FEATURES],
 }
 
 // Extracted function
-void kNN_Distance(double *distance_input, DATA_TYPE queryDatapoint[N_FEATURES], DATA_TYPE training_X[N_TRAINING][N_FEATURES], int i)
+void kNN_Distance(double *distance_input, DATA_TYPE queryDatapoint[N_FEATURES], DATA_TYPE training_X[N_TRAINING * N_FEATURES], int i)
 {
     double distance = 0.0F;
 
     for (int j = 0; j < N_FEATURES; j++)
     {
         DATA_TYPE feature = queryDatapoint[j];
-        double diff = feature - training_X[i][j];
+        double diff = feature - training_X[i * N_FEATURES + j];
         distance += diff * diff;
     }
     *distance_input = distance;
 }
 
-void kNN_PredictAll(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
+void kNN_PredictAll(DATA_TYPE training_X[N_TRAINING * N_FEATURES],
                     CLASS_TYPE training_Y[N_TRAINING],
-                    DATA_TYPE testing_X[N_TESTING][N_FEATURES],
+                    DATA_TYPE testing_X[N_TESTING * N_FEATURES],
                     CLASS_TYPE testing_Y[N_TESTING], DATA_TYPE min[N_FEATURES],
                     DATA_TYPE max[N_FEATURES])
 {
@@ -105,14 +105,14 @@ void kNN_PredictAll(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
         double bestDistances[K];
         int bestPointsIdx[K];
 
-        kNN_MinMaxNormalize(min, max, testing_X[i]);
+        kNN_MinMaxNormalize(min, max, &testing_X[i * N_FEATURES]);
 
         kNN_InitBest(bestDistances, bestPointsIdx);
 
         for (int _i = 0; _i < N_TRAINING; _i++)
         {
             double distance;
-            kNN_Distance(&distance, testing_X[i], training_X, _i);
+            kNN_Distance(&distance, &testing_X[i * N_FEATURES], training_X, _i);
 
             kNN_UpdateBest(distance, _i, bestDistances, bestPointsIdx);
         }
