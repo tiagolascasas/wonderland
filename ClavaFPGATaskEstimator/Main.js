@@ -13,6 +13,9 @@ function vitisIndividualFuns(funs, period, platform) {
 
         const vitis = new VitisHls(fun, period, platform);
         vitis.setFlowTarget("vitis");
+        vitis.addSource("V2CE/edge_detect.cpp");
+        vitis.addSource("V2CE/util.cpp");
+        vitis.addSource("V2CE/util.h");
         const success = vitis.synthesize();
 
         if (success) {
@@ -39,5 +42,13 @@ const V0CE = [
     "convolve2d_horizontal",
     "combthreshold"
 ];
+const V2CE = [/*
+    "edge_detect_localdata",
+    "rgbToGrayscale",
+    "convolve2d_smooth",
+    "convolve2d_fused",
+    "combthreshold"*/
+    "edge_detect"
+];
 
-vitisIndividualFuns(V0CE, period, zcu102);
+vitisIndividualFuns(V2CE, period, zcu102);

@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "scenarios_cpu.h": "c",
+    "scenarios_fpga.h": "c"
+}
+}
