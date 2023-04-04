@@ -5,7 +5,8 @@
       <string>workspace</string>
       <FileList>
         <fileList>
-          <file>..\TaskgraphsEdgeDetect\hwsw-partitioning\processed_code\V2CE</file>
+          <file>..\..\..\Desktop\NewBenchmarkSuite-04eecda65ccce345f25a9246516315af4e7091ce\knn\knn.c</file>
+          <file>..\..\..\Desktop\NewBenchmarkSuite-04eecda65ccce345f25a9246516315af4e7091ce\knn\scenarios.h</file>
         </fileList>
       </FileList>
     </entry>
@@ -90,7 +91,7 @@
     </entry>
     <entry>
       <string>C/C++ Standard</string>
-      <pt.up.fe.specs.clava.language.Standard>CXX11</pt.up.fe.specs.clava.language.Standard>
+      <pt.up.fe.specs.clava.language.Standard>C11</pt.up.fe.specs.clava.language.Standard>
     </entry>
     <entry>
       <string>workspace_extra</string>
@@ -98,7 +99,7 @@
     </entry>
     <entry>
       <string>Clava Custom Resources</string>
-      <boolean>false</boolean>
+      <boolean>true</boolean>
     </entry>
     <entry>
       <string>restrict mode</string>
@@ -165,12 +166,15 @@
     <entry>
       <string>Compiler Flags in list format</string>
       <StringList>
-        <stringList/>
+        <stringList>
+          <string>-D SCENARIO=GB_K20_F</string>
+          <string>-D VITIS_HLS</string>
+        </stringList>
       </StringList>
     </entry>
     <entry>
       <string>Check C/CXX Syntax</string>
-      <boolean>false</boolean>
+      <boolean>true</boolean>
     </entry>
     <entry>
       <string>aspect</string>
@@ -206,7 +210,7 @@
     </entry>
     <entry>
       <string>Copy files in sources</string>
-      <boolean>false</boolean>
+      <boolean>true</boolean>
     </entry>
     <entry>
       <string>Generate CMake Integration Helper Files</string>

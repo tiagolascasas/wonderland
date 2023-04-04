@@ -1,7 +1,9 @@
 laraImport("weaver.Query");
+laraImport("lara.Platforms");
 laraImport("CPUTaskEstimator");
 
 function main() {
+	Platforms.setLinux()
     const calls = [];
 
     for (const call of Query.search("call")) {

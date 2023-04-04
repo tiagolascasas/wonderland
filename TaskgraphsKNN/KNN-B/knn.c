@@ -10,6 +10,7 @@ void kNN_UpdateBest(double queryDistance, int queryIdx,
 
     for (int i = 0; i < K; i++)
     {
+#pragma HLS unroll
         if (bestDistances[i] > worstOfBest)
         {
             worstOfBest = bestDistances[i];
@@ -28,6 +29,7 @@ void kNN_InitBest(double bestDistances[K], int bestPointsIdx[K])
 {
     for (int i = 0; i < K; i++)
     {
+#pragma HLS unroll
         bestDistances[i] = DBL_MAX;
         bestPointsIdx[i] = -1;
     }
@@ -39,6 +41,7 @@ void kNN_VoteBetweenBest(int bestPointsIdx[K], CLASS_TYPE training_Y[N_TRAINING]
 
     for (int i = 0; i < K; i++)
     {
+#pragma HLS unroll
         int bestIdx = bestPointsIdx[i];
         CLASS_TYPE cl = training_Y[bestIdx];
         histogram[(int)cl]++;
@@ -49,6 +52,7 @@ void kNN_VoteBetweenBest(int bestPointsIdx[K], CLASS_TYPE training_Y[N_TRAINING]
 
     for (int i = 0; i < N_CLASSES; i++)
     {
+#pragma HLS unroll
         if (histogram[i] > mostPopularCount)
         {
             mostPopularCount = histogram[i];
@@ -63,6 +67,7 @@ void kNN_MinMaxNormalize(DATA_TYPE min[N_FEATURES], DATA_TYPE max[N_FEATURES],
 {
     for (int i = 0; i < N_FEATURES; i++)
     {
+#pragma HLS unroll
         DATA_TYPE nfeature =
             (DATA_TYPE)((queryDatapoint[i] - min[i]) / (max[i] - min[i]));
 
@@ -87,6 +92,7 @@ void kNN_Distance(double *distance_input, DATA_TYPE queryDatapoint[N_FEATURES], 
 
     for (int j = 0; j < N_FEATURES; j++)
     {
+#pragma HLS unroll
         DATA_TYPE feature = queryDatapoint[j];
         double diff = feature - training_X[i * N_FEATURES + j];
         distance += diff * diff;
