@@ -2,7 +2,7 @@
 
 #define N 4096
 
-int main()
+int main(int argc, char **argv)
 {
     int A[N] = {[0 ... N - 1] = 10};
     int B[N] = {[0 ... N - 1] = 20};
@@ -17,7 +17,6 @@ int main()
 
     // Scenario A: extract a set of statements with no function calls
     // into their own function
-
 #pragma clava begin_outline
 
     for (int i = 0; i < N; i++)
@@ -25,10 +24,12 @@ int main()
         A[i] += B[i] + C[i];
     }
 
+    int sth = 0;
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
             C[i] += B[i] + C[j];
+        sth += B[i];
     }
 
     int sum = 0;
@@ -44,8 +45,9 @@ int main()
     }
 #pragma clava end_outline
 
-    // force a use of the "sum" variable
+    // force a use of the "sum" and "sth" variable
     printf("%d\n", sum);
+    printf("%d\n", sth);
 
     int sA = 0;
     int sB = 0;
