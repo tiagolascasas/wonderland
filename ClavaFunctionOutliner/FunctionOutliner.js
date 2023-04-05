@@ -2,8 +2,10 @@
 
 laraImport("weaver.Query");
 laraImport("clava.ClavaJoinPoints");
+laraImport("clava.ClavaType");
 
 class FunctionOutliner {
+    static GLOBAL_OUTLINE_ID = 1;
     #verbose;
 
     constructor() {
@@ -14,22 +16,30 @@ class FunctionOutliner {
         this.#verbose = verbose;
     }
 
-    outline(begin, end, functionName = "default") {
+    outline(begin, end) {
+        return this.outlineWithName(begin, end, this.generateName())
+    }
+
+    outlineWithName(begin, end, functionName) {
+        this.printMsg("Attempting of outlining a function with the name \"" + functionName + "\"");
+
         if (!this.checkIfOutlinable(begin, end)) {
             this.printMsg("Provided code region is not outlinable! Aborting...");
         }
 
+        //------------------------------------------------------------------------------
         const scope = begin.parent;
         const split = this.splitRegions(scope, begin, end);
         const prologue = split[0];
         var region = split[1];
         const epilogue = split[2];
 
-        const outlineName = functionName == "default" ? this.generateName() : functionName;
-        const callPlaceholder = ClavaJoinPoints.stmtLiteral("//placeholder for the call to " + outlineName);
+        //------------------------------------------------------------------------------
+        const callPlaceholder = ClavaJoinPoints.stmtLiteral("//placeholder for the call to " + functionName);
         begin.insertBefore(callPlaceholder);
         this.printMsg("Created a placeholder call to the new function");
 
+        //------------------------------------------------------------------------------
         const declareBefore = this.findDeclsWithDependency(region, epilogue);
         region = region.filter((stmt) => !declareBefore.includes(stmt));
         for (var i = declareBefore.length - 1; i >= 0; i--) {
@@ -39,7 +49,78 @@ class FunctionOutliner {
         }
         this.printMsg("Moved declarations from outline region to immediately before the region");
 
+        //------------------------------------------------------------------------------
+        const referencedInRegion = this.findRefsInRegion(region);
+        const funParams = this.createParams(referencedInRegion);
+        this.createFunction(functionName, region, funParams);
+
+        //------------------------------------------------------------------------------
+        const callArgs = this.createArgs(funParams);
+        // create call
+
+
         //this.createFunction(region);
+    }
+
+    createFunction(name, region, params) {
+        var oldFun = region[0];
+        while (oldFun.joinPointType != "function") {
+            oldFun = oldFun.parent;
+        }
+
+        const retType = ClavaType.asType("void");
+        const fun = ClavaJoinPoints.functionDecl(name, retType, params);
+        oldFun.insertBefore(fun);
+        const scope = ClavaJoinPoints.scope();
+        fun.setBody(scope);
+
+        region[0].detach();
+        scope.insertEnd(region[0]);
+
+        for (const stmt of region) {
+            //stmt.detach();
+            //scope.insertEnd(stmt);
+        }
+    }
+
+    createArgs(params) {
+        const args = [];
+
+        //...
+        return args;
+    }
+
+    createParams(varrefs) {
+        const params = [];
+
+        //...
+        return params;
+    }
+
+    findRefsInRegion(region) {
+        const decls = [];
+        const declsNames = [];
+        for (const stmt of region) {
+            for (const decl of Query.searchFrom(stmt, "decl")) {
+                decls.push(decl);
+                declsNames.push(decl.name);
+            }
+        }
+
+        const varrefs = [];
+        const varrefsNames = [];
+        for (const stmt of region) {
+            for (const varref of Query.searchFrom(stmt, "varref")) {
+                // may need to filter for other types, like macros, etc
+                // select all varrefs with no matching decl in the region
+                if (!varrefsNames.includes(varref.name) && !varref.isFunctionCall && !declsNames.contains(varref.name)) {
+                    varrefs.push(varref);
+                    varrefsNames.push(varref.name);
+                }
+            }
+        }
+        this.printMsg("Found " + varrefsNames.length + " external variable references inside outline region");
+        return varrefs;
     }
 
     findDeclsWithDependency(region, epilogue) {
@@ -71,12 +152,6 @@ class FunctionOutliner {
         return declsWithDependency;
     }
 
-    createFunction(region) {
-        for (const stmt of region) {
-            stmt.detach();
-        }
-    }
-
     splitRegions(scope, begin, end) {
         const prologue = []
         const region = [];
@@ -87,7 +162,7 @@ class FunctionOutliner {
         for (const child of scope.children) {
             if (inPrologue) {
                 if (child.astId == begin.astId) {
-                    region.push(child);   // might want to give the option of including begin/end in the region or not
+                    region.push(child);
                     inPrologue = false;
                     inRegion = true;
                 }
@@ -129,6 +204,8 @@ class FunctionOutliner {
     }
 
     generateName() {
-        return "__outlined_fun_A";
+        var name = "__outlined_function_" + FunctionOutliner.GLOBAL_OUTLINE_ID;
+        FunctionOutliner.GLOBAL_OUTLINE_ID++;
+        return name;
     }
 }

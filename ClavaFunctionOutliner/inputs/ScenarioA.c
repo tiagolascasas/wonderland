@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 #define N 4096
 
@@ -18,6 +19,7 @@ int main(int argc, char **argv)
     // Scenario A: extract a set of statements with no function calls
     // into their own function
 #pragma clava begin_outline
+    // this is a comment, that should also be extracted like any other statement
 
     for (int i = 0; i < N; i++)
     {
@@ -28,10 +30,10 @@ int main(int argc, char **argv)
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
-            C[i] += B[i] + C[j];
+            C[i] += B[i] + abs(C[j]);
         sth += B[i];
     }
-
+    // a comment in the middle, because why not
     int sum = 0;
     for (int i = 0; i < N; i++)
     {
@@ -43,6 +45,7 @@ int main(int argc, char **argv)
     {
         prod *= E[i];
     }
+    // and another comment at the end for good measure
 #pragma clava end_outline
 
     // force a use of the "sum" and "sth" variable
@@ -68,5 +71,10 @@ int main(int argc, char **argv)
     printf("C - Ex: %d, Ac: %d (%s)\n", 503246848, sC, 503246848 == sC ? "SUCCESS" : "FAILURE");
     printf("D - Ex: %d, Ac: %d (%s)\n", 163840, sD, 163840 == sD ? "SUCCESS" : "FAILURE");
     printf("E - Ex: %d, Ac: %d (%s)\n", 4096, sE, 4096 == sE ? "SUCCESS" : "FAILURE");
+    return 0;
+}
+
+int foo(int *a, int **b, int c[200])
+{
     return 0;
 }
