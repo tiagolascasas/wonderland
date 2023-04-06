@@ -74,9 +74,6 @@ class FunctionOutliner {
         const scope = ClavaJoinPoints.scope();
         fun.setBody(scope);
 
-        region[0].detach();
-        scope.insertEnd(region[0]);
-
         for (const stmt of region) {
             //stmt.detach();
             //scope.insertEnd(stmt);
@@ -92,6 +89,24 @@ class FunctionOutliner {
 
     createParams(varrefs) {
         const params = [];
+
+        for (const ref of varrefs) {
+            const name = ref.name;
+            const varType = ref.type;
+
+            if (varType.joinPointType == "arrayType") {
+                const param = ClavaJoinPoints.param(name, varType);
+                params.push(param);
+            }
+            // LITERAL SOLUTION!!!!
+            // needs to change to programatically create a pointerType
+            if (varType.joinPointType == "builtinType") {
+                const pointerType = "int*";
+                const newType = ClavaType.asType(pointerType);
+                const param = ClavaJoinPoints.param(name, newType);
+                params.push(param);
+            }
+        }
 
         //...
         return params;
