@@ -4,6 +4,8 @@ laraImport("weaver.Query");
 laraImport("clava.ClavaJoinPoints");
 laraImport("clava.ClavaType");
 
+laraImport("Pointerizer");
+
 class FunctionOutliner {
     static GLOBAL_OUTLINE_ID = 1;
     #verbose;
@@ -75,9 +77,35 @@ class FunctionOutliner {
         fun.setBody(scope);
 
         for (const stmt of region) {
-            //stmt.detach();
-            //scope.insertEnd(stmt);
+            stmt.detach();
+            scope.insertEnd(stmt);
         }
+
+        // make sure scalar refs are now dereferenced pointers to params
+        this.scalarsToPointers(region, params);
+    }
+
+    scalarsToPointers(region, params) {
+        for (const stmt of region) {
+            for (const varref of Query.searchFrom(stmt, "varref")) {
+                for (const param of params) {
+                    if (param.name === varref.name && varref.type.joinPointType === "builtinType") {
+                        const newVarref = ClavaJoinPoints.varRef(param);
+                        const op = ClavaJoinPoints.unaryOp("*", newVarref);
+                        varref.replaceWith(op);
+                    }
+                }
+            }
+        }
+        // if refs are to scalars, turn them into dereferenced pointers
+        /*
+        if (varref.type.joinPointType == "builtinType") {
+            //Pointerizer.scalarRefToDereferencedPointer(varref);
+            const varrefClone = varref.copy();
+            varrefClone.type = ClavaJoinPoints.pointer(varrefClone.type);
+            const op = ClavaJoinPoints.unaryOp("*", varrefClone);
+            varref.replaceWith(op);
+        }*/
     }
 
     createArgs(params) {
@@ -98,14 +126,12 @@ class FunctionOutliner {
                 const param = ClavaJoinPoints.param(name, varType);
                 params.push(param);
             }
-            // LITERAL SOLUTION!!!!
-            // needs to change to programatically create a pointerType
             if (varType.joinPointType == "builtinType") {
-                const pointerType = "int*";
-                const newType = ClavaType.asType(pointerType);
+                const newType = ClavaJoinPoints.pointer(varType);
                 const param = ClavaJoinPoints.param(name, newType);
                 params.push(param);
             }
+            // and if varType is a pointer, do the same as the array?
         }
 
         //...

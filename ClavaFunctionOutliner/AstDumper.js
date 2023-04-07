@@ -23,6 +23,9 @@ class AstDumper {
         if (jp.joinPointType == "param") {
             print(" " + jp.type);
         }
+        if (jp.joinPointType == "unaryOp") {
+            print(" " + jp.kind);
+        }
         println("");
 
         if (jp.children.length > 20) {

@@ -76,5 +76,6 @@ int main(int argc, char **argv)
 
 int foo(int *a, int **b, int c[200])
 {
+    *a = 2;
     return 0;
 }
