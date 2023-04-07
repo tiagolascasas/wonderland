@@ -48,20 +48,49 @@ class FunctionOutliner {
             const decl = declareBefore[i];
             decl.detach();
             begin.insertBefore(decl);
+            prologue.push(decl);
         }
         this.printMsg("Moved declarations from outline region to immediately before the region");
 
         //------------------------------------------------------------------------------
         const referencedInRegion = this.findRefsInRegion(region);
         const funParams = this.createParams(referencedInRegion);
-        this.createFunction(functionName, region, funParams);
+        const fun = this.createFunction(functionName, region, funParams);
 
         //------------------------------------------------------------------------------
-        const callArgs = this.createArgs(funParams);
-        // create call
+        const callArgs = this.createArgs(fun, prologue);
+        this.createCall(callPlaceholder, fun, callArgs);
+    }
 
+    createCall(placeholder, fun, args) {
+        const call = ClavaJoinPoints.call(fun, args);
+        placeholder.replaceWith(call);
+    }
 
-        //this.createFunction(region);
+    createArgs(fun, prologue) {
+        const args = [];
+        for (const param of fun.params) {
+            for (const stmt of prologue) {
+                // not yet handles decls from function params or global vars!!!
+                // we need to search beyond the prologue for that
+                for (const decl of Query.searchFrom(stmt, "vardecl")) {
+                    if (decl.name === param.name) {
+                        const ref = ClavaJoinPoints.varRef(decl);
+
+                        if (param.type.joinPointType === "pointerType" && ref.type.joinPointType === "builtinType") {
+                            const addressOfScalar = ClavaJoinPoints.unaryOp("&", ref);
+                            args.push(addressOfScalar);
+                        }
+                        else {
+                            args.push(ref);
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+
+        return args;
     }
 
     createFunction(name, region, params) {
@@ -83,6 +112,8 @@ class FunctionOutliner {
 
         // make sure scalar refs are now dereferenced pointers to params
         this.scalarsToPointers(region, params);
+        this.printMsg("Successfully created function \"" + name + "\"");
+        return fun;
     }
 
     scalarsToPointers(region, params) {
@@ -97,22 +128,6 @@ class FunctionOutliner {
                 }
             }
         }
-        // if refs are to scalars, turn them into dereferenced pointers
-        /*
-        if (varref.type.joinPointType == "builtinType") {
-            //Pointerizer.scalarRefToDereferencedPointer(varref);
-            const varrefClone = varref.copy();
-            varrefClone.type = ClavaJoinPoints.pointer(varrefClone.type);
-            const op = ClavaJoinPoints.unaryOp("*", varrefClone);
-            varref.replaceWith(op);
-        }*/
-    }
-
-    createArgs(params) {
-        const args = [];
-
-        //...
-        return args;
     }
 
     createParams(varrefs) {
@@ -133,8 +148,7 @@ class FunctionOutliner {
             }
             // and if varType is a pointer, do the same as the array?
         }
-
-        //...
+        this.printMsg("Created params for the outlined function");
         return params;
     }
 
