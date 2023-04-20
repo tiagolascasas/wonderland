@@ -4,6 +4,9 @@
 
 #define N 4096
 
+int globalVar1 = 55;
+char globalVar2[100];
+
 int main(int argc, char **argv)
 {
     int A[N] = {[0 ... N - 1] = 10};
@@ -35,11 +38,17 @@ int main(int argc, char **argv)
         sth += B[i];
     }
     // a comment in the middle, because why not
+
+    globalVar1 += 61;
+    globalVar2[4] = 22;
+
     int sum = 0;
     for (int i = 0; i < N; i++)
     {
         sum += E[i];
     }
+
+    globalVar1 = globalVar2[5] + globalVar1;
 
     int prod = 0;
     for (int i = 0; i < N; i++)

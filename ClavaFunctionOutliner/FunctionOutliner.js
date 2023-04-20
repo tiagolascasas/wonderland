@@ -36,6 +36,10 @@ class FunctionOutliner {
         const epilogue = split[2];
 
         //------------------------------------------------------------------------------
+        const globals = this.findGlobalVars();
+        this.printMsg("Found " + globals.length + " global variable(s)");
+
+        //------------------------------------------------------------------------------
         const callPlaceholder = ClavaJoinPoints.stmtLiteral("//placeholder for the call to " + functionName);
         begin.insertBefore(callPlaceholder);
         this.printMsg("Created a placeholder call to the new function");
@@ -61,6 +65,16 @@ class FunctionOutliner {
         this.createCall(callPlaceholder, fun, callArgs);
     }
 
+    findGlobalVars() {
+        const globals = [];
+        for (const decl of Query.search("vardecl")) {
+            if (decl.isGlobal) {
+                globals.push(decl);
+            }
+        }
+        return globals;
+    }
+
     createCall(placeholder, fun, args) {
         const call = ClavaJoinPoints.call(fun, args);
         placeholder.replaceWith(call);
@@ -78,8 +92,7 @@ class FunctionOutliner {
         for (const param of Query.searchFrom(parentFun, "param")) {
             decls.push(param.definition);
         }
-        // get decls from global variables
-        // TBD
+        // no need to handle global vars - they are not parameters
 
         const args = [];
         for (const param of fun.params) {
@@ -151,13 +164,13 @@ class FunctionOutliner {
                 const param = ClavaJoinPoints.param(name, varType);
                 params.push(param);
             }
-            if (varType.joinPointType == "builtinType") {
+            else if (varType.joinPointType == "builtinType") {
                 const newType = ClavaJoinPoints.pointer(varType);
                 const param = ClavaJoinPoints.param(name, newType);
                 params.push(param);
             }
             else {
-                println(varType.joinPointType);
+                println("Unsuported param type: " + varType.joinPointType);
             }
             // and if varType is a pointer, do the same as the array?
         }
@@ -180,8 +193,9 @@ class FunctionOutliner {
         for (const stmt of region) {
             for (const varref of Query.searchFrom(stmt, "varref")) {
                 // may need to filter for other types, like macros, etc
-                // select all varrefs with no matching decl in the region
-                if (!varrefsNames.includes(varref.name) && !varref.isFunctionCall && !declsNames.contains(varref.name)) {
+                // select all varrefs with no matching decl in the region, except globals
+                if (!varrefsNames.includes(varref.name) && !varref.isFunctionCall
+                    && !declsNames.contains(varref.name) && !varref.decl.isGlobal) {
                     varrefs.push(varref);
                     varrefsNames.push(varref.name);
                 }
@@ -256,8 +270,6 @@ class FunctionOutliner {
     checkIfOutlinable(begin, end) {
         if (begin.parent.astId != end.parent.astId) {
             this.printMsg("Requirement not met: begin and end joinpoints are not at the same scope level");
-            println(begin.parent);
-            println(end.parent);
             return false;
         }
         else if (begin.parent.parent.joinPointType != "function") {
