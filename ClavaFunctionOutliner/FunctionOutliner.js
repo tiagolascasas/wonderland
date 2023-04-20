@@ -25,6 +25,7 @@ class FunctionOutliner {
 
         if (!this.checkIfOutlinable(begin, end)) {
             this.printMsg("Provided code region is not outlinable! Aborting...");
+            return;
         }
 
         //------------------------------------------------------------------------------
@@ -274,6 +275,7 @@ class FunctionOutliner {
         }
         else if (begin.parent.parent.joinPointType != "function") {
             this.printMsg("Requirement not met: begin and end joinpoints are not in the topmost scope of the function (solution is WIP)");
+            return false;
         }
         else {
             this.printMsg("Requirement met: begin and end joinpoints are at the same scope level");
