@@ -1,1 +1,1 @@
-clava TestOutliner.js -pi -par -std c11 -cr -cl -cs -s -cfs -p inputs/ScenarioA.c -b 0
+clava TestOutliner.js -pi -par -std c11 -cr -cl -cs -s -cfs -p src_edgedetect -b 0

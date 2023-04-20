@@ -29,6 +29,7 @@ class FunctionOutliner {
 
         //------------------------------------------------------------------------------
         const scope = begin.parent;
+        const parentFun = scope.parent;
         const split = this.splitRegions(scope, begin, end);
         const prologue = split[0];
         var region = split[1];
@@ -56,7 +57,7 @@ class FunctionOutliner {
         const fun = this.createFunction(functionName, region, funParams);
 
         //------------------------------------------------------------------------------
-        const callArgs = this.createArgs(fun, prologue);
+        const callArgs = this.createArgs(fun, prologue, parentFun);
         this.createCall(callPlaceholder, fun, callArgs);
     }
 
@@ -65,25 +66,35 @@ class FunctionOutliner {
         placeholder.replaceWith(call);
     }
 
-    createArgs(fun, prologue) {
+    createArgs(fun, prologue, parentFun) {
+        const decls = [];
+        // get decls from the prologue
+        for (const stmt of prologue) {
+            for (const decl of Query.searchFrom(stmt, "vardecl")) {
+                decls.push(decl);
+            }
+        }
+        // get decls from the parent function params
+        for (const param of Query.searchFrom(parentFun, "param")) {
+            decls.push(param.definition);
+        }
+        // get decls from global variables
+        // TBD
+
         const args = [];
         for (const param of fun.params) {
-            for (const stmt of prologue) {
-                // not yet handles decls from function params or global vars!!!
-                // we need to search beyond the prologue for that
-                for (const decl of Query.searchFrom(stmt, "vardecl")) {
-                    if (decl.name === param.name) {
-                        const ref = ClavaJoinPoints.varRef(decl);
+            for (const decl of decls) {
+                if (decl.name === param.name) {
+                    const ref = ClavaJoinPoints.varRef(decl);
 
-                        if (param.type.joinPointType === "pointerType" && ref.type.joinPointType === "builtinType") {
-                            const addressOfScalar = ClavaJoinPoints.unaryOp("&", ref);
-                            args.push(addressOfScalar);
-                        }
-                        else {
-                            args.push(ref);
-                        }
-                        break;
+                    if (param.type.joinPointType === "pointerType" && ref.type.joinPointType === "builtinType") {
+                        const addressOfScalar = ClavaJoinPoints.unaryOp("&", ref);
+                        args.push(addressOfScalar);
                     }
+                    else {
+                        args.push(ref);
+                    }
+                    break;
                 }
             }
         }
@@ -135,7 +146,8 @@ class FunctionOutliner {
             const name = ref.name;
             const varType = ref.type;
 
-            if (varType.joinPointType == "arrayType") {
+            // not sure if adjustedType handling here is correct
+            if (varType.joinPointType == "arrayType" || varType.joinPointType == "adjustedType") {
                 const param = ClavaJoinPoints.param(name, varType);
                 params.push(param);
             }
@@ -144,9 +156,12 @@ class FunctionOutliner {
                 const param = ClavaJoinPoints.param(name, newType);
                 params.push(param);
             }
+            else {
+                println(varType.joinPointType);
+            }
             // and if varType is a pointer, do the same as the array?
         }
-        this.printMsg("Created params for the outlined function");
+        this.printMsg("Created " + params.length + " param(s) for the outlined function");
         return params;
     }
 
@@ -244,6 +259,9 @@ class FunctionOutliner {
             println(begin.parent);
             println(end.parent);
             return false;
+        }
+        else if (begin.parent.parent.joinPointType != "function") {
+            this.printMsg("Requirement not met: begin and end joinpoints are not in the topmost scope of the function (solution is WIP)");
         }
         else {
             this.printMsg("Requirement met: begin and end joinpoints are at the same scope level");
