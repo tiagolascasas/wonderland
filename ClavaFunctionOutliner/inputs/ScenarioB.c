@@ -69,7 +69,6 @@ int main()
 #pragma clava end_outline
 
     // force a use of some variables
-    printf("%d\n", var2);
     printf("%d\n", var3);
 
     int sA = 0;

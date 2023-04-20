@@ -4,9 +4,7 @@
     <entry>
       <string>workspace</string>
       <FileList>
-        <fileList>
-          <file>inputs\ScenarioA.c</file>
-        </fileList>
+        <fileList/>
       </FileList>
     </entry>
     <entry>
@@ -165,10 +163,7 @@
     <entry>
       <string>Compiler Flags in list format</string>
       <StringList>
-        <stringList>
-          <string>-D SCENARIO=GB_K20_F</string>
-          <string>-D VITIS_HLS</string>
-        </stringList>
+        <stringList/>
       </StringList>
     </entry>
     <entry>

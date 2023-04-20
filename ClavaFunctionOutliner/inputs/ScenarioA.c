@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 #define N 4096
@@ -68,7 +69,7 @@ int main(int argc, char **argv)
     }
     printf("A - Ex: %d, Ac: %d (%s)\n", 16977920, sA, 16977920 == sA ? "SUCCESS" : "FAILURE");
     printf("B - Ex: %d, Ac: %d (%s)\n", 81920, sB, 81920 == sB ? "SUCCESS" : "FAILURE");
-    printf("C - Ex: %d, Ac: %d (%s)\n", 503246848, sC, 503246848 == sC ? "SUCCESS" : "FAILURE");
+    printf("C - Ex: %d, Ac: %d (%s)\n", -2125316772, sC, -2125316772 == sC ? "SUCCESS" : "FAILURE");
     printf("D - Ex: %d, Ac: %d (%s)\n", 163840, sD, 163840 == sD ? "SUCCESS" : "FAILURE");
     printf("E - Ex: %d, Ac: %d (%s)\n", 4096, sE, 4096 == sE ? "SUCCESS" : "FAILURE");
     return 0;

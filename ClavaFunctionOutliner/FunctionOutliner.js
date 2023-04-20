@@ -4,8 +4,6 @@ laraImport("weaver.Query");
 laraImport("clava.ClavaJoinPoints");
 laraImport("clava.ClavaType");
 
-laraImport("Pointerizer");
-
 class FunctionOutliner {
     static GLOBAL_OUTLINE_ID = 1;
     #verbose;
