@@ -29,9 +29,14 @@ class FunctionOutliner {
         }
 
         //------------------------------------------------------------------------------
-        const scope = begin.parent;
-        const parentFun = scope.parent;
-        const split = this.splitRegions(scope, begin, end);
+        const wrappers = this.wrapBeginAndEnd(begin, end);
+        begin = wrappers[0];
+        end = wrappers[1];
+        this.printMsg("Wrapped outline region with begin and ending comments");
+
+        //------------------------------------------------------------------------------
+        const parentFun = this.findParentFunction(begin);
+        const split = this.splitRegions(parentFun, begin, end);
         const prologue = split[0];
         var region = split[1];
         const epilogue = split[2];
@@ -64,6 +69,29 @@ class FunctionOutliner {
         //------------------------------------------------------------------------------
         const callArgs = this.createArgs(fun, prologue, parentFun);
         this.createCall(callPlaceholder, fun, callArgs);
+
+        //------------------------------------------------------------------------------
+        begin.detach();
+        end.detach();
+        this.printMsg("Outliner cleanup finished");
+    }
+
+    wrapBeginAndEnd(begin, end) {
+        const beginWrapper = ClavaJoinPoints.stmtLiteral("//begin of the outline region");
+        const endWrapper = ClavaJoinPoints.stmtLiteral("//end of the outline region");
+        begin.insertBefore(beginWrapper);
+        end.insertAfter(endWrapper);
+        return [beginWrapper, endWrapper];
+    }
+
+    findParentFunction(jp) {
+        while (jp.joinPointType != "function") {
+            if (jp.joinPointType == "file") {
+                return null;
+            }
+            jp = jp.parent;
+        }
+        return jp;
     }
 
     findGlobalVars() {
@@ -235,32 +263,35 @@ class FunctionOutliner {
         return declsWithDependency;
     }
 
-    splitRegions(scope, begin, end) {
+    splitRegions(fun, begin, end) {
         const prologue = []
         const region = [];
         const epilogue = [];
 
         var inPrologue = true;
         var inRegion = false;
-        for (const child of scope.children) {
+        for (const stmt of Query.searchFrom(fun, "statement")) {
             if (inPrologue) {
-                if (child.astId == begin.astId) {
-                    region.push(child);
+                if (stmt.astId == begin.astId) {
+                    region.push(stmt);
                     inPrologue = false;
                     inRegion = true;
                 }
                 else {
-                    prologue.push(child);
+                    prologue.push(stmt);
                 }
             }
             if (inRegion) {
-                region.push(child);
-                if (child.astId == end.astId) {
-                    inRegion = false;
+                // we only want statements at the scope level, we can get the children later
+                if (stmt.parent.astId == begin.parent.astId) {
+                    region.push(stmt);
+                    if (stmt.astId == end.astId) {
+                        inRegion = false;
+                    }
                 }
             }
             if (!inPrologue && !inRegion) {
-                epilogue.push(child);
+                epilogue.push(stmt);
             }
         }
         this.printMsg("Found " + region.length + " statements for the outline region");
@@ -273,10 +304,10 @@ class FunctionOutliner {
             this.printMsg("Requirement not met: begin and end joinpoints are not at the same scope level");
             return false;
         }
-        else if (begin.parent.parent.joinPointType != "function") {
-            this.printMsg("Requirement not met: begin and end joinpoints are not in the topmost scope of the function (solution is WIP)");
-            return false;
-        }
+        /*         else if (begin.parent.parent.joinPointType != "function") {
+                    this.printMsg("Requirement not met: begin and end joinpoints are not in the topmost scope of the function (solution is WIP)");
+                    return false;
+                } */
         else {
             this.printMsg("Requirement met: begin and end joinpoints are at the same scope level");
         }
