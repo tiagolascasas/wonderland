@@ -300,18 +300,16 @@ class FunctionOutliner {
     }
 
     checkIfOutlinable(begin, end) {
+        var outlinable = true;
+        if (this.findParentFunction(begin) == null) {
+            this.printMsg("Requirement not met: outlinable region must be inside a function");
+            outlinable = false;
+        }
         if (begin.parent.astId != end.parent.astId) {
             this.printMsg("Requirement not met: begin and end joinpoints are not at the same scope level");
-            return false;
+            outlinable = false;
         }
-        /*         else if (begin.parent.parent.joinPointType != "function") {
-                    this.printMsg("Requirement not met: begin and end joinpoints are not in the topmost scope of the function (solution is WIP)");
-                    return false;
-                } */
-        else {
-            this.printMsg("Requirement met: begin and end joinpoints are at the same scope level");
-        }
-        return true;
+        return outlinable;
     }
 
     printMsg(msg) {
