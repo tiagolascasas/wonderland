@@ -6,15 +6,12 @@ class AstDumper {
     constructor() { }
 
     dump() {
-        var start = null;
-        for (const jp of Query.search("function")) {
-            if (jp.name == "main")
-                start = jp.parent;
-        }
+        for (const startJp of Query.search("file")) {
+            println(startJp.joinPointType);
 
-        println(start.joinPointType);
-        for (const child of start.children) {
-            this.#dumpJoinPoint(child, 1);
+            for (const child of startJp.children) {
+                this.#dumpJoinPoint(child, 1);
+            }
         }
     }
 

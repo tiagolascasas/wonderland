@@ -1,0 +1,1 @@
+clava TestOutliner.js -pi -par -std c11 -cr -cl -cs -s -cfs -p input_knn/knn.cpp;input_knn/scenarios.h -b 0 -std c++17
