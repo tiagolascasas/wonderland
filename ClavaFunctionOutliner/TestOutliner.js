@@ -3,7 +3,7 @@
 laraImport("clava.ClavaJoinPoints");
 laraImport("weaver.WeaverJps");
 laraImport("weaver.Query");
-laraImport("FunctionOutliner");
+laraImport("Outliner");
 laraImport("AstDumper");
 
 function main() {
@@ -43,7 +43,7 @@ function processOutliningRegion(beginPragma, endPragma) {
     endPragma.detach();
 
     println("Beginning the outline process...");
-    const outliner = new FunctionOutliner();
+    const outliner = new Outliner();
     outliner.outline(begin, end);
     println("Outlining finished!");
 }
