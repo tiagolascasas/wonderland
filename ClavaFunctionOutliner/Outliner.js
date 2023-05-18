@@ -302,8 +302,7 @@ class Outliner {
             const name = ref.name;
             const varType = ref.type;
 
-            // not sure if adjustedType handling here is correct
-            if (varType.joinPointType == "arrayType" || varType.joinPointType == "adjustedType") {
+            if (["arrayType", "adjustedType", "pointerType"].includes(varType.joinPointType)) {
                 const param = ClavaJoinPoints.param(name, varType);
                 params.push(param);
             }
@@ -315,7 +314,6 @@ class Outliner {
             else {
                 println("Unsuported param type: " + varType.joinPointType);
             }
-            // and if varType is a pointer, do the same as the array?
         }
         this.#printMsg("Created " + params.length + " param(s) for the outlined function");
         return params;
