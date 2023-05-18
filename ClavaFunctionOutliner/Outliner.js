@@ -116,10 +116,7 @@ class Outliner {
     }
 
     #ensureVoidReturn(fun, call) {
-        const returnStmts = [];
-        for (const ret of Query.searchFrom(fun, "returnStmt")) {
-            returnStmts.push(ret);
-        }
+        const returnStmts = this.#findNonvoidReturnStmts([fun]);
 
         if (returnStmts.length == 0) {
             return false;
@@ -245,18 +242,13 @@ class Outliner {
     }
 
     #createFunction(name, region, params) {
-        var oldFun = region[0];
+        let oldFun = region[0];
         while (oldFun.joinPointType != "function") {
             oldFun = oldFun.parent;
         }
 
-        const returnStmts = [];
-        for (const stmt of region) {
-            for (const ret of Query.searchFrom(stmt, "returnStmt")) {
-                returnStmts.push(ret);
-            }
-        }
         let retType = ClavaType.asType("void");
+        const returnStmts = this.#findNonvoidReturnStmts(region);
         if (returnStmts.length > 0) {
             retType = returnStmts[0].children[0].type;
             this.#printMsg("Found " + returnStmts.length + " return statement(s) in the outline region");
@@ -275,6 +267,18 @@ class Outliner {
         // make sure scalar refs are now dereferenced pointers to params
         this.#scalarsToPointers(region, params);
         return fun;
+    }
+
+    #findNonvoidReturnStmts(startingPoints) {
+        const returnStmts = [];
+        for (const stmt of startingPoints) {
+            for (const ret of Query.searchFrom(stmt, "returnStmt")) {
+                if (ret.numChildren > 0) {
+                    returnStmts.push(ret);
+                }
+            }
+        }
+        return returnStmts;
     }
 
     #scalarsToPointers(region, params) {

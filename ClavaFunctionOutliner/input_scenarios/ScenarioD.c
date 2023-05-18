@@ -58,6 +58,11 @@ float foo(float A[100])
 void fizz(int *x, char *res)
 {
     *x = 12414;
+    if (*x > 0)
+    {
+        *res = 0;
+        return;
+    }
     *res = 1;
     return;
 }
