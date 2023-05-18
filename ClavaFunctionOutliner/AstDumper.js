@@ -18,10 +18,10 @@ class AstDumper {
     #dumpJoinPoint(jp, indent) {
         print(' '.repeat(indent) + jp.joinPointType);
         if (jp.joinPointType == "param") {
-            print(" " + jp.type);
+            print(" type: " + jp.type);
         }
-        if (jp.joinPointType == "unaryOp") {
-            print(" " + jp.kind);
+        if (jp.joinPointType == "unaryOp" || jp.joinPointType == "binaryOp") {
+            print(" kind: " + jp.kind);
         }
         println("");
 

@@ -1,0 +1,1 @@
+clava TestOutliner.js -pi -par -cr -cl -cs -s -cfs -p input_CHStone-aes-N -b 0 -std c99

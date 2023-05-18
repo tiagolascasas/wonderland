@@ -130,6 +130,7 @@ CLASS_TYPE kNN_Predict(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
 
     for (int i = 0; i < N_TRAINING; i++)
     {
+#pragma clava begin_outline
         double distance = 0.0F;
 
         for (int j = 0; j < N_FEATURES; j++)
@@ -138,6 +139,7 @@ CLASS_TYPE kNN_Predict(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
             double diff = feature - training_X[i][j];
             distance += diff * diff;
         }
+#pragma clava end_outline
 
         bestDistanceMax = kNN_UpdateBestCaching(distance, i, bestDistances, bestPointsIdx);
 

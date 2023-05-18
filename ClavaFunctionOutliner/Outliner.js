@@ -5,7 +5,8 @@ laraImport("clava.ClavaJoinPoints");
 laraImport("clava.ClavaType");
 
 class Outliner {
-    static GLOBAL_OUTLINE_ID = 1;
+    static #GLOBAL_OUTLINE_FUN_ID = 1;
+    static #GLOBAL_OUTLINE_VAR_ID = 1;
     #verbose;
 
     constructor() {
@@ -17,7 +18,7 @@ class Outliner {
     }
 
     outline(begin, end) {
-        return this.outlineWithName(begin, end, this.#generateName())
+        return this.outlineWithName(begin, end, this.#generateFunctionName())
     }
 
     outlineWithName(begin, end, functionName) {
@@ -74,12 +75,24 @@ class Outliner {
 
         //------------------------------------------------------------------------------
         const callArgs = this.#createArgs(fun, prologue, parentFun);
-        const call = this.#createCall(callPlaceholder, fun, callArgs);
+        let call = this.#createCall(callPlaceholder, fun, callArgs);
         this.#printMsg("Successfully created call to \"" + functionName + "\"");
 
         //------------------------------------------------------------------------------
-        this.#ensureVoidReturn(fun, call);
-        this.#printMsg("Ensured that the outlined function returns void");
+        // At this point, if the function has a premature return, it will be returning a value
+        // of that type instead of void. We change the function to return void now at this point,
+        // by doing a) adding a new parameter for the return value of the premature return; b) a new
+        // boolean parameter that is set to true if the function returns prematurely; c) we declare these
+        // two variables before the function call and d) if the boolean is set to 1 after the call, we
+        // return from the caller with the value returned by the callee.
+        const newCall = this.#ensureVoidReturn(fun, call);
+        if (newCall != null) {
+            this.#printMsg("Ensured that the outlined function returns void by parameterizing the early return(s)");
+            call = newCall;
+        }
+        else {
+            this.#printMsg("No need to ensure that the outlined function returns void, as it has no early returns");
+        }
 
         //------------------------------------------------------------------------------
         begin.detach();
@@ -103,7 +116,63 @@ class Outliner {
     }
 
     #ensureVoidReturn(fun, call) {
-        return;
+        const returnStmts = [];
+        for (const ret of Query.searchFrom(fun, "returnStmt")) {
+            returnStmts.push(ret);
+        }
+
+        if (returnStmts.length == 0) {
+            return false;
+        }
+
+        // actions before the function call
+        const type = returnStmts[0].children[0].type;
+        const id = Outliner.#getUniqueVarID();
+        const resVar = ClavaJoinPoints.varDeclNoInit("__return_val_" + id, type);
+        const boolVar = ClavaJoinPoints.varDecl("__return_flag_" + id, ClavaJoinPoints.integerLiteral(0));
+        const resVarRef = resVar.varref();
+        const boolVarRef = boolVar.varref();
+
+        call.insertBefore(resVar);
+        call.insertBefore(boolVar);
+
+        // actions in the function itself
+        const params = this.#createParams([resVarRef, boolVarRef]);
+        fun.addParam(params[0]);
+        fun.addParam(params[1]);
+
+        for (const ret of returnStmts) {
+            const resVarParam = fun.params[fun.params.length - 2];
+            const derefResVarParam = ClavaJoinPoints.unaryOp("*", resVarParam.varref());
+            const retVal = ret.children[0];
+            retVal.detach();
+            const op1 = ClavaJoinPoints.binaryOp("=", derefResVarParam, retVal, resVarParam.type);
+            ret.insertBefore(ClavaJoinPoints.exprStmt(op1));
+
+            const boolVarParam = fun.params[fun.params.length - 1];
+            const newVarref = ClavaJoinPoints.varRef(boolVarParam);
+            const derefBoolVarParam = ClavaJoinPoints.unaryOp("*", newVarref);
+            const trueVal = ClavaJoinPoints.integerLiteral(1);
+            const op2 = ClavaJoinPoints.binaryOp("=", derefBoolVarParam, trueVal, boolVarParam.type);
+            ret.insertBefore(op2);
+        }
+        fun.setType(ClavaType.asType("void"));
+
+
+        // actions on the function call
+        const resVarAddr = ClavaJoinPoints.unaryOp("&", resVarRef);
+        const boolVarAddr = ClavaJoinPoints.unaryOp("&", boolVarRef);
+        const allArgs = call.argList.concat([resVarAddr, boolVarAddr]);
+        call = this.#createCall(call, fun, allArgs);
+
+        // actions after the function call
+        const returnStmt = ClavaJoinPoints.returnStmt(resVarRef);
+        const scope = ClavaJoinPoints.scope();
+        scope.setFirstChild(returnStmt);
+        const ifStmt = ClavaJoinPoints.ifStmt(boolVarRef, scope);
+        call.insertAfter(ifStmt);
+
+        return call;
     }
 
     #wrapBeginAndEnd(begin, end) {
@@ -343,9 +412,21 @@ class Outliner {
             println("[Outliner] " + msg);
     }
 
-    #generateName() {
-        var name = "__outlined_function_" + Outliner.GLOBAL_OUTLINE_ID;
-        Outliner.GLOBAL_OUTLINE_ID++;
+    #generateFunctionName() {
+        var name = "__outlined_function_" + Outliner.#getUniqueFunctionID();
         return name;
     }
+
+    static #getUniqueVarID() {
+        const id = Outliner.#GLOBAL_OUTLINE_VAR_ID;
+        Outliner.#GLOBAL_OUTLINE_VAR_ID++;
+        return id;
+    }
+
+    static #getUniqueFunctionID() {
+        const id = Outliner.#GLOBAL_OUTLINE_FUN_ID;
+        Outliner.#GLOBAL_OUTLINE_FUN_ID++;
+        return id;
+    }
+
 }
