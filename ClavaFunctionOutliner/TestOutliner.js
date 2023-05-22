@@ -1,15 +1,12 @@
 "use strict";
 
-laraImport("clava.ClavaJoinPoints");
 laraImport("weaver.WeaverJps");
 laraImport("weaver.Query");
+laraImport("clava.ClavaJoinPoints");
 laraImport("Outliner");
-laraImport("AstDumper");
+
 
 function main() {
-    const dumper = new AstDumper();
-    dumper.dump();
-
     // We want the wrapper statement around the pragma, not the pragma itself
     // as the wrapper statements both share the same parent (i.e., are on the same scope)
     for (const pragma of Query.search("pragma", { "content": "begin_outline" })) {

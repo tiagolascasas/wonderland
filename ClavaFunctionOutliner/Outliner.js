@@ -3,24 +3,46 @@
 laraImport("weaver.Query");
 laraImport("clava.ClavaJoinPoints");
 laraImport("clava.ClavaType");
+laraImport("lara.util.IdGenerator");
 
 class Outliner {
-    static #GLOBAL_OUTLINE_FUN_ID = 1;
-    static #GLOBAL_OUTLINE_VAR_ID = 1;
     #verbose;
 
     constructor() {
         this.#verbose = true;
     }
 
+    /**
+     * Sets the verbosity of the outliner, with false being the equivalent of a silent mode (true is the default)
+     * @param {boolean} verbose - the verbosity of the outliner
+     */
     setVerbosity(verbose) {
         this.#verbose = verbose;
     }
 
+    /**
+     * Applies function outlining to a code region delimited by two statements.
+     * Function outlining is the process of removing a section of code from a function and placing it in a new function.
+     * The beginning and end of the code region must be at the same scope level.
+     * @param {statement} begin - the first statement of the outlining region 
+     * @param {statement} end - the last statement of the outlining region
+     * @returns an array with the joinpoints of the outlined function and the call to it. 
+     * These values are merely references, and all changes have already been committed to the AST at this point
+     */
     outline(begin, end) {
         return this.outlineWithName(begin, end, this.#generateFunctionName())
     }
 
+    /**
+     * Applies function outlining to a code region delimited by two statements.
+     * Function outlining is the process of removing a section of code from a function and placing it in a new function.
+     * The beginning and end of the code region must be at the same scope level.
+     * @param {statement} begin - the first statement of the outlining region 
+     * @param {statement} end - the last statement of the outlining region
+     * @param {string} functionName - the name to give to the outlined function
+     * @returns an array with the joinpoints of the outlined function and the call to it. 
+     * These values are merely references, and all changes have already been committed to the AST at this point
+     */
     outlineWithName(begin, end, functionName) {
         this.#printMsg("Attempting to outline a region into a function named \"" + functionName + "\"");
 
@@ -102,6 +124,13 @@ class Outliner {
         return [fun, call];
     }
 
+    /**
+     * Verifies if a code region can undergo function outlining. 
+     * This check is performed automatically by the outliner itself, but it can be invoked manually if desired.
+     * @param {statement} begin - the first statement of the outlining region 
+     * @param {statement} end - the last statement of the outlining region 
+     * @returns true if the outlining region is valid, false otherwise
+     */
     checkOutline(begin, end) {
         var outlinable = true;
         if (this.#findParentFunction(begin) == null) {
@@ -124,7 +153,7 @@ class Outliner {
 
         // actions before the function call
         const type = returnStmts[0].children[0].type;
-        const id = Outliner.#getUniqueVarID();
+        const id = IdGenerator.next();
         const resVar = ClavaJoinPoints.varDeclNoInit("__return_val_" + id, type);
         const boolVar = ClavaJoinPoints.varDecl("__return_flag_" + id, ClavaJoinPoints.integerLiteral(0));
         const resVarRef = resVar.varref();
@@ -181,8 +210,8 @@ class Outliner {
     }
 
     #findParentFunction(jp) {
-        while (jp.joinPointType != "function") {
-            if (jp.joinPointType == "file") {
+        while (!jp.instanceOf("function")) {
+            if (jp.instanceOf("file")) {
                 return null;
             }
             jp = jp.parent;
@@ -226,7 +255,7 @@ class Outliner {
                 if (decl.name === param.name) {
                     const ref = ClavaJoinPoints.varRef(decl);
 
-                    if (param.type.joinPointType === "pointerType" && ref.type.joinPointType === "builtinType") {
+                    if (param.type.instanceOf("pointerType") && ref.type.instanceOf("builtinType")) {
                         const addressOfScalar = ClavaJoinPoints.unaryOp("&", ref);
                         args.push(addressOfScalar);
                     }
@@ -243,7 +272,7 @@ class Outliner {
 
     #createFunction(name, region, params) {
         let oldFun = region[0];
-        while (oldFun.joinPointType != "function") {
+        while (!oldFun.instanceOf("function")) {
             oldFun = oldFun.parent;
         }
 
@@ -285,7 +314,7 @@ class Outliner {
         for (const stmt of region) {
             for (const varref of Query.searchFrom(stmt, "varref")) {
                 for (const param of params) {
-                    if (param.name === varref.name && varref.type.joinPointType === "builtinType") {
+                    if (param.name === varref.name && varref.type.instanceOf("builtinType")) {
                         const newVarref = ClavaJoinPoints.varRef(param);
                         const op = ClavaJoinPoints.unaryOp("*", newVarref);
                         varref.replaceWith(op);
@@ -302,11 +331,11 @@ class Outliner {
             const name = ref.name;
             const varType = ref.type;
 
-            if (["arrayType", "adjustedType", "pointerType"].includes(varType.joinPointType)) {
+            if (varType.instanceOf(["arrayType", "adjustedType", "pointerType"])) {
                 const param = ClavaJoinPoints.param(name, varType);
                 params.push(param);
             }
-            else if (varType.joinPointType == "builtinType") {
+            else if (varType.instanceOf("builtinType")) {
                 const newType = ClavaJoinPoints.pointer(varType);
                 const param = ClavaJoinPoints.param(name, newType);
                 params.push(param);
@@ -350,7 +379,7 @@ class Outliner {
         const regionDecls = [];
         const regionDeclsNames = [];
         for (const stmt of region) {
-            if (stmt.joinPointType == "declStmt") {
+            if (stmt.instanceOf("declStmt")) {
                 regionDecls.push(stmt);
                 regionDeclsNames.push(stmt.children[0].name);
             }
@@ -415,20 +444,7 @@ class Outliner {
     }
 
     #generateFunctionName() {
-        var name = "__outlined_function_" + Outliner.#getUniqueFunctionID();
+        var name = "__outlined_function_" + IdGenerator.next();
         return name;
     }
-
-    static #getUniqueVarID() {
-        const id = Outliner.#GLOBAL_OUTLINE_VAR_ID;
-        Outliner.#GLOBAL_OUTLINE_VAR_ID++;
-        return id;
-    }
-
-    static #getUniqueFunctionID() {
-        const id = Outliner.#GLOBAL_OUTLINE_FUN_ID;
-        Outliner.#GLOBAL_OUTLINE_FUN_ID++;
-        return id;
-    }
-
 }
