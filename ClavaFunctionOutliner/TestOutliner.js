@@ -3,7 +3,7 @@
 laraImport("weaver.WeaverJps");
 laraImport("weaver.Query");
 laraImport("clava.ClavaJoinPoints");
-laraImport("Outliner");
+laraImport("clava.code.Outliner");
 
 
 function main() {
