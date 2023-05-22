@@ -1,17 +1,7 @@
-laraImport("weaver.Query");
-laraImport("lara.Platforms");
-laraImport("CPUTaskEstimator");
+laraImport("lara.benchmark.CHStoneBenchmarkSet");
 
 function main() {
-	Platforms.setLinux()
-    const calls = [];
-
-    for (const call of Query.search("call")) {
-        calls.push(call);
-    }
-
-    const estim = new CPUTaskEstimator("results");
-    estim.fromTaskList(calls);
+	printlnObject(laraArgs);
 }
 
 main();

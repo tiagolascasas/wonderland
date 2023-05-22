@@ -1,0 +1,8 @@
+arc 23
+pact 23
+
+v0ce: despite convolve2d having worse performance, it goes to HW still because of the comms -> excellent example
+
+gpu kernel merging -> minimizing comm costs by migrating kernels together, possible contrib SOTA
+
+put as future work in report: different input sizes may lead to different partitionings (use ED generic as an example). how should we tackle this? explore estimates with different sizes?

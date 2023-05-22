@@ -1,0 +1,4 @@
+- data propagation (# tasks that use the data)
+- data origin (from a hotspot, how many tasks we need to add to include the origin of the data in the hotspot)
+- task level parallelism (find sets of tasks that can be executed in parallel)
+- data access type for each task (read, write, read/write, sequential or not, etc)

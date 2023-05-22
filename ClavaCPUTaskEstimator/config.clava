@@ -4,10 +4,7 @@
     <entry>
       <string>workspace</string>
       <FileList>
-        <fileList>
-          <file>..\..\..\Desktop\NewBenchmarkSuite-04eecda65ccce345f25a9246516315af4e7091ce\knn\knn.c</file>
-          <file>..\..\..\Desktop\NewBenchmarkSuite-04eecda65ccce345f25a9246516315af4e7091ce\knn\scenarios.h</file>
-        </fileList>
+        <fileList/>
       </FileList>
     </entry>
     <entry>
@@ -70,12 +67,14 @@
     </entry>
     <entry>
       <string>Weaved code foldername</string>
-      <string>woven_code</string>
+      <string>../woven_code</string>
     </entry>
     <entry>
       <string>external_dependencies</string>
       <StringList>
-        <stringList/>
+        <stringList>
+          <string>https://github.com/specs-feup/clava-benchmarks.git?folder=CHStone</string>
+        </stringList>
       </StringList>
     </entry>
     <entry>
@@ -122,7 +121,7 @@
     </entry>
     <entry>
       <string>autoimportjs</string>
-      <boolean>false</boolean>
+      <boolean>true</boolean>
     </entry>
     <entry>
       <string>Clean intermediate files</string>
@@ -134,7 +133,7 @@
     </entry>
     <entry>
       <string>argv</string>
-      <string></string>
+      <string>{&quot;foo&quot;:&quot;bar&quot;,&quot;fizz&quot;:&quot;buzz&quot;}</string>
     </entry>
     <entry>
       <string>tools</string>
@@ -174,7 +173,7 @@
     </entry>
     <entry>
       <string>Check C/CXX Syntax</string>
-      <boolean>true</boolean>
+      <boolean>false</boolean>
     </entry>
     <entry>
       <string>aspect</string>
