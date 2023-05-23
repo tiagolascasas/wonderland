@@ -196,7 +196,9 @@
     <entry>
       <string>include</string>
       <FileList>
-        <fileList/>
+        <fileList>
+          <file>..\ClavaFunctionOutliner\src</file>
+        </fileList>
       </FileList>
     </entry>
     <entry>
