@@ -10,17 +10,18 @@ class Voidifier {
         if (returnStmts.length == 0) {
             return false;
         }
+        const retVarType = fun.returnType;
 
-        this.#voidifyFunction(fun, returnStmts, returnVarName);
+        this.#voidifyFunction(fun, returnStmts, returnVarName, retVarType);
 
         for (const call of Query.search("call", { "signature": fun.signature })) {
-            this.#handleCall(call, fun);
+            this.#handleCall(call, fun, retVarType);
         }
         return true;
     }
 
 
-    #handleCall(call, fun) {
+    #handleCall(call, fun, retVarType) {
         const parent = call.parent;
         let newVarref = null;
         let replaceParent = true;
@@ -30,8 +31,7 @@ class Voidifier {
         }
         else if (parent.instanceOf("exprStmt")) {
             const tempId = IdGenerator.next("__tmp");
-            const tempType = fun.params[fun.params.length - 1].type;
-            const tempVar = ClavaJoinPoints.varDeclNoInit(tempId, tempType);
+            const tempVar = ClavaJoinPoints.varDeclNoInit(tempId, retVarType);
             call.insertBefore(tempVar);
             newVarref = ClavaJoinPoints.varRef(tempVar);
         }
@@ -51,9 +51,8 @@ class Voidifier {
         }
     }
 
-    #voidifyFunction(fun, returnStmts, returnVarName) {
-        const retType = returnStmts[0].children[0].type;
-        const pointerType = ClavaJoinPoints.pointer(retType);
+    #voidifyFunction(fun, returnStmts, returnVarName, retVarType) {
+        const pointerType = ClavaJoinPoints.pointer(retVarType);
         const retParam = ClavaJoinPoints.param(returnVarName, pointerType);
         fun.addParam(retParam);
 
@@ -61,7 +60,7 @@ class Voidifier {
             const derefRet = ClavaJoinPoints.unaryOp("*", retParam.varref());
             const retVal = ret.children[0];
             retVal.detach();
-            const op = ClavaJoinPoints.binaryOp("=", derefRet, retVal, retType);
+            const op = ClavaJoinPoints.binaryOp("=", derefRet, retVal, retVarType);
             ret.insertBefore(ClavaJoinPoints.exprStmt(op));
 
         }
