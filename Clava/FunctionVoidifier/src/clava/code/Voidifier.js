@@ -1,10 +1,12 @@
 "use strict";
 
+laraImport("lara.util.IdGenerator");
+
 class Voidifier {
     constructor() { }
 
     voidify(fun, returnVarName = "rtr_value") {
-        const returnStmts = this.#findNonvoidReturnStmts([fun]);
+        const returnStmts = this.#findNonvoidReturnStmts(fun);
         if (returnStmts.length == 0) {
             return false;
         }
@@ -19,19 +21,34 @@ class Voidifier {
 
 
     #handleCall(call, fun) {
-        const assign = call.parent;
-        if (!assign.instanceOf("binaryOp")) {
-            // in theory it should never happen if the statement decomposer is run before
-            throw new Error("[Voidifier] Cannot handle call to function " + fun.name + " because it is not the rhs of an assignment");
+        const parent = call.parent;
+        let newVarref = null;
+        let replaceParent = true;
+
+        if (parent.instanceOf("binaryOp")) {
+            newVarref = ClavaJoinPoints.varRef(parent.left.declaration);
+        }
+        else if (parent.instanceOf("exprStmt")) {
+            const tempId = IdGenerator.next("__tmp");
+            const tempType = fun.params[fun.params.length - 1].type;
+            const tempVar = ClavaJoinPoints.varDeclNoInit(tempId, tempType);
+            call.insertBefore(tempVar);
+            newVarref = ClavaJoinPoints.varRef(tempVar);
+        }
+        else {
+            throw new Error("[Voidifier] Unexpected parent of call: " + parent.joinPointType);
         }
 
-        const newVarref = ClavaJoinPoints.varRef(assign.left.declaration);
         const op = ClavaJoinPoints.unaryOp("&", newVarref);
-
         const args = [...call.argList, op];
         const newCall = ClavaJoinPoints.call(fun, args);
-        assign.replaceWith(newCall);
 
+        if (replaceParent) {
+            parent.replaceWith(newCall);
+        }
+        else {
+            call.replaceWith(newCall);
+        }
     }
 
     #voidifyFunction(fun, returnStmts, returnVarName) {
@@ -51,13 +68,11 @@ class Voidifier {
         fun.setType(ClavaType.asType("void"));
     }
 
-    #findNonvoidReturnStmts(startingPoints) {
+    #findNonvoidReturnStmts(fun) {
         const returnStmts = [];
-        for (const stmt of startingPoints) {
-            for (const ret of Query.searchFrom(stmt, "returnStmt")) {
-                if (ret.numChildren > 0) {
-                    returnStmts.push(ret);
-                }
+        for (const ret of Query.searchFrom(fun, "returnStmt")) {
+            if (ret.numChildren > 0) {
+                returnStmts.push(ret);
             }
         }
         return returnStmts;
