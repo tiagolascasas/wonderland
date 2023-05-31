@@ -23,7 +23,7 @@ class Voidifier {
         const assign = call.parent;
         if (!assign.instanceOf("binaryOp")) {
             // in theory it should never happen if the statement decomposer is run before
-            println("Function call must be an assignment!");
+            throw new Error("[Voidifier] Cannot handle call to function " + fun.name + " because it is not the rhs of an assignment");
         }
 
         const newVarref = ClavaJoinPoints.varRef(assign.left.declaration);
