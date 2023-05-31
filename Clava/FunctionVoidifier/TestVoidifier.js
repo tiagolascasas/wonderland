@@ -19,7 +19,9 @@ function main() {
 
     const vf = new Voidifier();
     for (const fun of Query.search("function", { "isImplementation": true })) {
-        vf.voidify(fun);
+        if (fun.name != "main") {
+            vf.voidify(fun, "return_value");
+        }
     }
 
 }

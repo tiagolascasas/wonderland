@@ -1,23 +1,22 @@
 "use strict";
 
 class Voidifier {
-    constructor() {
+    constructor() { }
 
-    }
-
-    voidify(fun) {
+    voidify(fun, returnVarName = "rtr_value") {
         const returnStmts = this.#findNonvoidReturnStmts([fun]);
         if (returnStmts.length == 0) {
             return false;
         }
 
-        this.#voidifyFunction(fun, returnStmts);
+        this.#voidifyFunction(fun, returnStmts, returnVarName);
 
         for (const call of Query.search("call", { "signature": fun.signature })) {
             this.#handleCall(call, fun);
         }
         return true;
     }
+
 
     #handleCall(call, fun) {
         const assign = call.parent;
@@ -35,11 +34,10 @@ class Voidifier {
 
     }
 
-    #voidifyFunction(fun, returnStmts) {
+    #voidifyFunction(fun, returnStmts, returnVarName) {
         const retType = returnStmts[0].children[0].type;
-        const retId = "rtr_value";
         const pointerType = ClavaJoinPoints.pointer(retType);
-        const retParam = ClavaJoinPoints.param(retId, pointerType);
+        const retParam = ClavaJoinPoints.param(returnVarName, pointerType);
         fun.addParam(retParam);
 
         for (const ret of returnStmts) {
