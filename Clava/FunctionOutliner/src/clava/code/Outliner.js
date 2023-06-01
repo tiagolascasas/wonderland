@@ -268,7 +268,7 @@ class Outliner {
                 if (decl.name === param.name) {
                     const ref = ClavaJoinPoints.varRef(decl);
 
-                    if (param.type.instanceOf("pointerType") && ref.type.instanceOf("builtinType")) {
+                    if (param.type.instanceOf("pointerType") && ref.type.instanceOf(["builtinType", "typedefType"])) {
                         const addressOfScalar = ClavaJoinPoints.unaryOp("&", ref);
                         args.push(addressOfScalar);
                     }
@@ -327,7 +327,7 @@ class Outliner {
         for (const stmt of region) {
             for (const varref of Query.searchFrom(stmt, "varref")) {
                 for (const param of params) {
-                    if (param.name === varref.name && varref.type.instanceOf("builtinType")) {
+                    if (param.name === varref.name && varref.type.instanceOf(["builtinType", "typedefType"])) {
                         const newVarref = ClavaJoinPoints.varRef(param);
                         const op = ClavaJoinPoints.unaryOp("*", newVarref);
                         varref.replaceWith(op);
@@ -348,13 +348,14 @@ class Outliner {
                 const param = ClavaJoinPoints.param(name, varType);
                 params.push(param);
             }
-            else if (varType.instanceOf("builtinType")) {
+            // unsure if typedefType is always a scalar
+            else if (varType.instanceOf(["builtinType", "typedefType"])) {
                 const newType = ClavaJoinPoints.pointer(varType);
                 const param = ClavaJoinPoints.param(name, newType);
                 params.push(param);
             }
             else {
-                println("Unsuported param type: " + varType.joinPointType);
+                this.#printMsg("Unsuported param type: " + varType.joinPointType, true);
             }
         }
         this.#printMsg("Created " + params.length + " param(s) for the outlined function");
@@ -451,8 +452,8 @@ class Outliner {
         return [prologue, region, epilogue];
     }
 
-    #printMsg(msg) {
-        if (this.#verbose)
+    #printMsg(msg, overrideVerbosity = false) {
+        if (this.#verbose || overrideVerbosity)
             println("[Outliner] " + msg);
     }
 
