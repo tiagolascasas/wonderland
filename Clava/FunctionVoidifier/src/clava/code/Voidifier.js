@@ -39,11 +39,11 @@ class Voidifier {
                 //newArg.detach();
             }
             else {
-                throw new Error("[Voidifier] Unexpected lhs of call: " + parent.left.joinPointType);
+                throw new Error("[Voidifier] Unexpected lhs of call: " + parent.left.joinPointType + "\nOn source code line: " + parent.parent.code);
             }
         }
         else if (parent.instanceOf("exprStmt")) {
-            const tempId = IdGenerator.next("__tmp");
+            const tempId = IdGenerator.next("__dummmy");
             const tempVar = ClavaJoinPoints.varDeclNoInit(tempId, retVarType);
             call.insertBefore(tempVar);
             const newRef = ClavaJoinPoints.varRef(tempVar);
