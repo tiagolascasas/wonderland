@@ -32,7 +32,8 @@ class Voidifier {
                 newArg = ClavaJoinPoints.unaryOp("&", newRef);
             }
             else if (parent.left.instanceOf("arrayAccess")) {
-                newArg = parent.left;
+                //newArg = parent.left;
+                newArg = ClavaJoinPoints.unaryOp("&", parent.left);
                 replaceParent = true;
                 //parent.removeChildren();
                 //newArg.detach();
