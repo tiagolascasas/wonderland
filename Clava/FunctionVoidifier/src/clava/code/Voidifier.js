@@ -23,24 +23,36 @@ class Voidifier {
 
     #handleCall(call, fun, retVarType) {
         const parent = call.parent;
-        let newVarref = null;
+        let newArg = null;
         let replaceParent = true;
 
         if (parent.instanceOf("binaryOp")) {
-            newVarref = ClavaJoinPoints.varRef(parent.left.declaration);
+            if (parent.left.instanceOf("varref")) {
+                const newRef = ClavaJoinPoints.varRef(parent.left.declaration);
+                newArg = ClavaJoinPoints.unaryOp("&", newRef);
+            }
+            else if (parent.left.instanceOf("arrayAccess")) {
+                newArg = parent.left;
+                replaceParent = true;
+                //parent.removeChildren();
+                //newArg.detach();
+            }
+            else {
+                throw new Error("[Voidifier] Unexpected lhs of call: " + parent.left.joinPointType);
+            }
         }
         else if (parent.instanceOf("exprStmt")) {
             const tempId = IdGenerator.next("__tmp");
             const tempVar = ClavaJoinPoints.varDeclNoInit(tempId, retVarType);
             call.insertBefore(tempVar);
-            newVarref = ClavaJoinPoints.varRef(tempVar);
+            const newRef = ClavaJoinPoints.varRef(tempVar);
+            newArg = ClavaJoinPoints.unaryOp("&", newRef);
         }
         else {
             throw new Error("[Voidifier] Unexpected parent of call: " + parent.joinPointType);
         }
 
-        const op = ClavaJoinPoints.unaryOp("&", newVarref);
-        const args = [...call.argList, op];
+        const args = [...call.argList, newArg];
         const newCall = ClavaJoinPoints.call(fun, args);
 
         if (replaceParent) {
