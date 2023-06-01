@@ -143,7 +143,8 @@ class Outliner {
      */
     checkOutline(begin, end) {
         var outlinable = true;
-        if (this.#findParentFunction(begin) == null) {
+        const parentFun = this.#findParentFunction(begin);
+        if (parentFun == null) {
             this.#printMsg("Requirement not met: outlinable region must be inside a function");
             outlinable = false;
         }
@@ -151,7 +152,32 @@ class Outliner {
             this.#printMsg("Requirement not met: begin and end joinpoints are not at the same scope level");
             outlinable = false;
         }
+        if (!outlinable) {
+            return false;
+        }
+        // now that we have a baseline valid region, let's check for specific requirements within the region
+        const region = this.#splitRegions(parentFun, begin, end)[1];
+
+        if (this.#checkOutOfRegionGotos(region)) {
+            this.#printMsg("Requirement not met: outlinable region must not contain any goto statements that jump outside of the region");
+            outlinable = false;
+        }
         return outlinable;
+    }
+
+    #checkOutOfRegionGotos(region) {
+        const gotoLabels = [];
+        const labels = [];
+
+        for (const stmt of region) {
+            for (const goto of Query.searchFrom(stmt, "gotoStmt")) {
+                gotoLabels.push(goto.label.code);
+            }
+            for (const label of Query.searchFrom(stmt, "labelStmt")) {
+                labels.push(label.code);
+            }
+        }
+        return !gotoLabels.every(label => labels.includes(label));
     }
 
     #ensureVoidReturn(fun, call) {
