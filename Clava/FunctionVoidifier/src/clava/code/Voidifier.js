@@ -1,5 +1,6 @@
 "use strict";
 
+laraImport("clava.Clava");
 laraImport("lara.util.IdGenerator");
 
 class Voidifier {
@@ -20,47 +21,92 @@ class Voidifier {
         return true;
     }
 
-
-    #handleCall(call, fun, retVarType) {
+    #handleAssignmentCall(call, fun) {
         const parent = call.parent;
         let newArg = null;
-        let replaceParent = true;
 
-        if (parent.instanceOf("binaryOp")) {
-            if (parent.left.instanceOf("varref")) {
-                const newRef = ClavaJoinPoints.varRef(parent.left.declaration);
-                newArg = ClavaJoinPoints.unaryOp("&", newRef);
-            }
-            else if (parent.left.instanceOf("arrayAccess")) {
-                //newArg = parent.left;
-                newArg = ClavaJoinPoints.unaryOp("&", parent.left);
-                replaceParent = true;
-                //parent.removeChildren();
-                //newArg.detach();
-            }
-            else {
-                throw new Error("[Voidifier] Unexpected lhs of call: " + parent.left.joinPointType + "\nOn source code line: " + parent.parent.code);
-            }
-        }
-        else if (parent.instanceOf("exprStmt")) {
-            const tempId = IdGenerator.next("__dummmy");
-            const tempVar = ClavaJoinPoints.varDeclNoInit(tempId, retVarType);
-            call.insertBefore(tempVar);
-            const newRef = ClavaJoinPoints.varRef(tempVar);
+        if (parent.left.instanceOf("varref")) {
+            const newRef = ClavaJoinPoints.varRef(parent.left.declaration);
             newArg = ClavaJoinPoints.unaryOp("&", newRef);
         }
-        else {
-            throw new Error("[Voidifier] Unexpected parent of call: " + parent.joinPointType);
+        else if (parent.left.instanceOf("arrayAccess")) {
+            newArg = ClavaJoinPoints.unaryOp("&", parent.left);
+            replaceParent = true;
         }
+        else if (parent.left.instanceOf("unaryOp") && parent.left.kind == "deref") {
+            newArg = parent.left.children[0];
+            replaceParent = true;
+        }
+        else {
+            throw new Error("[Voidifier] Unexpected lhs of call: " + parent.left.joinPointType + "\nOn source code line: " + parent.parent.code);
+        }
+        const args = [...call.argList, newArg];
+        const newCall = ClavaJoinPoints.call(fun, args);
+        parent.replaceWith(newCall);
+    }
+
+    #handleIsolatedCall(call, fun, retVarType) {
+        const tempId = IdGenerator.next("__dummmy");
+        const tempVar = ClavaJoinPoints.varDeclNoInit(tempId, retVarType);
+        call.insertBefore(tempVar);
+        const newRef = ClavaJoinPoints.varRef(tempVar);
+        const newArg = ClavaJoinPoints.unaryOp("&", newRef);
 
         const args = [...call.argList, newArg];
         const newCall = ClavaJoinPoints.call(fun, args);
+        call.replaceWith(newCall);
+    }
 
-        if (replaceParent) {
-            parent.replaceWith(newCall);
+    #handleGenericCall(call, fun, retVarType) {
+        const masterStmt = this.#findParentStmt(call);
+        println(masterStmt.code);
+        println(masterStmt.joinPointType);
+        // create new temp variable
+        const tempId = IdGenerator.next("__temp");
+        const tempVar = ClavaJoinPoints.varDeclNoInit(tempId, retVarType);
+        masterStmt.insertBefore(tempVar);
+
+        // build argument with temp variable
+        const newRef = ClavaJoinPoints.varRef(tempVar);
+        const newArg = ClavaJoinPoints.unaryOp("&", newRef);
+
+        // create new function call, and add it before the original stmt
+        const args = [...call.argList, newArg];
+        const newCall = ClavaJoinPoints.call(fun, args);
+        //masterStmt.insertBefore(ClavaJoinPoints.exprStmt(newCall));
+        masterStmt.insertBefore(newCall);
+
+        // change call in original stmt to use temp variable
+        call.replaceWith(ClavaJoinPoints.varRef(tempVar));
+        println("Done\n------------------");
+    }
+
+    #findParentStmt(call) {
+        let parent = call.parent;
+        while (!parent.instanceOf("statement")) {
+            parent = parent.parent;
         }
+        if (parent.parent.instanceOf(["loop", "if"])) { // maybe even switch
+            parent = parent.parent;
+        }
+        return parent;
+    }
+
+    #handleCall(call, fun, retVarType) {
+        const parent = call.parent;
+
+        // call is in an assignment
+        if (parent.instanceOf("binaryOp") && parent.kind == "assign") {
+            this.#handleAssignmentCall(call, fun);
+        }
+        // call is isolated (i.e., the return value is ignored. We still need to pass a valid variable to save it, though)
+        else if (parent.instanceOf("exprStmt")) {
+            this.#handleIsolatedCall(call, fun, retVarType);
+        }
+        // call is in the middle of some expression
         else {
-            call.replaceWith(newCall);
+            //throw new Error("[Voidifier] Unexpected parent of call: " + parent.joinPointType + "\nOn source code line: " + parent.code);
+            this.#handleGenericCall(call, fun, retVarType);
         }
     }
 
