@@ -20,6 +20,9 @@ class AstDumper {
         if (jp.joinPointType == "param") {
             print(" type: " + jp.type);
         }
+        if (jp.joinPointType == "memberAccess") {
+            print(" kind: " + jp.keys);
+        }
         if (jp.joinPointType == "unaryOp" || jp.joinPointType == "binaryOp") {
             print(" kind: " + jp.kind);
         }

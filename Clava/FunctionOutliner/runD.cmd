@@ -1,1 +1,0 @@
-clava TestOutliner.js -pi -par -std c11 -cr -cl -cs -s -cfs -p input_scenarios/ScenarioD.c -b 0

@@ -294,7 +294,7 @@ class Outliner {
                 if (decl.name === param.name) {
                     const ref = ClavaJoinPoints.varRef(decl);
 
-                    if (param.type.instanceOf("pointerType") && ref.type.instanceOf(["builtinType", "typedefType"])) {
+                    if (param.type.instanceOf("pointerType") && ref.type.instanceOf(["builtinType", "typedefType", "elaboratedType"])) {
                         const addressOfScalar = ClavaJoinPoints.unaryOp("&", ref);
                         args.push(addressOfScalar);
                     }
@@ -353,10 +353,24 @@ class Outliner {
         for (const stmt of region) {
             for (const varref of Query.searchFrom(stmt, "varref")) {
                 for (const param of params) {
-                    if (param.name === varref.name && varref.type.instanceOf(["builtinType", "typedefType"])) {
-                        const newVarref = ClavaJoinPoints.varRef(param);
-                        const op = ClavaJoinPoints.unaryOp("*", newVarref);
-                        varref.replaceWith(op);
+                    if (param.name === varref.name) {
+                        if (varref.type.instanceOf(["elaboratedType"])) {
+                            const newVarref = ClavaJoinPoints.varRef(param);
+                            varref.replaceWith(newVarref);
+                        }
+                        if (varref.type.instanceOf(["builtinType", "typedefType"])) {
+                            const newVarref = ClavaJoinPoints.varRef(param);
+
+                            if (varref.parent != undefined && varref.parent.instanceOf("memberAccess")) {
+                                varref.parent.setValue("isArrow", true);
+                                varref.replaceWith(newVarref);
+                            }
+                            else {
+                                const op = ClavaJoinPoints.unaryOp("*", newVarref);
+                                varref.replaceWith(op);
+                            }
+
+                        }
                     }
                 }
             }
@@ -375,7 +389,7 @@ class Outliner {
                 params.push(param);
             }
             // unsure if typedefType is always a scalar
-            else if (varType.instanceOf(["builtinType", "typedefType"])) {
+            else if (varType.instanceOf(["builtinType", "typedefType", "elaboratedType"])) {
                 const newType = ClavaJoinPoints.pointer(varType);
                 const param = ClavaJoinPoints.param(name, newType);
                 params.push(param);
