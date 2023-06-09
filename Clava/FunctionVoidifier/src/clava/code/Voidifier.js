@@ -31,11 +31,9 @@ class Voidifier {
         }
         else if (parent.left.instanceOf("arrayAccess")) {
             newArg = ClavaJoinPoints.unaryOp("&", parent.left);
-            replaceParent = true;
         }
         else if (parent.left.instanceOf("unaryOp") && parent.left.kind == "deref") {
             newArg = parent.left.children[0];
-            replaceParent = true;
         }
         else {
             throw new Error("[Voidifier] Unexpected lhs of call: " + parent.left.joinPointType + "\nOn source code line: " + parent.parent.code);
