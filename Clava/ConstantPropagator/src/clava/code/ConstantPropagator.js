@@ -8,7 +8,7 @@ class ConstantPropagator {
 
     constructor() { }
 
-    propagateConstants(func) {
+    propagate(func) {
 
     }
 }
