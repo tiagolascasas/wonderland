@@ -15,7 +15,7 @@ function reduceToSubset() {
 }
 
 function main() {
-    reduceToSubset();
+    //reduceToSubset();
 
     const vf = new Voidifier();
     for (const fun of Query.search("function", { "isImplementation": true })) {

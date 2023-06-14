@@ -38,7 +38,9 @@ class Voidifier {
         else {
             throw new Error("[Voidifier] Unexpected lhs of call: " + parent.left.joinPointType + "\nOn source code line: " + parent.parent.code);
         }
-        const args = [...call.argList, newArg];
+        const newCastedArg = this.#applyCasting(newArg, fun);
+
+        const args = [...call.argList, newCastedArg];
         const newCall = ClavaJoinPoints.call(fun, args);
         parent.replaceWith(newCall);
     }
@@ -71,12 +73,24 @@ class Voidifier {
         // create new function call, and add it before the original stmt
         const args = [...call.argList, newArg];
         const newCall = ClavaJoinPoints.call(fun, args);
-        //masterStmt.insertBefore(ClavaJoinPoints.exprStmt(newCall));
         masterStmt.insertBefore(newCall);
 
         // change call in original stmt to use temp variable
         call.replaceWith(ClavaJoinPoints.varRef(tempVar));
-        println("Done\n------------------");
+    }
+
+    #applyCasting(arg, fun) {
+        const lastParam = fun.params[fun.params.length - 1];
+        const lastParamType = lastParam.type;
+        const argType = arg.type;
+
+        if (lastParamType.code != argType.code) {
+            const castedArg = ClavaJoinPoints.cStyleCast(lastParamType, arg);
+            return castedArg;
+        }
+        else {
+            return arg;
+        }
     }
 
     #findParentStmt(call) {
@@ -103,7 +117,6 @@ class Voidifier {
         }
         // call is in the middle of some expression
         else {
-            //throw new Error("[Voidifier] Unexpected parent of call: " + parent.joinPointType + "\nOn source code line: " + parent.code);
             this.#handleGenericCall(call, fun, retVarType);
         }
     }
