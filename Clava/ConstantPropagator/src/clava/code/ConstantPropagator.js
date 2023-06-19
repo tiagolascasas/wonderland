@@ -27,9 +27,13 @@ class ConstantPropagator {
     }
 
     #propagateInFunction(fun) {
-        const allDecls = Query.searchFrom(fun, "vardecl").chain();
-        const allParams = Query.searchFrom(fun, "param").chain();
-        const allDefs = [...allDecls, ...allParams];
+        const allDefs = [];
+        for (const decl of Query.searchFrom(fun, "vardecl")) {
+            allDefs.push(decl);
+        }
+        for (const param of Query.searchFrom(fun, "param")) {
+            allDefs.push(param);
+        }
 
         for (const def of allDefs) {
             const refChain = this.#findRefChain(def, fun);
@@ -38,7 +42,13 @@ class ConstantPropagator {
     }
 
     #findRefChain(def, fun) {
-        return [];
+        const name = def.name;
+        const refChain = [];
+
+        for (const ref of Query.searchFrom(fun, "varref", {name: name})) {
+            refChain.push(ref);
+        }
+        return refChain;
     }
 
     #propagateChain(refChain) {
