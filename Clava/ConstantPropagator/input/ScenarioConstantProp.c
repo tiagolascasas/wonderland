@@ -8,6 +8,12 @@ int intAndInt(int a, int b) {
     b = e + e;
     a = b + 3;
     int f = a + a;
+    if (c == 2) {
+        int x = a + b;
+        a = 44;
+        int y = a + b;
+        f = x + y;
+    }
     return f;
 }
 
@@ -60,7 +66,7 @@ void kinds() {
 
 int main() {
     int resInt = intAndInt(5, 6);
-    printf("resInt: %d\n", resInt); // 26
+    printf("resInt: %d\n", resInt); // 77
 
     float resFloat = intAndFloat(5, 6.7);
     printf("resFloat: %f\n", resFloat); // 10.800000

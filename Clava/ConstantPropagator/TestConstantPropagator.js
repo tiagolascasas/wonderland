@@ -1,14 +1,11 @@
 "use strict";
 
-laraImport("clava.code.ConstantPropagator");
+laraImport("clava.code.FoldingPropagationCombiner");
 laraImport("weaver.Query");
 
 function main() {
-    const constProp = new ConstantPropagator();
-
-    for (const fun of Query.search("function")) {
-        constProp.propagate(fun);
-    }
+    const constPropComb = new FoldingPropagationCombiner();
+    constPropComb.doPassesUntilStop();
 }
 
 main();
