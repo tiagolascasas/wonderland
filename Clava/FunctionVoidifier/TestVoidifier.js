@@ -6,8 +6,6 @@ laraImport("clava.opt.NormalizeToSubset");
 laraImport("weaver.Query");
 
 function reduceToSubset() {
-    //NormalizeToSubset(Query.root(), { simplifyLoops: { forToWhile: false } });
-
     for (const fun of Query.search("function", { "isImplementation": true })) {
         const body = fun.body;
         NormalizeToSubset(body, { simplifyLoops: { forToWhile: false } });
