@@ -62,14 +62,13 @@ float buzz(int *A, double *B, char C[])
     return 0.6;
 }
 
-unsigned int custom_sqrt(unsigned int n)
+int hasDefaultStuff(int a, int b, int c = 2354, int d = 124154)
 {
-    int i = 0;
-    while (i * i < n)
-    {
-        i++;
-    }
-    return i;
+    a = a + b;
+    b = a + c + d;
+    c += a;
+    int res = a + b + c;
+    return res;
 }
 
 int main()
@@ -80,6 +79,8 @@ int main()
     int Y = X + foo(A, B, 52) + A;
     int num = 14;
 
+    int someRes = hasDefaultStuff(A, B);
+
     bar(A, B, &X);
 
     int A1[100];
@@ -87,9 +88,6 @@ int main()
     A = fizz(A1, B1);
     B = A + fizz(A1, B1) + A1[0];
     A1[2] = fizz(A1, B1);
-
-    num = custom_sqrt(num);
-    A1[0] = custom_sqrt(A1[0]);
 
     char C[100];
     double U = 14515.5;

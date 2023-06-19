@@ -6,7 +6,12 @@ laraImport("clava.opt.NormalizeToSubset");
 laraImport("weaver.Query");
 
 function reduceToSubset() {
-    NormalizeToSubset(Query.root(), { simplifyLoops: { forToWhile: false } });
+    //NormalizeToSubset(Query.root(), { simplifyLoops: { forToWhile: false } });
+
+    for (const fun of Query.search("function", { "isImplementation": true })) {
+        const body = fun.body;
+        NormalizeToSubset(body, { simplifyLoops: { forToWhile: false } });
+    }
 
     const decomp = new StatementDecomposer();
     for (var stmt of Query.search("statement", { isInsideHeader: false })) {
@@ -15,7 +20,7 @@ function reduceToSubset() {
 }
 
 function main() {
-    //reduceToSubset();
+    reduceToSubset();
 
     const vf = new Voidifier();
     for (const fun of Query.search("function", { "isImplementation": true })) {
@@ -23,7 +28,6 @@ function main() {
             vf.voidify(fun, "return_value");
         }
     }
-
 }
 
 main();
