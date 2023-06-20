@@ -20,7 +20,6 @@ class ConstantFolder {
     }
 
     doPass() {
-        println("Folding");
         let hasChanged = false;
 
         for (const op of Query.search("binaryOp")) {
@@ -82,48 +81,48 @@ class ConstantFolder {
             case "sub":
                 res = n1 - n2;
                 break;
-            case "shl": 
+            case "shl":
                 res = n1 << n2;
-                break; 
+                break;
             case "shr":
-                res = n1 >> n2; 
-                break; 
-            case "cmp": 
+                res = n1 >> n2;
+                break;
+            case "cmp":
                 // no idea
-                break; 
-            case "lt": 
+                break;
+            case "lt":
                 res = n1 < n2;
                 res = Number(res);
-                break; 
-            case "gt": 
+                break;
+            case "gt":
                 res = n1 > n2;
                 res = Number(res);
-                break; 
-            case "le": 
+                break;
+            case "le":
                 res = n1 <= n2;
                 res = Number(res);
-                break; 
+                break;
             case "ge":
-                res = n1 >= n2; 
+                res = n1 >= n2;
                 res = Number(res);
-                break; 
-            case "eq": 
+                break;
+            case "eq":
                 res = n1 == n2;
                 res = Number(res);
-                break; 
-            case "ne": 
+                break;
+            case "ne":
                 res = n1 != n2;
                 res = Number(res);
-                break; 
-            case "and": 
+                break;
+            case "and":
                 res = n1 & n2;
-                break; 
-            case "xor": 
+                break;
+            case "xor":
                 res = n1 ^ n2;
-                break; 
-            case "or": 
+                break;
+            case "or":
                 res = n1 | n2;
-                break; 
+                break;
             case "l_and":
                 res = n1 && n2;
                 res = Number(res);

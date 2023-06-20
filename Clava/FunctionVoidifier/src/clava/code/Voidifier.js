@@ -41,14 +41,22 @@ class Voidifier {
         // the pointer may need to be casted if there are signed/unsigned mismatches
         const newCastedArg = this.#applyCasting(newArg, fun);
 
-        const newCall = this.#buildCall(fun, call, newArg);
+        const newCall = this.#buildCall(fun, call, newCastedArg);
         parent.replaceWith(newCall);
     }
 
     #handleIsolatedCall(call, fun, retVarType) {
-        const tempId = IdGenerator.next("__dummmy");
+        const tempId = IdGenerator.next("__dummy");
         const tempVar = ClavaJoinPoints.varDeclNoInit(tempId, retVarType);
-        call.insertBefore(tempVar);
+
+        // for things like "while(foo(&__dummy))"
+        if (call.parent.parent.instanceOf("loop")) {
+            call.parent.parent.insertBefore(tempVar);
+        }
+        else {
+            call.insertBefore(tempVar);
+        }
+
         const newRef = ClavaJoinPoints.varRef(tempVar);
         const newArg = ClavaJoinPoints.unaryOp("&", newRef);
 

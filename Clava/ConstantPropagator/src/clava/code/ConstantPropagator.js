@@ -17,8 +17,6 @@ class ConstantPropagator {
     }
 
     doPass() {
-        println("Propagating");
-
         for (const fun of Query.search("function")) {
             this.#propagateInFunction(fun);
         }
@@ -45,13 +43,13 @@ class ConstantPropagator {
         const name = def.name;
         const refChain = [];
 
-        for (const ref of Query.searchFrom(fun, "varref", {name: name})) {
+        for (const ref of Query.searchFrom(fun, "varref", { name: name })) {
             refChain.push(ref);
         }
         return refChain;
     }
 
     #propagateChain(refChain) {
-        println(refChain.length);
+        //println(refChain.length);
     }
 }
