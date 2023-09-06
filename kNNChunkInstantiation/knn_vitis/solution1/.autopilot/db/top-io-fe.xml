@@ -1,17 +1,17 @@
 <root versionMajor = "1" versionMinor = "5">
   <kernel src_name="kNN_PredictAll" language="c" hwCtrl="ap_ctrl_hs" mem_layout="fpga64-xilinx-none">
     <args>
-      <arg id="0" access_type="r" src_name="training_X" src_type="float*" src_isptr="1" src_bitwidth="32" src_size_or_depth="186448">
-        <hw hw_usage="data" hw_interface="BRAM" hw_name="training_X_0" hw_bitwidth="32" hw_size_or_depth="46612" hw_kernel_support="false">
+      <arg id="0" access_type="r" src_name="training_X" src_type="double*" src_isptr="1" src_bitwidth="64" src_size_or_depth="186448">
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="training_X_0" hw_bitwidth="64" hw_size_or_depth="46612" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
         </hw>
-        <hw hw_usage="data" hw_interface="BRAM" hw_name="training_X_1" hw_bitwidth="32" hw_size_or_depth="46612" hw_kernel_support="false">
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="training_X_1" hw_bitwidth="64" hw_size_or_depth="46612" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
         </hw>
-        <hw hw_usage="data" hw_interface="BRAM" hw_name="training_X_2" hw_bitwidth="32" hw_size_or_depth="46612" hw_kernel_support="false">
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="training_X_2" hw_bitwidth="64" hw_size_or_depth="46612" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
         </hw>
-        <hw hw_usage="data" hw_interface="BRAM" hw_name="training_X_3" hw_bitwidth="32" hw_size_or_depth="46612" hw_kernel_support="false">
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="training_X_3" hw_bitwidth="64" hw_size_or_depth="46612" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
         </hw>
       </arg>
@@ -20,8 +20,134 @@
           <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
         </hw>
       </arg>
-      <arg id="2" access_type="rw" src_name="testing_X" src_type="float*" src_isptr="1" src_bitwidth="32" src_size_or_depth="46526">
-        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X" hw_bitwidth="32" hw_size_or_depth="46526" hw_kernel_support="false">
+      <arg id="2" access_type="rw" src_name="testing_X" src_type="double*" src_isptr="1" src_bitwidth="64" src_size_or_depth="46526">
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_0" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_1" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_2" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_3" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_4" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_5" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_6" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_7" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_8" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_9" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_10" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_11" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_12" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_13" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_14" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_15" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_16" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_17" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_18" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_19" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_20" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_21" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_22" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_23" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_24" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_25" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_26" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_27" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_28" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_29" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_30" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_31" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_32" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_33" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_34" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_35" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_36" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_37" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_38" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_39" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_40" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_41" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="testing_X_42" hw_bitwidth="64" hw_size_or_depth="1082" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
         </hw>
       </arg>
@@ -30,13 +156,13 @@
           <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
         </hw>
       </arg>
-      <arg id="4" access_type="r" src_name="min" src_type="float*" src_isptr="1" src_bitwidth="32" src_size_or_depth="43">
-        <hw hw_usage="data" hw_interface="BRAM" hw_name="min" hw_bitwidth="32" hw_size_or_depth="43" hw_kernel_support="false">
+      <arg id="4" access_type="r" src_name="min" src_type="double*" src_isptr="1" src_bitwidth="64" src_size_or_depth="43">
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="min" hw_bitwidth="64" hw_size_or_depth="43" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
         </hw>
       </arg>
-      <arg id="5" access_type="r" src_name="max" src_type="float*" src_isptr="1" src_bitwidth="32" src_size_or_depth="43">
-        <hw hw_usage="data" hw_interface="BRAM" hw_name="max" hw_bitwidth="32" hw_size_or_depth="43" hw_kernel_support="false">
+      <arg id="5" access_type="r" src_name="max" src_type="double*" src_isptr="1" src_bitwidth="64" src_size_or_depth="43">
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="max" hw_bitwidth="64" hw_size_or_depth="43" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
         </hw>
       </arg>

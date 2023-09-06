@@ -10,6 +10,21 @@
                 <option name="name" value="kNN_PredictAll"/>
             </pragma>
         </directive>
+        <directive functionName="kNN_PredictAll" label="" functionLabel="">
+            <pragma name="TOP">
+                <option name="name" value="kNN_PredictAll"/>
+            </pragma>
+        </directive>
+        <directive functionName="kNN_PredictAll" label="" functionLabel="">
+            <pragma name="TOP">
+                <option name="name" value="kNN_PredictAll"/>
+            </pragma>
+        </directive>
+        <directive functionName="kNN_PredictAll" label="" functionLabel="">
+            <pragma name="TOP">
+                <option name="name" value="kNN_PredictAll"/>
+            </pragma>
+        </directive>
     </sourceFile>
 </AutoPilot:ProjectResources>
 

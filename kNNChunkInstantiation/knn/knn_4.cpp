@@ -6,9 +6,7 @@
 static double kNN_UpdateBestCaching(double queryDistance, int queryIdx,
                              double bestDistances[K], int bestPointsIdx[K])
 {
-#pragma HLS INLINE
-#pragma HLS ARRAY_PARTITION variable=bestDistances type=complete
-#pragma HLS ARRAY_PARTITION variable=bestPointsIdx type=complete
+//#pragma HLS INLINE
     double worstOfBest = 0;
     int worstOfBestIdx = -1;
     double secondWorstOfBest = 0;
@@ -16,8 +14,7 @@ static double kNN_UpdateBestCaching(double queryDistance, int queryIdx,
 
     for (int i = 0; i < K; i++)
     {
-#pragma HLS pipeline
-//#pragma HLS unroll
+//#pragma HLS PIPELINE
         if (worstOfBest < bestDistances[i])
         {
             secondWorstOfBest = worstOfBest;
@@ -52,12 +49,15 @@ void kNN_Predict_4(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
 					   CLASS_TYPE* res0, CLASS_TYPE* res1, CLASS_TYPE* res2, CLASS_TYPE* res3)
 {
 #pragma HLS ARRAY_PARTITION variable=training_X type=cyclic factor=4 dim=1
-//#pragma HLS inline
+#pragma HLS ARRAY_PARTITION variable=queryDatapoint_0 type=complete
+#pragma HLS ARRAY_PARTITION variable=queryDatapoint_1 type=complete
+#pragma HLS ARRAY_PARTITION variable=queryDatapoint_2 type=complete
+#pragma HLS ARRAY_PARTITION variable=queryDatapoint_3 type=complete
 
 #if NORMALIZE_IN_LOOP == 0
     for (int i = 0; i < N_FEATURES; i++)
     {
-#pragma HLS unroll
+//#pragma HLS unroll
         DATA_TYPE nfeature_0 = (DATA_TYPE)((queryDatapoint_0[i] - min[i]) / (max[i] - min[i]));
         DATA_TYPE nfeature_1 = (DATA_TYPE)((queryDatapoint_1[i] - min[i]) / (max[i] - min[i]));
         DATA_TYPE nfeature_2 = (DATA_TYPE)((queryDatapoint_2[i] - min[i]) / (max[i] - min[i]));
@@ -85,7 +85,7 @@ void kNN_Predict_4(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
 
     for (int i = 0; i < K; i++)
     {
-#pragma HLS unroll
+//#pragma HLS UNROLL
     	bestDistances_0[i] = DBL_MAX;
     	bestPointsIdx_0[i] = -1;
     	bestDistances_1[i] = DBL_MAX;
@@ -120,13 +120,18 @@ void kNN_Predict_4(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
 
 		for (int j = 0; j < N_FEATURES; j++)
 		{
-#pragma HLS pipeline
+//#pragma HLS PIPELINE
 			DATA_TYPE q0_feat = queryDatapoint_0[j];
 			DATA_TYPE q1_feat = queryDatapoint_1[j];
 			DATA_TYPE q2_feat = queryDatapoint_2[j];
 			DATA_TYPE q3_feat = queryDatapoint_3[j];
 
 #if NORMALIZE_IN_LOOP == 1
+            q0_feat = (DATA_TYPE)((q0_feat - min[i]) / (max[i] - min[i]));
+            q1_feat = (DATA_TYPE)((q1_feat - min[i]) / (max[i] - min[i]));
+            q2_feat = (DATA_TYPE)((q2_feat - min[i]) / (max[i] - min[i]));
+            q3_feat = (DATA_TYPE)((q3_feat - min[i]) / (max[i] - min[i]));
+
 			q0_feat = std::isnan(q0_feat) ? 0.0 : (std::isinf(q0_feat) ? 1.0 : q0_feat);
 			q1_feat = std::isnan(q1_feat) ? 0.0 : (std::isinf(q1_feat) ? 1.0 : q1_feat);
 			q2_feat = std::isnan(q2_feat) ? 0.0 : (std::isinf(q2_feat) ? 1.0 : q2_feat);
@@ -207,7 +212,7 @@ void kNN_Predict_4(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
 
 	for (int i = 0; i < K; i++)
 	{
-#pragma HLS unroll
+//#pragma HLS UNROLL
 		int bestIdx_q0 = bestPointsIdx_0[i];
 		int bestIdx_q1 = bestPointsIdx_1[i];
 		int bestIdx_q2 = bestPointsIdx_2[i];
@@ -235,7 +240,7 @@ void kNN_Predict_4(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
 
 	for (int i = 0; i < N_CLASSES; i++)
 	{
-#pragma HLS pipeline
+//#pragma HLS PIPELINE
 		if (histogram_q0[i] > mostPopularCount_q0)
 		{
 			mostPopularCount_q0 = histogram_q0[i];

@@ -5,12 +5,16 @@
         <SimFlow name="csim" csimMode="0" lastCsimMode="0"/>
     </Simulation>
     <files xmlns="">
-        <file name="knn/scenarios.h" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
-        <file name="knn/knn_4.h" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
-        <file name="knn/knn_4.cpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
-        <file name="knn/knn.h" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
-        <file name="knn/knn.cpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
         <file name="knn/design_params.h" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
+        <file name="knn/knn.cpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
+        <file name="knn/knn.h" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
+        <file name="knn/knn_2.cpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
+        <file name="knn/knn_2.h" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
+        <file name="knn/knn_4.cpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
+        <file name="knn/knn_4.h" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
+        <file name="knn/knn_8.cpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
+        <file name="knn/knn_8.h" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
+        <file name="knn/scenarios.h" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
     </files>
     <solutions xmlns="">
         <solution name="solution1" status="active"/>

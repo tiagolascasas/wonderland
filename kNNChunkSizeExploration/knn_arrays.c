@@ -195,7 +195,7 @@ CLASS_TYPE kNN_Predict(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
     return voteResult;
 }
 
-#define QUERIES_PER_CHUNK 25
+#define QUERIES_PER_CHUNK 1
 
 void kNN_PredictAll(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
                     CLASS_TYPE training_Y[N_TRAINING],
@@ -210,5 +210,4 @@ void kNN_PredictAll(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
     {
         testing_Y[i + 0] = kNN_Predict(training_X, training_Y, testing_X[i], min, max, 0);
     }
-	
 }

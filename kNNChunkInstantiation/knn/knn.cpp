@@ -2,19 +2,19 @@
 #include <cmath>
 #include "scenarios.h"
 #include "design_params.h"
+#include "knn_2.h"
 #include "knn_4.h"
+#include "knn_8.h"
 
 double kNN_UpdateBest(double queryDistance, int queryIdx,
                       double bestDistances[K], int bestPointsIdx[K])
 {
-#pragma HLS INLINE
     double worstOfBest = 0;
     int worstOfBestIdx = -1;
 
     for (int i = 0; i < K; i++)
     {
 #pragma HLS pipeline
-//#pragma HLS unroll
         if (bestDistances[i] > worstOfBest)
         {
             worstOfBest = bestDistances[i];
@@ -30,9 +30,10 @@ double kNN_UpdateBest(double queryDistance, int queryIdx,
     return DBL_MAX;
 }
 
-double kNN_UpdateBestCachingDup(double queryDistance, int queryIdx,
+double kNN_UpdateBestCaching(double queryDistance, int queryIdx,
                              double bestDistances[K], int bestPointsIdx[K])
 {
+#pragma HLS INLINE
     double worstOfBest = 0;
     int worstOfBestIdx = -1;
     double secondWorstOfBest = 0;
@@ -40,8 +41,7 @@ double kNN_UpdateBestCachingDup(double queryDistance, int queryIdx,
 
     for (int i = 0; i < K; i++)
     {
-#pragma HLS pipeline
-//#pragma HLS unroll
+#pragma HLS PIPELINE
         if (worstOfBest < bestDistances[i])
         {
             secondWorstOfBest = worstOfBest;
@@ -68,7 +68,7 @@ double kNN_UpdateBestCachingDup(double queryDistance, int queryIdx,
 
 void kNN_InitBest(double bestDistances[K], int bestPointsIdx[K])
 {
-#pragma HLS inline
+#pragma HLS INLINE
     for (int i = 0; i < K; i++)
     {
 #pragma HLS unroll
@@ -79,7 +79,7 @@ void kNN_InitBest(double bestDistances[K], int bestPointsIdx[K])
 
 CLASS_TYPE kNN_VoteBetweenBest(int bestPointsIdx[K], CLASS_TYPE training_Y[N_TRAINING])
 {
-#pragma HLS inline
+#pragma HLS INLINE
     CLASS_TYPE histogram[N_CLASSES] = {0};
 
     for (int i = 0; i < K; i++)
@@ -95,7 +95,6 @@ CLASS_TYPE kNN_VoteBetweenBest(int bestPointsIdx[K], CLASS_TYPE training_Y[N_TRA
 
     for (int i = 0; i < N_CLASSES; i++)
     {
-//#pragma HLS unroll
 #pragma HLS pipeline
         if (histogram[i] > mostPopularCount)
         {
@@ -134,7 +133,8 @@ CLASS_TYPE kNN_Predict(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
                        DATA_TYPE queryDatapoint[N_FEATURES],
                        DATA_TYPE min[N_FEATURES], DATA_TYPE max[N_FEATURES])
 {
-#pragma HLS inline
+#pragma HLS ARRAY_PARTITION variable=training_X type=cyclic factor=64 dim=1
+#pragma HLS ARRAY_PARTITION variable=queryDatapoint type=complete
     double bestDistanceMax = DBL_MAX;
     double bestDistances[K];
     int bestPointsIdx[K];
@@ -151,12 +151,12 @@ CLASS_TYPE kNN_Predict(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
 
         for (int j = 0; j < N_FEATURES; j++)
         {
-#pragma HLS pipeline
+#pragma HLS PIPELINE
             DATA_TYPE feature = queryDatapoint[j];
 
 #if NORMALIZE_IN_LOOP == 1
             feature = (DATA_TYPE)((feature - min[j]) / (max[j] - min[j]));
-            feature = isnan(feature) ? 0.0 : (isinf(feature) ? 1.0 : feature);
+            feature = std::isnan(feature) ? 0.0 : (std::isinf(feature) ? 1.0 : feature);
 #endif
 
             double diff = feature - training_X[i][j];
@@ -169,7 +169,7 @@ CLASS_TYPE kNN_Predict(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
             bestDistanceMax = kNN_UpdateBestCaching(distance, i, bestDistances, bestPointsIdx);
         }
 #else
-    kNN_UpdateBest(distance, i, bestDistances, bestPointsIdx);
+        kNN_UpdateBest(distance, i, bestDistances, bestPointsIdx);
 #endif
     }
 
@@ -190,6 +190,13 @@ void kNN_PredictAll(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
         testing_Y[i] = kNN_Predict(training_X, training_Y, testing_X[i], min, max);
     }
 #endif
+#if CHUNK_SIZE == 2
+    for (int i = 0; i < N_TESTING; i += CHUNK_SIZE)
+    {
+        kNN_Predict_2(training_X, training_Y, min, max, testing_X[i], testing_X[i+1],
+        		&testing_Y[i], &testing_Y[i+1]);
+    }
+#endif
 #if CHUNK_SIZE == 4
     for (int i = 0; i < N_TESTING; i += CHUNK_SIZE)
     {
@@ -197,6 +204,13 @@ void kNN_PredictAll(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
         		&testing_Y[i], &testing_Y[i+1], &testing_Y[i+2], &testing_Y[i+3]);
     }
 #endif
-
+#if CHUNK_SIZE == 8
+    for (int i = 0; i < N_TESTING; i += CHUNK_SIZE)
+    {
+        kNN_Predict_8(training_X, training_Y, min, max,
+		testing_X[i], testing_X[i+1], testing_X[i+2], testing_X[i+3], testing_X[i+4], testing_X[i+5], testing_X[i+6], testing_X[i+7],
+		&testing_Y[i], &testing_Y[i+1], &testing_Y[i+2], &testing_Y[i+3], &testing_Y[i+4], &testing_Y[i+5], &testing_Y[i+6], &testing_Y[i+7]);
+    }
+#endif
 
 }

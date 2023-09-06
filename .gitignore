@@ -19,3 +19,5 @@ bin-generic
 bin-specialized
 *.bkp
 ~$*
+.autopilot
+impl

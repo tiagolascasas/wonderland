@@ -2,11 +2,15 @@
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
     <originFiles name="scenarios.h" path="C:\Users\Tiago\Dev\Experiments\kNNChunkInstantiation\knn\scenarios.h"/>
+    <originFiles name="knn_8.h" path="C:\Users\Tiago\Dev\Experiments\kNNChunkInstantiation\knn\knn_8.h"/>
+    <originFiles name="knn_8.cpp" path="C:\Users\Tiago\Dev\Experiments\kNNChunkInstantiation\knn\knn_8.cpp"/>
+    <originFiles name="knn_4.h" path="C:\Users\Tiago\Dev\Experiments\kNNChunkInstantiation\knn\knn_4.h"/>
+    <originFiles name="knn_4.cpp" path="C:\Users\Tiago\Dev\Experiments\kNNChunkInstantiation\knn\knn_4.cpp"/>
+    <originFiles name="knn_2.h" path="C:\Users\Tiago\Dev\Experiments\kNNChunkInstantiation\knn\knn_2.h"/>
+    <originFiles name="knn_2.cpp" path="C:\Users\Tiago\Dev\Experiments\kNNChunkInstantiation\knn\knn_2.cpp"/>
     <originFiles name="knn.h" path="C:\Users\Tiago\Dev\Experiments\kNNChunkInstantiation\knn\knn.h"/>
     <originFiles name="knn.cpp" path="C:\Users\Tiago\Dev\Experiments\kNNChunkInstantiation\knn\knn.cpp"/>
     <originFiles name="design_params.h" path="C:\Users\Tiago\Dev\Experiments\kNNChunkInstantiation\knn\design_params.h"/>
-    <originFiles name="knn_4.cpp" path="C:\Users\Tiago\Dev\Experiments\kNNChunkInstantiation\knn\knn_4.cpp"/>
-    <originFiles name="knn_4.h" path="C:\Users\Tiago\Dev\Experiments\kNNChunkInstantiation\knn\knn_4.h"/>
   </source>
   <testbench/>
 </autopilotfilemapping:AutoPilotFileMapping>

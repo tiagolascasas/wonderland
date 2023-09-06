@@ -6,8 +6,8 @@
           "label": "",
           "functionLabel": "",
           "id": "1",
-          "sourceFile": "C:\/Users\/Tiago\/Dev\/Experiments\/kNNChunkInstantiation\/knn_vitis\/solution1\/csynth.tcl",
-          "sourceLine": "18",
+          "sourceFile": "C:\/Users\/Tiago\/Dev\/Experiments\/kNNChunkInstantiation\/knn_vitis\/solution1\/directives.tcl",
+          "sourceLine": "6",
           "pragma": {
             "name": "TOP",
             "option": [{
@@ -22,7 +22,52 @@
           "functionLabel": "",
           "id": "2",
           "sourceFile": "C:\/Users\/Tiago\/Dev\/Experiments\/kNNChunkInstantiation\/knn_vitis\/solution1\/csynth.tcl",
-          "sourceLine": "18",
+          "sourceLine": "22",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "kNN_PredictAll"
+              }]
+          }
+        },
+        {
+          "functionName": "kNN_PredictAll",
+          "label": "",
+          "functionLabel": "",
+          "id": "3",
+          "sourceFile": "C:\/Users\/Tiago\/Dev\/Experiments\/kNNChunkInstantiation\/knn_vitis\/solution1\/csynth.tcl",
+          "sourceLine": "22",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "kNN_PredictAll"
+              }]
+          }
+        },
+        {
+          "functionName": "kNN_PredictAll",
+          "label": "",
+          "functionLabel": "",
+          "id": "4",
+          "sourceFile": "C:\/Users\/Tiago\/Dev\/Experiments\/kNNChunkInstantiation\/knn_vitis\/solution1\/csynth.tcl",
+          "sourceLine": "22",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "kNN_PredictAll"
+              }]
+          }
+        },
+        {
+          "functionName": "kNN_PredictAll",
+          "label": "",
+          "functionLabel": "",
+          "id": "5",
+          "sourceFile": "C:\/Users\/Tiago\/Dev\/Experiments\/kNNChunkInstantiation\/knn_vitis\/solution1\/csynth.tcl",
+          "sourceLine": "22",
           "pragma": {
             "name": "TOP",
             "option": [{

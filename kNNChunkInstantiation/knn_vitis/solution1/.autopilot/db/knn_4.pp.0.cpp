@@ -3671,43 +3671,41 @@ namespace std
   using ::uintptr_t;
 }
 # 9 "knn/scenarios.h" 2
-# 158 "knn/scenarios.h"
-typedef float datatype;
-# 223 "knn/scenarios.h"
+# 1 "knn/design_params.h" 1
+# 10 "knn/scenarios.h" 2
+# 151 "knn/scenarios.h"
+typedef double datatype;
+# 216 "knn/scenarios.h"
 typedef struct Point Point;
 typedef struct BestPoint BestPoint;
 
 struct Point
 {
-    float features[43];
+    double features[43];
     char classification_id;
 };
 
 struct BestPoint
 {
     char classification_id;
-    float distance;
+    double distance;
 };
 # 4 "knn/knn_4.cpp" 2
-# 1 "knn/design_params.h" 1
-# 5 "knn/knn_4.cpp" 2
+
 
 static double kNN_UpdateBestCaching(double queryDistance, int queryIdx,
-                             double bestDistances[20], int bestPointsIdx[20])
+                             double bestDistances[3], int bestPointsIdx[3])
 {
-#pragma HLS INLINE
-#pragma HLS ARRAY_PARTITION variable=bestDistances type=complete
-#pragma HLS ARRAY_PARTITION variable=bestPointsIdx type=complete
- double worstOfBest = 0;
+
+    double worstOfBest = 0;
     int worstOfBestIdx = -1;
     double secondWorstOfBest = 0;
     int secondWorstOfBestIdx = -1;
 
-    VITIS_LOOP_17_1: for (int i = 0; i < 20; i++)
+    VITIS_LOOP_15_1: for (int i = 0; i < 3; i++)
     {
-#pragma HLS pipeline
 
- if (worstOfBest < bestDistances[i])
+        if (worstOfBest < bestDistances[i])
         {
             secondWorstOfBest = worstOfBest;
             secondWorstOfBestIdx = worstOfBestIdx;
@@ -3731,26 +3729,29 @@ static double kNN_UpdateBestCaching(double queryDistance, int queryIdx,
                                                : secondWorstOfBest;
 }
 
-void kNN_Predict_4(float training_X[4336][43],
+void kNN_Predict_4(double training_X[4336][43],
                        char training_Y[4336],
-                       float min[43], float max[43],
-        float queryDatapoint_0[43],
-        float queryDatapoint_1[43],
-        float queryDatapoint_2[43],
-        float queryDatapoint_3[43],
+                       double min[43], double max[43],
+        double queryDatapoint_0[43],
+        double queryDatapoint_1[43],
+        double queryDatapoint_2[43],
+        double queryDatapoint_3[43],
         char* res0, char* res1, char* res2, char* res3)
 {
 #pragma HLS ARRAY_PARTITION variable=training_X type=cyclic factor=4 dim=1
-
+#pragma HLS ARRAY_PARTITION variable=queryDatapoint_0 type=complete
+#pragma HLS ARRAY_PARTITION variable=queryDatapoint_1 type=complete
+#pragma HLS ARRAY_PARTITION variable=queryDatapoint_2 type=complete
+#pragma HLS ARRAY_PARTITION variable=queryDatapoint_3 type=complete
 
 
  VITIS_LOOP_58_1: for (int i = 0; i < 43; i++)
     {
-#pragma HLS unroll
- float nfeature_0 = (float)((queryDatapoint_0[i] - min[i]) / (max[i] - min[i]));
-        float nfeature_1 = (float)((queryDatapoint_1[i] - min[i]) / (max[i] - min[i]));
-        float nfeature_2 = (float)((queryDatapoint_2[i] - min[i]) / (max[i] - min[i]));
-        float nfeature_3 = (float)((queryDatapoint_3[i] - min[i]) / (max[i] - min[i]));
+
+        double nfeature_0 = (double)((queryDatapoint_0[i] - min[i]) / (max[i] - min[i]));
+        double nfeature_1 = (double)((queryDatapoint_1[i] - min[i]) / (max[i] - min[i]));
+        double nfeature_2 = (double)((queryDatapoint_2[i] - min[i]) / (max[i] - min[i]));
+        double nfeature_3 = (double)((queryDatapoint_3[i] - min[i]) / (max[i] - min[i]));
 
         queryDatapoint_0[i] = std::isnan(nfeature_0) ? 0.0 : (std::isinf(nfeature_0) ? 1.0 : nfeature_0);
         queryDatapoint_1[i] = std::isnan(nfeature_1) ? 0.0 : (std::isinf(nfeature_1) ? 1.0 : nfeature_1);
@@ -3760,22 +3761,22 @@ void kNN_Predict_4(float training_X[4336][43],
 
 
     double bestDistanceMax_0 = 1.7976931348623157e+308;
-    double bestDistances_0[20];
-    int bestPointsIdx_0[20];
+    double bestDistances_0[3];
+    int bestPointsIdx_0[3];
     double bestDistanceMax_1 = 1.7976931348623157e+308;
-    double bestDistances_1[20];
-    int bestPointsIdx_1[20];
+    double bestDistances_1[3];
+    int bestPointsIdx_1[3];
     double bestDistanceMax_2 = 1.7976931348623157e+308;
-    double bestDistances_2[20];
-    int bestPointsIdx_2[20];
+    double bestDistances_2[3];
+    int bestPointsIdx_2[3];
     double bestDistanceMax_3 = 1.7976931348623157e+308;
-    double bestDistances_3[20];
-    int bestPointsIdx_3[20];
+    double bestDistances_3[3];
+    int bestPointsIdx_3[3];
 
-    VITIS_LOOP_86_2: for (int i = 0; i < 20; i++)
+    VITIS_LOOP_86_2: for (int i = 0; i < 3; i++)
     {
-#pragma HLS unroll
- bestDistances_0[i] = 1.7976931348623157e+308;
+
+     bestDistances_0[i] = 1.7976931348623157e+308;
      bestPointsIdx_0[i] = -1;
      bestDistances_1[i] = 1.7976931348623157e+308;
      bestPointsIdx_1[i] = -1;
@@ -3809,16 +3810,16 @@ void kNN_Predict_4(float training_X[4336][43],
 
   VITIS_LOOP_121_4: for (int j = 0; j < 43; j++)
   {
-#pragma HLS pipeline
- float q0_feat = queryDatapoint_0[j];
-   float q1_feat = queryDatapoint_1[j];
-   float q2_feat = queryDatapoint_2[j];
-   float q3_feat = queryDatapoint_3[j];
-# 136 "knn/knn_4.cpp"
-   float t0_feat = training_X[i + 0][j];
-   float t1_feat = training_X[i + 1][j];
-   float t2_feat = training_X[i + 2][j];
-   float t3_feat = training_X[i + 3][j];
+
+   double q0_feat = queryDatapoint_0[j];
+   double q1_feat = queryDatapoint_1[j];
+   double q2_feat = queryDatapoint_2[j];
+   double q3_feat = queryDatapoint_3[j];
+# 141 "knn/knn_4.cpp"
+   double t0_feat = training_X[i + 0][j];
+   double t1_feat = training_X[i + 1][j];
+   double t2_feat = training_X[i + 2][j];
+   double t3_feat = training_X[i + 3][j];
 
    double diff_q0_t0 = q0_feat - t0_feat;
    double diff_q1_t1 = q1_feat - t1_feat;
@@ -3887,10 +3888,10 @@ void kNN_Predict_4(float training_X[4336][43],
  char histogram_q2[6] = {0};
  char histogram_q3[6] = {0};
 
- VITIS_LOOP_208_5: for (int i = 0; i < 20; i++)
+ VITIS_LOOP_213_5: for (int i = 0; i < 3; i++)
  {
-#pragma HLS unroll
- int bestIdx_q0 = bestPointsIdx_0[i];
+
+  int bestIdx_q0 = bestPointsIdx_0[i];
   int bestIdx_q1 = bestPointsIdx_1[i];
   int bestIdx_q2 = bestPointsIdx_2[i];
   int bestIdx_q3 = bestPointsIdx_3[i];
@@ -3915,10 +3916,10 @@ void kNN_Predict_4(float training_X[4336][43],
  int mostPopularCount_q2 = -1;
  int mostPopularCount_q3 = -1;
 
- VITIS_LOOP_236_6: for (int i = 0; i < 6; i++)
+ VITIS_LOOP_241_6: for (int i = 0; i < 6; i++)
  {
-#pragma HLS pipeline
- if (histogram_q0[i] > mostPopularCount_q0)
+
+  if (histogram_q0[i] > mostPopularCount_q0)
   {
    mostPopularCount_q0 = histogram_q0[i];
    mostPopular_q0 = (char)i;
