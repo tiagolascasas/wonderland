@@ -4,6 +4,7 @@
 #include "design_params.h"
 #include "knn_2.h"
 #include "knn_4.h"
+#include "knn_6.h"
 #include "knn_8.h"
 
 double kNN_UpdateBest(double queryDistance, int queryIdx,
@@ -202,6 +203,15 @@ void kNN_PredictAll(DATA_TYPE training_X[N_TRAINING][N_FEATURES],
     {
         kNN_Predict_4(training_X, training_Y, min, max, testing_X[i], testing_X[i+1], testing_X[i+2], testing_X[i+3],
         		&testing_Y[i], &testing_Y[i+1], &testing_Y[i+2], &testing_Y[i+3]);
+    }
+#endif
+#if CHUNK_SIZE == 6
+    for (int i = 0; i < N_TESTING; i += CHUNK_SIZE)
+    {
+        kNN_Predict_6(training_X, training_Y, min, max,
+		testing_X[i], testing_X[i+1], testing_X[i+2], testing_X[i+3], testing_X[i+4], testing_X[i+5],
+		&testing_Y[i], &testing_Y[i+1], &testing_Y[i+2], &testing_Y[i+3], &testing_Y[i+4], &testing_Y[i+5]);
+
     }
 #endif
 #if CHUNK_SIZE == 8

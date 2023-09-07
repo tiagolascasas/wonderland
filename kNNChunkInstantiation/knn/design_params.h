@@ -1,12 +1,12 @@
 #pragma once
 
-#define USE_CACHING 0
-#define NORMALIZE_IN_LOOP 0
-#define CHUNK_SIZE 4
+#define USE_CACHING 1
+#define NORMALIZE_IN_LOOP 1
+#define CHUNK_SIZE 6
 
 
-//#define SCENARIO WI_K3_F
-#define SCENARIO WI_K3_D
+#define SCENARIO WI_K3_F
+//#define SCENARIO WI_K3_D
 //#define SCENARIO WI_K20_F
 //#define SCENARIO WI_K20_D
 //#define SCENARIO GA_K20_F
