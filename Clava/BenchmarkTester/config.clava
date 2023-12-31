@@ -58,6 +58,10 @@
       <boolean>true</boolean>
     </entry>
     <entry>
+      <string>api_autoload</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
       <string>continueOnParsingErrors</string>
       <boolean>false</boolean>
     </entry>
@@ -68,10 +72,7 @@
     <entry>
       <string>external_dependencies</string>
       <StringList>
-        <stringList>
-          <string>https://github.com/specs-feup/clava-benchmarks.git?folder=Polybench</string>
-          <string>https://github.com/specs-feup/clava-benchmarks.git?folder=NAS</string>
-        </stringList>
+        <stringList/>
       </StringList>
     </entry>
     <entry>
@@ -87,7 +88,7 @@
     </entry>
     <entry>
       <string>C/C++ Standard</string>
-      <pt.up.fe.specs.clava.language.Standard>CXX11</pt.up.fe.specs.clava.language.Standard>
+      <pt.up.fe.specs.clava.language.Standard>C11</pt.up.fe.specs.clava.language.Standard>
     </entry>
     <entry>
       <string>workspace_extra</string>
@@ -191,10 +192,7 @@
       <string>include</string>
       <FileList>
         <fileList>
-          <file>..\..\specs-feup\clava-benchmarks\CHStone</file>
-          <file>..\..\specs-feup\clava-benchmarks\HiFlipVX</file>
-          <file>..\..\specs-feup\clava-benchmarks\Rosetta</file>
-          <file>..\..\specs-feup\clava-benchmarks\Parboil</file>
+          <file>..\..\..\clava-benchmarks\MachSuite</file>
         </fileList>
       </FileList>
     </entry>

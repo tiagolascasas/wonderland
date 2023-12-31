@@ -22,7 +22,7 @@
           "functionLabel": "",
           "id": "2",
           "sourceFile": "C:\/Users\/Tiago\/Dev\/Experiments\/kNNChunkInstantiation\/knn_vitis\/solution1\/csynth.tcl",
-          "sourceLine": "22",
+          "sourceLine": "24",
           "pragma": {
             "name": "TOP",
             "option": [{
@@ -37,7 +37,7 @@
           "functionLabel": "",
           "id": "3",
           "sourceFile": "C:\/Users\/Tiago\/Dev\/Experiments\/kNNChunkInstantiation\/knn_vitis\/solution1\/csynth.tcl",
-          "sourceLine": "22",
+          "sourceLine": "24",
           "pragma": {
             "name": "TOP",
             "option": [{
@@ -52,7 +52,7 @@
           "functionLabel": "",
           "id": "4",
           "sourceFile": "C:\/Users\/Tiago\/Dev\/Experiments\/kNNChunkInstantiation\/knn_vitis\/solution1\/csynth.tcl",
-          "sourceLine": "22",
+          "sourceLine": "24",
           "pragma": {
             "name": "TOP",
             "option": [{
@@ -67,7 +67,22 @@
           "functionLabel": "",
           "id": "5",
           "sourceFile": "C:\/Users\/Tiago\/Dev\/Experiments\/kNNChunkInstantiation\/knn_vitis\/solution1\/csynth.tcl",
-          "sourceLine": "22",
+          "sourceLine": "24",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "kNN_PredictAll"
+              }]
+          }
+        },
+        {
+          "functionName": "kNN_PredictAll",
+          "label": "",
+          "functionLabel": "",
+          "id": "6",
+          "sourceFile": "C:\/Users\/Tiago\/Dev\/Experiments\/kNNChunkInstantiation\/knn_vitis\/solution1\/csynth.tcl",
+          "sourceLine": "24",
           "pragma": {
             "name": "TOP",
             "option": [{

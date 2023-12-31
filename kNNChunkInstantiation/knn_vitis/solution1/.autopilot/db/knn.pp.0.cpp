@@ -3714,6 +3714,20 @@ void kNN_Predict_4(double training_X[4336][43],
         double queryDatapoint_3[43],
         char* res0, char* res1, char* res2, char* res3);
 # 7 "knn/knn.cpp" 2
+# 1 "knn/knn_6.h" 1
+
+
+void kNN_Predict_6(double training_X[4336][43],
+                   char training_Y[4336],
+                   double min[43], double max[43],
+                   double queryDatapoint_0[43],
+                   double queryDatapoint_1[43],
+                   double queryDatapoint_2[43],
+                   double queryDatapoint_3[43],
+                   double queryDatapoint_4[43],
+                   double queryDatapoint_5[43],
+                   char *res0, char *res1, char *res2, char *res3, char *res4, char *res5);
+# 8 "knn/knn.cpp" 2
 # 1 "knn/knn_8.h" 1
 
 
@@ -3730,15 +3744,15 @@ void kNN_Predict_8(double training_X[4336][43],
                    double queryDatapoint_7[43],
                    char *res0, char *res1, char *res2, char *res3,
                    char *res4, char *res5, char *res6, char *res7);
-# 8 "knn/knn.cpp" 2
+# 9 "knn/knn.cpp" 2
 
 double kNN_UpdateBest(double queryDistance, int queryIdx,
-                      double bestDistances[3], int bestPointsIdx[3])
+                      double bestDistances[20], int bestPointsIdx[20])
 {
     double worstOfBest = 0;
     int worstOfBestIdx = -1;
 
-    VITIS_LOOP_15_1: for (int i = 0; i < 3; i++)
+    VITIS_LOOP_16_1: for (int i = 0; i < 20; i++)
     {
 #pragma HLS pipeline
  if (bestDistances[i] > worstOfBest)
@@ -3757,7 +3771,7 @@ double kNN_UpdateBest(double queryDistance, int queryIdx,
 }
 
 double kNN_UpdateBestCaching(double queryDistance, int queryIdx,
-                             double bestDistances[3], int bestPointsIdx[3])
+                             double bestDistances[20], int bestPointsIdx[20])
 {
 #pragma HLS INLINE
  double worstOfBest = 0;
@@ -3765,7 +3779,7 @@ double kNN_UpdateBestCaching(double queryDistance, int queryIdx,
     double secondWorstOfBest = 0;
     int secondWorstOfBestIdx = -1;
 
-    VITIS_LOOP_42_1: for (int i = 0; i < 3; i++)
+    VITIS_LOOP_43_1: for (int i = 0; i < 20; i++)
     {
 #pragma HLS PIPELINE
  if (worstOfBest < bestDistances[i])
@@ -3792,10 +3806,10 @@ double kNN_UpdateBestCaching(double queryDistance, int queryIdx,
                                                : secondWorstOfBest;
 }
 
-void kNN_InitBest(double bestDistances[3], int bestPointsIdx[3])
+void kNN_InitBest(double bestDistances[20], int bestPointsIdx[20])
 {
 #pragma HLS INLINE
- VITIS_LOOP_72_1: for (int i = 0; i < 3; i++)
+ VITIS_LOOP_73_1: for (int i = 0; i < 20; i++)
     {
 #pragma HLS unroll
  bestDistances[i] = 1.7976931348623157e+308;
@@ -3803,12 +3817,12 @@ void kNN_InitBest(double bestDistances[3], int bestPointsIdx[3])
     }
 }
 
-char kNN_VoteBetweenBest(int bestPointsIdx[3], char training_Y[4336])
+char kNN_VoteBetweenBest(int bestPointsIdx[20], char training_Y[4336])
 {
 #pragma HLS INLINE
  char histogram[6] = {0};
 
-    VITIS_LOOP_85_1: for (int i = 0; i < 3; i++)
+    VITIS_LOOP_86_1: for (int i = 0; i < 20; i++)
     {
 #pragma HLS unroll
  int bestIdx = bestPointsIdx[i];
@@ -3819,7 +3833,7 @@ char kNN_VoteBetweenBest(int bestPointsIdx[3], char training_Y[4336])
     char mostPopular = -1;
     int mostPopularCount = -1;
 
-    VITIS_LOOP_96_2: for (int i = 0; i < 6; i++)
+    VITIS_LOOP_97_2: for (int i = 0; i < 6; i++)
     {
 #pragma HLS pipeline
  if (histogram[i] > mostPopularCount)
@@ -3834,7 +3848,7 @@ char kNN_VoteBetweenBest(int bestPointsIdx[3], char training_Y[4336])
 void kNN_MinMaxNormalize(double min[43], double max[43],
                          double queryDatapoint[43])
 {
-    VITIS_LOOP_111_1: for (int i = 0; i < 43; i++)
+    VITIS_LOOP_112_1: for (int i = 0; i < 43; i++)
     {
 #pragma HLS unroll
  double nfeature =
@@ -3862,27 +3876,27 @@ char kNN_Predict(double training_X[4336][43],
 #pragma HLS ARRAY_PARTITION variable=training_X type=cyclic factor=64 dim=1
 #pragma HLS ARRAY_PARTITION variable=queryDatapoint type=complete
  double bestDistanceMax = 1.7976931348623157e+308;
-    double bestDistances[3];
-    int bestPointsIdx[3];
+    double bestDistances[20];
+    int bestPointsIdx[20];
 
 
-    kNN_MinMaxNormalize(min, max, queryDatapoint);
+
 
 
     kNN_InitBest(bestDistances, bestPointsIdx);
 
-    VITIS_LOOP_148_1: for (int i = 0; i < 4336; i++)
+    VITIS_LOOP_149_1: for (int i = 0; i < 4336; i++)
     {
         double distance = 0.0F;
 
-        VITIS_LOOP_152_2: for (int j = 0; j < 43; j++)
+        VITIS_LOOP_153_2: for (int j = 0; j < 43; j++)
         {
 #pragma HLS PIPELINE
  double feature = queryDatapoint[j];
 
 
-
-
+            feature = (double)((feature - min[j]) / (max[j] - min[j]));
+            feature = std::isnan(feature) ? 0.0 : (std::isinf(feature) ? 1.0 : feature);
 
 
             double diff = feature - training_X[i][j];
@@ -3890,12 +3904,12 @@ char kNN_Predict(double training_X[4336][43],
         }
 
 
+        if (distance < bestDistanceMax)
+        {
+            bestDistanceMax = kNN_UpdateBestCaching(distance, i, bestDistances, bestPointsIdx);
+        }
 
 
-
-
-
-        kNN_UpdateBest(distance, i, bestDistances, bestPointsIdx);
 
     }
 
@@ -3910,19 +3924,21 @@ __attribute__((sdx_kernel("kNN_PredictAll", 0))) void kNN_PredictAll(double trai
                     char testing_Y[1082], double min[43],
                     double max[43])
 {
-#line 22 "C:/Users/Tiago/Dev/Experiments/kNNChunkInstantiation/knn_vitis/solution1/csynth.tcl"
+#line 24 "C:/Users/Tiago/Dev/Experiments/kNNChunkInstantiation/knn_vitis/solution1/csynth.tcl"
 #pragma HLSDIRECTIVE TOP name=kNN_PredictAll
-# 186 "knn/knn.cpp"
+# 187 "knn/knn.cpp"
 
 #line 6 "C:/Users/Tiago/Dev/Experiments/kNNChunkInstantiation/knn_vitis/solution1/directives.tcl"
 #pragma HLSDIRECTIVE TOP name=kNN_PredictAll
-# 186 "knn/knn.cpp"
+# 187 "knn/knn.cpp"
 
-# 201 "knn/knn.cpp"
-    VITIS_LOOP_201_1: for (int i = 0; i < 1082; i += 4)
+# 209 "knn/knn.cpp"
+    VITIS_LOOP_209_1: for (int i = 0; i < 1082; i += 6)
     {
-        kNN_Predict_4(training_X, training_Y, min, max, testing_X[i], testing_X[i+1], testing_X[i+2], testing_X[i+3],
-          &testing_Y[i], &testing_Y[i+1], &testing_Y[i+2], &testing_Y[i+3]);
+        kNN_Predict_6(training_X, training_Y, min, max,
+  testing_X[i], testing_X[i+1], testing_X[i+2], testing_X[i+3], testing_X[i+4], testing_X[i+5],
+  &testing_Y[i], &testing_Y[i+1], &testing_Y[i+2], &testing_Y[i+3], &testing_Y[i+4], &testing_Y[i+5]);
+
     }
-# 216 "knn/knn.cpp"
+# 226 "knn/knn.cpp"
 }

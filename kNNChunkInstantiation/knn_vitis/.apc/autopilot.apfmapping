@@ -11,6 +11,8 @@
     <originFiles name="knn.h" path="C:\Users\Tiago\Dev\Experiments\kNNChunkInstantiation\knn\knn.h"/>
     <originFiles name="knn.cpp" path="C:\Users\Tiago\Dev\Experiments\kNNChunkInstantiation\knn\knn.cpp"/>
     <originFiles name="design_params.h" path="C:\Users\Tiago\Dev\Experiments\kNNChunkInstantiation\knn\design_params.h"/>
+    <originFiles name="knn_6.h" path="C:\Users\Tiago\Dev\Experiments\kNNChunkInstantiation\knn\knn_6.h"/>
+    <originFiles name="knn_6.cpp" path="C:\Users\Tiago\Dev\Experiments\kNNChunkInstantiation\knn\knn_6.cpp"/>
   </source>
   <testbench/>
 </autopilotfilemapping:AutoPilotFileMapping>

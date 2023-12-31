@@ -1,96 +1,9 @@
 <xilinx:hls_fe_msgs>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:17:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_UpdateBest" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    <msg msg_groups="" msg_id="207-5292" msg_severity="WARNING" msg_loc="knn/knn_8.cpp:46:27" msg_body="unused parameter 'min'">
+        <args ClangWarningOption="unused-parameter"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:36:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_UpdateBestCaching" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:44:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_UpdateBestCaching" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:71:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_InitBest" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:74:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_InitBest" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:82:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_VoteBetweenBest" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:87:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_VoteBetweenBest" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:98:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_VoteBetweenBest" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:113:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_MinMaxNormalize" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:136:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_Predict" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=training_X type=cyclic factor=64 dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:137:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_Predict" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=queryDatapoint type=complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:154:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_Predict" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="C:/Users/Tiago/Dev/Experiments/kNNChunkInstantiation/knn_vitis/solution1/csynth.tcl:22:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaContext="directive" ARG_PragmaFunction="kNN_PredictAll" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=kNN_PredictAll" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="C:/Users/Tiago/Dev/Experiments/kNNChunkInstantiation/knn_vitis/solution1/directives.tcl:6:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaContext="directive" ARG_PragmaFunction="kNN_PredictAll" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=kNN_PredictAll" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_2.cpp:9:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_UpdateBestCaching" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_2.cpp:10:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_UpdateBestCaching" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = bestDistances type = complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_2.cpp:11:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_UpdateBestCaching" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = bestPointsIdx type = complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_2.cpp:19:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_UpdateBestCaching" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_2.cpp:51:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_Predict_2" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = training_X type = cyclic factor = 2 dim = 1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_2.cpp:52:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_Predict_2" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = queryDatapoint_0 type = complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_2.cpp:53:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_Predict_2" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = queryDatapoint_1 type = complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_2.cpp:58:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_Predict_2" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_2.cpp:76:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_Predict_2" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_2.cpp:93:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_Predict_2" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_2.cpp:137:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_Predict_2" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_2.cpp:155:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_Predict_2" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_4.cpp:51:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_Predict_4" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=training_X type=cyclic factor=4 dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_4.cpp:52:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_Predict_4" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=queryDatapoint_0 type=complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_4.cpp:53:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_Predict_4" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=queryDatapoint_1 type=complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_4.cpp:54:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_Predict_4" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=queryDatapoint_2 type=complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_4.cpp:55:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_Predict_4" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=queryDatapoint_3 type=complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    <msg msg_groups="" msg_id="207-5292" msg_severity="WARNING" msg_loc="knn/knn_8.cpp:46:43" msg_body="unused parameter 'max'">
+        <args ClangWarningOption="unused-parameter"/>
     </msg>
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_8.cpp:9:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="kNN_UpdateBestCaching" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
@@ -107,9 +20,6 @@
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_8.cpp:58:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="kNN_Predict_8" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = training_X type = cyclic factor = 8 dim = 1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_8.cpp:73:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="kNN_Predict_8" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_8.cpp:128:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="kNN_Predict_8" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
@@ -121,6 +31,87 @@
     </msg>
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_8.cpp:609:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="kNN_Predict_8" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_6.cpp:53:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_Predict_6" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = training_X type = cyclic factor = 6 dim = 1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_4.cpp:9:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_UpdateBestCaching" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_4.cpp:17:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_UpdateBestCaching" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_4.cpp:51:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_Predict_4" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=training_X type=cyclic factor=4 dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_4.cpp:52:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_Predict_4" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=queryDatapoint_0 type=complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_4.cpp:53:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_Predict_4" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=queryDatapoint_1 type=complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_4.cpp:54:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_Predict_4" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=queryDatapoint_2 type=complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_4.cpp:55:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_Predict_4" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=queryDatapoint_3 type=complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_4.cpp:88:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_Predict_4" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_4.cpp:123:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_Predict_4" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_4.cpp:215:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_Predict_4" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_4.cpp:243:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_Predict_4" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn_2.cpp:51:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_Predict_2" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = training_X type = cyclic factor = 2 dim = 1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:18:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_UpdateBest" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:37:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_UpdateBestCaching" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:45:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_UpdateBestCaching" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:72:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_InitBest" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:75:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_InitBest" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:83:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_VoteBetweenBest" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:88:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_VoteBetweenBest" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:99:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_VoteBetweenBest" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:114:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_MinMaxNormalize" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:137:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_Predict" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=training_X type=cyclic factor=64 dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:138:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_Predict" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=queryDatapoint type=complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="knn/knn.cpp:155:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="kNN_Predict" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="C:/Users/Tiago/Dev/Experiments/kNNChunkInstantiation/knn_vitis/solution1/csynth.tcl:24:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="kNN_PredictAll" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=kNN_PredictAll" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="C:/Users/Tiago/Dev/Experiments/kNNChunkInstantiation/knn_vitis/solution1/directives.tcl:6:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="kNN_PredictAll" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=kNN_PredictAll" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
     <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="r:/ci/prod/2022.1/rdi_builds/continuous/2022_04_18_3526262/src/shared/hls/clib/include/header_files\ap_int_base.h:219:72" msg_body="Inlining function 'ssdm_int&lt;64, false&gt;::ssdm_int(unsigned long)' into 'ap_int_base&lt;64, false&gt;::ap_int_base(unsigned long long)'">
         <args Callee="ssdm_int&lt;64, false&gt;::ssdm_int(unsigned long)" Caller="ap_int_base&lt;64, false&gt;::ap_int_base(unsigned long long)"/>
@@ -314,14 +305,11 @@
     <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="E:/Xilinx/Vitis_HLS/2022.1/tps/mingw/8.3.0/win64.o/nt\lib\gcc\x86_64-w64-mingw32\8.3.0\include\c++\cmath:593:0" msg_body="Inlining function 'fabs' into 'std::isinf(double)'">
         <args Callee="fabs" Caller="std::isinf(double)"/>
     </msg>
-    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="knn/knn_4.cpp:50:0" msg_body="Inlining function 'std::isnan(double)' into 'kNN_Predict_4(double (*) [43], char*, double*, double*, double*, double*, double*, double*, char*, char*, char*, char*)'">
-        <args Callee="std::isnan(double)" Caller="kNN_Predict_4(double (*) [43], char*, double*, double*, double*, double*, double*, double*, char*, char*, char*, char*)"/>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="knn/knn_6.cpp:52:0" msg_body="Inlining function 'std::isnan(double)' into 'kNN_Predict_6(double (*) [43], char*, double*, double*, double*, double*, double*, double*, double*, double*, char*, char*, char*, char*, char*, char*)'">
+        <args Callee="std::isnan(double)" Caller="kNN_Predict_6(double (*) [43], char*, double*, double*, double*, double*, double*, double*, double*, double*, char*, char*, char*, char*, char*, char*)"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="knn/knn.cpp:186:0" msg_body="Applying array_partition to 'training_X': Cyclic partitioning with factor 4 on dimension 1.">
-        <args Dim="1" Factor="4" Mode="Cyclic" UOName="training_X"/>
-    </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="knn/knn.cpp:186:0" msg_body="Applying array_partition to 'testing_X': Complete partitioning on dimension 2.">
-        <args Dim="2" Mode="Complete" UOName="testing_X"/>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="knn/knn.cpp:187:0" msg_body="Applying array_partition to 'training_X': Cyclic partitioning with factor 6 on dimension 1.">
+        <args Dim="1" Factor="6" Mode="Cyclic" UOName="training_X"/>
     </msg>
 </xilinx:hls_fe_msgs>
 

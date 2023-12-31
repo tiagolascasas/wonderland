@@ -77,6 +77,16 @@
 			<location>C:/Users/Tiago/Dev/Experiments/kNNChunkInstantiation/knn/knn_4.h</location>
 		</link>
 		<link>
+			<name>source/knn_6.cpp</name>
+			<type>1</type>
+			<location>C:/Users/Tiago/Dev/Experiments/kNNChunkInstantiation/knn/knn_6.cpp</location>
+		</link>
+		<link>
+			<name>source/knn_6.h</name>
+			<type>1</type>
+			<location>C:/Users/Tiago/Dev/Experiments/kNNChunkInstantiation/knn/knn_6.h</location>
+		</link>
+		<link>
 			<name>source/knn_8.cpp</name>
 			<type>1</type>
 			<location>C:/Users/Tiago/Dev/Experiments/kNNChunkInstantiation/knn/knn_8.cpp</location>

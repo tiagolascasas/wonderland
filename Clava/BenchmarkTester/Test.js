@@ -1,43 +1,50 @@
 // include the benchmark suite(s) you want to use
-laraImport("lara.benchmark.RosettaBenchmarkSet");
+laraImport("lara.benchmark.MachSuiteBenchmarkSet");
 laraImport("weaver.WeaverJps");
 
 function main() {
-	//create a BenchmarkSet object
-	const benches = new RosettaBenchmarkSet();
+	const benches = new MachSuiteBenchmarkSet();
+	benches.print();
+	benches.setBenchmarks([
+	    "aes",
+	    "backprop",
+	    "bfs-bulk",
+	    "bfs-queue",
+	    "fft-strided",
+	    "fft-transpose",
+	    "gemm-blocked",
+	    "gemm-ncubed",
+	    "kmp",
+	    "md-grid",
+	    "md-knn",
+	    "nw",
+	    "sort-merge",
+	    "sort-radix",
+	    "spmv-crs",
+	    "spmv-ellpack",
+	    "stencil-2d",
+	    "stencil-3d",
+	    "viterbi"
+	]);
+	benches.setInputSizes(["D"]);
 
-	//choose the individual benchmark within the set
-	benches.setBenchmarks(["3d-rendering", "digit-recognition", "face-detection"]);
-
-	//choose the input size(s) to be used during execution
-	benches.setInputSizes(["N"]);
-
-	//go through each benchmark (objects of type BenchmarkInstance)
-	for (var bench of benches) {
-		// loads the benchmark into Clava's AST
+	let res = "";
+	for (const bench of benches) {
 		bench.load();
 
-		// now everything is ready for you to do your analysis and transformations
-		// in this example, we're just printing the name of every function
-		var funNames = [];
-		for (var elem of WeaverJps.search("function")) {
+		const funNames = [];
+		for (const elem of WeaverJps.search("function")) {
 			if (elem.isImplementation) {
 				funNames.push(elem.name);
 			}
 		}
-		println(funNames.join(","));
+		res += bench.getName() + " -> " + funNames.join(",") + "\n\n";
 
-		// now, we prepare for compilation
-		// if you are on Windows, you may wish to choose MinGW instead of the default (MSVC), but
-		// this is entirely dependent on your system. Check Clava's CMake docs for more info
+		// change accordingly
 		bench.getCMaker().setGenerator("MinGW Makefiles");
-
-		// now we compile the benchmark
 		bench.compile();
-
-		// and finally, we execute it
 		bench.execute();
 	}
+	println(res);
 }
-
 main()
