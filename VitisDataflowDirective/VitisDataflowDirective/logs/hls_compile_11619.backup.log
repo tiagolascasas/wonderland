@@ -1,0 +1,49 @@
+INFO: [v++ 60-1548] Creating build summary session with primary output /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/VitisDataflowDirective.hlscompile_summary, at Thu Jan  4 13:24:46 2024
+INFO: [v++ 82-31] Launching vitis_hls: vitis_hls -nolog -run csynth -work_dir /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective -config /home/tls/Dev/Experiments/VitisDataflowDirective/hls_config.cfg -cmdlineconfig /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/config.cmdline
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.2 (64-bit)
+  **** SW Build 4023990 on Oct 11 2023
+  **** IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+  **** SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source /tools/Xilinx/Vitis_HLS/2023.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2023.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'tls' on host 'tls-Legion-5-15ACH6H' (Linux_x86_64 version 6.2.0-39-generic) on Thu Jan 04 13:24:47 WET 2024
+INFO: [HLS 200-10] On os Ubuntu 22.04.3 LTS
+INFO: [HLS 200-10] In directory '/home/tls/Dev/Experiments/VitisDataflowDirective'
+INFO: [HLS 200-1909] Reading HLS ini file /home/tls/Dev/Experiments/VitisDataflowDirective/hls_config.cfg
+INFO: [HLS 200-1909] Reading HLS ini file /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/config.cmdline
+INFO: [HLS 200-2005] Using work_dir /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective 
+INFO: [HLS 200-1510] Running: open_project /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective -diskless 
+INFO: [HLS 200-1510] Running: open_solution hls 
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: apply_ini /home/tls/Dev/Experiments/VitisDataflowDirective/hls_config.cfg 
+INFO: [HLS 200-1909] Reading HLS ini file /home/tls/Dev/Experiments/VitisDataflowDirective/hls_config.cfg
+INFO: [HLS 200-1465] Applying ini 'syn.file=dataflow_scenarios.c' at /home/tls/Dev/Experiments/VitisDataflowDirective/hls_config.cfg(7)
+INFO: [HLS 200-10] Adding design file '/home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c' to the project
+INFO: [HLS 200-1465] Applying ini 'syn.top=top_function' at /home/tls/Dev/Experiments/VitisDataflowDirective/hls_config.cfg(8)
+INFO: [HLS 200-1465] Applying ini 'flow_target=vitis' at /home/tls/Dev/Experiments/VitisDataflowDirective/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_latency=64
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_alignment_byte_size=64
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_max_widen_bitwidth=512
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_rtl -register_reset_num=3
+INFO: [HLS 200-1465] Applying ini 'part=xczu9eg-ffvb1156-1-e' at /home/tls/Dev/Experiments/VitisDataflowDirective/hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xczu9eg-ffvb1156-1-e'
+INFO: [HLS 200-1465] Applying ini 'package.output.format=ip_catalog' at /home/tls/Dev/Experiments/VitisDataflowDirective/hls_config.cfg(5)
+INFO: [HLS 200-1510] Running: apply_ini /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/config.cmdline 
+INFO: [HLS 200-1909] Reading HLS ini file /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/config.cmdline
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.08 seconds; current allocated memory: 246.484 MB.
+INFO: [HLS 200-10] Analyzing design file '/home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c' ... 
+WARNING: [HLS 207-4840] control reaches end of non-void function (/home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:19:1)
+ERROR: [HLS 207-4840] control reaches end of non-void function (/home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:19:1)
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 0.23 seconds. CPU system time: 0.46 seconds. Elapsed time: 0.83 seconds; current allocated memory: 1.836 MB.
+INFO: [HLS 200-1510] Running: close_project 
+ERROR: Compilation of the preprocessed source 'dataflow_scenarios' failed
+INFO: [HLS 200-112] Total CPU user time: 1.49 seconds. Total CPU system time: 0.87 seconds. Total elapsed time: 2.63 seconds; peak allocated memory: 248.320 MB.
+INFO: [Common 17-206] Exiting vitis_hls at Thu Jan  4 13:24:49 2024...

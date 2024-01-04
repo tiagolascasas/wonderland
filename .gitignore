@@ -21,3 +21,5 @@ bin-specialized
 ~$*
 .autopilot
 impl
+.vscode
+logs

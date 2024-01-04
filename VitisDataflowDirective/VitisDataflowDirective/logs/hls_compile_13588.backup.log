@@ -1,0 +1,94 @@
+INFO: [v++ 60-1548] Creating build summary session with primary output /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/VitisDataflowDirective.hlscompile_summary, at Thu Jan  4 13:41:09 2024
+INFO: [v++ 82-31] Launching vitis_hls: vitis_hls -nolog -run csynth -work_dir /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective -config /home/tls/Dev/Experiments/VitisDataflowDirective/hls_config.cfg -cmdlineconfig /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/config.cmdline
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.2 (64-bit)
+  **** SW Build 4023990 on Oct 11 2023
+  **** IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+  **** SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source /tools/Xilinx/Vitis_HLS/2023.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2023.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'tls' on host 'tls-Legion-5-15ACH6H' (Linux_x86_64 version 6.2.0-39-generic) on Thu Jan 04 13:41:10 WET 2024
+INFO: [HLS 200-10] On os Ubuntu 22.04.3 LTS
+INFO: [HLS 200-10] In directory '/home/tls/Dev/Experiments/VitisDataflowDirective'
+INFO: [HLS 200-1909] Reading HLS ini file /home/tls/Dev/Experiments/VitisDataflowDirective/hls_config.cfg
+INFO: [HLS 200-1909] Reading HLS ini file /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/config.cmdline
+INFO: [HLS 200-2005] Using work_dir /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective 
+INFO: [HLS 200-1510] Running: open_project /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective -diskless 
+INFO: [HLS 200-1510] Running: open_solution hls 
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: apply_ini /home/tls/Dev/Experiments/VitisDataflowDirective/hls_config.cfg 
+INFO: [HLS 200-1909] Reading HLS ini file /home/tls/Dev/Experiments/VitisDataflowDirective/hls_config.cfg
+INFO: [HLS 200-1465] Applying ini 'syn.file=dataflow_scenarios.c' at /home/tls/Dev/Experiments/VitisDataflowDirective/hls_config.cfg(7)
+INFO: [HLS 200-10] Adding design file '/home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c' to the project
+INFO: [HLS 200-1465] Applying ini 'syn.top=top_function' at /home/tls/Dev/Experiments/VitisDataflowDirective/hls_config.cfg(8)
+INFO: [HLS 200-1465] Applying ini 'flow_target=vitis' at /home/tls/Dev/Experiments/VitisDataflowDirective/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_latency=64
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_alignment_byte_size=64
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_max_widen_bitwidth=512
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_rtl -register_reset_num=3
+INFO: [HLS 200-1465] Applying ini 'part=xczu9eg-ffvb1156-1-e' at /home/tls/Dev/Experiments/VitisDataflowDirective/hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xczu9eg-ffvb1156-1-e'
+INFO: [HLS 200-1465] Applying ini 'package.output.format=ip_catalog' at /home/tls/Dev/Experiments/VitisDataflowDirective/hls_config.cfg(5)
+INFO: [HLS 200-1510] Running: apply_ini /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/config.cmdline 
+INFO: [HLS 200-1909] Reading HLS ini file /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/config.cmdline
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 249.383 MB.
+INFO: [HLS 200-10] Analyzing design file '/home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0.2 seconds. CPU system time: 0.35 seconds. Elapsed time: 0.56 seconds; current allocated memory: 251.473 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vitis' flow target.
+INFO: [HLS 200-1995] There were 43 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 39 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details: /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 31 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details: /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 36 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details: /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 36 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details: /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 32 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details: /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 32 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details: /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 32 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details: /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 32 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details: /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 50 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details: /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 54 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details: /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 54 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details: /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 54 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details: /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 54 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details: /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 61 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details: /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 68 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details: /home/tls/Dev/Experiments/VitisDataflowDirective/VitisDataflowDirective/hls/syn/report/csynth_design_size.rpt
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_4_1> at /home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:4:21 
+INFO: [HLS 214-115] Multiple burst reads of length 62500 and bit width 512 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (/home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:4:21)
+INFO: [HLS 214-115] Multiple burst writes of length 62500 and bit width 512 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (/home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:4:21)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.12 seconds. CPU system time: 0.53 seconds. Elapsed time: 7.26 seconds; current allocated memory: 253.387 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 253.387 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 253.684 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 253.742 MB.
+ERROR: [HLS 200-1013] Bundled bus interface 'gmem' on ports 'A, B, C' failed dataflow checking: it cannot read data in multiple processes.
+ERROR: [HLS 200-984] Bundled bus interface 'gmem' on ports 'A, B, C' has read operations in functions:  'f1.1' (/home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:4:21) and 'f2.1' (/home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:11:1).
+
+ERROR: [HLS 200-1013] Bundled bus interface 'gmem' on ports 'A, B, C' failed dataflow checking: it cannot write data in multiple processes.
+ERROR: [HLS 200-984] Bundled bus interface 'gmem' on ports 'A, B, C' has write operations in functions:  'f1.1' (/home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:4:21) and 'f2.1' (/home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:11:1).
+
+ERROR: [HLS 200-1013] Bundled bus interface 'gmem' on ports 'A, B, C' failed dataflow checking: it cannot write data in multiple processes.
+ERROR: [HLS 200-984] Bundled bus interface 'gmem' on ports 'A, B, C' has write operations in functions:  'f1.1' (/home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:4:21) and 'f2.1' (/home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:11:1).
+
+ERROR: [XFORM 203-711] Argument 'gmem' failed dataflow checking: Scalar channel must only have 1 reader and 1 writer.
+INFO: [HLS 200-992] Argument 'gmem' has read and write operations in process function 'f1.1' (/home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:4:21) (around /home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:17).
+Resolution: For help on HLS 200-992 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-992.html
+INFO: [HLS 200-992] Argument 'gmem' has read and write operations in process function 'f2.1' (/home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:11:1) (around /home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:18).
+Resolution: For help on HLS 200-992 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-992.html
+INFO: [HLS 200-992] Argument 'gmem' has read and write operations in process function 'f1.1' (/home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:4:21) (around /home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:17).
+Resolution: For help on HLS 200-992 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-992.html
+INFO: [HLS 200-992] Argument 'gmem' has read and write operations in process function 'f2.1' (/home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:11:1) (around /home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:18).
+Resolution: For help on HLS 200-992 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-992.html
+ERROR: [HLS 200-1715] Encountered problem during source synthesis
+ERROR: [HLS 200-70] Pre-synthesis failed.
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 2.42 seconds. CPU system time: 0.88 seconds. Elapsed time: 7.92 seconds; current allocated memory: 6.750 MB.
+INFO: [HLS 200-1510] Running: close_project 
+ERROR: 
+INFO: [HLS 200-112] Total CPU user time: 3.64 seconds. Total CPU system time: 1.13 seconds. Total elapsed time: 9.23 seconds; peak allocated memory: 256.133 MB.
+INFO: [Common 17-206] Exiting vitis_hls at Thu Jan  4 13:41:19 2024...

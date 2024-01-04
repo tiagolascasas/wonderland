@@ -1,0 +1,156 @@
+
+
+================================================================
+== Synthesis Summary Report of 'top_function'
+================================================================
++ General Information: 
+    * Date:           Thu Jan  4 13:59:45 2024
+    * Version:        2023.2 (Build 4023990 on Oct 11 2023)
+    * Project:        VitisDataflowDirective
+    * Solution:       hls (Vitis Kernel Flow Target)
+    * Product family: zynquplus
+    * Target device:  xczu9eg-ffvb1156-1-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +--------------------+--------+-------+---------+-----------+----------+---------+---------+----------+---------+---------+------------+-----------+-----+
+    |       Modules      |  Issue |       | Latency |  Latency  | Iteration|         |   Trip  |          |         |         |            |           |     |
+    |       & Loops      |  Type  | Slack | (cycles)|    (ns)   |  Latency | Interval|  Count  | Pipelined|  BRAM   |   DSP   |     FF     |    LUT    | URAM|
+    +--------------------+--------+-------+---------+-----------+----------+---------+---------+----------+---------+---------+------------+-----------+-----+
+    |+ top_function*     |  Timing|  -0.49|  1000143|  1.000e+07|         -|  1000144|        -|  dataflow|  58 (3%)|  3 (~0%)|  4268 (~0%)|  2958 (1%)|    -|
+    | + f1_1             |  Timing|  -0.49|  1000143|  1.000e+07|         -|  1000143|        -|        no|        -|  3 (~0%)|  2356 (~0%)|  963 (~0%)|    -|
+    |  o VITIS_LOOP_4_1  |       -|   7.30|  1000141|  1.000e+07|       143|        1|  1000000|       yes|        -|        -|           -|          -|    -|
+    +--------------------+--------+-------+---------+-----------+----------+---------+---------+----------+---------+---------+------------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface  | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|            | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_gmem | 32 -> 512  | 64            | 64      | slave  | 0        | 512       | 16           | 16           | 16          | 16          | BRAM=58           |
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 6             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| Interface     | Register | Offset | Width | Access | Description                      | Bit Fields                                                                         |
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| s_axi_control | CTRL     | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 4=AP_CONTINUE 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER     | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                                           |
+| s_axi_control | IP_IER   | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                                      |
+| s_axi_control | IP_ISR   | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                                      |
+| s_axi_control | A_1      | 0x10   | 32    | W      | Data signal of A                 |                                                                                    |
+| s_axi_control | A_2      | 0x14   | 32    | W      | Data signal of A                 |                                                                                    |
+| s_axi_control | B_1      | 0x1c   | 32    | W      | Data signal of B                 |                                                                                    |
+| s_axi_control | B_2      | 0x20   | 32    | W      | Data signal of B                 |                                                                                    |
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+---------------+-----------+
+| Interface | Type          | Ports     |
++-----------+---------------+-----------+
+| ap_clk    | clock         | ap_clk    |
+| ap_rst_n  | reset         | ap_rst_n  |
+| interrupt | interrupt     | interrupt |
+| ap_ctrl   | ap_ctrl_chain |           |
++-----------+---------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+----------+
+| Argument | Direction | Datatype |
++----------+-----------+----------+
+| A        | inout     | int*     |
+| B        | inout     | int*     |
++----------+-----------+----------+
+
+* SW-to-HW Mapping
++----------+---------------+-----------+----------+-------------------------------+
+| Argument | HW Interface  | HW Type   | HW Usage | HW Info                       |
++----------+---------------+-----------+----------+-------------------------------+
+| A        | m_axi_gmem    | interface |          |                               |
+| A        | s_axi_control | register  | offset   | name=A_1 offset=0x10 range=32 |
+| A        | s_axi_control | register  | offset   | name=A_2 offset=0x14 range=32 |
+| B        | m_axi_gmem    | interface |          |                               |
+| B        | s_axi_control | register  | offset   | name=B_1 offset=0x1c range=32 |
+| B        | s_axi_control | register  | offset   | name=B_2 offset=0x20 range=32 |
++----------+---------------+-----------+----------+-------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++--------------+-----------+--------+-------+
+| HW Interface | Direction | Length | Width |
++--------------+-----------+--------+-------+
+| m_axi_gmem   | write     | 62500  | 512   |
+| m_axi_gmem   | read      | 62500  | 512   |
++--------------+-----------+--------+-------+
+
+* All M_AXI Variable Accesses
++--------------+----------+----------------------------------------------------------------------------+-----------+--------------+---------+----------------+----------------------------------------------------------------------------+
+| HW Interface | Variable | Access Location                                                            | Direction | Burst Status | Length  | Loop           | Loop Location                                                              |
++--------------+----------+----------------------------------------------------------------------------+-----------+--------------+---------+----------------+----------------------------------------------------------------------------+
+| m_axi_gmem   | B        | /home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:5:14 | write     | Widened      | 62500   | VITIS_LOOP_4_1 | /home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:4:21 |
+| m_axi_gmem   | A        | /home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:5:16 | read      | Widened      | 62500   | VITIS_LOOP_4_1 | /home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:4:21 |
+| m_axi_gmem   | B        | /home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:5:14 | write     | Inferred     | 1000000 | VITIS_LOOP_4_1 | /home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:4:21 |
+| m_axi_gmem   | A        | /home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:5:16 | read      | Inferred     | 1000000 | VITIS_LOOP_4_1 | /home/tls/Dev/Experiments/VitisDataflowDirective/dataflow_scenarios.c:4:21 |
++--------------+----------+----------------------------------------------------------------------------+-----------+--------------+---------+----------------+----------------------------------------------------------------------------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++--------------------------+-----+--------+----------+-----+--------+---------+
+| Name                     | DSP | Pragma | Variable | Op  | Impl   | Latency |
++--------------------------+-----+--------+----------+-----+--------+---------+
+| + top_function           | 3   |        |          |     |        |         |
+|  + f1_1                  | 3   |        |          |     |        |         |
+|    add_ln4_fu_191_p2     |     |        | add_ln4  | add | fabric | 0       |
+|    mul_32s_32s_32_1_1_U1 | 3   |        | mul_ln5  | mul | auto   | 0       |
+|    add_ln5_fu_282_p2     |     |        | add_ln5  | add | fabric | 0       |
++--------------------------+-----+--------+----------+-----+--------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| Name              | Usage     | Type      | BRAM | URAM | Pragma | Variable | Impl | Latency | Bitwidth, Depth, |
+|                   |           |           |      |      |        |          |      |         | Banks            |
++-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| + top_function    |           |           | 58   | 0    |        |          |      |         |                  |
+|   control_s_axi_U | interface | s_axilite |      |      |        |          |      |         |                  |
+|   gmem_m_axi_U    | interface | m_axi     | 58   |      |        |          |      |         |                  |
++-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++----------+---------+-----------------------------------------+
+| Type     | Options | Location                                |
++----------+---------+-----------------------------------------+
+| dataflow |         | dataflow_scenarios.c:17 in top_function |
++----------+---------+-----------------------------------------+
+
+
