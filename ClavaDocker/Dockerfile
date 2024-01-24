@@ -4,13 +4,11 @@ FROM ubuntu:22.04
 # Update the system and install necessary packages
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y openjdk-17-jdk
-RUN apt-get install -y gcc
 RUN apt-get install -y wget
 RUN apt-get install -y unzip
 
 # Check versions
 RUN java -version
-RUN gcc --version
 
 # Set the working directory
 WORKDIR /app
