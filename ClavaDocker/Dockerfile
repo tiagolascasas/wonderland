@@ -16,10 +16,10 @@ RUN gcc --version
 WORKDIR /app
 
 # Install Clava
-ADD https://specs.fe.up.pt/tools/clava/clava-update /app
-RUN chmod +x /app/clava-update
-RUN /app/clava-update
-RUN /app/clava --version
+ADD https://specs.fe.up.pt/tools/clava/clava-update .
+RUN chmod +x clava-update
+RUN ./clava-update
+RUN ./clava --version
 
 # Copy the test files
 COPY edgedetect ./edgedetect
