@@ -1,1 +1,0 @@
-clava MathHFinder.js -pi -par -std c11 -cr -cl -s -cfs -p mathh.c -b 0 -i src
