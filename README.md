@@ -1,6 +1,6 @@
 # Wonderland
 
-A monorepo for all my small experiments and scripts that don't really warrant their own repository. Some highlights that may be of use to someone are:
+A monorepo for some of my small experiments and scripts that don't really warrant their own repository. Some highlights that may be of use to someone are:
 
 * **CommunicationLatencyModel** - generates a linear model for communication between a CPU and an FPGA via OpenCL, from real data. Takes in a CSV of measurements, does a linear regression and outputs a JavaScript class capable of estimating the communication cost of any input size.
 
