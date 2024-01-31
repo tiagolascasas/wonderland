@@ -1,4 +1,4 @@
-# Experiments
+# Wonderland
 
 A monorepo for all my small experiments and scripts that don't really warrant their own repository. Some highlights that may be of use to someone are:
 
