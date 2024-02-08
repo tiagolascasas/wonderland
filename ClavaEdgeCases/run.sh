@@ -1,0 +1,1 @@
+clava -c config.clava
