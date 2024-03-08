@@ -1,6 +1,8 @@
 "use strict";
 
 laraImport("weaver.Query");
+laraImport("clava.code.StatementDecomposer");
+laraImport("clava.opt.NormalizeToSubset");
 
 function structComparison() {
     for (const fun of Query.search("function")) {
@@ -17,5 +19,20 @@ function defaultArguments() {
     }
 }
 
+function noDecomposingAutoStatements() {
+
+    for (const fun of Query.search("function")) {
+        const body = fun.body;
+        //NormalizeToSubset(body, { simplifyLoops: { forToWhile: false } });
+    }
+
+
+    const decomp = new StatementDecomposer();
+    for (const stmt of Query.search("statement")) {
+        decomp.decomposeAndReplace(stmt);
+    }
+}
+
 //structComparison();
-defaultArguments();
+//defaultArguments();
+noDecomposingAutoStatements();

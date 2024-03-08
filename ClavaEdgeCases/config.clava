@@ -193,7 +193,9 @@
     <entry>
       <string>include</string>
       <FileList>
-        <fileList/>
+        <fileList>
+          <file>custom_libs</file>
+        </fileList>
       </FileList>
     </entry>
     <entry>

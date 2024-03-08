@@ -15,6 +15,5 @@ int main()
     struct something_t t;
     t = s;
 
-    std::cout << t.a << s.b << std::endl;
     return 0;
 }
