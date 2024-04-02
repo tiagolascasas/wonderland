@@ -72,7 +72,9 @@
     <entry>
       <string>external_dependencies</string>
       <StringList>
-        <stringList/>
+        <stringList>
+          <string>https://github.com/specs-feup/clava-benchmarks.git?folder=Rosetta</string>
+        </stringList>
       </StringList>
     </entry>
     <entry>
@@ -88,7 +90,7 @@
     </entry>
     <entry>
       <string>C/C++ Standard</string>
-      <pt.up.fe.specs.clava.language.Standard>C17</pt.up.fe.specs.clava.language.Standard>
+      <pt.up.fe.specs.clava.language.Standard>CXX11</pt.up.fe.specs.clava.language.Standard>
     </entry>
     <entry>
       <string>workspace_extra</string>
@@ -192,7 +194,7 @@
       <string>include</string>
       <FileList>
         <fileList>
-          <file>../../clava-benchmarks/Rodinia</file>
+          <file>libs</file>
         </fileList>
       </FileList>
     </entry>
