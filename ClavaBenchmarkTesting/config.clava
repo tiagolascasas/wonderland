@@ -72,9 +72,7 @@
     <entry>
       <string>external_dependencies</string>
       <StringList>
-        <stringList>
-          <string>https://github.com/specs-feup/clava-benchmarks.git?folder=Rosetta</string>
-        </stringList>
+        <stringList/>
       </StringList>
     </entry>
     <entry>
@@ -90,7 +88,7 @@
     </entry>
     <entry>
       <string>C/C++ Standard</string>
-      <pt.up.fe.specs.clava.language.Standard>CXX11</pt.up.fe.specs.clava.language.Standard>
+      <pt.up.fe.specs.clava.language.Standard>C11</pt.up.fe.specs.clava.language.Standard>
     </entry>
     <entry>
       <string>workspace_extra</string>
@@ -194,7 +192,7 @@
       <string>include</string>
       <FileList>
         <fileList>
-          <file>libs</file>
+          <file>../../clava-benchmarks/AxBench</file>
         </fileList>
       </FileList>
     </entry>

@@ -10,4 +10,6 @@ A monorepo for some of my small experiments and scripts that don't really warran
 
 * **RustCrates** - varied Rust crates developed primarily to learn the language.
 
+* **SynthesizableSyscalls** - a proof-of-concept C library that emulates popular standard library syscalls (printf, malloc, etc) for High-level Synthesis.
+
 * **VitisDataflowDirective** - an example-driven exploration of Vitis HLS's dataflow directive.

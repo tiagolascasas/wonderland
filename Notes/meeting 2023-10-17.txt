@@ -1,8 +1,0 @@
-exemplo do edge detect
-
-definiçao de task graph: 
-- consistente com os artigos?
-- se não, o que extende?
-- definicao formal
-
-https://ieeexplore.ieee.org/abstract/document/375471
