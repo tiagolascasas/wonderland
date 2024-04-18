@@ -1,0 +1,380 @@
+[
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/iSetArray.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/iSetArray.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/timingUtils.h"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/timingUtils.h"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/readImage.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/readImage.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/photonEndTiming.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/photonEndTiming.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/getDisparity.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/getDisparity.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/photonReportTiming.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/photonReportTiming.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/script_disparity.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/script_disparity.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/ffDivide.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/ffDivide.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/padarray2.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/padarray2.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/padarray4.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/padarray4.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/iMallocHandle.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/iMallocHandle.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/computeSAD.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/computeSAD.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/photonPrintTiming.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/photonPrintTiming.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/fDeepCopy.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/fDeepCopy.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/fMallocHandle.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/fMallocHandle.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/photonStartTiming.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/photonStartTiming.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/fSetArray.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/fSetArray.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/findDisparity.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/findDisparity.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/integralImage2D2D.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/integralImage2D2D.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/fFreeHandle.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/fFreeHandle.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/sdvbs_common.h"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/sdvbs_common.h"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/iFreeHandle.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/iFreeHandle.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/calcSobel_dX.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/calcSobel_dX.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/calcSobel_dY.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/calcSobel_dY.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/correlateSAD_2D.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/correlateSAD_2D.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/finalSAD.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/finalSAD.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src/disparity.h"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src/disparity.h"
+  }
+]
