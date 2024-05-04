@@ -1,11 +1,15 @@
 #include "synthcalls.h"
 
+void kernel_A()
+{
+    printf("Hello, world!\n");
+    printf("This is a number: %d\n", 42);
+}
+
 int main()
 {
-    print_buffer_t *buffer = nosynth_make_print_buffer(1024);
-
-    synth_printf(&buffer, "Hello, world!\n");
-    synth_printf(&buffer, "This is a number: %d\n", 42);
-    nosynth_flush_print(&buffer);
+    synth_host_prekernel(1024, 1024);
+    kernel_A();
+    synth_host_postkernel();
     return 0;
 }

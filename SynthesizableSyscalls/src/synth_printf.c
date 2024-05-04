@@ -5,6 +5,13 @@
 
 #include "synthcalls.h"
 
+// synthcalls-specifc global variables
+
+static char *printf_buffer;
+static size_t print_buffer_size = 0;
+static size_t print_buffer_position = -1;
+
+///////////////////////////////////////////////////////////////////////////////
 #ifndef PRINTF_NTOA_BUFFER_SIZE
 #define PRINTF_NTOA_BUFFER_SIZE 32U
 #endif
@@ -937,15 +944,17 @@ static int _vsnprintf(out_fct_type out, char *buffer, const size_t maxlen, const
 
 ///////////////////////////////////////////////////////////////////////////////
 
-int synth_printf(print_buffer_t *buf, const char *format, ...)
+int synth_printf(const char *format, ...)
 {
     va_list va;
     va_start(va, format);
-    char *buffer = buf->buffer + buf->position;
+
+    char *buffer = printf_buffer + print_buffer_position;
+
     const int ret = _vsnprintf(_out_buffer, buffer, (size_t)-1, format, va);
     if (ret >= 0)
     {
-        buf->position += (size_t)ret;
+        print_buffer_position += (size_t)ret;
     }
     va_end(va);
     return ret;
@@ -969,13 +978,13 @@ int synth_snprintf(char *buffer, size_t count, const char *format, ...)
     return ret;
 }
 
-int synth_vprintf(print_buffer_t *buf, const char *format, va_list va)
+int synth_vprintf(const char *format, va_list va)
 {
-    char *buffer = buf->buffer + buf->position;
+    char *buffer = printf_buffer + print_buffer_position;
     int res = _vsnprintf(_out_buffer, buffer, (size_t)-1, format, va);
     if (res >= 0)
     {
-        buf->position += (size_t)res;
+        print_buffer_position += (size_t)res;
     }
     return res;
 }
@@ -993,4 +1002,18 @@ int synth_fctprintf(void (*out)(char character, void *arg), void *arg, const cha
     const int ret = _vsnprintf(_out_fct, (char *)(uintptr_t)&out_fct_wrap, (size_t)-1, format, va);
     va_end(va);
     return ret;
+}
+
+// Synthcalls functions
+char *synth_get_buffer(size_t *size)
+{
+    *size = print_buffer_position;
+    return printf_buffer;
+}
+
+void synth_set_buffer(char *buffer, size_t size)
+{
+    printf_buffer = buffer;
+    print_buffer_size = size;
+    print_buffer_position = 0;
 }
