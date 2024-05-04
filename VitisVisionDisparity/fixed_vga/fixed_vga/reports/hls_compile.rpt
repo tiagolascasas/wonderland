@@ -1,0 +1,220 @@
+
+
+================================================================
+== Synthesis Summary Report of 'findDisparity'
+================================================================
++ General Information: 
+    * Date:           Tue Apr 30 02:49:24 2024
+    * Version:        2023.2 (Build 4023990 on Oct 11 2023)
+    * Project:        fixed_vga
+    * Solution:       hls (Vitis Kernel Flow Target)
+    * Product family: zynquplus
+    * Target device:  xczu9eg-ffvb1156-1-i
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +-----------------------------------------------------------+------+------+----------+-----------+----------+----------+--------+----------+---------+---------+------------+-----------+-----+
+    |                          Modules                          | Issue|      | Latency  |  Latency  | Iteration|          |  Trip  |          |         |         |            |           |     |
+    |                          & Loops                          | Type | Slack| (cycles) |    (ns)   |  Latency | Interval |  Count | Pipelined|  BRAM   |   DSP   |     FF     |    LUT    | URAM|
+    +-----------------------------------------------------------+------+------+----------+-----------+----------+----------+--------+----------+---------+---------+------------+-----------+-----+
+    |+ findDisparity                                            |     -|  0.00|  40855423|  4.086e+08|         -|  40855424|       -|        no|  4 (~0%)|  7 (~0%)|  3115 (~0%)|  5624 (2%)|    -|
+    | + findDisparity_Pipeline_VITIS_LOOP_11_1_VITIS_LOOP_14_2  |     -|  0.00|  40855348|  4.086e+08|         -|  40855348|       -|        no|        -|  3 (~0%)|   976 (~0%)|  3000 (1%)|    -|
+    |  o VITIS_LOOP_11_1_VITIS_LOOP_14_2                        |    II|  7.30|  40855346|  4.086e+08|       292|       145|  281760|       yes|        -|        -|           -|          -|    -|
+    +-----------------------------------------------------------+------+------+----------+-----------+----------+----------+--------+----------+---------+---------+------------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface  | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|            | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_gmem | 32 -> 32   | 64            | 64      | slave  | 0        | 512       | 16           | 16           | 16          | 16          | BRAM=4            |
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 8             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+------------------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| Interface     | Register         | Offset | Width | Access | Description                      | Bit Fields                                                                         |
++---------------+------------------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| s_axi_control | CTRL             | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 4=AP_CONTINUE 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER             | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                                           |
+| s_axi_control | IP_IER           | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                                      |
+| s_axi_control | IP_ISR           | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                                      |
+| s_axi_control | retSAD_width_1   | 0x10   | 32    | W      | Data signal of retSAD_width      |                                                                                    |
+| s_axi_control | retSAD_width_2   | 0x14   | 32    | W      | Data signal of retSAD_width      |                                                                                    |
+| s_axi_control | retSAD_height_1  | 0x1c   | 32    | W      | Data signal of retSAD_height     |                                                                                    |
+| s_axi_control | retSAD_height_2  | 0x20   | 32    | W      | Data signal of retSAD_height     |                                                                                    |
+| s_axi_control | retSAD_data_1    | 0x28   | 32    | W      | Data signal of retSAD_data       |                                                                                    |
+| s_axi_control | retSAD_data_2    | 0x2c   | 32    | W      | Data signal of retSAD_data       |                                                                                    |
+| s_axi_control | minSAD_width_1   | 0x34   | 32    | W      | Data signal of minSAD_width      |                                                                                    |
+| s_axi_control | minSAD_width_2   | 0x38   | 32    | W      | Data signal of minSAD_width      |                                                                                    |
+| s_axi_control | minSAD_height_1  | 0x40   | 32    | W      | Data signal of minSAD_height     |                                                                                    |
+| s_axi_control | minSAD_height_2  | 0x44   | 32    | W      | Data signal of minSAD_height     |                                                                                    |
+| s_axi_control | minSAD_data_1    | 0x4c   | 32    | W      | Data signal of minSAD_data       |                                                                                    |
+| s_axi_control | minSAD_data_2    | 0x50   | 32    | W      | Data signal of minSAD_data       |                                                                                    |
+| s_axi_control | retDisp_width_1  | 0x58   | 32    | W      | Data signal of retDisp_width     |                                                                                    |
+| s_axi_control | retDisp_width_2  | 0x5c   | 32    | W      | Data signal of retDisp_width     |                                                                                    |
+| s_axi_control | retDisp_height_1 | 0x64   | 32    | W      | Data signal of retDisp_height    |                                                                                    |
+| s_axi_control | retDisp_height_2 | 0x68   | 32    | W      | Data signal of retDisp_height    |                                                                                    |
+| s_axi_control | retDisp_data_1   | 0x70   | 32    | W      | Data signal of retDisp_data      |                                                                                    |
+| s_axi_control | retDisp_data_2   | 0x74   | 32    | W      | Data signal of retDisp_data      |                                                                                    |
+| s_axi_control | level            | 0x7c   | 32    | W      | Data signal of level             |                                                                                    |
+| s_axi_control | nr               | 0x84   | 32    | W      | Data signal of nr                |                                                                                    |
+| s_axi_control | nc               | 0x8c   | 32    | W      | Data signal of nc                |                                                                                    |
++---------------+------------------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+---------------+-----------+
+| Interface | Type          | Ports     |
++-----------+---------------+-----------+
+| ap_clk    | clock         | ap_clk    |
+| ap_rst_n  | reset         | ap_rst_n  |
+| interrupt | interrupt     | interrupt |
+| ap_ctrl   | ap_ctrl_chain |           |
++-----------+---------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+----------+
+| Argument | Direction | Datatype |
++----------+-----------+----------+
+| retSAD   | inout     | pointer  |
+| minSAD   | inout     | pointer  |
+| retDisp  | inout     | pointer  |
+| level    | in        | int      |
+| nr       | in        | int      |
+| nc       | in        | int      |
++----------+-----------+----------+
+
+* SW-to-HW Mapping
++----------+---------------+-----------+----------+---------------------------------+
+| Argument | HW Interface  | HW Type   | HW Usage | HW Info                         |
++----------+---------------+-----------+----------+---------------------------------+
+| retSAD   | m_axi_gmem    | interface |          |                                 |
+| retSAD   | s_axi_control | interface | offset   |                                 |
+| retSAD   | m_axi_gmem    | interface |          |                                 |
+| retSAD   | s_axi_control | interface | offset   |                                 |
+| retSAD   | m_axi_gmem    | interface |          |                                 |
+| retSAD   | s_axi_control | interface | offset   |                                 |
+| minSAD   | m_axi_gmem    | interface |          |                                 |
+| minSAD   | s_axi_control | interface | offset   |                                 |
+| minSAD   | m_axi_gmem    | interface |          |                                 |
+| minSAD   | s_axi_control | interface | offset   |                                 |
+| minSAD   | m_axi_gmem    | interface |          |                                 |
+| minSAD   | s_axi_control | interface | offset   |                                 |
+| retDisp  | m_axi_gmem    | interface |          |                                 |
+| retDisp  | s_axi_control | interface | offset   |                                 |
+| retDisp  | m_axi_gmem    | interface |          |                                 |
+| retDisp  | s_axi_control | interface | offset   |                                 |
+| retDisp  | m_axi_gmem    | interface |          |                                 |
+| retDisp  | s_axi_control | interface | offset   |                                 |
+| level    | s_axi_control | register  |          | name=level offset=0x7c range=32 |
+| nr       | s_axi_control | register  |          | name=nr offset=0x84 range=32    |
+| nc       | s_axi_control | register  |          | name=nc offset=0x8c range=32    |
++----------+---------------+-----------+----------+---------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* All M_AXI Variable Accesses
++--------------+---------------+-----------------------------------------------------------------------------------+-----------+--------------+----------+-----------------+-----------------------------------------------------------------------------------+------------+----------------------------------------------------------------------------------------+
+| HW Interface | Variable      | Access Location                                                                   | Direction | Burst Status | Length   | Loop            | Loop Location                                                                     | Resolution | Problem                                                                                |
++--------------+---------------+-----------------------------------------------------------------------------------+-----------+--------------+----------+-----------------+-----------------------------------------------------------------------------------+------------+----------------------------------------------------------------------------------------+
+| m_axi_gmem   |               | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:14:19 | read      | Fail         |          |                 |                                                                                   | 214-224    | Could not burst due to multiple potential reads to the same bundle in the same region. |
+| m_axi_gmem   | retSAD_data   | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:17:6  | read      | Widen Fail   |          | VITIS_LOOP_14_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:14:19 | 214-307    | Could not widen since type float size is greater than or equal to alignment 4(bytes)   |
+| m_axi_gmem   | retSAD_data   | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:17:6  | read      | Fail         |          | VITIS_LOOP_11_1 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:11:22 | 214-229    | Could not analyze pattern                                                              |
+| m_axi_gmem   | retSAD_data   | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:17:6  | read      | Inferred     | variable | VITIS_LOOP_14_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:14:19 |            |                                                                                        |
+| m_axi_gmem   | minSAD_data   | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:18:17 | read      | Fail         |          |                 |                                                                                   | 214-231    | Access is clobbered by store                                                           |
+| m_axi_gmem   | minSAD_data   | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:23:55 | write     | Fail         |          | VITIS_LOOP_14_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:14:19 | 214-232    | Access store is in the conditional branch                                              |
+| m_axi_gmem   | retDisp_data  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:24:57 | write     | Fail         |          | VITIS_LOOP_14_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:14:19 | 214-232    | Access store is in the conditional branch                                              |
+| m_axi_gmem   | retDisp_width | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:24:44 | read      | Fail         |          | VITIS_LOOP_14_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:14:19 | 214-232    | Access load is in the conditional branch                                               |
++--------------+---------------+-----------------------------------------------------------------------------------+-----------+--------------+----------+-----------------+-----------------------------------------------------------------------------------+------------+----------------------------------------------------------------------------------------+
+
+    * Resolution URL: docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=XXX-YYY.html (replace XXX-YYY with column value)
+
+================================================================
+== Bind Op Report
+================================================================
++-----------------------------------------------------------+-----+--------+-------------+-----+--------+---------+
+| Name                                                      | DSP | Pragma | Variable    | Op  | Impl   | Latency |
++-----------------------------------------------------------+-----+--------+-------------+-----+--------+---------+
+| + findDisparity                                           | 7   |        |             |     |        |         |
+|   mul_32ns_32ns_64_1_1_U15                                | 4   |        | mul_ln4     | mul | auto   | 0       |
+|  + findDisparity_Pipeline_VITIS_LOOP_11_1_VITIS_LOOP_14_2 | 3   |        |             |     |        |         |
+|    add_ln11_fu_276_p2                                     |     |        | add_ln11    | add | fabric | 0       |
+|    add_ln11_1_fu_297_p2                                   |     |        | add_ln11_1  | add | fabric | 0       |
+|    mul_32s_31ns_32_1_1_U2                                 | 3   |        | mul         | mul | auto   | 0       |
+|    mul_32s_31ns_32_1_1_U2                                 | 3   |        | mul6        | mul | auto   | 0       |
+|    add_ln14_fu_328_p2                                     |     |        | add_ln14    | add | fabric | 0       |
+|    add_ln17_fu_360_p2                                     |     |        | add_ln17    | add | fabric | 0       |
+|    add_ln317_fu_461_p2                                    |     |        | add_ln317   | add | fabric | 0       |
+|    sub_ln18_fu_475_p2                                     |     |        | sub_ln18    | sub | fabric | 0       |
+|    result_2_fu_540_p2                                     |     |        | result_2    | sub | fabric | 0       |
+|    add_ln18_fu_380_p2                                     |     |        | add_ln18    | add | fabric | 0       |
+|    add_ln18_1_fu_398_p2                                   |     |        | add_ln18_1  | add | fabric | 0       |
+|    add_ln317_1_fu_590_p2                                  |     |        | add_ln317_1 | add | fabric | 0       |
+|    sub_ln18_1_fu_604_p2                                   |     |        | sub_ln18_1  | sub | fabric | 0       |
+|    result_6_fu_669_p2                                     |     |        | result_6    | sub | fabric | 0       |
+|    mul_32s_31ns_32_1_1_U2                                 | 3   |        | mul_ln24    | mul | auto   | 0       |
+|    add_ln24_fu_733_p2                                     |     |        | add_ln24    | add | fabric | 0       |
+|    add_ln24_1_fu_751_p2                                   |     |        | add_ln24_1  | add | fabric | 0       |
+|    add_ln14_1_fu_692_p2                                   |     |        | add_ln14_1  | add | fabric | 0       |
++-----------------------------------------------------------+-----+--------+-------------+-----+--------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| Name              | Usage     | Type      | BRAM | URAM | Pragma | Variable | Impl | Latency | Bitwidth, Depth, |
+|                   |           |           |      |      |        |          |      |         | Banks            |
++-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| + findDisparity   |           |           | 4    | 0    |        |          |      |         |                  |
+|   control_s_axi_U | interface | s_axilite |      |      |        |          |      |         |                  |
+|   gmem_m_axi_U    | interface | m_axi     | 4    |      |        |          |      |         |                  |
++-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++----------------+-----------------------------+--------------------------------------------------------------+
+| Type           | Options                     | Location                                                     |
++----------------+-----------------------------+--------------------------------------------------------------+
+| loop_tripcount | min=488 max=488             | ../src_fixed_vga/computeSAD.c:19 in computesad               |
+| loop_tripcount | min=595 max=595             | ../src_fixed_vga/computeSAD.c:22 in computesad               |
+| loop_tripcount | min=462949720 max=462949720 | ../src_fixed_vga/correlateSAD_2D.c:13 in outlined_fun_18     |
+| loop_tripcount | min=587 max=587             | ../src_fixed_vga/finalSAD.c:18 in finalsad                   |
+| loop_tripcount | min=480 max=480             | ../src_fixed_vga/finalSAD.c:21 in finalsad                   |
+| loop_tripcount | min=480 max=480             | ../src_fixed_vga/findDisparity.c:13 in finddisparity         |
+| loop_tripcount | min=587 max=587             | ../src_fixed_vga/findDisparity.c:16 in finddisparity         |
+| loop_tripcount | min=595 max=595             | ../src_fixed_vga/integralImage2D2D.c:15 in integralimage2d2d |
+| loop_tripcount | min=488 max=488             | ../src_fixed_vga/integralImage2D2D.c:20 in integralimage2d2d |
+| loop_tripcount | min=595 max=595             | ../src_fixed_vga/integralImage2D2D.c:23 in integralimage2d2d |
+| loop_tripcount | min=488 max=488             | ../src_fixed_vga/integralImage2D2D.c:29 in integralimage2d2d |
+| loop_tripcount | min=595 max=595             | ../src_fixed_vga/integralImage2D2D.c:32 in integralimage2d2d |
+| loop_tripcount | min=488 max=488             | ../src_fixed_vga/padarray4.c:32 in padarray4                 |
+| loop_tripcount | min=595 max=595             | ../src_fixed_vga/padarray4.c:35 in padarray4                 |
+| loop_tripcount | min=488 max=488             | ../src_fixed_vga/padarray4.c:44 in padarray4                 |
+| loop_tripcount | min=595 max=595             | ../src_fixed_vga/padarray4.c:47 in padarray4                 |
++----------------+-----------------------------+--------------------------------------------------------------+
+
+

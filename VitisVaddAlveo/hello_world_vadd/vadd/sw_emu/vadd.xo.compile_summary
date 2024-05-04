@@ -1,0 +1,168 @@
+<ENTRY>
+{
+ "thisFile": "/home/tls/Dev/wonderland/VitisExperimentation/hello_world_vadd/vadd/sw_emu/vadd.xo.compile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Fri May  3 04:25:48 2024",
+ "timestampMillis": "1714706748819",
+ "buildStep": {
+  "cmdId": "cd506d3c-18f8-491b-8434-ec702a2e2dd0",
+  "name": "v++",
+  "logFile": "/home/tls/Dev/wonderland/VitisExperimentation/hello_world_vadd/vadd/sw_emu/vadd/vadd.steps.log",
+  "commandLine": "/tools/Xilinx/Vitis/2023.2/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -c -k vadd --target sw_emu /home/tls/Dev/wonderland/VitisExperimentation/hello_world_vadd/src/vadd.cpp -g --platform /opt/xilinx/platforms/xilinx_u250_gen3x16_xdma_4_1_202210_1/xilinx_u250_gen3x16_xdma_4_1_202210_1.xpfm --temp_dir /home/tls/Dev/wonderland/VitisExperimentation/hello_world_vadd/vadd/sw_emu -o /home/tls/Dev/wonderland/VitisExperimentation/hello_world_vadd/vadd/sw_emu/vadd.xo ",
+  "args": [
+   "-c",
+   "-k",
+   "vadd",
+   "--target",
+   "sw_emu",
+   "/home/tls/Dev/wonderland/VitisExperimentation/hello_world_vadd/src/vadd.cpp",
+   "-g",
+   "--platform",
+   "/opt/xilinx/platforms/xilinx_u250_gen3x16_xdma_4_1_202210_1/xilinx_u250_gen3x16_xdma_4_1_202210_1.xpfm",
+   "--temp_dir",
+   "/home/tls/Dev/wonderland/VitisExperimentation/hello_world_vadd/vadd/sw_emu",
+   "-o",
+   "/home/tls/Dev/wonderland/VitisExperimentation/hello_world_vadd/vadd/sw_emu/vadd.xo"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/VitisExperimentation/hello_world_vadd"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri May  3 04:25:48 2024",
+ "timestampMillis": "1714706748819",
+ "status": {
+  "cmdId": "cd506d3c-18f8-491b-8434-ec702a2e2dd0",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Fri May  3 04:25:51 2024",
+ "timestampMillis": "1714706751135",
+ "buildSummary": {
+  "hardwarePlatform": "xilinx_u250_gen3x16_xdma_4_1_202210_1.xpfm",
+  "hardwareDsa": "",
+  "platformDirectory": "/opt/xilinx/platforms/xilinx_u250_gen3x16_xdma_4_1_202210_1",
+  "runtime": "OpenCL",
+  "systemConfig": "Linux",
+  "flow": "BF_COMPILE",
+  "target": "TT_SW_EMU",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "vadd",
+     "file": "/home/tls/Dev/wonderland/VitisExperimentation/hello_world_vadd/vadd/sw_emu/vadd.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/tls/Dev/wonderland/VitisExperimentation/hello_world_vadd/src/vadd.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "Vitis V++ Compiler Release 2023.2. SW Build 4026344 on 2023-10-11-15:42:10"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Fri May  3 04:25:51 2024",
+ "timestampMillis": "1714706751137",
+ "buildStep": {
+  "cmdId": "64bb0b22-ea7d-416f-b28c-268cbd16b631",
+  "name": "vitis_hls",
+  "logFile": "/home/tls/Dev/wonderland/VitisExperimentation/hello_world_vadd/vadd/sw_emu/vadd/vadd/vitis_hls.log",
+  "commandLine": "vitis_hls -f /home/tls/Dev/wonderland/VitisExperimentation/hello_world_vadd/vadd/sw_emu/vadd/vadd/vadd.tcl -messageDb vitis_hls.pb",
+  "args": [
+   "vitis_hls",
+   "-f",
+   "/home/tls/Dev/wonderland/VitisExperimentation/hello_world_vadd/vadd/sw_emu/vadd/vadd/vadd.tcl",
+   "-messageDb",
+   "vitis_hls.pb"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/VitisExperimentation/hello_world_vadd"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri May  3 04:25:51 2024",
+ "timestampMillis": "1714706751137",
+ "status": {
+  "cmdId": "64bb0b22-ea7d-416f-b28c-268cbd16b631",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri May  3 04:26:01 2024",
+ "timestampMillis": "1714706761523",
+ "status": {
+  "cmdId": "64bb0b22-ea7d-416f-b28c-268cbd16b631",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri May  3 04:26:01 2024",
+ "timestampMillis": "1714706761536",
+ "status": {
+  "cmdId": "cd506d3c-18f8-491b-8434-ec702a2e2dd0",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri May  3 04:26:01 2024",
+ "timestampMillis": "1714706761591",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/VitisExperimentation/hello_world_vadd/vadd/sw_emu/reports/vadd/v++_compile_vadd_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri May  3 04:26:01 2024",
+ "timestampMillis": "1714706761591",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/VitisExperimentation/hello_world_vadd/vadd/sw_emu/v++_compile_vadd_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

@@ -1,0 +1,255 @@
+<ENTRY>
+{
+ "thisFile": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga/fixed_vga/fixed_vga.hlscompile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Tue Apr 30 02:49:08 2024",
+ "timestampMillis": "1714441748958",
+ "buildStep": {
+  "cmdId": "1fdf6874-0d3d-49a6-a759-bc2fa410e3c6",
+  "name": "v++",
+  "logFile": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga/fixed_vga/logs/fixed_vga.steps.log",
+  "commandLine": "/tools/Xilinx/Vitis/2023.2/bin/unwrapped/lnx64.o/v++  -c --mode hls --config /home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga/hls_config.cfg --work_dir fixed_vga ",
+  "args": [
+   "-c",
+   "--mode",
+   "hls",
+   "--config",
+   "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga/hls_config.cfg",
+   "--work_dir",
+   "fixed_vga"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga/hls_config.cfg",
+    "content": "part=xczu9eg-ffvb1156-1-i\n\n[hls]\nflow_target=vitis\npackage.output.format=xo\npackage.output.syn=false\nsyn.top=findDisparity\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/script_disparity.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/readImage.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/photonStartTiming.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/photonReportTiming.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/photonPrintTiming.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/photonEndTiming.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/padarray4.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/padarray2.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/integralImage2D2D.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/iSetArray.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/iMallocHandle.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/iFreeHandle.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/getDisparity.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/finalSAD.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/ffDivide.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/fSetArray.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/fMallocHandle.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/fFreeHandle.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/fDeepCopy.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/correlateSAD_2D.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/computeSAD.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/calcSobel_dY.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/calcSobel_dX.c\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/disparity.h\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/timingUtils.h\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/sdvbs_common.h\ntb.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/input\ncsim.argv=input\nsyn.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/computeSAD.c\nsyn.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/correlateSAD_2D.c\nsyn.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/fFreeHandle.c\nsyn.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/finalSAD.c\nsyn.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c\nsyn.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/getDisparity.c\nsyn.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/integralImage2D2D.c\nsyn.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/padarray4.c\nsyn.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/disparity.h\nsyn.file=/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/sdvbs_common.h\nsyn.file=foo.c"
+   }
+  ],
+  "cwd": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Apr 30 02:49:08 2024",
+ "timestampMillis": "1714441748958",
+ "status": {
+  "cmdId": "1fdf6874-0d3d-49a6-a759-bc2fa410e3c6",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Tue Apr 30 02:49:11 2024",
+ "timestampMillis": "1714441751561",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_COMPILE",
+  "target": "TT_HW",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "findDisparity",
+     "file": "",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/computeSAD.c",
+     "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/correlateSAD_2D.c",
+     "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/fFreeHandle.c",
+     "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/finalSAD.c",
+     "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c",
+     "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/getDisparity.c",
+     "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/integralImage2D2D.c",
+     "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/padarray4.c",
+     "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/disparity.h",
+     "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/sdvbs_common.h",
+     "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga/foo.c"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2023.2"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Tue Apr 30 02:49:11 2024",
+ "timestampMillis": "1714441751563",
+ "buildStep": {
+  "cmdId": "a3e27305-3b4d-4079-9e8a-478129b96962",
+  "name": "csynth_design",
+  "logFile": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga/fixed_vga/hls/hls.log",
+  "commandLine": "csynth_design",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Apr 30 02:49:11 2024",
+ "timestampMillis": "1714441751563",
+ "status": {
+  "cmdId": "a3e27305-3b4d-4079-9e8a-478129b96962",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue Apr 30 02:49:11 2024",
+ "timestampMillis": "1714441751563",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga/fixed_vga/hls/hls_data.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue Apr 30 02:49:11 2024",
+ "timestampMillis": "1714441751563",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga/fixed_vga/hls/syn/report/csynth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue Apr 30 02:49:11 2024",
+ "timestampMillis": "1714441751564",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga/fixed_vga/hls/syn/report/csynth.xml",
+  "name": "",
+  "fileType": "XML",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue Apr 30 02:49:25 2024",
+ "timestampMillis": "1714441765480",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga/fixed_vga/hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_DATAFLOW",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue Apr 30 02:49:25 2024",
+ "timestampMillis": "1714441765480",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga/fixed_vga/hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_FUNCTION_CALL_GRAPH",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue Apr 30 02:49:25 2024",
+ "timestampMillis": "1714441765480",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga/fixed_vga/hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_SCHEDULE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Apr 30 02:49:25 2024",
+ "timestampMillis": "1714441765480",
+ "status": {
+  "cmdId": "a3e27305-3b4d-4079-9e8a-478129b96962",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Apr 30 02:49:25 2024",
+ "timestampMillis": "1714441765624",
+ "status": {
+  "cmdId": "1fdf6874-0d3d-49a6-a759-bc2fa410e3c6",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue Apr 30 02:49:25 2024",
+ "timestampMillis": "1714441765689",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga/fixed_vga/reports/v++_compile_fixed_vga_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue Apr 30 02:49:25 2024",
+ "timestampMillis": "1714441765689",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga/fixed_vga/reports/.db/v++_compile_fixed_vga_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

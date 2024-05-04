@@ -1,3 +1,0 @@
-relativeroot=/home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity
-original_argv=-c --mode hls --config /home/tls/Dev/wonderland/VitisVisionDisparity/hls_disparity/hls_config.cfg --work_dir computeSAD 
-

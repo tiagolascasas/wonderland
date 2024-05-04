@@ -1,0 +1,156 @@
+[
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/sdvbs_common.h"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/sdvbs_common.h"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/disparity.h"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/disparity.h"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/computeSAD.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/computeSAD.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/padarray4.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/padarray4.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/fFreeHandle.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/fFreeHandle.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/finalSAD.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/finalSAD.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga/foo.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga/foo.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/correlateSAD_2D.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/correlateSAD_2D.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/getDisparity.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/getDisparity.c"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/VitisVisionDisparity/fixed_vga",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/etc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/include/ap_sysc",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+      "-isystem/tools/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include",
+      "--compile",
+      "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/integralImage2D2D.c"
+    ],
+    "file": "/home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/integralImage2D2D.c"
+  }
+]
