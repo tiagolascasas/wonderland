@@ -1,0 +1,145 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "hello_world_sw_emu",
+      "debugType": "sw_emu",
+      "type": "gdb",
+      "request": "launch",
+      "target": "${workspaceFolder}/hello_world_host/build/x86sim/hello_world_host",
+      "applicationProjectDir": "${workspaceFolder}/hello_world",
+      "arguments": "-x ${workspaceFolder}/hello_world/build/sw_emu/package/vadd.xclbin",
+      "cwd": "${workspaceFolder}/hello_world/build/sw_emu/hello_world_sw_emu",
+      "gdbpath": "${env:XILINX_VITIS}/bin/xgdb",
+      "valuesFormatting": "prettyPrinters",
+      "env": {
+        "XILINX_VITIS": "${env:XILINX_VITIS}",
+        "XILINX_HLS": "${env:XILINX_VITIS}",
+        "XCL_EMULATION_MODE": "sw_emu",
+        "ENABLE_KERNEL_DEBUG": "true",
+        "XRT_INI_PATH": "${workspaceFolder}/hello_world/hello_world_host/runtime/sw_emu_xrt.ini",
+        "XCL_BIN_PATH": "${workspaceFolder}/hello_world/build/sw_emu/package",
+        "LD_LIBRARY_PATH": "${env:XILINX_XRT}/lib"
+      }
+    },
+    {
+      "type": "tcf-debug",
+      "request": "launch",
+      "name": "hello_world_hw_emu",
+      "debugType": "tcf_hw_emu",
+      "target": {
+        "targetConnectionId": "LinuxEmulation",
+        "peersIniPath": "../../../.peers.ini",
+        "file": "${workspaceFolder}/hello_world_host/build/hw/hello_world_host",
+        "remoteFilePath": "/run/media/mmcblk0p1/hello_world_host"
+      },
+      "env": {
+        "XILINX_VITIS": "/run/media/mmcblk0p1",
+        "XILINX_XRT": "/usr",
+        "XCL_EMULATION_MODE": "hw_emu",
+        "XRT_INI_PATH": "/run/media/mmcblk0p1/hw_emu_xrt.ini",
+        "LD_LIBRARY_PATH": "/run/media/mmcblk0p1:/tmp:$LD_LIBRARY_PATH"
+      },
+      "copyToTarget": [
+        {
+          "source": "${workspaceFolder}/hello_world/hello_world_host/runtime/hw_emu_xrt.ini",
+          "destination": "/run/media/mmcblk0p1"
+        },
+        {
+          "source": "${workspaceFolder}/hello_world/build/hw_emu/package/vadd.xclbin",
+          "destination": "/run/media/mmcblk0p1"
+        }
+      ],
+      "copyFromTargetOnTermination": [
+        {
+          "pattern": ".txt",
+          "destination": "${workspaceFolder}/hello_world/build/hw_emu/hello_world_hw_emu"
+        },
+        {
+          "pattern": ".run_summary",
+          "destination": "${workspaceFolder}/hello_world/build/hw_emu/hello_world_hw_emu"
+        },
+        {
+          "pattern": ".json",
+          "destination": "${workspaceFolder}/hello_world/build/hw_emu/hello_world_hw_emu"
+        },
+        {
+          "pattern": ".csv",
+          "destination": "${workspaceFolder}/hello_world/build/hw_emu/hello_world_hw_emu"
+        }
+      ],
+      "pathMap": [
+        {
+          "source": "/home/tls/Dev/wonderland/VitisVaddZynq/hello_world/build/hw_emu/hw_link/vadd/vadd/int/xo/vadd/vadd/cpu_sources",
+          "destination": "/home/tls/Dev/wonderland/VitisVaddZynq/hello_world_vadd/src"
+        }
+      ],
+      "replaceNativeEnv": false,
+      "arguments": "-x ./vadd.xclbin",
+      "workingDirectory": "/run/media/mmcblk0p1",
+      "stopAtMain": true,
+      "stopAtProgramEntry": false,
+      "autoAttachProcessChildren": false,
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "type": "tcf-debug",
+      "request": "launch",
+      "name": "hello_world_hw",
+      "debugType": "tcf_hw",
+      "target": {
+        "targetConnectionId": "Linux Agent",
+        "peersIniPath": "../../../.peers.ini",
+        "file": "${workspaceFolder}/hello_world_host/build/hw/hello_world_host",
+        "remoteFilePath": "/run/media/mmcblk0p1/hello_world_host"
+      },
+      "env": {
+        "XILINX_VITIS": "/run/media/mmcblk0p1",
+        "XILINX_XRT": "/usr",
+        "XRT_INI_PATH": "/run/media/mmcblk0p1/hw_xrt.ini",
+        "LD_LIBRARY_PATH": "/run/media/mmcblk0p1:/tmp:$LD_LIBRARY_PATH"
+      },
+      "copyToTarget": [
+        {
+          "source": "${workspaceFolder}/hello_world/hello_world_host/runtime/hw_xrt.ini",
+          "destination": "/run/media/mmcblk0p1"
+        },
+        {
+          "source": "${workspaceFolder}/hello_world/build/hw/package/vadd.xclbin",
+          "destination": "/run/media/mmcblk0p1"
+        }
+      ],
+      "copyFromTargetOnTermination": [
+        {
+          "pattern": ".txt",
+          "destination": "${workspaceFolder}/hello_world/build/hw/hello_world_hw"
+        },
+        {
+          "pattern": ".run_summary",
+          "destination": "${workspaceFolder}/hello_world/build/hw/hello_world_hw"
+        },
+        {
+          "pattern": ".json",
+          "destination": "${workspaceFolder}/hello_world/build/hw/hello_world_hw"
+        },
+        {
+          "pattern": ".csv",
+          "destination": "${workspaceFolder}/hello_world/build/hw/hello_world_hw"
+        }
+      ],
+      "pathMap": [
+        {
+          "source": "/home/tls/Dev/wonderland/VitisVaddZynq/hello_world/build/hw/hw_link/vadd/vadd/int/xo/vadd/vadd/cpu_sources",
+          "destination": "/home/tls/Dev/wonderland/VitisVaddZynq/hello_world_vadd/src"
+        }
+      ],
+      "replaceNativeEnv": false,
+      "arguments": "-x ./vadd.xclbin",
+      "workingDirectory": "/run/media/mmcblk0p1",
+      "stopAtMain": true,
+      "stopAtProgramEntry": false,
+      "autoAttachProcessChildren": false,
+      "internalConsoleOptions": "openOnSessionStart"
+    }
+  ]
+}

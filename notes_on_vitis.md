@@ -72,8 +72,67 @@ Notes and thoughts about the Application component of Vitis 2023.2
 
 ## Concrete Examples
 
-### Hybrid CPU-FPGA application on the Alveo U250 (x86 system)
+Here are some concrete instructions on how to use Vitis 2023.2. Hopefully one of these demonstration projects is sufficient to bootstrap the development of your app or kernel. These all assume you're running Ubuntu 22.10 or similar.
 
-### Hybrid CPU-FPGA application on the ZCU102 (ARM system)
+### Vadd application on the Alveo U250 (x86 system)
 
-Very important: <https://highlevel-synthesis.com/2022/06/09/how-to-emulate-an-hardware-accelerator-on-zcu102-in-vitis-2022-1/>
+Start by downloading and installing the Alveo U250 board platform [using these instructions](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/alveo.html). It does not matter if your computer has an Alveo or not.
+
+Create a new workspace, and go to Examples > Vitis Accel Examples Repository > Hello World XRT (XRT Native API's), and create one of those. If it doesn't appear in the list, there is likely a download button somewhere in that list.
+
+You should see 3 components: a HLS component for vadd (vector addition), an Application component for the host code, and a Platform component for linking everything together. This is the one you'll be interacting with.
+
+Run the Software Emulation by clicking "Build All", and then "Run".
+
+Run the Hardware Emulation by clicking "Build All", and then click on "Run". Since your development PC has the same architecture as the target in an Alveo hybrid system (i.e., an x86_64 CPU), the emulator only needs to emulate the board; if the target CPU was, say, an ARM CPU, you'd also need to emulate the CPU and its associated OS. This is why the Alveo is the ideal target platform to experiment with, even if you end up targeting something else.
+
+Finally, in "Hardware" you can finally build the application, with the place-and-route and linking steps. Click on "Build All", and enjoy the wait. The final product is located in TBD. Now, you have two options:
+
+- If you're on a PC without an Alveo, the "Run" option will be greyed out. You can technically still run the final application by directly executing the ELF file, but it'll fail when loading up the XCLBIN. You need to copy the ELF + XCLBIN onto a PC with an Alveo;
+- If you're on a PC with an Alveo that has been properly configured, the "Run" button should be clickable. To properly configure an Alveo, you need to flash it with the same firmware as the version you targeted. I do not cover how to do that here, as I do not remember how it is done.
+
+### Vadd application on the ZCU102 (ARM system)
+
+[Tutorial for Vitis 2022.1 I found online](https://highlevel-synthesis.com/2022/06/09/how-to-emulate-an-hardware-accelerator-on-zcu102-in-vitis-2022-1/), still somewhat relevant. Here is my take on a similar tutorial for 2023.2:
+
+Download the ZYNQMP common image <https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-zynqmp-common-v2023.2_10140544.tar.gz> for 2023.2. **It will not work with past versions**.
+
+Unzip the file, and run `./sdk.sh -d ~/zcu102` to install the SDK to the home directory. After it is done, copy the unzipped folder into `~/zcu102` as well. The folder should look like this after you're done:
+
+```
+~/zcu102
+├── environment-setup-cortexa72-cortexa53-xilinx-linux
+├── site-config-cortexa72-cortexa53-xilinx-linux
+├── sysroots
+│   ├── cortexa72-cortexa53-xilinx-linux
+│   └── x86_64-petalinux-linux
+├── version-cortexa72-cortexa53-xilinx-linux
+└── xilinx-zynqmp-common-v2023.2
+    ├── Image
+    ├── README.txt
+    ├── bl31.elf
+    ├── boot.scr
+    ├── rootfs.ext4
+    ├── rootfs.manifest
+    ├── rootfs.tar.gz
+    ├── sdk.sh
+    └── u-boot.elf
+```
+
+Take note of these 3 important files/folders, which you will need later:
+
+- **sysroot**: `~/zcu102/sysroots/cortexa72-cortexa53-xilinx-linux`
+- **rootfs**: `~/zcu102/xilinx-zynqmp-common-v2023.2/rootfs.ext4`
+- **kernel image**: `~/zcu102/xilinx-zynqmp-common-v2023.2/Image`
+
+Create a new workspace, and go to Examples > Vitis Accel Examples Repository > Hello World XRT (XRT Native API's), and create one of those. If it doesn't appear in the list, there is likely a download button somewhere in that list.
+
+Select the ZCU102 as your target platform, and insert the sysroot, rootfs and kernel image information as specified above.
+
+You should see 3 components: a HLS component for vadd (vector addition), an Application component for the host code, and a Platform component for linking everything together. This is the one you'll be interacting with.
+
+Run the Software Emulation by clicking "Build All", and then "Run".
+
+Run the Hardware Emulation by clicking "Build All", and then click on "Start Emulator". Wait until it boots up, and you're presented with a bash shell that you can interact with (not that you need to). Then, click on "Run" to run the HW Emulation. You cannot click on "Run" unless the emulator is running!
+
+Finally, in "Hardware" you can finally build the application, with the place-and-route and linking steps. Click on "Build All", and enjoy the wait. The final product is located in TBD. You can then copy this onto a ZCU102 running PetaLinux in order to run on the actual hardware.

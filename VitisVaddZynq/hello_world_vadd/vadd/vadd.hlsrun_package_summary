@@ -1,0 +1,159 @@
+<ENTRY>
+{
+ "thisFile": "/home/tls/Dev/wonderland/VitisVaddZynq/hello_world_vadd/vadd/vadd.hlsrun_package_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Sat May  4 02:16:53 2024",
+ "timestampMillis": "1714785413775",
+ "buildStep": {
+  "cmdId": "5e8c8e0e-40fb-44bf-a020-8fd1dd31deac",
+  "name": "vitis-run",
+  "logFile": "/home/tls/Dev/wonderland/VitisVaddZynq/hello_world_vadd/vadd/logs/vadd.steps.log",
+  "commandLine": "/tools/Xilinx/Vitis/2023.2/bin/unwrapped/lnx64.o/vitis-run  --mode hls --package --config /home/tls/Dev/wonderland/VitisVaddZynq/hello_world_vadd/hls_config.cfg --work_dir vadd ",
+  "args": [
+   "--mode",
+   "hls",
+   "--package",
+   "--config",
+   "/home/tls/Dev/wonderland/VitisVaddZynq/hello_world_vadd/hls_config.cfg",
+   "--work_dir",
+   "vadd"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/VitisVaddZynq/hello_world_vadd"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat May  4 02:16:53 2024",
+ "timestampMillis": "1714785413775",
+ "status": {
+  "cmdId": "5e8c8e0e-40fb-44bf-a020-8fd1dd31deac",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Sat May  4 02:16:56 2024",
+ "timestampMillis": "1714785416166",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_RUN",
+  "target": "TT_HLS_XO",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "vadd",
+     "file": "/home/tls/Dev/wonderland/VitisVaddZynq/hello_world_vadd/vadd/vadd.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/tls/Dev/wonderland/VitisVaddZynq/hello_world_vadd/src/vadd.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2023.2"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sat May  4 02:16:56 2024",
+ "timestampMillis": "1714785416167",
+ "buildStep": {
+  "cmdId": "dadd078e-c4d4-49ed-8344-16e7563019ed",
+  "name": "export_design",
+  "logFile": "/home/tls/Dev/wonderland/VitisVaddZynq/hello_world_vadd/vadd/hls/hls.log",
+  "commandLine": "export_design -flow none",
+  "args": [
+   "-flow",
+   "none"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/VitisVaddZynq/hello_world_vadd"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat May  4 02:16:56 2024",
+ "timestampMillis": "1714785416167",
+ "status": {
+  "cmdId": "dadd078e-c4d4-49ed-8344-16e7563019ed",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat May  4 02:17:08 2024",
+ "timestampMillis": "1714785428573",
+ "status": {
+  "cmdId": "dadd078e-c4d4-49ed-8344-16e7563019ed",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat May  4 02:17:08 2024",
+ "timestampMillis": "1714785428694",
+ "status": {
+  "cmdId": "5e8c8e0e-40fb-44bf-a020-8fd1dd31deac",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat May  4 02:17:08 2024",
+ "timestampMillis": "1714785428694",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat May  4 02:17:08 2024",
+ "timestampMillis": "1714785428695",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

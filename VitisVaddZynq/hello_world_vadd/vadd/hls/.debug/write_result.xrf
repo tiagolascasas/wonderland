@@ -1,0 +1,21 @@
+Begin Function 'write_result'
+
+RTL state condition: (1'b1 == ap_CS_fsm_state1)
+# ST_1
+local size_read <> <integer> <FifoRead> 'read' <>
+reg: size_read_reg_125[31:0] lv
+
+local trunc_ln <partselect_89> <integer> <> 'partselect' </home/tls/Dev/wonderland/VitisVaddZynq/hello_world_vadd/src/vadd.cpp:89>
+trunc_ln /home/tls/Dev/wonderland/VitisVaddZynq/hello_world_vadd/src/vadd.cpp:89
+reg: trunc_ln_reg_130[61:0] lv
+
+local empty_25 <select_89> <integer> <> 'select' </home/tls/Dev/wonderland/VitisVaddZynq/hello_world_vadd/src/vadd.cpp:89>
+empty_25 /home/tls/Dev/wonderland/VitisVaddZynq/hello_world_vadd/src/vadd.cpp:89
+reg: empty_25_reg_136[30:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state4)
+# ST_4
+
+End Function 'write_result'
+
