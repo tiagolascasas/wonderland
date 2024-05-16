@@ -75,7 +75,7 @@
   "previousBuildStatusMap": {
     "sw_emu": "SUCCESS",
     "hw_emu": "SUCCESS",
-    "hw": "NEW"
+    "hw": "SUCCESS"
   },
   "isDirty": true,
   "applicationFlow": "EMBEDDED_ACCEL"

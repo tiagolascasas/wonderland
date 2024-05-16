@@ -68,6 +68,8 @@ void getDisparity(I2D *Ileft, I2D *Iright, int win_sz, int max_shift, I2D **rtr_
     fSetArray_rep2(rows, cols, 0, &integralImg);
     fMallocHandle_rep0(rows - win_sz, cols - win_sz, &retSAD);
     iSetArray_rep2(rows, cols, 0, &Iright_moved);
+
+    printf("outlined_loop_0 iterations: %d\n", max_shift);
     for (k = 0; k < max_shift; k++)
     {
         outlined_loop_0(IleftPadded, IrightPadded, Iright_moved, &win_sz, &k, SAD, integralImg, retSAD, minSAD, retDisp, &nr, &nc);
