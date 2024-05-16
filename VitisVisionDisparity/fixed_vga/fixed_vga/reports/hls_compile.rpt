@@ -1,10 +1,10 @@
 
 
 ================================================================
-== Synthesis Summary Report of 'findDisparity'
+== Synthesis Summary Report of 'top_level'
 ================================================================
 + General Information: 
-    * Date:           Tue Apr 30 02:49:24 2024
+    * Date:           Thu May 16 05:08:10 2024
     * Version:        2023.2 (Build 4023990 on Oct 11 2023)
     * Project:        fixed_vga
     * Solution:       hls (Vitis Kernel Flow Target)
@@ -15,14 +15,30 @@
 + Performance & Resource Estimates: 
     
     PS: '+' for module; 'o' for loop; '*' for dataflow
-    +-----------------------------------------------------------+------+------+----------+-----------+----------+----------+--------+----------+---------+---------+------------+-----------+-----+
-    |                          Modules                          | Issue|      | Latency  |  Latency  | Iteration|          |  Trip  |          |         |         |            |           |     |
-    |                          & Loops                          | Type | Slack| (cycles) |    (ns)   |  Latency | Interval |  Count | Pipelined|  BRAM   |   DSP   |     FF     |    LUT    | URAM|
-    +-----------------------------------------------------------+------+------+----------+-----------+----------+----------+--------+----------+---------+---------+------------+-----------+-----+
-    |+ findDisparity                                            |     -|  0.00|  40855423|  4.086e+08|         -|  40855424|       -|        no|  4 (~0%)|  7 (~0%)|  3115 (~0%)|  5624 (2%)|    -|
-    | + findDisparity_Pipeline_VITIS_LOOP_11_1_VITIS_LOOP_14_2  |     -|  0.00|  40855348|  4.086e+08|         -|  40855348|       -|        no|        -|  3 (~0%)|   976 (~0%)|  3000 (1%)|    -|
-    |  o VITIS_LOOP_11_1_VITIS_LOOP_14_2                        |    II|  7.30|  40855346|  4.086e+08|       292|       145|  281760|       yes|        -|        -|           -|          -|    -|
-    +-----------------------------------------------------------+------+------+----------+-----------+----------+----------+--------+----------+---------+---------+------------+-----------+-----+
+    +-------------------------------------------------------------------+------+------+------------+-----------+-----------+------------+--------+----------+---------+----------+------------+------------+-----+
+    |                              Modules                              | Issue|      |  Latency   |  Latency  | Iteration |            |  Trip  |          |         |          |            |            |     |
+    |                              & Loops                              | Type | Slack|  (cycles)  |    (ns)   |  Latency  |  Interval  |  Count | Pipelined|  BRAM   |    DSP   |     FF     |     LUT    | URAM|
+    +-------------------------------------------------------------------+------+------+------------+-----------+-----------+------------+--------+----------+---------+----------+------------+------------+-----+
+    |+ top_level                                                        |     -|  0.00|  8095747265|  8.096e+10|          -|  8095747266|       -|        no|  4 (~0%)|   49 (1%)|  11002 (2%)|  19774 (7%)|    -|
+    | o VITIS_LOOP_265_1                                                |     -|  7.30|  8095747264|  8.096e+10|  126496051|           -|      64|        no|        -|         -|           -|           -|    -|
+    |  + correlateSAD_2D_1                                              |     -|  0.00|    86204072|  8.620e+08|          -|    86204072|       -|        no|        -|   42 (1%)|   6838 (1%)|  12943 (4%)|    -|
+    |   + correlateSAD_2D_1_Pipeline_VITIS_LOOP_164_1                   |     -|  0.00|      290362|  2.904e+06|          -|      290362|       -|        no|        -|         -|    34 (~0%)|   126 (~0%)|    -|
+    |    o VITIS_LOOP_164_1                                             |     -|  7.30|      290360|  2.904e+06|          2|           1|  290360|       yes|        -|         -|           -|           -|    -|
+    |   + correlateSAD_2D_1_Pipeline_VITIS_LOOP_46_3_VITIS_LOOP_49_4    |     -|  0.00|      580863|  5.809e+06|          -|      580863|       -|        no|        -|   7 (~0%)|   981 (~0%)|  1524 (~0%)|    -|
+    |    o VITIS_LOOP_46_3_VITIS_LOOP_49_4                              |    II|  7.30|      580861|  5.809e+06|        144|           2|  290360|       yes|        -|         -|           -|           -|    -|
+    |   + correlateSAD_2D_1_Pipeline_VITIS_LOOP_75_1_VITIS_LOOP_78_2    |     -|  0.00|     1161658|  1.162e+07|          -|     1161658|       -|        no|        -|  10 (~0%)|  1483 (~0%)|  1654 (~0%)|    -|
+    |    o VITIS_LOOP_75_1_VITIS_LOOP_78_2                              |    II|  7.30|     1161656|  1.162e+07|        221|           4|  290360|       yes|        -|         -|           -|           -|    -|
+    |   + correlateSAD_2D_1_Pipeline_VITIS_LOOP_99_1                    |     -|  0.00|         598|  5.980e+03|          -|         598|       -|        no|        -|         -|    68 (~0%)|   137 (~0%)|    -|
+    |    o VITIS_LOOP_99_1                                              |     -|  7.30|         596|  5.960e+03|          3|           1|     595|       yes|        -|         -|           -|           -|    -|
+    |   + correlateSAD_2D_1_Pipeline_VITIS_LOOP_104_2_VITIS_LOOP_107_3  |     -|  0.00|    41521483|  4.152e+08|          -|    41521483|       -|        no|        -|   7 (~0%)|  1001 (~0%)|  1851 (~0%)|    -|
+    |    o VITIS_LOOP_104_2_VITIS_LOOP_107_3                            |    II|  7.30|    41521481|  4.152e+08|        145|         143|  290360|       yes|        -|         -|           -|           -|    -|
+    |   + correlateSAD_2D_1_Pipeline_VITIS_LOOP_113_4_VITIS_LOOP_116_5  |     -|  0.00|    41521482|  4.152e+08|          -|    41521482|       -|        no|        -|   3 (~0%)|   594 (~0%)|  1499 (~0%)|    -|
+    |    o VITIS_LOOP_113_4_VITIS_LOOP_116_5                            |    II|  7.30|    41521480|  4.152e+08|        144|         143|  290360|       yes|        -|         -|           -|           -|    -|
+    |   + correlateSAD_2D_1_Pipeline_VITIS_LOOP_141_1_VITIS_LOOP_144_2  |     -|  0.00|     1127184|  1.127e+07|          -|     1127184|       -|        no|        -|   8 (~0%)|  1157 (~0%)|  1566 (~0%)|    -|
+    |    o VITIS_LOOP_141_1_VITIS_LOOP_144_2                            |    II|  7.30|     1127182|  1.127e+07|        147|           4|  281760|       yes|        -|         -|           -|           -|    -|
+    |  + top_level_Pipeline_VITIS_LOOP_232_1_VITIS_LOOP_235_2           |     -|  0.00|    40291828|  4.029e+08|          -|    40291828|       -|        no|        -|   3 (~0%)|   885 (~0%)|  1744 (~0%)|    -|
+    |   o VITIS_LOOP_232_1_VITIS_LOOP_235_2                             |    II|  7.30|    40291826|  4.029e+08|        290|         143|  281760|       yes|        -|         -|           -|           -|    -|
+    +-------------------------------------------------------------------+------+------+------------+-----------+-----------+------------+--------+----------+---------+----------+------------+------------+-----+
 
 
 ================================================================
@@ -40,39 +56,69 @@
 +---------------+------------+---------------+--------+----------+
 | Interface     | Data Width | Address Width | Offset | Register |
 +---------------+------------+---------------+--------+----------+
-| s_axi_control | 32         | 8             | 16     | 0        |
+| s_axi_control | 32         | 9             | 16     | 0        |
 +---------------+------------+---------------+--------+----------+
 
 * S_AXILITE Registers
-+---------------+------------------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
-| Interface     | Register         | Offset | Width | Access | Description                      | Bit Fields                                                                         |
-+---------------+------------------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
-| s_axi_control | CTRL             | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 4=AP_CONTINUE 7=AUTO_RESTART 9=INTERRUPT |
-| s_axi_control | GIER             | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                                           |
-| s_axi_control | IP_IER           | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                                      |
-| s_axi_control | IP_ISR           | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                                      |
-| s_axi_control | retSAD_width_1   | 0x10   | 32    | W      | Data signal of retSAD_width      |                                                                                    |
-| s_axi_control | retSAD_width_2   | 0x14   | 32    | W      | Data signal of retSAD_width      |                                                                                    |
-| s_axi_control | retSAD_height_1  | 0x1c   | 32    | W      | Data signal of retSAD_height     |                                                                                    |
-| s_axi_control | retSAD_height_2  | 0x20   | 32    | W      | Data signal of retSAD_height     |                                                                                    |
-| s_axi_control | retSAD_data_1    | 0x28   | 32    | W      | Data signal of retSAD_data       |                                                                                    |
-| s_axi_control | retSAD_data_2    | 0x2c   | 32    | W      | Data signal of retSAD_data       |                                                                                    |
-| s_axi_control | minSAD_width_1   | 0x34   | 32    | W      | Data signal of minSAD_width      |                                                                                    |
-| s_axi_control | minSAD_width_2   | 0x38   | 32    | W      | Data signal of minSAD_width      |                                                                                    |
-| s_axi_control | minSAD_height_1  | 0x40   | 32    | W      | Data signal of minSAD_height     |                                                                                    |
-| s_axi_control | minSAD_height_2  | 0x44   | 32    | W      | Data signal of minSAD_height     |                                                                                    |
-| s_axi_control | minSAD_data_1    | 0x4c   | 32    | W      | Data signal of minSAD_data       |                                                                                    |
-| s_axi_control | minSAD_data_2    | 0x50   | 32    | W      | Data signal of minSAD_data       |                                                                                    |
-| s_axi_control | retDisp_width_1  | 0x58   | 32    | W      | Data signal of retDisp_width     |                                                                                    |
-| s_axi_control | retDisp_width_2  | 0x5c   | 32    | W      | Data signal of retDisp_width     |                                                                                    |
-| s_axi_control | retDisp_height_1 | 0x64   | 32    | W      | Data signal of retDisp_height    |                                                                                    |
-| s_axi_control | retDisp_height_2 | 0x68   | 32    | W      | Data signal of retDisp_height    |                                                                                    |
-| s_axi_control | retDisp_data_1   | 0x70   | 32    | W      | Data signal of retDisp_data      |                                                                                    |
-| s_axi_control | retDisp_data_2   | 0x74   | 32    | W      | Data signal of retDisp_data      |                                                                                    |
-| s_axi_control | level            | 0x7c   | 32    | W      | Data signal of level             |                                                                                    |
-| s_axi_control | nr               | 0x84   | 32    | W      | Data signal of nr                |                                                                                    |
-| s_axi_control | nc               | 0x8c   | 32    | W      | Data signal of nc                |                                                                                    |
-+---------------+------------------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
++---------------+---------------------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| Interface     | Register            | Offset | Width | Access | Description                      | Bit Fields                                                                         |
++---------------+---------------------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| s_axi_control | CTRL                | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 4=AP_CONTINUE 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER                | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                                           |
+| s_axi_control | IP_IER              | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                                      |
+| s_axi_control | IP_ISR              | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                                      |
+| s_axi_control | Ileft_w_1           | 0x10   | 32    | W      | Data signal of Ileft_w           |                                                                                    |
+| s_axi_control | Ileft_w_2           | 0x14   | 32    | W      | Data signal of Ileft_w           |                                                                                    |
+| s_axi_control | Ileft_h_1           | 0x1c   | 32    | W      | Data signal of Ileft_h           |                                                                                    |
+| s_axi_control | Ileft_h_2           | 0x20   | 32    | W      | Data signal of Ileft_h           |                                                                                    |
+| s_axi_control | Ileft_data_1        | 0x28   | 32    | W      | Data signal of Ileft_data        |                                                                                    |
+| s_axi_control | Ileft_data_2        | 0x2c   | 32    | W      | Data signal of Ileft_data        |                                                                                    |
+| s_axi_control | Iright_w_1          | 0x34   | 32    | W      | Data signal of Iright_w          |                                                                                    |
+| s_axi_control | Iright_w_2          | 0x38   | 32    | W      | Data signal of Iright_w          |                                                                                    |
+| s_axi_control | Iright_h_1          | 0x40   | 32    | W      | Data signal of Iright_h          |                                                                                    |
+| s_axi_control | Iright_h_2          | 0x44   | 32    | W      | Data signal of Iright_h          |                                                                                    |
+| s_axi_control | Iright_data_1       | 0x4c   | 32    | W      | Data signal of Iright_data       |                                                                                    |
+| s_axi_control | Iright_data_2       | 0x50   | 32    | W      | Data signal of Iright_data       |                                                                                    |
+| s_axi_control | Iright_moved_w_1    | 0x58   | 32    | W      | Data signal of Iright_moved_w    |                                                                                    |
+| s_axi_control | Iright_moved_w_2    | 0x5c   | 32    | W      | Data signal of Iright_moved_w    |                                                                                    |
+| s_axi_control | Iright_moved_h_1    | 0x64   | 32    | W      | Data signal of Iright_moved_h    |                                                                                    |
+| s_axi_control | Iright_moved_h_2    | 0x68   | 32    | W      | Data signal of Iright_moved_h    |                                                                                    |
+| s_axi_control | Iright_moved_data_1 | 0x70   | 32    | W      | Data signal of Iright_moved_data |                                                                                    |
+| s_axi_control | Iright_moved_data_2 | 0x74   | 32    | W      | Data signal of Iright_moved_data |                                                                                    |
+| s_axi_control | win_sz              | 0x7c   | 32    | W      | Data signal of win_sz            |                                                                                    |
+| s_axi_control | SAD_w_1             | 0x84   | 32    | W      | Data signal of SAD_w             |                                                                                    |
+| s_axi_control | SAD_w_2             | 0x88   | 32    | W      | Data signal of SAD_w             |                                                                                    |
+| s_axi_control | SAD_h_1             | 0x90   | 32    | W      | Data signal of SAD_h             |                                                                                    |
+| s_axi_control | SAD_h_2             | 0x94   | 32    | W      | Data signal of SAD_h             |                                                                                    |
+| s_axi_control | SAD_data_1          | 0x9c   | 32    | W      | Data signal of SAD_data          |                                                                                    |
+| s_axi_control | SAD_data_2          | 0xa0   | 32    | W      | Data signal of SAD_data          |                                                                                    |
+| s_axi_control | integralImg_w_1     | 0xa8   | 32    | W      | Data signal of integralImg_w     |                                                                                    |
+| s_axi_control | integralImg_w_2     | 0xac   | 32    | W      | Data signal of integralImg_w     |                                                                                    |
+| s_axi_control | integralImg_h_1     | 0xb4   | 32    | W      | Data signal of integralImg_h     |                                                                                    |
+| s_axi_control | integralImg_h_2     | 0xb8   | 32    | W      | Data signal of integralImg_h     |                                                                                    |
+| s_axi_control | integralImg_data_1  | 0xc0   | 32    | W      | Data signal of integralImg_data  |                                                                                    |
+| s_axi_control | integralImg_data_2  | 0xc4   | 32    | W      | Data signal of integralImg_data  |                                                                                    |
+| s_axi_control | retSAD_w_1          | 0xcc   | 32    | W      | Data signal of retSAD_w          |                                                                                    |
+| s_axi_control | retSAD_w_2          | 0xd0   | 32    | W      | Data signal of retSAD_w          |                                                                                    |
+| s_axi_control | retSAD_h_1          | 0xd8   | 32    | W      | Data signal of retSAD_h          |                                                                                    |
+| s_axi_control | retSAD_h_2          | 0xdc   | 32    | W      | Data signal of retSAD_h          |                                                                                    |
+| s_axi_control | retSAD_data_1       | 0xe4   | 32    | W      | Data signal of retSAD_data       |                                                                                    |
+| s_axi_control | retSAD_data_2       | 0xe8   | 32    | W      | Data signal of retSAD_data       |                                                                                    |
+| s_axi_control | minSAD_w_1          | 0xf0   | 32    | W      | Data signal of minSAD_w          |                                                                                    |
+| s_axi_control | minSAD_w_2          | 0xf4   | 32    | W      | Data signal of minSAD_w          |                                                                                    |
+| s_axi_control | minSAD_h_1          | 0xfc   | 32    | W      | Data signal of minSAD_h          |                                                                                    |
+| s_axi_control | minSAD_h_2          | 0x100  | 32    | W      | Data signal of minSAD_h          |                                                                                    |
+| s_axi_control | minSAD_data_1       | 0x108  | 32    | W      | Data signal of minSAD_data       |                                                                                    |
+| s_axi_control | minSAD_data_2       | 0x10c  | 32    | W      | Data signal of minSAD_data       |                                                                                    |
+| s_axi_control | retDisp_w_1         | 0x114  | 32    | W      | Data signal of retDisp_w         |                                                                                    |
+| s_axi_control | retDisp_w_2         | 0x118  | 32    | W      | Data signal of retDisp_w         |                                                                                    |
+| s_axi_control | retDisp_h_1         | 0x120  | 32    | W      | Data signal of retDisp_h         |                                                                                    |
+| s_axi_control | retDisp_h_2         | 0x124  | 32    | W      | Data signal of retDisp_h         |                                                                                    |
+| s_axi_control | retDisp_data_1      | 0x12c  | 32    | W      | Data signal of retDisp_data      |                                                                                    |
+| s_axi_control | retDisp_data_2      | 0x130  | 32    | W      | Data signal of retDisp_data      |                                                                                    |
+| s_axi_control | nr                  | 0x138  | 32    | W      | Data signal of nr                |                                                                                    |
+| s_axi_control | nc                  | 0x140  | 32    | W      | Data signal of nc                |                                                                                    |
++---------------+---------------------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
 
 * TOP LEVEL CONTROL
 +-----------+---------------+-----------+
@@ -89,43 +135,118 @@
 == SW I/O Information
 ================================================================
 * Top Function Arguments
-+----------+-----------+----------+
-| Argument | Direction | Datatype |
-+----------+-----------+----------+
-| retSAD   | inout     | pointer  |
-| minSAD   | inout     | pointer  |
-| retDisp  | inout     | pointer  |
-| level    | in        | int      |
-| nr       | in        | int      |
-| nc       | in        | int      |
-+----------+-----------+----------+
++-------------------+-----------+----------+
+| Argument          | Direction | Datatype |
++-------------------+-----------+----------+
+| Ileft_w           | inout     | int*     |
+| Ileft_h           | inout     | int*     |
+| Ileft_data        | inout     | int*     |
+| Iright_w          | inout     | int*     |
+| Iright_h          | inout     | int*     |
+| Iright_data       | inout     | int*     |
+| Iright_moved_w    | inout     | int*     |
+| Iright_moved_h    | inout     | int*     |
+| Iright_moved_data | inout     | int*     |
+| win_sz            | in        | int      |
+| SAD_w             | inout     | int*     |
+| SAD_h             | inout     | int*     |
+| SAD_data          | inout     | int*     |
+| integralImg_w     | inout     | int*     |
+| integralImg_h     | inout     | int*     |
+| integralImg_data  | inout     | int*     |
+| retSAD_w          | inout     | int*     |
+| retSAD_h          | inout     | int*     |
+| retSAD_data       | inout     | int*     |
+| minSAD_w          | inout     | int*     |
+| minSAD_h          | inout     | int*     |
+| minSAD_data       | inout     | int*     |
+| retDisp_w         | inout     | int*     |
+| retDisp_h         | inout     | int*     |
+| retDisp_data      | inout     | int*     |
+| nr                | in        | int      |
+| nc                | in        | int      |
++-------------------+-----------+----------+
 
 * SW-to-HW Mapping
-+----------+---------------+-----------+----------+---------------------------------+
-| Argument | HW Interface  | HW Type   | HW Usage | HW Info                         |
-+----------+---------------+-----------+----------+---------------------------------+
-| retSAD   | m_axi_gmem    | interface |          |                                 |
-| retSAD   | s_axi_control | interface | offset   |                                 |
-| retSAD   | m_axi_gmem    | interface |          |                                 |
-| retSAD   | s_axi_control | interface | offset   |                                 |
-| retSAD   | m_axi_gmem    | interface |          |                                 |
-| retSAD   | s_axi_control | interface | offset   |                                 |
-| minSAD   | m_axi_gmem    | interface |          |                                 |
-| minSAD   | s_axi_control | interface | offset   |                                 |
-| minSAD   | m_axi_gmem    | interface |          |                                 |
-| minSAD   | s_axi_control | interface | offset   |                                 |
-| minSAD   | m_axi_gmem    | interface |          |                                 |
-| minSAD   | s_axi_control | interface | offset   |                                 |
-| retDisp  | m_axi_gmem    | interface |          |                                 |
-| retDisp  | s_axi_control | interface | offset   |                                 |
-| retDisp  | m_axi_gmem    | interface |          |                                 |
-| retDisp  | s_axi_control | interface | offset   |                                 |
-| retDisp  | m_axi_gmem    | interface |          |                                 |
-| retDisp  | s_axi_control | interface | offset   |                                 |
-| level    | s_axi_control | register  |          | name=level offset=0x7c range=32 |
-| nr       | s_axi_control | register  |          | name=nr offset=0x84 range=32    |
-| nc       | s_axi_control | register  |          | name=nc offset=0x8c range=32    |
-+----------+---------------+-----------+----------+---------------------------------+
++-------------------+---------------+-----------+----------+-----------------------------------------------+
+| Argument          | HW Interface  | HW Type   | HW Usage | HW Info                                       |
++-------------------+---------------+-----------+----------+-----------------------------------------------+
+| Ileft_w           | m_axi_gmem    | interface |          |                                               |
+| Ileft_w           | s_axi_control | register  | offset   | name=Ileft_w_1 offset=0x10 range=32           |
+| Ileft_w           | s_axi_control | register  | offset   | name=Ileft_w_2 offset=0x14 range=32           |
+| Ileft_h           | m_axi_gmem    | interface |          |                                               |
+| Ileft_h           | s_axi_control | register  | offset   | name=Ileft_h_1 offset=0x1c range=32           |
+| Ileft_h           | s_axi_control | register  | offset   | name=Ileft_h_2 offset=0x20 range=32           |
+| Ileft_data        | m_axi_gmem    | interface |          |                                               |
+| Ileft_data        | s_axi_control | register  | offset   | name=Ileft_data_1 offset=0x28 range=32        |
+| Ileft_data        | s_axi_control | register  | offset   | name=Ileft_data_2 offset=0x2c range=32        |
+| Iright_w          | m_axi_gmem    | interface |          |                                               |
+| Iright_w          | s_axi_control | register  | offset   | name=Iright_w_1 offset=0x34 range=32          |
+| Iright_w          | s_axi_control | register  | offset   | name=Iright_w_2 offset=0x38 range=32          |
+| Iright_h          | m_axi_gmem    | interface |          |                                               |
+| Iright_h          | s_axi_control | register  | offset   | name=Iright_h_1 offset=0x40 range=32          |
+| Iright_h          | s_axi_control | register  | offset   | name=Iright_h_2 offset=0x44 range=32          |
+| Iright_data       | m_axi_gmem    | interface |          |                                               |
+| Iright_data       | s_axi_control | register  | offset   | name=Iright_data_1 offset=0x4c range=32       |
+| Iright_data       | s_axi_control | register  | offset   | name=Iright_data_2 offset=0x50 range=32       |
+| Iright_moved_w    | m_axi_gmem    | interface |          |                                               |
+| Iright_moved_w    | s_axi_control | register  | offset   | name=Iright_moved_w_1 offset=0x58 range=32    |
+| Iright_moved_w    | s_axi_control | register  | offset   | name=Iright_moved_w_2 offset=0x5c range=32    |
+| Iright_moved_h    | m_axi_gmem    | interface |          |                                               |
+| Iright_moved_h    | s_axi_control | register  | offset   | name=Iright_moved_h_1 offset=0x64 range=32    |
+| Iright_moved_h    | s_axi_control | register  | offset   | name=Iright_moved_h_2 offset=0x68 range=32    |
+| Iright_moved_data | m_axi_gmem    | interface |          |                                               |
+| Iright_moved_data | s_axi_control | register  | offset   | name=Iright_moved_data_1 offset=0x70 range=32 |
+| Iright_moved_data | s_axi_control | register  | offset   | name=Iright_moved_data_2 offset=0x74 range=32 |
+| win_sz            | s_axi_control | register  |          | name=win_sz offset=0x7c range=32              |
+| SAD_w             | m_axi_gmem    | interface |          |                                               |
+| SAD_w             | s_axi_control | register  | offset   | name=SAD_w_1 offset=0x84 range=32             |
+| SAD_w             | s_axi_control | register  | offset   | name=SAD_w_2 offset=0x88 range=32             |
+| SAD_h             | m_axi_gmem    | interface |          |                                               |
+| SAD_h             | s_axi_control | register  | offset   | name=SAD_h_1 offset=0x90 range=32             |
+| SAD_h             | s_axi_control | register  | offset   | name=SAD_h_2 offset=0x94 range=32             |
+| SAD_data          | m_axi_gmem    | interface |          |                                               |
+| SAD_data          | s_axi_control | register  | offset   | name=SAD_data_1 offset=0x9c range=32          |
+| SAD_data          | s_axi_control | register  | offset   | name=SAD_data_2 offset=0xa0 range=32          |
+| integralImg_w     | m_axi_gmem    | interface |          |                                               |
+| integralImg_w     | s_axi_control | register  | offset   | name=integralImg_w_1 offset=0xa8 range=32     |
+| integralImg_w     | s_axi_control | register  | offset   | name=integralImg_w_2 offset=0xac range=32     |
+| integralImg_h     | m_axi_gmem    | interface |          |                                               |
+| integralImg_h     | s_axi_control | register  | offset   | name=integralImg_h_1 offset=0xb4 range=32     |
+| integralImg_h     | s_axi_control | register  | offset   | name=integralImg_h_2 offset=0xb8 range=32     |
+| integralImg_data  | m_axi_gmem    | interface |          |                                               |
+| integralImg_data  | s_axi_control | register  | offset   | name=integralImg_data_1 offset=0xc0 range=32  |
+| integralImg_data  | s_axi_control | register  | offset   | name=integralImg_data_2 offset=0xc4 range=32  |
+| retSAD_w          | m_axi_gmem    | interface |          |                                               |
+| retSAD_w          | s_axi_control | register  | offset   | name=retSAD_w_1 offset=0xcc range=32          |
+| retSAD_w          | s_axi_control | register  | offset   | name=retSAD_w_2 offset=0xd0 range=32          |
+| retSAD_h          | m_axi_gmem    | interface |          |                                               |
+| retSAD_h          | s_axi_control | register  | offset   | name=retSAD_h_1 offset=0xd8 range=32          |
+| retSAD_h          | s_axi_control | register  | offset   | name=retSAD_h_2 offset=0xdc range=32          |
+| retSAD_data       | m_axi_gmem    | interface |          |                                               |
+| retSAD_data       | s_axi_control | register  | offset   | name=retSAD_data_1 offset=0xe4 range=32       |
+| retSAD_data       | s_axi_control | register  | offset   | name=retSAD_data_2 offset=0xe8 range=32       |
+| minSAD_w          | m_axi_gmem    | interface |          |                                               |
+| minSAD_w          | s_axi_control | register  | offset   | name=minSAD_w_1 offset=0xf0 range=32          |
+| minSAD_w          | s_axi_control | register  | offset   | name=minSAD_w_2 offset=0xf4 range=32          |
+| minSAD_h          | m_axi_gmem    | interface |          |                                               |
+| minSAD_h          | s_axi_control | register  | offset   | name=minSAD_h_1 offset=0xfc range=32          |
+| minSAD_h          | s_axi_control | register  | offset   | name=minSAD_h_2 offset=0x100 range=32         |
+| minSAD_data       | m_axi_gmem    | interface |          |                                               |
+| minSAD_data       | s_axi_control | register  | offset   | name=minSAD_data_1 offset=0x108 range=32      |
+| minSAD_data       | s_axi_control | register  | offset   | name=minSAD_data_2 offset=0x10c range=32      |
+| retDisp_w         | m_axi_gmem    | interface |          |                                               |
+| retDisp_w         | s_axi_control | register  | offset   | name=retDisp_w_1 offset=0x114 range=32        |
+| retDisp_w         | s_axi_control | register  | offset   | name=retDisp_w_2 offset=0x118 range=32        |
+| retDisp_h         | m_axi_gmem    | interface |          |                                               |
+| retDisp_h         | s_axi_control | register  | offset   | name=retDisp_h_1 offset=0x120 range=32        |
+| retDisp_h         | s_axi_control | register  | offset   | name=retDisp_h_2 offset=0x124 range=32        |
+| retDisp_data      | m_axi_gmem    | interface |          |                                               |
+| retDisp_data      | s_axi_control | register  | offset   | name=retDisp_data_1 offset=0x12c range=32     |
+| retDisp_data      | s_axi_control | register  | offset   | name=retDisp_data_2 offset=0x130 range=32     |
+| nr                | s_axi_control | register  |          | name=nr offset=0x138 range=32                 |
+| nc                | s_axi_control | register  |          | name=nc offset=0x140 range=32                 |
++-------------------+---------------+-----------+----------+-----------------------------------------------+
 
 
 ================================================================
@@ -133,50 +254,176 @@
 ================================================================
  Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
 
+* Inferred Burst Summary
++--------------+-----------+----------+-------+------------------+-----------------------------------------------------------------------------------------+
+| HW Interface | Direction | Length   | Width | Loop             | Loop Location                                                                           |
++--------------+-----------+----------+-------+------------------+-----------------------------------------------------------------------------------------+
+| m_axi_gmem   | write     | variable | 32    | VITIS_LOOP_49_4  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:49:19  |
+| m_axi_gmem   | read      | variable | 32    | VITIS_LOOP_49_4  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:49:19  |
+| m_axi_gmem   | write     | variable | 32    | VITIS_LOOP_78_2  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:78:19  |
+| m_axi_gmem   | read      | variable | 32    | VITIS_LOOP_78_2  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:78:19  |
+| m_axi_gmem   | write     | variable | 32    | VITIS_LOOP_99_1  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:99:22  |
+| m_axi_gmem   | read      | variable | 32    | VITIS_LOOP_99_1  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:99:22  |
+| m_axi_gmem   | write     | variable | 32    | VITIS_LOOP_164_1 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:164:23 |
++--------------+-----------+----------+-------+------------------+-----------------------------------------------------------------------------------------+
+
 * All M_AXI Variable Accesses
-+--------------+---------------+-----------------------------------------------------------------------------------+-----------+--------------+----------+-----------------+-----------------------------------------------------------------------------------+------------+----------------------------------------------------------------------------------------+
-| HW Interface | Variable      | Access Location                                                                   | Direction | Burst Status | Length   | Loop            | Loop Location                                                                     | Resolution | Problem                                                                                |
-+--------------+---------------+-----------------------------------------------------------------------------------+-----------+--------------+----------+-----------------+-----------------------------------------------------------------------------------+------------+----------------------------------------------------------------------------------------+
-| m_axi_gmem   |               | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:14:19 | read      | Fail         |          |                 |                                                                                   | 214-224    | Could not burst due to multiple potential reads to the same bundle in the same region. |
-| m_axi_gmem   | retSAD_data   | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:17:6  | read      | Widen Fail   |          | VITIS_LOOP_14_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:14:19 | 214-307    | Could not widen since type float size is greater than or equal to alignment 4(bytes)   |
-| m_axi_gmem   | retSAD_data   | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:17:6  | read      | Fail         |          | VITIS_LOOP_11_1 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:11:22 | 214-229    | Could not analyze pattern                                                              |
-| m_axi_gmem   | retSAD_data   | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:17:6  | read      | Inferred     | variable | VITIS_LOOP_14_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:14:19 |            |                                                                                        |
-| m_axi_gmem   | minSAD_data   | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:18:17 | read      | Fail         |          |                 |                                                                                   | 214-231    | Access is clobbered by store                                                           |
-| m_axi_gmem   | minSAD_data   | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:23:55 | write     | Fail         |          | VITIS_LOOP_14_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:14:19 | 214-232    | Access store is in the conditional branch                                              |
-| m_axi_gmem   | retDisp_data  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:24:57 | write     | Fail         |          | VITIS_LOOP_14_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:14:19 | 214-232    | Access store is in the conditional branch                                              |
-| m_axi_gmem   | retDisp_width | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:24:44 | read      | Fail         |          | VITIS_LOOP_14_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_fixed_vga/findDisparity.c:14:19 | 214-232    | Access load is in the conditional branch                                               |
-+--------------+---------------+-----------------------------------------------------------------------------------+-----------+--------------+----------+-----------------+-----------------------------------------------------------------------------------+------------+----------------------------------------------------------------------------------------+
++--------------+-------------------+------------------------------------------------------------------------------------------+-----------+--------------+----------+------------------+-----------------------------------------------------------------------------------------+------------+----------------------------------------------------------------------------------------+
+| HW Interface | Variable          | Access Location                                                                          | Direction | Burst Status | Length   | Loop             | Loop Location                                                                           | Resolution | Problem                                                                                |
++--------------+-------------------+------------------------------------------------------------------------------------------+-----------+--------------+----------+------------------+-----------------------------------------------------------------------------------------+------------+----------------------------------------------------------------------------------------+
+| m_axi_gmem   | Iright_moved_data | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:52:69   | write     | Widen Fail   |          | VITIS_LOOP_49_4  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:49:19  | 214-307    | Could not widen since type i32 size is greater than or equal to alignment 4(bytes)     |
+| m_axi_gmem   | Iright_data       | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:52:71   | read      | Widen Fail   |          | VITIS_LOOP_49_4  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:49:19  | 214-307    | Could not widen since type i32 size is greater than or equal to alignment 4(bytes)     |
+| m_axi_gmem   | Iright_moved_data | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:52:69   | write     | Fail         |          | VITIS_LOOP_46_3  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:46:26  | 214-229    | Could not analyze pattern                                                              |
+| m_axi_gmem   | Iright_data       | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:52:71   | read      | Fail         |          | VITIS_LOOP_46_3  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:46:26  | 214-230    | Stride is incompatible                                                                 |
+| m_axi_gmem   | Iright_moved_data | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:52:69   | write     | Inferred     | variable | VITIS_LOOP_49_4  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:49:19  |            |                                                                                        |
+| m_axi_gmem   | Iright_data       | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:52:71   | read      | Inferred     | variable | VITIS_LOOP_49_4  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:49:19  |            |                                                                                        |
+| m_axi_gmem   |                   | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:75:22   | read      | Fail         |          |                  |                                                                                         | 214-224    | Could not burst due to multiple potential reads to the same bundle in the same region. |
+| m_axi_gmem   | Iright_moved_data | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:81:46   | read      | Widen Fail   |          | VITIS_LOOP_78_2  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:78:19  | 214-307    | Could not widen since type i32 size is greater than or equal to alignment 4(bytes)     |
+| m_axi_gmem   | Ileft_data        | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:81:9    | read      | Widen Fail   |          | VITIS_LOOP_78_2  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:78:19  | 214-235    | Start index of the access is unaligned                                                 |
+| m_axi_gmem   | Ileft_data        | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:81:9    | read      | Widen Fail   |          | VITIS_LOOP_78_2  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:78:19  | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | Iright_moved_data | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:81:46   | read      | Fail         |          | VITIS_LOOP_75_1  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:75:22  | 214-229    | Could not analyze pattern                                                              |
+| m_axi_gmem   | Iright_moved_data | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:81:46   | read      | Inferred     | variable | VITIS_LOOP_78_2  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:78:19  |            |                                                                                        |
+| m_axi_gmem   | Ileft_data        | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:81:9    | read      | Inferred     | variable | VITIS_LOOP_75_1  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:75:22  |            |                                                                                        |
+| m_axi_gmem   | SAD_data          | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:82:44   | write     | Widen Fail   |          | VITIS_LOOP_78_2  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:78:19  | 214-307    | Could not widen since type i32 size is greater than or equal to alignment 4(bytes)     |
+| m_axi_gmem   | SAD_data          | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:82:44   | write     | Fail         |          | VITIS_LOOP_75_1  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:75:22  | 214-229    | Could not analyze pattern                                                              |
+| m_axi_gmem   | SAD_data          | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:82:44   | write     | Inferred     | variable | VITIS_LOOP_78_2  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:78:19  |            |                                                                                        |
+| m_axi_gmem   | integralImg_data  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:102:49  | write     | Widen Fail   |          | VITIS_LOOP_99_1  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:99:22  | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | SAD_data          | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:102:51  | read      | Widen Fail   |          | VITIS_LOOP_99_1  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:99:22  | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | integralImg_data  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:102:49  | write     | Inferred     | variable | VITIS_LOOP_99_1  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:99:22  |            |                                                                                        |
+| m_axi_gmem   | SAD_data          | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:102:51  | read      | Inferred     | variable | VITIS_LOOP_99_1  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:99:22  |            |                                                                                        |
+| m_axi_gmem   |                   | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:104:23  | read      | Fail         |          |                  |                                                                                         | 214-224    | Could not burst due to multiple potential reads to the same bundle in the same region. |
+| m_axi_gmem   | SAD_data          | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:110:106 | read      | Widen Fail   |          | VITIS_LOOP_107_3 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:107:20 | 214-307    | Could not widen since type i32 size is greater than or equal to alignment 4(bytes)     |
+| m_axi_gmem   | integralImg_data  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:110:49  | write     | Fail         |          |                  |                                                                                         | 214-231    | Access is clobbered by load                                                            |
+| m_axi_gmem   | integralImg_data  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:110:51  | read      | Fail         |          |                  |                                                                                         | 214-231    | Access is clobbered by store                                                           |
+| m_axi_gmem   | SAD_data          | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:110:106 | read      | Inferred     | variable | VITIS_LOOP_104_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:104:23 |            |                                                                                        |
+| m_axi_gmem   | integralImg_data  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:119:49  | write     | Fail         |          |                  |                                                                                         | 214-231    | Access is clobbered by load                                                            |
+| m_axi_gmem   | integralImg_data  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:119:106 | read      | Fail         |          |                  |                                                                                         | 214-231    | Access is clobbered by store                                                           |
+| m_axi_gmem   | retSAD_data       | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:147:39  | write     | Fail         |          | VITIS_LOOP_144_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:144:20 | 214-230    | Stride is incompatible                                                                 |
+| m_axi_gmem   | integralImg_data  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:147:239 | read      | Fail         |          | VITIS_LOOP_144_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:144:20 | 214-230    | Stride is incompatible                                                                 |
+| m_axi_gmem   | integralImg_data  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:147:173 | read      | Fail         |          | VITIS_LOOP_144_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:144:20 | 214-230    | Stride is incompatible                                                                 |
+| m_axi_gmem   | integralImg_data  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:147:112 | read      | Fail         |          | VITIS_LOOP_144_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:144:20 | 214-230    | Stride is incompatible                                                                 |
+| m_axi_gmem   | integralImg_data  | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:147:41  | read      | Fail         |          | VITIS_LOOP_144_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:144:20 | 214-230    | Stride is incompatible                                                                 |
+| m_axi_gmem   | Iright_data       | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:167:26  | write     | Inferred     | variable | VITIS_LOOP_164_1 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:164:23 |            |                                                                                        |
+| m_axi_gmem   |                   | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:235:20  | read      | Fail         |          |                  |                                                                                         | 214-224    | Could not burst due to multiple potential reads to the same bundle in the same region. |
+| m_axi_gmem   | retSAD_data       | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:238:6   | read      | Widen Fail   |          | VITIS_LOOP_235_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:235:20 | 214-307    | Could not widen since type i32 size is greater than or equal to alignment 4(bytes)     |
+| m_axi_gmem   | retSAD_data       | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:238:6   | read      | Fail         |          | VITIS_LOOP_232_1 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:232:23 | 214-229    | Could not analyze pattern                                                              |
+| m_axi_gmem   | retSAD_data       | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:238:6   | read      | Inferred     | variable | VITIS_LOOP_235_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:235:20 |            |                                                                                        |
+| m_axi_gmem   | minSAD_data       | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:239:17  | read      | Fail         |          |                  |                                                                                         | 214-231    | Access is clobbered by store                                                           |
+| m_axi_gmem   | minSAD_data       | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:244:54  | write     | Fail         |          | VITIS_LOOP_235_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:235:20 | 214-232    | Access store is in the conditional branch                                              |
+| m_axi_gmem   | retDisp_data      | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:245:56  | write     | Fail         |          | VITIS_LOOP_235_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:235:20 | 214-232    | Access store is in the conditional branch                                              |
+| m_axi_gmem   | retDisp_w         | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:245:37  | read      | Fail         |          | VITIS_LOOP_235_2 | /home/tls/Dev/wonderland/VitisVisionDisparity/src_nostruct_vga/correlateSAD_2D.c:235:20 | 214-232    | Access load is in the conditional branch                                               |
++--------------+-------------------+------------------------------------------------------------------------------------------+-----------+--------------+----------+------------------+-----------------------------------------------------------------------------------------+------------+----------------------------------------------------------------------------------------+
 
     * Resolution URL: docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=XXX-YYY.html (replace XXX-YYY with column value)
 
 ================================================================
 == Bind Op Report
 ================================================================
-+-----------------------------------------------------------+-----+--------+-------------+-----+--------+---------+
-| Name                                                      | DSP | Pragma | Variable    | Op  | Impl   | Latency |
-+-----------------------------------------------------------+-----+--------+-------------+-----+--------+---------+
-| + findDisparity                                           | 7   |        |             |     |        |         |
-|   mul_32ns_32ns_64_1_1_U15                                | 4   |        | mul_ln4     | mul | auto   | 0       |
-|  + findDisparity_Pipeline_VITIS_LOOP_11_1_VITIS_LOOP_14_2 | 3   |        |             |     |        |         |
-|    add_ln11_fu_276_p2                                     |     |        | add_ln11    | add | fabric | 0       |
-|    add_ln11_1_fu_297_p2                                   |     |        | add_ln11_1  | add | fabric | 0       |
-|    mul_32s_31ns_32_1_1_U2                                 | 3   |        | mul         | mul | auto   | 0       |
-|    mul_32s_31ns_32_1_1_U2                                 | 3   |        | mul6        | mul | auto   | 0       |
-|    add_ln14_fu_328_p2                                     |     |        | add_ln14    | add | fabric | 0       |
-|    add_ln17_fu_360_p2                                     |     |        | add_ln17    | add | fabric | 0       |
-|    add_ln317_fu_461_p2                                    |     |        | add_ln317   | add | fabric | 0       |
-|    sub_ln18_fu_475_p2                                     |     |        | sub_ln18    | sub | fabric | 0       |
-|    result_2_fu_540_p2                                     |     |        | result_2    | sub | fabric | 0       |
-|    add_ln18_fu_380_p2                                     |     |        | add_ln18    | add | fabric | 0       |
-|    add_ln18_1_fu_398_p2                                   |     |        | add_ln18_1  | add | fabric | 0       |
-|    add_ln317_1_fu_590_p2                                  |     |        | add_ln317_1 | add | fabric | 0       |
-|    sub_ln18_1_fu_604_p2                                   |     |        | sub_ln18_1  | sub | fabric | 0       |
-|    result_6_fu_669_p2                                     |     |        | result_6    | sub | fabric | 0       |
-|    mul_32s_31ns_32_1_1_U2                                 | 3   |        | mul_ln24    | mul | auto   | 0       |
-|    add_ln24_fu_733_p2                                     |     |        | add_ln24    | add | fabric | 0       |
-|    add_ln24_1_fu_751_p2                                   |     |        | add_ln24_1  | add | fabric | 0       |
-|    add_ln14_1_fu_692_p2                                   |     |        | add_ln14_1  | add | fabric | 0       |
-+-----------------------------------------------------------+-----+--------+-------------+-----+--------+---------+
++------------------------------------------------------------------+-----+--------+--------------------------+-----+--------+---------+
+| Name                                                             | DSP | Pragma | Variable                 | Op  | Impl   | Latency |
++------------------------------------------------------------------+-----+--------+--------------------------+-----+--------+---------+
+| + top_level                                                      | 49  |        |                          |     |        |         |
+|   mul_32ns_32ns_64_1_1_U96                                       | 4   |        | mul_ln254                | mul | auto   | 0       |
+|   disparity_2_fu_515_p2                                          |     |        | disparity_2              | add | fabric | 0       |
+|  + correlateSAD_2D_1                                             | 42  |        |                          |     |        |         |
+|    mul_32s_32s_32_1_1_U64                                        | 3   |        | mul5_i                   | mul | auto   | 0       |
+|    sub21_i_fu_462_p2                                             |     |        | sub21_i                  | sub | fabric | 0       |
+|    mul_32ns_32ns_64_1_1_U63                                      | 4   |        | mul_ln11                 | mul | auto   | 0       |
+|    mul_32ns_32ns_64_1_1_U63                                      | 4   |        | mul_ln46                 | mul | auto   | 0       |
+|    add_ln104_fu_768_p2                                           |     |        | add_ln104                | add | fabric | 0       |
+|    sub_ln104_fu_788_p2                                           |     |        | sub_ln104                | sub | fabric | 0       |
+|    add_ln104_1_fu_732_p2                                         |     |        | add_ln104_1              | add | fabric | 0       |
+|    mul_32ns_32ns_64_1_1_U63                                      | 4   |        | mul_ln104                | mul | auto   | 0       |
+|    add_ln113_fu_795_p2                                           |     |        | add_ln113                | add | fabric | 0       |
+|    mul_32ns_32ns_64_1_1_U63                                      | 4   |        | mul_ln104_1              | mul | auto   | 0       |
+|    sub_ln140_fu_858_p2                                           |     |        | sub_ln140                | sub | fabric | 0       |
+|    sub_ln140_1_fu_863_p2                                         |     |        | sub_ln140_1              | sub | fabric | 0       |
+|    mul_32ns_32ns_64_1_1_U63                                      | 4   |        | mul_ln113                | mul | auto   | 0       |
+|   + correlateSAD_2D_1_Pipeline_VITIS_LOOP_164_1                  | 0   |        |                          |     |        |         |
+|     add_ln164_fu_95_p2                                           |     |        | add_ln164                | add | fabric | 0       |
+|   + correlateSAD_2D_1_Pipeline_VITIS_LOOP_46_3_VITIS_LOOP_49_4   | 7   |        |                          |     |        |         |
+|     add_ln46_fu_277_p2                                           |     |        | add_ln46                 | add | fabric | 0       |
+|     add_ln46_3_fu_298_p2                                         |     |        | add_ln46_3               | add | fabric | 0       |
+|     mul_32s_31ns_32_1_1_U5                                       | 3   |        | mul_ln46                 | mul | auto   | 0       |
+|     add_ln46_1_fu_394_p2                                         |     |        | add_ln46_1               | add | fabric | 0       |
+|     add_ln46_2_fu_411_p2                                         |     |        | add_ln46_2               | add | fabric | 0       |
+|     mul_31ns_32s_62_1_1_U4                                       | 4   |        | mul_ln49                 | mul | auto   | 0       |
+|     add_ln49_fu_325_p2                                           |     |        | add_ln49                 | add | fabric | 0       |
+|     add_ln49_1_fu_360_p2                                         |     |        | add_ln49_1               | add | fabric | 0       |
+|   + correlateSAD_2D_1_Pipeline_VITIS_LOOP_75_1_VITIS_LOOP_78_2   | 10  |        |                          |     |        |         |
+|     add_ln75_fu_347_p2                                           |     |        | add_ln75                 | add | fabric | 0       |
+|     add_ln75_2_fu_386_p2                                         |     |        | add_ln75_2               | add | fabric | 0       |
+|     mul_32s_31ns_32_1_1_U18                                      | 3   |        | mul_ln75                 | mul | auto   | 0       |
+|     add_ln75_1_fu_475_p2                                         |     |        | add_ln75_1               | add | fabric | 0       |
+|     mul_32s_31ns_32_1_1_U18                                      | 3   |        | mul4_i                   | mul | auto   | 0       |
+|     add_ln78_fu_448_p2                                           |     |        | add_ln78                 | add | fabric | 0       |
+|     mul_31ns_32s_62_1_1_U17                                      | 4   |        | mul_ln78                 | mul | auto   | 0       |
+|     tmp_fu_411_p2                                                |     |        | tmp                      | add | fabric | 0       |
+|     add_ln81_fu_421_p2                                           |     |        | add_ln81                 | add | fabric | 0       |
+|     diff_fu_530_p2                                               |     |        | diff                     | sub | fabric | 0       |
+|     mul_32s_32s_32_1_1_U19                                       | 3   |        | mul_ln82                 | mul | auto   | 0       |
+|     add_ln78_1_fu_358_p2                                         |     |        | add_ln78_1               | add | fabric | 0       |
+|   + correlateSAD_2D_1_Pipeline_VITIS_LOOP_99_1                   | 0   |        |                          |     |        |         |
+|     add_ln99_fu_113_p2                                           |     |        | add_ln99                 | add | fabric | 0       |
+|   + correlateSAD_2D_1_Pipeline_VITIS_LOOP_104_2_VITIS_LOOP_107_3 | 7   |        |                          |     |        |         |
+|     add_ln104_fu_248_p2                                          |     |        | add_ln104                | add | fabric | 0       |
+|     add_ln104_1_fu_260_p2                                        |     |        | add_ln104_1              | add | fabric | 0       |
+|     add_ln104_2_fu_266_p2                                        |     |        | add_ln104_2              | add | fabric | 0       |
+|     mul_31ns_32s_62_1_1_U36                                      | 4   |        | empty                    | mul | auto   | 0       |
+|     empty_50_fu_280_p2                                           |     |        | empty_50                 | add | fabric | 0       |
+|     mul_32s_31ns_32_1_1_U37                                      | 3   |        | mul11_i                  | mul | auto   | 0       |
+|     mul_32s_31ns_32_1_1_U37                                      | 3   |        | mul20_i                  | mul | auto   | 0       |
+|     add_ln110_1_fu_369_p2                                        |     |        | add_ln110_1              | add | fabric | 0       |
+|     add_ln110_2_fu_387_p2                                        |     |        | add_ln110_2              | add | fabric | 0       |
+|     add_ln110_3_fu_412_p2                                        |     |        | add_ln110_3              | add | fabric | 0       |
+|     add_ln110_4_fu_478_p2                                        |     |        | add_ln110_4              | add | fabric | 0       |
+|     add_ln110_5_fu_436_p2                                        |     |        | add_ln110_5              | add | fabric | 0       |
+|     add_ln110_6_fu_453_p2                                        |     |        | add_ln110_6              | add | fabric | 0       |
+|     add_ln107_fu_482_p2                                          |     |        | add_ln107                | add | fabric | 0       |
+|   + correlateSAD_2D_1_Pipeline_VITIS_LOOP_113_4_VITIS_LOOP_116_5 | 3   |        |                          |     |        |         |
+|     add_ln113_fu_205_p2                                          |     |        | add_ln113                | add | fabric | 0       |
+|     add_ln113_1_fu_234_p2                                        |     |        | add_ln113_1              | add | fabric | 0       |
+|     mul_32s_31ns_32_1_1_U46                                      | 3   |        | mul36_i                  | mul | auto   | 0       |
+|     add_ln116_fu_265_p2                                          |     |        | add_ln116                | add | fabric | 0       |
+|     add_ln119_fu_306_p2                                          |     |        | add_ln119                | add | fabric | 0       |
+|     add_ln119_1_fu_324_p2                                        |     |        | add_ln119_1              | add | fabric | 0       |
+|     add_ln119_2_fu_356_p2                                        |     |        | add_ln119_2              | add | fabric | 0       |
+|     add_ln116_1_fu_366_p2                                        |     |        | add_ln116_1              | add | fabric | 0       |
+|   + correlateSAD_2D_1_Pipeline_VITIS_LOOP_141_1_VITIS_LOOP_144_2 | 8   |        |                          |     |        |         |
+|     add_ln141_fu_255_p2                                          |     |        | add_ln141                | add | fabric | 0       |
+|     indvars_iv_next15_i_mid1_fu_302_p2                           |     |        | indvars_iv_next15_i_mid1 | add | fabric | 0       |
+|     indvars_iv_next15_i210_fu_308_p2                             |     |        | indvars_iv_next15_i210   | add | fabric | 0       |
+|     empty_fu_332_p2                                              |     |        | empty                    | add | fabric | 0       |
+|     add_ln147_fu_273_p2                                          |     |        | add_ln147                | add | fabric | 0       |
+|     mul_33s_32s_62_1_1_U53                                       | 4   |        | mul_ln147                | mul | auto   | 0       |
+|     add_ln147_1_fu_345_p2                                        |     |        | add_ln147_1              | add | fabric | 0       |
+|     add_ln147_2_fu_358_p2                                        |     |        | add_ln147_2              | add | fabric | 0       |
+|     add_ln147_3_fu_283_p2                                        |     |        | add_ln147_3              | add | fabric | 0       |
+|     mul_31ns_32s_62_1_1_U52                                      | 4   |        | mul_ln147_1              | mul | auto   | 0       |
+|     add_ln147_4_fu_387_p2                                        |     |        | add_ln147_4              | add | fabric | 0       |
+|     add_ln147_5_fu_401_p2                                        |     |        | add_ln147_5              | add | fabric | 0       |
+|     add_ln147_6_fu_554_p2                                        |     |        | add_ln147_6              | add | fabric | 0       |
+|     add_ln147_7_fu_426_p2                                        |     |        | add_ln147_7              | add | fabric | 0       |
+|     add_ln147_8_fu_440_p2                                        |     |        | add_ln147_8              | add | fabric | 0       |
+|     add_ln147_9_fu_465_p2                                        |     |        | add_ln147_9              | add | fabric | 0       |
+|     add_ln147_10_fu_478_p2                                       |     |        | add_ln147_10             | add | fabric | 0       |
+|     mul_31ns_32s_62_1_1_U52                                      | 4   |        | mul_ln147_2              | mul | auto   | 0       |
+|     add_ln147_11_fu_515_p2                                       |     |        | add_ln147_11             | add | fabric | 0       |
+|     add_ln147_12_fu_529_p2                                       |     |        | add_ln147_12             | add | fabric | 0       |
+|  + top_level_Pipeline_VITIS_LOOP_232_1_VITIS_LOOP_235_2          | 3   |        |                          |     |        |         |
+|    add_ln232_fu_261_p2                                           |     |        | add_ln232                | add | fabric | 0       |
+|    add_ln232_1_fu_270_p2                                         |     |        | add_ln232_1              | add | fabric | 0       |
+|    mul_32s_31ns_32_1_1_U85                                       | 3   |        | mul_i                    | mul | auto   | 0       |
+|    mul_32s_31ns_32_1_1_U85                                       | 3   |        | mul4_i                   | mul | auto   | 0       |
+|    add_ln235_fu_301_p2                                           |     |        | add_ln235                | add | fabric | 0       |
+|    add_ln238_fu_333_p2                                           |     |        | add_ln238                | add | fabric | 0       |
+|    add_ln239_fu_353_p2                                           |     |        | add_ln239                | add | fabric | 0       |
+|    add_ln239_1_fu_371_p2                                         |     |        | add_ln239_1              | add | fabric | 0       |
+|    mul_32s_31ns_32_1_1_U85                                       | 3   |        | mul_ln245                | mul | auto   | 0       |
+|    add_ln245_fu_441_p2                                           |     |        | add_ln245                | add | fabric | 0       |
+|    add_ln245_1_fu_459_p2                                         |     |        | add_ln245_1              | add | fabric | 0       |
+|    add_ln235_1_fu_400_p2                                         |     |        | add_ln235_1              | add | fabric | 0       |
++------------------------------------------------------------------+-----+--------+--------------------------+-----+--------+---------+
 
 
 ================================================================
@@ -186,7 +433,7 @@
 | Name              | Usage     | Type      | BRAM | URAM | Pragma | Variable | Impl | Latency | Bitwidth, Depth, |
 |                   |           |           |      |      |        |          |      |         | Banks            |
 +-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
-| + findDisparity   |           |           | 4    | 0    |        |          |      |         |                  |
+| + top_level       |           |           | 4    | 0    |        |          |      |         |                  |
 |   control_s_axi_U | interface | s_axilite |      |      |        |          |      |         |                  |
 |   gmem_m_axi_U    | interface | m_axi     | 4    |      |        |          |      |         |                  |
 +-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
@@ -196,25 +443,25 @@
 == Pragma Report
 ================================================================
 * Valid Pragma Syntax
-+----------------+-----------------------------+--------------------------------------------------------------+
-| Type           | Options                     | Location                                                     |
-+----------------+-----------------------------+--------------------------------------------------------------+
-| loop_tripcount | min=488 max=488             | ../src_fixed_vga/computeSAD.c:19 in computesad               |
-| loop_tripcount | min=595 max=595             | ../src_fixed_vga/computeSAD.c:22 in computesad               |
-| loop_tripcount | min=462949720 max=462949720 | ../src_fixed_vga/correlateSAD_2D.c:13 in outlined_fun_18     |
-| loop_tripcount | min=587 max=587             | ../src_fixed_vga/finalSAD.c:18 in finalsad                   |
-| loop_tripcount | min=480 max=480             | ../src_fixed_vga/finalSAD.c:21 in finalsad                   |
-| loop_tripcount | min=480 max=480             | ../src_fixed_vga/findDisparity.c:13 in finddisparity         |
-| loop_tripcount | min=587 max=587             | ../src_fixed_vga/findDisparity.c:16 in finddisparity         |
-| loop_tripcount | min=595 max=595             | ../src_fixed_vga/integralImage2D2D.c:15 in integralimage2d2d |
-| loop_tripcount | min=488 max=488             | ../src_fixed_vga/integralImage2D2D.c:20 in integralimage2d2d |
-| loop_tripcount | min=595 max=595             | ../src_fixed_vga/integralImage2D2D.c:23 in integralimage2d2d |
-| loop_tripcount | min=488 max=488             | ../src_fixed_vga/integralImage2D2D.c:29 in integralimage2d2d |
-| loop_tripcount | min=595 max=595             | ../src_fixed_vga/integralImage2D2D.c:32 in integralimage2d2d |
-| loop_tripcount | min=488 max=488             | ../src_fixed_vga/padarray4.c:32 in padarray4                 |
-| loop_tripcount | min=595 max=595             | ../src_fixed_vga/padarray4.c:35 in padarray4                 |
-| loop_tripcount | min=488 max=488             | ../src_fixed_vga/padarray4.c:44 in padarray4                 |
-| loop_tripcount | min=595 max=595             | ../src_fixed_vga/padarray4.c:47 in padarray4                 |
-+----------------+-----------------------------+--------------------------------------------------------------+
++----------------+---------------------------+----------------------------------------------------------------+
+| Type           | Options                   | Location                                                       |
++----------------+---------------------------+----------------------------------------------------------------+
+| loop_tripcount | min = 488 max = 488       | ../src_nostruct_vga/correlateSAD_2D.c:36 in padarray4          |
+| loop_tripcount | min = 595 max = 595       | ../src_nostruct_vga/correlateSAD_2D.c:39 in padarray4          |
+| loop_tripcount | min = 488 max = 488       | ../src_nostruct_vga/correlateSAD_2D.c:48 in padarray4          |
+| loop_tripcount | min = 595 max = 595       | ../src_nostruct_vga/correlateSAD_2D.c:51 in padarray4          |
+| loop_tripcount | min = 488 max = 488       | ../src_nostruct_vga/correlateSAD_2D.c:77 in computesad         |
+| loop_tripcount | min = 595 max = 595       | ../src_nostruct_vga/correlateSAD_2D.c:80 in computesad         |
+| loop_tripcount | min = 595 max = 595       | ../src_nostruct_vga/correlateSAD_2D.c:101 in integralimage2d2d |
+| loop_tripcount | min = 488 max = 488       | ../src_nostruct_vga/correlateSAD_2D.c:106 in integralimage2d2d |
+| loop_tripcount | min = 595 max = 595       | ../src_nostruct_vga/correlateSAD_2D.c:109 in integralimage2d2d |
+| loop_tripcount | min = 488 max = 488       | ../src_nostruct_vga/correlateSAD_2D.c:115 in integralimage2d2d |
+| loop_tripcount | min = 595 max = 595       | ../src_nostruct_vga/correlateSAD_2D.c:118 in integralimage2d2d |
+| loop_tripcount | min = 587 max = 587       | ../src_nostruct_vga/correlateSAD_2D.c:143 in finalsad          |
+| loop_tripcount | min = 480 max = 480       | ../src_nostruct_vga/correlateSAD_2D.c:146 in finalsad          |
+| loop_tripcount | min = 290360 max = 290360 | ../src_nostruct_vga/correlateSAD_2D.c:166 in outlined_fun_18   |
+| loop_tripcount | min = 480 max = 480       | ../src_nostruct_vga/correlateSAD_2D.c:234 in finddisparity     |
+| loop_tripcount | min = 587 max = 587       | ../src_nostruct_vga/correlateSAD_2D.c:237 in finddisparity     |
++----------------+---------------------------+----------------------------------------------------------------+
 
 
