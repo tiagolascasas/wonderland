@@ -1,0 +1,51 @@
+Begin Function 'vadd'
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_1
+local gmem_addr <getelementptr_5> <integer> <> 'getelementptr' </home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp:5>
+gmem_addr /home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp:5
+reg: gmem_addr_reg_325[63:0] lv
+
+local zext_ln5 <zext_5> <integer> <> 'zext' </home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp:5>
+zext_ln5 /home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp:5
+reg: zext_ln5_reg_331[31:0] lv
+
+local first_iter_0 <> <integer> <Phi> 'phi' <>
+reg: first_iter_0_reg_157[0:0] lv
+
+local icmp_ln5_1 <icmp_5> <integer> <Comparator> 'icmp' </home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp:5>
+icmp_ln5_1 /home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp:5
+reg: icmp_ln5_1_reg_336[0:0] lv
+
+local gmem_addr_1 <getelementptr_6> <integer> <> 'getelementptr' </home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp:6>
+gmem_addr_1 /home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp:6
+reg: gmem_addr_1_reg_340[63:0] lv
+
+local gmem_addr_2 <getelementptr_6> <integer> <> 'getelementptr' </home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp:6>
+gmem_addr_2 /home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp:6
+reg: gmem_addr_2_reg_346[63:0] lv
+
+local icmp_ln5_2 <icmp_5> <integer> <Comparator> 'icmp' </home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp:5>
+icmp_ln5_2 /home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp:5
+reg: icmp_ln5_2_reg_352[0:0] lv
+
+# ST_73
+local gmem_addr_1_read <read_6> <integer> <> 'read' </home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp:6>
+gmem_addr_1_read /home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp:6
+reg: gmem_addr_1_read_reg_356[31:0] lv
+
+# ST_75
+local add_ln6_2 <add_6> <integer> <Arithmetic> 'add' </home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp:6>
+add_ln6_2 /home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp:6
+reg: add_ln6_2_reg_366[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage1)
+# ST_74
+local gmem_addr_2_read <read_6> <integer> <> 'read' </home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp:6>
+gmem_addr_2_read /home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp:6
+reg: gmem_addr_2_read_reg_361[31:0] lv
+
+
+End Function 'vadd'
+
