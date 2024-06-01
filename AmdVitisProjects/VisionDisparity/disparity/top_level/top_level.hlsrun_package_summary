@@ -1,0 +1,159 @@
+<ENTRY>
+{
+ "thisFile": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/top_level/top_level.hlsrun_package_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Tue May 28 04:37:57 2024",
+ "timestampMillis": "1716867477559",
+ "buildStep": {
+  "cmdId": "32090b19-637e-4e4f-a137-eb38ece7e5bd",
+  "name": "vitis-run",
+  "logFile": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/top_level/logs/top_level.steps.log",
+  "commandLine": "/tools/Xilinx/Vitis/2023.2/bin/unwrapped/lnx64.o/vitis-run  --mode hls --package --config /home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/hls_config.cfg --work_dir top_level ",
+  "args": [
+   "--mode",
+   "hls",
+   "--package",
+   "--config",
+   "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/hls_config.cfg",
+   "--work_dir",
+   "top_level"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue May 28 04:37:57 2024",
+ "timestampMillis": "1716867477559",
+ "status": {
+  "cmdId": "32090b19-637e-4e4f-a137-eb38ece7e5bd",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Tue May 28 04:38:00 2024",
+ "timestampMillis": "1716867480057",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_RUN",
+  "target": "TT_HLS_XO",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "top_level",
+     "file": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/top_level/top_level.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/src_nostruct_vga/disparity.c"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2023.2"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Tue May 28 04:38:00 2024",
+ "timestampMillis": "1716867480058",
+ "buildStep": {
+  "cmdId": "33fc1777-7119-4eb6-a929-fb8a1bf317f6",
+  "name": "export_design",
+  "logFile": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/top_level/hls/hls.log",
+  "commandLine": "export_design -flow none",
+  "args": [
+   "-flow",
+   "none"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue May 28 04:38:00 2024",
+ "timestampMillis": "1716867480058",
+ "status": {
+  "cmdId": "33fc1777-7119-4eb6-a929-fb8a1bf317f6",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue May 28 04:38:13 2024",
+ "timestampMillis": "1716867493693",
+ "status": {
+  "cmdId": "33fc1777-7119-4eb6-a929-fb8a1bf317f6",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue May 28 04:38:13 2024",
+ "timestampMillis": "1716867493824",
+ "status": {
+  "cmdId": "32090b19-637e-4e4f-a137-eb38ece7e5bd",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue May 28 04:38:13 2024",
+ "timestampMillis": "1716867493825",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue May 28 04:38:13 2024",
+ "timestampMillis": "1716867493825",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

@@ -125,7 +125,6 @@ endif()
 
 target_sources(hello_world_host
 PRIVATE
-    src/timer.cpp
     src/host.cpp
 )
 # Below compile definitions are derived from the application template used to

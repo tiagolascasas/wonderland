@@ -9,10 +9,10 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "Tue May 28 01:55:46 2024",
- "timestampMillis": "1716857746656",
+ "dateTimestamp": "Sat Jun  1 02:41:44 2024",
+ "timestampMillis": "1717206104832",
  "buildStep": {
-  "cmdId": "a8dc3f5f-40f9-4a8a-86ad-40fe7d79a72c",
+  "cmdId": "618eac67-200e-4443-946c-2f84eac932c2",
   "name": "v++",
   "logFile": "/home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/vadd/sw_emu/vadd/vadd.steps.log",
   "commandLine": "/tools/Xilinx/Vitis/2023.2/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -c -k vadd --target sw_emu /home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/src/vadd.cpp -g --platform /tools/Xilinx/Vitis/2023.2/base_platforms/xilinx_zcu102_base_202320_1/xilinx_zcu102_base_202320_1.xpfm --temp_dir /home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/vadd/sw_emu -o /home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/vadd/sw_emu/vadd.xo ",
@@ -39,10 +39,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Tue May 28 01:55:46 2024",
- "timestampMillis": "1716857746656",
+ "dateTimestamp": "Sat Jun  1 02:41:44 2024",
+ "timestampMillis": "1717206104832",
  "status": {
-  "cmdId": "a8dc3f5f-40f9-4a8a-86ad-40fe7d79a72c",
+  "cmdId": "618eac67-200e-4443-946c-2f84eac932c2",
   "state": "CS_RUNNING"
  }
 }
@@ -50,8 +50,8 @@
 <ENTRY>
 {
  "type": "ET_FlowMetaData",
- "dateTimestamp": "Tue May 28 01:55:47 2024",
- "timestampMillis": "1716857747103",
+ "dateTimestamp": "Sat Jun  1 02:41:45 2024",
+ "timestampMillis": "1717206105273",
  "buildSummary": {
   "hardwarePlatform": "xilinx_zcu102_base_202320_1.xpfm",
   "hardwareDsa": "hw.xsa",
@@ -86,10 +86,10 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Tue May 28 01:55:47 2024",
- "timestampMillis": "1716857747112",
+ "dateTimestamp": "Sat Jun  1 02:41:45 2024",
+ "timestampMillis": "1717206105275",
  "buildStep": {
-  "cmdId": "d4d96b4a-1c54-451d-aa26-6c7e910acc5d",
+  "cmdId": "26626ceb-8498-4fab-8fa1-a153a343bb1b",
   "name": "vitis_hls",
   "logFile": "/home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/vadd/sw_emu/vadd/vadd/vitis_hls.log",
   "commandLine": "vitis_hls -f /home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/vadd/sw_emu/vadd/vadd/vadd.tcl -messageDb vitis_hls.pb",
@@ -108,10 +108,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Tue May 28 01:55:47 2024",
- "timestampMillis": "1716857747112",
+ "dateTimestamp": "Sat Jun  1 02:41:45 2024",
+ "timestampMillis": "1717206105275",
  "status": {
-  "cmdId": "d4d96b4a-1c54-451d-aa26-6c7e910acc5d",
+  "cmdId": "26626ceb-8498-4fab-8fa1-a153a343bb1b",
   "state": "CS_RUNNING"
  }
 }
@@ -119,10 +119,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Tue May 28 01:55:58 2024",
- "timestampMillis": "1716857758501",
+ "dateTimestamp": "Sat Jun  1 02:41:56 2024",
+ "timestampMillis": "1717206116543",
  "status": {
-  "cmdId": "d4d96b4a-1c54-451d-aa26-6c7e910acc5d",
+  "cmdId": "26626ceb-8498-4fab-8fa1-a153a343bb1b",
   "state": "CS_PASSED"
  }
 }
@@ -130,10 +130,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Tue May 28 01:55:58 2024",
- "timestampMillis": "1716857758514",
+ "dateTimestamp": "Sat Jun  1 02:41:56 2024",
+ "timestampMillis": "1717206116557",
  "status": {
-  "cmdId": "a8dc3f5f-40f9-4a8a-86ad-40fe7d79a72c",
+  "cmdId": "618eac67-200e-4443-946c-2f84eac932c2",
   "state": "CS_PASSED"
  }
 }
@@ -141,8 +141,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Tue May 28 01:55:58 2024",
- "timestampMillis": "1716857758579",
+ "dateTimestamp": "Sat Jun  1 02:41:56 2024",
+ "timestampMillis": "1717206116612",
  "report": {
   "path": "/home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/vadd/sw_emu/reports/vadd/v++_compile_vadd_guidance.html",
   "name": "",
@@ -155,8 +155,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Tue May 28 01:55:58 2024",
- "timestampMillis": "1716857758580",
+ "dateTimestamp": "Sat Jun  1 02:41:56 2024",
+ "timestampMillis": "1717206116612",
  "report": {
   "path": "/home/tls/Dev/wonderland/AmdVitisProjects/PrintfZynq/hello_world_vadd/vadd/sw_emu/v++_compile_vadd_guidance.pb3",
   "name": "",

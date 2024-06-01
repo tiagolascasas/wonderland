@@ -7,8 +7,7 @@
 #include "experimental/xrt_bo.h"
 #include "experimental/xrt_device.h"
 #include "experimental/xrt_kernel.h"
-
-#include "timer.hpp"
+#include "xrt/xrt_uuid.h"
 
 #define DATA_SIZE 1024
 
@@ -40,18 +39,45 @@ void* align_pointer(void* unaligned_ptr, size_t size, size_t alignment) {
     return aligned_ptr;
 }
 
-void wrapped_vadd(unsigned int* in1, unsigned int* in2, unsigned int* out, int size) {
-    char buffer[PATH_MAX];
-    getcwd(buffer, sizeof(buffer));
+void print_device_info(xrt::device device) {
+    std::cout << "Device info" << std::endl 
+            << "bfd: " << device.get_info<xrt::info::device::bdf>() << std::endl
+            // << "interface_uuid: " << device.get_info<xrt::info::device::interface_uuid>() << std::endl
+            // << "kdma: " << device.get_info<xrt::info::device::kdma>() << std::endl
+            << "max_clock_frequency_mhz: " << device.get_info<xrt::info::device::max_clock_frequency_mhz>() << std::endl
+            << "m2m: " << device.get_info<xrt::info::device::m2m>() << std::endl
+            << "name: " << device.get_info<xrt::info::device::name>() << std::endl
+            << "nodma: " << device.get_info<xrt::info::device::nodma>() << std::endl
+            // << "offline: " << device.get_info<xrt::info::device::offline>() << std::endl
+            // << "electrical: " << device.get_info<xrt::info::device::electrical>() << std::endl
+            // << "thermal: " << device.get_info<xrt::info::device::thermal>() << std::endl
+            // << "mechanical: " << device.get_info<xrt::info::device::mechanical>() << std::endl
+            //<< "memory: " << device.get_info<xrt::info::device::memory>() << std::endl
+            // << "platform: " << device.get_info<xrt::info::device::platform>() << std::endl
+            // << "pcie_info: " << device.get_info<xrt::info::device::pcie_info>() << std::endl
+            << "host: " << device.get_info<xrt::info::device::host>() << std::endl
+            // << "aie: " << device.get_info<xrt::info::device::aie>() << std::endl
+            // << "aie_shim: " << device.get_info<xrt::info::device::aie_shim>() << std::endl
+            // << "dynamic_regions: " << device.get_info<xrt::info::device::dynamic_regions>() << std::endl
+            // << "vmr: " << device.get_info<xrt::info::device::vmr>() << std::endl
+            // << "aie_mem: " << device.get_info<xrt::info::device::aie_mem>() << std::endl
+            << std::endl;
+}
 
-    auto xclbin = std::string(buffer);
-    xclbin.append("/").append("vadd.xclbin");
-    auto device_id = 0;
+void vadd_simple(xrt::device device, xrt::uuid uuid) {
+    unsigned int* in1 = new unsigned int[DATA_SIZE];
+    unsigned int* in2 = new unsigned int[DATA_SIZE];
+    unsigned int* out = new unsigned int[DATA_SIZE];
 
-    auto device = xrt::device(device_id);
-    auto uuid = device.load_xclbin(xclbin);
+    for (int i = 0; i < DATA_SIZE; ++i) {
+        in1[i] = i + 1;
+        in2[i] = 1;
+        out[i] = 0;
+    }
 
     auto krnl = xrt::kernel(device, uuid, "vadd");
+
+    size_t size = DATA_SIZE;
 
     uint64_t start;
     uint64_t end;
@@ -84,20 +110,6 @@ void wrapped_vadd(unsigned int* in1, unsigned int* in2, unsigned int* out, int s
     std::memcpy(out, aligned_out, size * sizeof(unsigned int));
     end = get_cpu_counter();
     std::cout << "FPGA->CPU time: " << end - start << "us | " << (end - start) / 10e6  << "s" << std::endl;
-}
-
-int main() {
-    unsigned int* in1 = new unsigned int[DATA_SIZE];
-    unsigned int* in2 = new unsigned int[DATA_SIZE];
-    unsigned int* out = new unsigned int[DATA_SIZE];
-
-    for (int i = 0; i < DATA_SIZE; ++i) {
-        in1[i] = i + 1;
-        in2[i] = 1;
-        out[i] = 0;
-    }
-
-    wrapped_vadd(in1, in2, out, DATA_SIZE);
 
     for (int i = 0; i < DATA_SIZE; i++) {
         if (i % 32 == 0) {
@@ -108,6 +120,26 @@ int main() {
     delete[] in1;
     delete[] in2;
     delete[] out;
+    delete device;
 
+    return;
+}
+
+int main() {
+        char buffer[PATH_MAX];
+    getcwd(buffer, sizeof(buffer));
+
+    auto xclbin = std::string(buffer);
+    xclbin.append("/").append("vadd.xclbin");
+    auto device_id = 0;
+
+    auto device = xrt::device(device_id);
+    auto uuid = device.load_xclbin(xclbin);
+
+    print_device_info(device);
+
+    vadd_simple(device, uuid);
+    std::cout << "-------------------------------" << std::endl;
+    vadd_simple(device, uuid);
     return 0;
 }

@@ -1,0 +1,168 @@
+<ENTRY>
+{
+ "thisFile": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/top_level/sw_emu/top_level.xo.compile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Tue May 28 05:37:32 2024",
+ "timestampMillis": "1716871052037",
+ "buildStep": {
+  "cmdId": "82e244c6-a0ed-4de8-8c1b-90f064365195",
+  "name": "v++",
+  "logFile": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/top_level/sw_emu/top_level/top_level.steps.log",
+  "commandLine": "/tools/Xilinx/Vitis/2023.2/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -c -k top_level --target sw_emu -g /home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/src_nostruct_vga/disparity.c --platform /tools/Xilinx/Vitis/2023.2/base_platforms/xilinx_zcu102_base_202320_1/xilinx_zcu102_base_202320_1.xpfm --temp_dir /home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/top_level/sw_emu -o /home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/top_level/sw_emu/top_level.xo ",
+  "args": [
+   "-c",
+   "-k",
+   "top_level",
+   "--target",
+   "sw_emu",
+   "-g",
+   "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/src_nostruct_vga/disparity.c",
+   "--platform",
+   "/tools/Xilinx/Vitis/2023.2/base_platforms/xilinx_zcu102_base_202320_1/xilinx_zcu102_base_202320_1.xpfm",
+   "--temp_dir",
+   "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/top_level/sw_emu",
+   "-o",
+   "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/top_level/sw_emu/top_level.xo"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue May 28 05:37:32 2024",
+ "timestampMillis": "1716871052037",
+ "status": {
+  "cmdId": "82e244c6-a0ed-4de8-8c1b-90f064365195",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Tue May 28 05:37:32 2024",
+ "timestampMillis": "1716871052473",
+ "buildSummary": {
+  "hardwarePlatform": "xilinx_zcu102_base_202320_1.xpfm",
+  "hardwareDsa": "hw.xsa",
+  "platformDirectory": "/tools/Xilinx/Vitis/2023.2/base_platforms/xilinx_zcu102_base_202320_1",
+  "runtime": "OpenCL",
+  "systemConfig": "Linux",
+  "flow": "BF_COMPILE",
+  "target": "TT_SW_EMU",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "top_level",
+     "file": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/top_level/sw_emu/top_level.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/src_nostruct_vga/disparity.c"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "Vitis V++ Compiler Release 2023.2. SW Build 4026344 on 2023-10-11-15:42:10"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Tue May 28 05:37:32 2024",
+ "timestampMillis": "1716871052475",
+ "buildStep": {
+  "cmdId": "b6bc5405-827c-4347-98a3-ef54e5e6c0f9",
+  "name": "vitis_hls",
+  "logFile": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/top_level/sw_emu/top_level/top_level/vitis_hls.log",
+  "commandLine": "vitis_hls -f /home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/top_level/sw_emu/top_level/top_level/top_level.tcl -messageDb vitis_hls.pb",
+  "args": [
+   "vitis_hls",
+   "-f",
+   "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/top_level/sw_emu/top_level/top_level/top_level.tcl",
+   "-messageDb",
+   "vitis_hls.pb"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue May 28 05:37:32 2024",
+ "timestampMillis": "1716871052475",
+ "status": {
+  "cmdId": "b6bc5405-827c-4347-98a3-ef54e5e6c0f9",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue May 28 05:37:43 2024",
+ "timestampMillis": "1716871063139",
+ "status": {
+  "cmdId": "b6bc5405-827c-4347-98a3-ef54e5e6c0f9",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue May 28 05:37:43 2024",
+ "timestampMillis": "1716871063154",
+ "status": {
+  "cmdId": "82e244c6-a0ed-4de8-8c1b-90f064365195",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue May 28 05:37:43 2024",
+ "timestampMillis": "1716871063212",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/top_level/sw_emu/reports/top_level/v++_compile_top_level_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue May 28 05:37:43 2024",
+ "timestampMillis": "1716871063212",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/top_level/sw_emu/v++_compile_top_level_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
