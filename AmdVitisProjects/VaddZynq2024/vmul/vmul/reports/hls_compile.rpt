@@ -1,0 +1,173 @@
+
+
+================================================================
+== Synthesis Summary Report of 'vmul'
+================================================================
++ General Information: 
+    * Date:           Mon Jun  3 23:49:40 2024
+    * Version:        2024.1 (Build 5069499 on May 21 2024)
+    * Project:        vmul
+    * Solution:       hls (Vitis Kernel Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcvu9p-flga2104-2-i
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +-------------------+------+------+---------+-----------+----------+---------+------+----------+----------+----------+------------+------------+-----+
+    |      Modules      | Issue|      | Latency |  Latency  | Iteration|         | Trip |          |          |          |            |            |     |
+    |      & Loops      | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|   BRAM   |    DSP   |     FF     |     LUT    | URAM|
+    +-------------------+------+------+---------+-----------+----------+---------+------+----------+----------+----------+------------+------------+-----+
+    |+ vmul             |    II|  0.00|     2191|  2.191e+04|         -|     2048|     -|    rewind|  30 (~0%)|  12 (~0%)|  44668 (1%)|  4055 (~0%)|    -|
+    | o VITIS_LOOP_2_1  |    II|  7.30|     2189|  2.189e+04|       144|        2|  1024|       yes|         -|         -|           -|           -|    -|
+    +-------------------+------+------+---------+-----------+----------+---------+------+----------+----------+----------+------------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface  | Read/Write | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|            |            | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_gmem | READ_WRITE | 32 -> 512  | 64            | 64      | slave  | 0        | 512       | 16           | 16           | 16          | 16          | BRAM=30           |
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 6             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| Interface     | Register | Offset | Width | Access | Description                      | Bit Fields                                                                         |
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| s_axi_control | CTRL     | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 4=AP_CONTINUE 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER     | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                                           |
+| s_axi_control | IP_IER   | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                                      |
+| s_axi_control | IP_ISR   | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                                      |
+| s_axi_control | A_1      | 0x10   | 32    | W      | Data signal of A                 |                                                                                    |
+| s_axi_control | A_2      | 0x14   | 32    | W      | Data signal of A                 |                                                                                    |
+| s_axi_control | B_1      | 0x1c   | 32    | W      | Data signal of B                 |                                                                                    |
+| s_axi_control | B_2      | 0x20   | 32    | W      | Data signal of B                 |                                                                                    |
+| s_axi_control | C_1      | 0x28   | 32    | W      | Data signal of C                 |                                                                                    |
+| s_axi_control | C_2      | 0x2c   | 32    | W      | Data signal of C                 |                                                                                    |
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+---------------+-----------+
+| Interface | Type          | Ports     |
++-----------+---------------+-----------+
+| ap_clk    | clock         | ap_clk    |
+| ap_rst_n  | reset         | ap_rst_n  |
+| interrupt | interrupt     | interrupt |
+| ap_ctrl   | ap_ctrl_chain |           |
++-----------+---------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+----------+
+| Argument | Direction | Datatype |
++----------+-----------+----------+
+| A        | inout     | int*     |
+| B        | inout     | int*     |
+| C        | inout     | int*     |
++----------+-----------+----------+
+
+* SW-to-HW Mapping
++----------+---------------+-----------+----------+-------------------------------+
+| Argument | HW Interface  | HW Type   | HW Usage | HW Info                       |
++----------+---------------+-----------+----------+-------------------------------+
+| A        | m_axi_gmem    | interface |          | channel=0                     |
+| A        | s_axi_control | register  | offset   | name=A_1 offset=0x10 range=32 |
+| A        | s_axi_control | register  | offset   | name=A_2 offset=0x14 range=32 |
+| B        | m_axi_gmem    | interface |          | channel=0                     |
+| B        | s_axi_control | register  | offset   | name=B_1 offset=0x1c range=32 |
+| B        | s_axi_control | register  | offset   | name=B_2 offset=0x20 range=32 |
+| C        | m_axi_gmem    | interface |          | channel=0                     |
+| C        | s_axi_control | register  | offset   | name=C_1 offset=0x28 range=32 |
+| C        | s_axi_control | register  | offset   | name=C_2 offset=0x2c range=32 |
++----------+---------------+-----------+----------+-------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++--------------+-----------+--------+-------+
+| HW Interface | Direction | Length | Width |
++--------------+-----------+--------+-------+
+| m_axi_gmem   | write     | 256    | 512   |
++--------------+-----------+--------+-------+
+
+* All M_AXI Variable Accesses
++--------------+----------+-----------------+-----------+--------------+--------+----------------+---------------+------------+----------------------------------------------------------------------------------------+
+| HW Interface | Variable | Access Location | Direction | Burst Status | Length | Loop           | Loop Location | Resolution | Problem                                                                                |
++--------------+----------+-----------------+-----------+--------------+--------+----------------+---------------+------------+----------------------------------------------------------------------------------------+
+| m_axi_gmem   |          | vmul.cpp:2:21   | read      | Fail         |        |                |               | 214-224    | Could not burst due to multiple potential reads to the same bundle in the same region. |
+| m_axi_gmem   | C        | vmul.cpp:2:21   | write     | Widened      | 256    | VITIS_LOOP_2_1 | vmul.cpp:2:21 |            |                                                                                        |
+| m_axi_gmem   | B        | vmul.cpp:2:21   | read      | Widened      | 256    | VITIS_LOOP_2_1 | vmul.cpp:2:21 |            |                                                                                        |
+| m_axi_gmem   | A        | vmul.cpp:2:21   | read      | Widened      | 256    | VITIS_LOOP_2_1 | vmul.cpp:2:21 |            |                                                                                        |
+| m_axi_gmem   | C        | vmul.cpp:4:7    | write     | Widened      | 1024   | VITIS_LOOP_2_1 | vmul.cpp:2:21 |            |                                                                                        |
+| m_axi_gmem   | B        | vmul.cpp:4:16   | read      | Widened      | 1024   | VITIS_LOOP_2_1 | vmul.cpp:2:21 |            |                                                                                        |
+| m_axi_gmem   | A        | vmul.cpp:4:9    | read      | Widened      | 1024   | VITIS_LOOP_2_1 | vmul.cpp:2:21 |            |                                                                                        |
+| m_axi_gmem   | C        | vmul.cpp:4:7    | write     | Inferred     | 4096   | VITIS_LOOP_2_1 | vmul.cpp:2:21 |            |                                                                                        |
+| m_axi_gmem   | B        | vmul.cpp:4:16   | read      | Inferred     | 4096   | VITIS_LOOP_2_1 | vmul.cpp:2:21 |            |                                                                                        |
+| m_axi_gmem   | A        | vmul.cpp:4:9    | read      | Inferred     | 4096   | VITIS_LOOP_2_1 | vmul.cpp:2:21 |            |                                                                                        |
++--------------+----------+-----------------+-----------+--------------+--------+----------------+---------------+------------+----------------------------------------------------------------------------------------+
+
+    * Resolution URL: docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=XXX-YYY.html (replace XXX-YYY with column value)
+
+================================================================
+== Bind Op Report
+================================================================
++-------------------------+-----+--------+------------+--------+----------+---------+
+| Name                    | DSP | Pragma | Variable   | Op     | Impl     | Latency |
++-------------------------+-----+--------+------------+--------+----------+---------+
+| + vmul                  | 12  |        |            |        |          |         |
+|   icmp_ln4_fu_334_p2    |     |        | icmp_ln4   | seteq  | auto     | 0       |
+|   add_ln4_fu_340_p2     |     |        | add_ln4    | add    | fabric   | 0       |
+|   add_ln4_1_fu_346_p2   |     |        | add_ln4_1  | add    | fabric   | 0       |
+|   mul_32s_32s_32_1_1_U1 | 3   |        | mul_ln4    | mul    | auto     | 0       |
+|   mul_32s_32s_32_1_1_U2 | 3   |        | mul_ln4_1  | mul    | auto     | 0       |
+|   mul_32s_32s_32_1_1_U3 | 3   |        | mul_ln4_2  | mul    | auto     | 0       |
+|   mul_32s_32s_32_1_1_U4 | 3   |        | mul_ln4_3  | mul    | auto     | 0       |
+|   icmp_ln2_fu_352_p2    |     |        | icmp_ln2   | seteq  | auto     | 0       |
+|   i_fu_368_p2           |     |        | i          | add    | fabric   | 0       |
+|   select_ln2_fu_573_p3  |     |        | select_ln2 | select | auto_sel | 0       |
++-------------------------+-----+--------+------------+--------+----------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| Name              | Usage     | Type      | BRAM | URAM | Pragma | Variable | Impl | Latency | Bitwidth, Depth, |
+|                   |           |           |      |      |        |          |      |         | Banks            |
++-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| + vmul            |           |           | 30   | 0    |        |          |      |         |                  |
+|   control_s_axi_U | interface | s_axilite |      |      |        |          |      |         |                  |
+|   gmem_m_axi_U    | interface | m_axi     | 30   |      |        |          |      |         |                  |
++-------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++--------+----------+--------------------+
+| Type   | Options  | Location           |
++--------+----------+--------------------+
+| unroll | factor=4 | vmul.cpp:3 in vmul |
++--------+----------+--------------------+
+
+

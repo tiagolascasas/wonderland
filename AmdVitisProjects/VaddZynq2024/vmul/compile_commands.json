@@ -1,0 +1,14 @@
+[
+  {
+    "directory": "/home/tls/Dev/wonderland/AmdVitisProjects/VaddZynq2024/vmul",
+    "arguments": [
+      "/tools/Xilinx/Vitis_HLS/2024.1/vcxx/libexec/clang++",
+      "-fhls",
+      "-hls-syn-headers-dir=/tools/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot",
+      "",
+      "-c",
+      "/home/tls/Dev/wonderland/AmdVitisProjects/VaddZynq2024/vmul/vmul.cpp"
+    ],
+    "file": "/home/tls/Dev/wonderland/AmdVitisProjects/VaddZynq2024/vmul/vmul.cpp"
+  }
+]

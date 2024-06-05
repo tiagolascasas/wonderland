@@ -1,0 +1,22 @@
+Begin Function 'load_input'
+
+RTL state condition: (1'b1 == ap_CS_fsm_state1)
+# ST_1
+local empty <select_93> <integer> <> 'select' <krnl_vadd.cpp:93>
+empty /home/tls/Dev/wonderland/AmdVitisProjects/VaddZynq2024/vadd_krnl_vadd/krnl_vadd.cpp:93
+empty /home/tls/Dev/wonderland/AmdVitisProjects/VaddZynq2024/vadd_krnl_vadd/krnl_vadd.cpp:93
+reg: empty_reg_140[30:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state2)
+# ST_2
+local trunc_ln93_2 <partselect_93> <integer> <> 'partselect' <krnl_vadd.cpp:93>
+trunc_ln93_2 /home/tls/Dev/wonderland/AmdVitisProjects/VaddZynq2024/vadd_krnl_vadd/krnl_vadd.cpp:93
+reg: trunc_ln93_2_reg_145[61:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state74)
+# ST_74
+
+End Function 'load_input'
+

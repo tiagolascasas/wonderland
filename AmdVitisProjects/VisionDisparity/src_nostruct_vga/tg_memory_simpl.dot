@@ -1,0 +1,41 @@
+digraph G {
+    rankdir = LR;
+    node [shape = "rectange"; fillcolor = "aquamarine2"; style = "filled";];
+    
+    main_begin [label = "main_begin";shape = diamond;fillcolor = lightskyblue;];
+    main_begin -> toplevel_src [label = "*Ileft\n*minSAD";];
+    
+    subgraph "cluster_T0" {
+        label = "top_level (x64)";
+        bgcolor = "lightpink";
+        toplevel_src [shape = circle;label = "";fillcolor = lightpink;];
+        toplevel_src -> corrSAD2D_src [label = "*Ileft";];
+        toplevel_target [shape = circle;label = "";fillcolor = lightpink;];
+        
+        subgraph "cluster_T1" {
+            label = "correlateSAD_2D";
+            bgcolor = bisque;
+            
+            corrSAD2D_src [shape = circle;label = "";fillcolor = bisque;];
+            corrSAD2D_target [shape = circle;label = "";fillcolor = bisque;];
+            corrSAD2D_src -> outlined_fun_18 [label = "<>range\n<>Iright";];
+            outlined_fun_18 -> padarray4 [label = "*Iright\n*range";];
+            corrSAD2D_src -> padarray4 [label = "<>Iright_moved";];
+            padarray4 -> computeSAD [label = "*Iright_moved";];
+            corrSAD2D_src -> computeSAD [label = "*Ileft\n<>SAD";];
+            computeSAD -> integralImage2D2D [label = "*SAD";];
+            corrSAD2D_src -> integralImage2D2D [label = "<>integralImg";];
+            integralImage2D2D -> finalSAD [label = "*integralImg";];
+            corrSAD2D_src -> finalSAD [label = "<>retSAD";];
+            finalSAD -> corrSAD2D_target [label = "*retSAD";];
+        }
+        
+        findDisparity [fillcolor = bisque;];
+        toplevel_src -> findDisparity [label = "minSAD\n<>retDisp";];
+        corrSAD2D_target -> findDisparity [label = "*retSAD";];
+        findDisparity -> toplevel_target [label = "*retDisp";];
+    }
+    
+    main_end [label = "main_end";shape = diamond;fillcolor = lightskyblue;];
+    toplevel_target -> main_end [label = "*retDisp";];
+}

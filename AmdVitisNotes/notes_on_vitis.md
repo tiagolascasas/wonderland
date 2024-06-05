@@ -1,4 +1,4 @@
-# Notes on AMD Vitis 2023.2
+# Notes on AMD Vitis 2023.2 and 2024.1
 
 ## General topics
 
@@ -93,12 +93,13 @@ Finally, in "Hardware" you can finally build the application, with the place-and
 
 ### Vadd application on the ZCU102 (ARM system)
 
-I'm basing this on a [tutorial for Vitis 2022.1 I found online](https://highlevel-synthesis.com/2022/06/09/how-to-emulate-an-hardware-accelerator-on-zcu102-in-vitis-2022-1/), adapting it for the 2023.2 version.
+I'm basing this on a [tutorial for Vitis 2022.1 I found online](https://highlevel-synthesis.com/2022/06/09/how-to-emulate-an-hardware-accelerator-on-zcu102-in-vitis-2022-1/), adapting it for the 2023.2 and 2024.1 versions.
 
-Download the [ZYNQMP common image](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-zynqmp-common-v2023.2_10140544.tar.gz) for 2023.2. **It will not work with past versions**.
+Download the ZYNQMP common image for [2023.2](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-zynqmp-common-v2023.2_10140544.tar.gz) or [2024.1](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-zynqmp-common-target-2024.1.tar.gz). **Always download the version that matches your installation, otherwise it will not work.
 
 Unzip the file, and run `./sdk.sh -d ~/zcu102` to install the SDK to the $HOME directory. After it is done, copy the unzipped folder into `~/zcu102` as well. The folder should look like this after you're done:
 
+For 2023.2:
 ```
 ~/zcu102
 ├── environment-setup-cortexa72-cortexa53-xilinx-linux
@@ -119,11 +120,38 @@ Unzip the file, and run `./sdk.sh -d ~/zcu102` to install the SDK to the $HOME d
     └── u-boot.elf
 ```
 
+For 2024.1:
+```
+~/zcu102
+├── environment-setup-cortexa72-cortexa53-xilinx-linux
+├── site-config-cortexa72-cortexa53-xilinx-linux
+├── sysroots
+│   ├── cortexa72-cortexa53-xilinx-linux
+│   └── x86_64-petalinux-linux
+├── version-cortexa72-cortexa53-xilinx-linux
+└── xilinx-zynqmp-common-v2024.1
+    ├── bl31.elf
+    ├── boot.scr
+    ├── Image
+    ├── README.txt
+    ├── rootfs.ext4
+    ├── rootfs.manifest
+    ├── rootfs.tar.gz
+    ├── sdk.sh
+    └── u-boot.elf
+```
+
 Take note of these 3 important files/folders, which you will need later:
 
 - **sysroot**: `~/zcu102/sysroots/cortexa72-cortexa53-xilinx-linux`
 - **rootfs**: `~/zcu102/xilinx-zynqmp-common-v2023.2/rootfs.ext4`
 - **kernel image**: `~/zcu102/xilinx-zynqmp-common-v2023.2/Image`
+
+And in 2024.1:
+
+- **sysroot**: `~/zcu102/sysroots/cortexa72-cortexa53-xilinx-linux`
+- **rootfs**: `~/zcu102/xilinx-zynqmp-common-v2024.1/rootfs.ext4`
+- **kernel image**: `~/zcu102/xilinx-zynqmp-common-v2024.1/Image`
 
 Create a new workspace, and go to Examples > Vitis Accel Examples Repository > Hello World XRT (XRT Native API's), and create one of those. If it doesn't appear in the list, there is likely a download button somewhere in that list.
 
