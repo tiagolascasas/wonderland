@@ -1,0 +1,153 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "vision_disparity_vga_sw_emu",
+			"debugType": "sw_emu",
+			"type": "gdb",
+			"request": "launch",
+			"target": "${workspaceFolder}/vision_disparity_vga_host/build/x86sim/vision_disparity_vga_host",
+			"applicationProjectDir": "${workspaceFolder}/vision_disparity_vga",
+			"arguments": "-x ${workspaceFolder}/vision_disparity_vga/build/sw_emu/package/disparity.xclbin",
+			"cwd": "${workspaceFolder}/vision_disparity_vga/build/sw_emu/vision_disparity_vga_sw_emu",
+			"gdbpath": "${env:XILINX_VITIS}/bin/xgdb",
+			"valuesFormatting": "prettyPrinters",
+			"env": {
+				"XILINX_VITIS": "${env:XILINX_VITIS}",
+				"XILINX_HLS": "${env:XILINX_VITIS}",
+				"XCL_EMULATION_MODE": "sw_emu",
+				"ENABLE_KERNEL_DEBUG": "true",
+				"XRT_INI_PATH": "${workspaceFolder}/vision_disparity_vga/vision_disparity_vga_host/runtime/sw_emu_xrt.ini",
+				"XCL_BIN_PATH": "${workspaceFolder}/vision_disparity_vga/build/sw_emu/package",
+				"LD_LIBRARY_PATH": "${env:XILINX_XRT}/lib"
+			}
+		},
+		{
+			"type": "tcf-debug",
+			"request": "launch",
+			"name": "vision_disparity_vga_hw_emu",
+			"debugType": "tcf_hw_emu",
+			"target": {
+				"targetConnectionId": "LinuxEmulation",
+				"peersIniPath": "../../../.peers.ini",
+				"file": "${workspaceFolder}/vision_disparity_vga_host/build/hw/vision_disparity_vga_host",
+				"remoteFilePath": "/run/media/mmcblk0p1/vision_disparity_vga_host"
+			},
+			"env": {
+				"XILINX_VITIS": "/run/media/mmcblk0p1",
+				"XILINX_XRT": "/usr",
+				"XCL_EMULATION_MODE": "hw_emu",
+				"XRT_INI_PATH": "/run/media/mmcblk0p1/hw_emu_xrt.ini",
+				"LD_LIBRARY_PATH": "/run/media/mmcblk0p1:/tmp:$LD_LIBRARY_PATH"
+			},
+			"copyToTarget": [
+				{
+					"source": "${workspaceFolder}/vision_disparity_vga/build/hw_emu/package/disparity.xclbin",
+					"destination": "/run/media/mmcblk0p1"
+				},
+				{
+					"source": "${workspaceFolder}/vision_disparity_vga/vision_disparity_vga_host/runtime/hw_emu_xrt.ini",
+					"destination": "/run/media/mmcblk0p1"
+				},
+				{
+					"source": "${workspaceFolder}/vision_disparity_vga/build/hw_emu/package/disparity.xclbin",
+					"destination": "/run/media/mmcblk0p1"
+				}
+			],
+			"copyFromTargetOnTermination": [
+				{
+					"pattern": ".txt",
+					"destination": "${workspaceFolder}/vision_disparity_vga/build/hw_emu/vision_disparity_vga_hw_emu"
+				},
+				{
+					"pattern": ".run_summary",
+					"destination": "${workspaceFolder}/vision_disparity_vga/build/hw_emu/vision_disparity_vga_hw_emu"
+				},
+				{
+					"pattern": ".json",
+					"destination": "${workspaceFolder}/vision_disparity_vga/build/hw_emu/vision_disparity_vga_hw_emu"
+				},
+				{
+					"pattern": ".csv",
+					"destination": "${workspaceFolder}/vision_disparity_vga/build/hw_emu/vision_disparity_vga_hw_emu"
+				}
+			],
+			"pathMap": [
+				{
+					"source": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/vision_disparity_vga/build/hw_emu/hw_link/vadd/vadd/int/xo/vadd/vadd/cpu_sources",
+					"destination": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/vision_disparity_vga_vadd/src"
+				}
+			],
+			"replaceNativeEnv": false,
+			"arguments": "-x ./disparity.xclbin",
+			"workingDirectory": "/run/media/mmcblk0p1",
+			"stopAtMain": true,
+			"stopAtProgramEntry": false,
+			"autoAttachProcessChildren": false,
+			"internalConsoleOptions": "openOnSessionStart"
+		},
+		{
+			"type": "tcf-debug",
+			"request": "launch",
+			"name": "vision_disparity_vga_hw",
+			"debugType": "tcf_hw",
+			"target": {
+				"targetConnectionId": "Linux Agent",
+				"peersIniPath": "../../../.peers.ini",
+				"file": "${workspaceFolder}/vision_disparity_vga_host/build/hw/vision_disparity_vga_host",
+				"remoteFilePath": "/run/media/mmcblk0p1/vision_disparity_vga_host"
+			},
+			"env": {
+				"XILINX_VITIS": "/run/media/mmcblk0p1",
+				"XILINX_XRT": "/usr",
+				"XRT_INI_PATH": "/run/media/mmcblk0p1/hw_xrt.ini",
+				"LD_LIBRARY_PATH": "/run/media/mmcblk0p1:/tmp:$LD_LIBRARY_PATH"
+			},
+			"copyToTarget": [
+				{
+					"source": "${workspaceFolder}/vision_disparity_vga/build/hw/package/vadd.xclbin",
+					"destination": "/run/media/mmcblk0p1"
+				},
+				{
+					"source": "${workspaceFolder}/vision_disparity_vga/vision_disparity_vga_host/runtime/hw_xrt.ini",
+					"destination": "/run/media/mmcblk0p1"
+				},
+				{
+					"source": "${workspaceFolder}/vision_disparity_vga/build/hw/package/disparity.xclbin",
+					"destination": "/run/media/mmcblk0p1"
+				}
+			],
+			"copyFromTargetOnTermination": [
+				{
+					"pattern": ".txt",
+					"destination": "${workspaceFolder}/vision_disparity_vga/build/hw/vision_disparity_vga_hw"
+				},
+				{
+					"pattern": ".run_summary",
+					"destination": "${workspaceFolder}/vision_disparity_vga/build/hw/vision_disparity_vga_hw"
+				},
+				{
+					"pattern": ".json",
+					"destination": "${workspaceFolder}/vision_disparity_vga/build/hw/vision_disparity_vga_hw"
+				},
+				{
+					"pattern": ".csv",
+					"destination": "${workspaceFolder}/vision_disparity_vga/build/hw/vision_disparity_vga_hw"
+				}
+			],
+			"pathMap": [
+				{
+					"source": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/vision_disparity_vga/build/hw/hw_link/vadd/vadd/int/xo/vadd/vadd/cpu_sources",
+					"destination": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/vision_disparity_vga_vadd/src"
+				}
+			],
+			"replaceNativeEnv": false,
+			"arguments": "-x ./disparity.xclbin",
+			"workingDirectory": "/run/media/mmcblk0p1",
+			"stopAtMain": true,
+			"stopAtProgramEntry": false,
+			"autoAttachProcessChildren": false,
+			"internalConsoleOptions": "openOnSessionStart"
+		}
+	]
+}

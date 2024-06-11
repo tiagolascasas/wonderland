@@ -1,0 +1,61 @@
+digraph G {
+    rankdir = TB;
+    node [shape = box;];
+    "TSrc" [label = "TSrc: <task_graph_source>";fillcolor = lightgray;];
+    "TSink" [label = "TSink: <task_graph_sink>";fillcolor = lightgray;];
+    "TSrc" -> "TSink" [style = invis;];
+    subgraph "cluster_T0" {
+        label = "T0: top_level";
+        bgcolor = bisque;
+        "T0_src" [shape = circle;label = "";];
+        "T0_target" [shape = diamond;label = "";];
+        "T0_src" -> "T0_target" [style = invis;];
+        subgraph "cluster_T0.0" {
+            label = "T0.0: outlined_loop_0 (x64)";
+            bgcolor = lightpink;
+            "T0.0_src" [shape = circle;label = "";];
+            "T0.0_target" [shape = diamond;label = "";];
+            "T0.0_src" -> "T0.0_target" [style = invis;];
+            subgraph "cluster_T0.0.0" {
+                label = "T0.0.0: correlateSAD_2D";
+                bgcolor = aquamarine2;
+                "T0.0.0_src" [shape = circle;label = "";];
+                "T0.0.0_target" [shape = diamond;label = "";];
+                "T0.0.0_src" -> "T0.0.0_target" [style = invis;];
+                "T0.0.0.0" [label = "T0.0.0.0: outlined_fun_18";style = "filled";fillcolor = lightgrey;];
+                "T0.0.0.0" -> "T0.0.0_target" [style = invis;];
+                "T0.0.0.0" [label = "T0.0.0.0: outlined_fun_18";style = "filled";fillcolor = lightgrey;];
+                "T0.0.0.0" -> "T0.0.0_target" [style = invis;];
+                "T0.0.0.1" [label = "T0.0.0.1: padarray4";style = "filled";fillcolor = lightgrey;];
+                "T0.0.0.1" -> "T0.0.0_target" [style = invis;];
+                "T0.0.0.2" [label = "T0.0.0.2: computeSAD";style = "filled";fillcolor = lightgrey;];
+                "T0.0.0.2" -> "T0.0.0_target" [style = invis;];
+                "T0.0.0.3" [label = "T0.0.0.3: integralImage2D2D";style = "filled";fillcolor = lightgrey;];
+                "T0.0.0.3" -> "T0.0.0_target" [style = invis;];
+                "T0.0.0.4" [label = "T0.0.0.4: finalSAD";style = "filled";fillcolor = lightgrey;];
+                "T0.0.0.4" -> "T0.0.0_target" [style = invis;];
+            }
+            "T0.0.0_target" -> "T0.0_target" [style = invis;];
+            "T0.0.1" [label = "T0.0.1: findDisparity";style = "filled";fillcolor = aquamarine2;];
+            "T0.0.1" -> "T0.0_target" [style = invis;];
+        }
+        "T0.0_target" -> "T0_target" [style = invis;];
+    }
+    
+    "T0.0.0_src" -> "T0.0.0.0" [label = "";];
+    "T0.0.0_src" -> "T0.0.0.1" [label = "";];
+    "T0.0.0.0" -> "T0.0.0.1" [label = ""; color = "black"; fontcolor = "black";];
+    "T0.0.0.1" -> "T0.0.0.2" [label = ""; color = "black"; fontcolor = "black";];
+    "T0.0.0_src" -> "T0.0.0.2" [label = "";];
+    "T0.0.0_src" -> "T0.0.0.3" [label = "";];
+    "T0.0.0.2" -> "T0.0.0.3" [label = ""; color = "black"; fontcolor = "black";];
+    "T0.0.0_src" -> "T0.0.0.4" [label = "";];
+    "T0.0.0.3" -> "T0.0.0.4" [label = ""; color = "black"; fontcolor = "black";];
+    "T0.0_src" -> "T0.0.0_src" [label = "";];
+    
+    "T0.0_src" -> "T0.0.1" [label = "";];
+    "T0.0.0_target" -> "T0.0.1" [label = ""; color = "black"; fontcolor = "black";];
+    "T0_src" -> "T0.0_src" [label = "";];
+    "TSrc" -> "T0_src" [label = ""; color = "black"; fontcolor = "black";];
+    "T0_target" -> "TSink" [label = ""; color = "black"; fontcolor = "black";];
+}

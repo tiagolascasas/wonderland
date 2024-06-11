@@ -1,0 +1,6 @@
+{
+  "workspaceRoot": "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited",
+  "mapping": {
+    "/home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/src_nostruct_vga/disparity.c": "disparity"
+  }
+}

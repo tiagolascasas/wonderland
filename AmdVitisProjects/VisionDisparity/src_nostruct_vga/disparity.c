@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define SIZE 595 * 488
+
 // from padarray4.c
 void padarray4(int inMat_w, int inMat_h, int *inMat_data, int borderMat_w,
                int borderMat_h, int *borderMat_data, int dir,
@@ -197,10 +199,8 @@ void correlateSAD_2D(int Ileft_w, int Ileft_h, int *Ileft_data,
                     int disparity, 
                     int SAD_w, int SAD_h, int *SAD_data,
                     int integralImg_w, int integralImg_h, int *integralImg_data, 
-                    int retSAD_w, int retSAD_h, int *retSAD_data
-#ifndef FORCE_MALLOC
-                    , int range_w, int range_h, int* range_data
-#endif
+                    int retSAD_w, int retSAD_h, int *retSAD_data, 
+                    int range_w, int range_h, int* range_data
 )
 {
     int rows;
@@ -208,13 +208,6 @@ void correlateSAD_2D(int Ileft_w, int Ileft_h, int *Ileft_data,
     int i;
     int j;
     int endRM;
-
-#ifdef FORCE_MALLOC
-    int range_w;
-    int range_h;
-    int *range_data;
-    iMallocHandle_rep1(&range_w, &range_h, &range_data);
-#endif
 
     outlined_fun_18(range_w, range_h, range_data, disparity, &rows, Iright_w,
                     Iright_h, Iright_data, &cols, &i);
@@ -273,11 +266,8 @@ void outlined_loop_0(int Ileft_w, int Ileft_h, int *Ileft_data, int Iright_w, in
                     Iright_data, Iright_moved_w, Iright_moved_h,
                     Iright_moved_data, win_sz, disparity, SAD_w, SAD_h,
                     SAD_data, integralImg_w, integralImg_h, integralImg_data,
-                    retSAD_w, retSAD_h, retSAD_data
-#ifndef FORCE_MALLOC
-                    ,
+                    retSAD_w, retSAD_h, retSAD_data,
                     range_w, range_h, range_data
-#endif
     );
     findDisparity(retSAD_w, retSAD_h, retSAD_data, minSAD_w, minSAD_h,
                   minSAD_data, retDisp_w, retDisp_h, retDisp_data, disparity,

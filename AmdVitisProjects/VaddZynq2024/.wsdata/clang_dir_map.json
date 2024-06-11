@@ -1,7 +1,0 @@
-{
-  "workspaceRoot": "/home/tls/Dev/wonderland/AmdVitisProjects/VaddZynq2024",
-  "mapping": {
-    "vadd_krnl_vadd/krnl_vadd.cpp": "vadd_krnl_vadd",
-    "vmul/vmul.cpp": "vmul"
-  }
-}

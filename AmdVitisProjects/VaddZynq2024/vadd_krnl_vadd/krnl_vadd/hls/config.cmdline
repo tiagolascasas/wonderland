@@ -1,3 +1,0 @@
-relativeroot=/home/tls/Dev/wonderland/AmdVitisProjects/VaddZynq2024/vadd_krnl_vadd
-original_argv=-c --mode hls --config /home/tls/Dev/wonderland/AmdVitisProjects/VaddZynq2024/vadd_krnl_vadd/hls_config.cfg --work_dir krnl_vadd 
-

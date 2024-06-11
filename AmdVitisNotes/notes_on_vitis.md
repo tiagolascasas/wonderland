@@ -95,11 +95,12 @@ Finally, in "Hardware" you can finally build the application, with the place-and
 
 I'm basing this on a [tutorial for Vitis 2022.1 I found online](https://highlevel-synthesis.com/2022/06/09/how-to-emulate-an-hardware-accelerator-on-zcu102-in-vitis-2022-1/), adapting it for the 2023.2 and 2024.1 versions.
 
-Download the ZYNQMP common image for [2023.2](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-zynqmp-common-v2023.2_10140544.tar.gz) or [2024.1](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-zynqmp-common-target-2024.1.tar.gz). **Always download the version that matches your installation, otherwise it will not work.
+Download the ZYNQMP common image for [2023.2](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-zynqmp-common-v2023.2_10140544.tar.gz) or [2024.1](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-zynqmp-common-v2024.1_05230256.tar.gz). **Always download the version that matches your installation, otherwise it will not work.
 
 Unzip the file, and run `./sdk.sh -d ~/zcu102` to install the SDK to the $HOME directory. After it is done, copy the unzipped folder into `~/zcu102` as well. The folder should look like this after you're done:
 
 For 2023.2:
+
 ```
 ~/zcu102
 ├── environment-setup-cortexa72-cortexa53-xilinx-linux
@@ -121,6 +122,7 @@ For 2023.2:
 ```
 
 For 2024.1:
+
 ```
 ~/zcu102
 ├── environment-setup-cortexa72-cortexa53-xilinx-linux
