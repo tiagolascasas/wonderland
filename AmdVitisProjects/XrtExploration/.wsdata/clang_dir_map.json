@@ -1,0 +1,7 @@
+{
+  "workspaceRoot": "/home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration",
+  "mapping": {
+    "zynq_xrt_exploration_vadd/src/vadd.cpp": "zynq_xrt_exploration_vadd",
+    "zynq_xrt_exploration_vadd/vadd.cpp": "zynq_xrt_exploration_vadd"
+  }
+}

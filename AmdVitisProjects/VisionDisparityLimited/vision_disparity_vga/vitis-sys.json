@@ -32,7 +32,7 @@
           {
             "name": "disparity",
             "kernels": {
-              "top_level": "disparity"
+              "integralImage2D2D": "disparity"
             },
             "userXoKernels": {},
             "aieComponents": [],

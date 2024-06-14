@@ -67,11 +67,11 @@ set(_BINEXT
 set (TARGET_OPTION_STRING --target ${VITIS_TARGET})
 if( ${VITIS_TARGET} STREQUAL sw_emu )
 set(_disparity_KERNEL_XO_PATHS
-disparity/top_level/sw_emu/top_level.xo
+disparity/top_level/sw_emu/integralImage2D2D.xo
 )
 else()
 set(_disparity_KERNEL_XO_PATHS
-disparity/top_level/top_level.xo
+disparity/top_level/integralImage2D2D.xo
 )
 endif()
 set(_disparity_USER_KERNEL_PATHS

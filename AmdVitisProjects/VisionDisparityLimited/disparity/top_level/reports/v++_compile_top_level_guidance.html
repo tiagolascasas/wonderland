@@ -3407,18 +3407,18 @@ window.onload = function () { addSorting(); }
 <center><h1>Design Guidance Report</h1></center><center><table class="header" border="0">
 <tr><td><b>Copyright</b></td><td>Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.</td></tr>
 <tr><td><b>Tool Version</b></td><td>xcd v.2024.1 (lin64) Build 0 </td></tr>
-<tr><td><b>Date</b></td><td>Tue Jun 11 03:31:33 2024</td></tr>
+<tr><td><b>Date</b></td><td>Thu Jun 13 04:53:02 2024</td></tr>
 <tr><td><b>Host</b></td><td>tls-Legion-5-15ACH6H running 64-bit Ubuntu 22.04.4 LTS</td></tr>
-<tr><td><b>Command</b></td><td>/tools/Xilinx/Vitis/2024.1/bin/unwrapped/lnx64.o/v++  -c --mode hls --config /home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/hls_config.cfg --work_dir top_level </td></tr>
+<tr><td><b>Command</b></td><td>/tools/Xilinx/Vitis/2024.1/bin/unwrapped/lnx64.o/v++  -c --mode hls --config /home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/hls_config.cfg --work_dir top_level </td></tr>
 </table></center><br>
 <table class="toc" border="1"><tr><td><b>Table of Contents</b></td></tr>
 <tr><td><a href="#REPORT SUMMARY">1 REPORT SUMMARY</a></tr></td>
 <tr><td><a href="#VIOLATION DETAILS">2 VIOLATION DETAILS</a></tr></td>
 </table>
 <a name="REPORT SUMMARY"></a><h1>1 REPORT SUMMARY</h1>
-<pre>Violations found: 37
+<pre>Violations found: 23
 </pre>
-<pre>Rule Specs Violated: 2
+<pre>Rule Specs Violated: 3
 </pre>
 <a name="VIOLATION DETAILS"></a><h1>2 VIOLATION DETAILS</h1>
 <table border="1">
@@ -3434,299 +3434,35 @@ window.onload = function () { addSorting(); }
 <th align="left" width="380">Resolution</th>
 </tr>
 <tr>
-<td align="left">20</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_123_5' (loop 'VITIS_LOOP_123_5'): Unable to enforce a carried dependence constraint (II = 137, distance = 1, offset = 1) between bus response operation ('empty_69', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=126">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=126">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) and bus request operation ('gmem_load_8_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=128">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=128">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">30</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'top_level_Pipeline_VITIS_LOOP_249_1_VITIS_LOOP_252_2' (loop 'VITIS_LOOP_249_1_VITIS_LOOP_252_2'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1) between bus response operation ('empty_54', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=261">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=261">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) and bus request operation ('gmem_load_1_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=256">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=256">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">10</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_109_2_VITIS_LOOP_112_3' (loop 'VITIS_LOOP_109_2_VITIS_LOOP_112_3'): Unable to enforce a carried dependence constraint (II = 130, distance = 1, offset = 1) between bus response operation ('empty_75', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=115">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=115">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) and bus request operation ('gmem_load_5_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=116">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=116">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">23</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.top_level.Kernel</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_150_1_VITIS_LOOP_153_2' (loop 'VITIS_LOOP_150_1_VITIS_LOOP_153_2'): Unable to schedule bus request operation ('gmem_load_10_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=158">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=228">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=158">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=228">disparity.c</a>) due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array.
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">25</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.top_level.Kernel</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_150_1_VITIS_LOOP_153_2' (loop 'VITIS_LOOP_150_1_VITIS_LOOP_153_2'): Unable to schedule bus request operation ('gmem_load_12_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=160">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=228">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=160">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=228">disparity.c</a>) due to limited memory ports (II = 3). Please consider using a memory core with more ports or partitioning the array.
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">3</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.top_level.Kernel</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_77_1_VITIS_LOOP_80_2' (loop 'VITIS_LOOP_77_1_VITIS_LOOP_80_2'): Unable to schedule bus request operation ('gmem_load_3_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=84">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=224">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=84">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=224">disparity.c</a>) due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array.
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">33</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'top_level_Pipeline_VITIS_LOOP_249_1_VITIS_LOOP_252_2' (loop 'VITIS_LOOP_249_1_VITIS_LOOP_252_2'): Unable to enforce a carried dependence constraint (II = 141, distance = 1, offset = 1) between bus response operation ('empty_54', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=261">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=261">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) and bus request operation ('gmem_load_1_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=256">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=256">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">22</td>
-<td align="left">Throughput</td>
+<td align="left">21</td>
+<td align="left">Interface</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">Pipelining result : Target II = NA, Final II = 142, Depth = 143, loop 'VITIS_LOOP_123_5'
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">24</td>
-<td align="left">Kernel</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.top_level.Kernel</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_150_1_VITIS_LOOP_153_2' (loop 'VITIS_LOOP_150_1_VITIS_LOOP_153_2'): Unable to schedule bus request operation ('gmem_load_11_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=159">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=228">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=159">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=228">disparity.c</a>) due to limited memory ports (II = 2). Please consider using a memory core with more ports or partitioning the array.
+<td align="left">HLS Interface Related</td>
+<td align="left">Accelerator.integralImage2D2D.Interface</td>
+<td align="left">Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
 <td align="left">2</td>
-<td align="left">Throughput</td>
+<td align="left">Interface</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 145, loop 'VITIS_LOOP_46_3_VITIS_LOOP_49_4'
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">32</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'top_level_Pipeline_VITIS_LOOP_249_1_VITIS_LOOP_252_2' (loop 'VITIS_LOOP_249_1_VITIS_LOOP_252_2'): Unable to enforce a carried dependence constraint (II = 137, distance = 1, offset = 1) between bus response operation ('empty_54', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=261">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=261">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) and bus request operation ('gmem_load_1_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=256">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=256">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">17</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_123_5' (loop 'VITIS_LOOP_123_5'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between bus response operation ('empty_69', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=126">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=126">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) and bus request operation ('gmem_load_8_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=128">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=128">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">27</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'top_level_Pipeline_VITIS_LOOP_249_1_VITIS_LOOP_252_2' (loop 'VITIS_LOOP_249_1_VITIS_LOOP_252_2'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between bus response operation ('empty_54', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=261">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=261">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) and bus request operation ('gmem_load_1_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=256">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=256">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">13</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_109_2_VITIS_LOOP_112_3' (loop 'VITIS_LOOP_109_2_VITIS_LOOP_112_3'): Unable to enforce a carried dependence constraint (II = 142, distance = 1, offset = 1) between bus response operation ('empty_75', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=115">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=115">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) and bus request operation ('gmem_load_5_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=116">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=116">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">35</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">Pipelining result : Target II = NA, Final II = 143, Depth = 149, loop 'VITIS_LOOP_249_1_VITIS_LOOP_252_2'
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">16</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_123_5' (loop 'VITIS_LOOP_123_5'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between bus response operation ('empty_69', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=126">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=126">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) and bus request operation ('gmem_load_8_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=128">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=128">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">26</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">Pipelining result : Target II = NA, Final II = 4, Depth = 149, loop 'VITIS_LOOP_150_1_VITIS_LOOP_153_2'
+<td align="left">HLS Interface Related</td>
+<td align="left">Accelerator.integralImage2D2D.Interface</td>
+<td align="left">Multiple burst writes of variable length and bit width 32 in loop 'VITIS_LOOP_24_1'(<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=24">disparity.c</a>) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=24">disparity.c</a>)
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
 <td align="left">12</td>
 <td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_109_2_VITIS_LOOP_112_3' (loop 'VITIS_LOOP_109_2_VITIS_LOOP_112_3'): Unable to enforce a carried dependence constraint (II = 141, distance = 1, offset = 1) between bus response operation ('empty_75', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=115">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=115">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) and bus request operation ('gmem_load_5_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=116">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=116">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">34</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'top_level_Pipeline_VITIS_LOOP_249_1_VITIS_LOOP_252_2' (loop 'VITIS_LOOP_249_1_VITIS_LOOP_252_2'): Unable to enforce a carried dependence constraint (II = 142, distance = 1, offset = 1) between bus response operation ('empty_54', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=261">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=261">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) and bus request operation ('gmem_load_1_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=256">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=256">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">19</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_123_5' (loop 'VITIS_LOOP_123_5'): Unable to enforce a carried dependence constraint (II = 130, distance = 1, offset = 1) between bus response operation ('empty_69', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=126">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=126">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) and bus request operation ('gmem_load_8_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=128">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=128">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">5</td>
-<td align="left">Throughput</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
 <td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 143, loop 'VITIS_LOOP_103_1'
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">15</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_123_5' (loop 'VITIS_LOOP_123_5'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between bus response operation ('empty_69', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=126">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=126">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) and bus request operation ('gmem_load_8_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=128">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=128">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">18</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_123_5' (loop 'VITIS_LOOP_123_5'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1) between bus response operation ('empty_69', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=126">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=126">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) and bus request operation ('gmem_load_8_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=128">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=128">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">4</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">Pipelining result : Target II = NA, Final II = 2, Depth = 147, loop 'VITIS_LOOP_77_1_VITIS_LOOP_80_2'
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">14</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">Pipelining result : Target II = NA, Final II = 143, Depth = 147, loop 'VITIS_LOOP_109_2_VITIS_LOOP_112_3'
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">29</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'top_level_Pipeline_VITIS_LOOP_249_1_VITIS_LOOP_252_2' (loop 'VITIS_LOOP_249_1_VITIS_LOOP_252_2'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between bus response operation ('empty_54', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=261">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=261">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) and bus request operation ('gmem_load_1_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=256">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=256">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">7</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_109_2_VITIS_LOOP_112_3' (loop 'VITIS_LOOP_109_2_VITIS_LOOP_112_3'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between bus response operation ('empty_75', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=115">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=115">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) and bus request operation ('gmem_load_5_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=116">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=116">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>).
+<td align="left">Accelerator.integralImage2D2D.Throughput</td>
+<td align="left">Pipelining result : Target II = NA, Final II = 143, Depth = 147, loop 'VITIS_LOOP_30_2_VITIS_LOOP_33_3'
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
@@ -3736,41 +3472,41 @@ window.onload = function () { addSorting(); }
 <td align="left">WARNING</td>
 <td align="left"><undefined></td>
 <td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_109_2_VITIS_LOOP_112_3' (loop 'VITIS_LOOP_109_2_VITIS_LOOP_112_3'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1) between bus response operation ('empty_75', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=115">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=115">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) and bus request operation ('gmem_load_5_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=116">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=116">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>).
+<td align="left">Accelerator.integralImage2D2D.Throughput</td>
+<td align="left">The II Violation in module 'integralImage2D2D_Pipeline_VITIS_LOOP_30_2_VITIS_LOOP_33_3' (loop 'VITIS_LOOP_30_2_VITIS_LOOP_33_3'): Unable to enforce a carried dependence constraint (II = 137, distance = 1, offset = 1) between bus response operation ('gmem_addr_4_resp', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=36">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=36">disparity.c</a>) and bus request operation ('gmem_load_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=37">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=37">disparity.c</a>).
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">37</td>
-<td align="left">Kernel</td>
+<td align="left">20</td>
+<td align="left">Throughput</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.top_level.Kernel</td>
-<td align="left">**** Estimated Fmax: 205.38 MHz
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.integralImage2D2D.Throughput</td>
+<td align="left">Pipelining result : Target II = NA, Final II = 142, Depth = 143, loop 'VITIS_LOOP_44_5'
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">28</td>
+<td align="left">17</td>
 <td align="left">Throughput</td>
 <td align="left">WARNING</td>
 <td align="left"><undefined></td>
 <td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'top_level_Pipeline_VITIS_LOOP_249_1_VITIS_LOOP_252_2' (loop 'VITIS_LOOP_249_1_VITIS_LOOP_252_2'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between bus response operation ('empty_54', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=261">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=261">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) and bus request operation ('gmem_load_1_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=256">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=256">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>).
+<td align="left">Accelerator.integralImage2D2D.Throughput</td>
+<td align="left">The II Violation in module 'integralImage2D2D_Pipeline_VITIS_LOOP_44_5' (loop 'VITIS_LOOP_44_5'): Unable to enforce a carried dependence constraint (II = 130, distance = 1, offset = 1) between bus response operation ('gmem_addr_6_resp', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=47">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=47">disparity.c</a>) and bus request operation ('gmem_load_3_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=49">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=49">disparity.c</a>).
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">6</td>
+<td align="left">5</td>
 <td align="left">Throughput</td>
 <td align="left">WARNING</td>
 <td align="left"><undefined></td>
 <td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_109_2_VITIS_LOOP_112_3' (loop 'VITIS_LOOP_109_2_VITIS_LOOP_112_3'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between bus response operation ('empty_75', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=115">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=115">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) and bus request operation ('gmem_load_5_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=116">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=116">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>).
+<td align="left">Accelerator.integralImage2D2D.Throughput</td>
+<td align="left">The II Violation in module 'integralImage2D2D_Pipeline_VITIS_LOOP_30_2_VITIS_LOOP_33_3' (loop 'VITIS_LOOP_30_2_VITIS_LOOP_33_3'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between bus response operation ('gmem_addr_4_resp', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=36">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=36">disparity.c</a>) and bus request operation ('gmem_load_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=37">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=37">disparity.c</a>).
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
@@ -3780,52 +3516,74 @@ window.onload = function () { addSorting(); }
 <td align="left">WARNING</td>
 <td align="left"><undefined></td>
 <td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_109_2_VITIS_LOOP_112_3' (loop 'VITIS_LOOP_109_2_VITIS_LOOP_112_3'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between bus response operation ('empty_75', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=115">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=115">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) and bus request operation ('gmem_load_5_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=116">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=116">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>).
+<td align="left">Accelerator.integralImage2D2D.Throughput</td>
+<td align="left">The II Violation in module 'integralImage2D2D_Pipeline_VITIS_LOOP_30_2_VITIS_LOOP_33_3' (loop 'VITIS_LOOP_30_2_VITIS_LOOP_33_3'): Unable to enforce a carried dependence constraint (II = 130, distance = 1, offset = 1) between bus response operation ('gmem_addr_4_resp', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=36">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=36">disparity.c</a>) and bus request operation ('gmem_load_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=37">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=37">disparity.c</a>).
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">36</td>
+<td align="left">15</td>
+<td align="left">Throughput</td>
+<td align="left">WARNING</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.integralImage2D2D.Throughput</td>
+<td align="left">The II Violation in module 'integralImage2D2D_Pipeline_VITIS_LOOP_44_5' (loop 'VITIS_LOOP_44_5'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between bus response operation ('gmem_addr_6_resp', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=47">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=47">disparity.c</a>) and bus request operation ('gmem_load_3_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=49">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=49">disparity.c</a>).
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">16</td>
+<td align="left">Throughput</td>
+<td align="left">WARNING</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.integralImage2D2D.Throughput</td>
+<td align="left">The II Violation in module 'integralImage2D2D_Pipeline_VITIS_LOOP_44_5' (loop 'VITIS_LOOP_44_5'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1) between bus response operation ('gmem_addr_6_resp', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=47">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=47">disparity.c</a>) and bus request operation ('gmem_load_3_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=49">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=49">disparity.c</a>).
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">23</td>
 <td align="left">Kernel</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
 <td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.top_level.Kernel</td>
-<td align="left">**** Loop Constraint Status: All loop constraints were NOT satisfied.
+<td align="left">Accelerator.integralImage2D2D.Kernel</td>
+<td align="left">**** Estimated Fmax: 205.38 MHz
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">21</td>
+<td align="left">4</td>
 <td align="left">Throughput</td>
 <td align="left">WARNING</td>
 <td align="left"><undefined></td>
 <td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_123_5' (loop 'VITIS_LOOP_123_5'): Unable to enforce a carried dependence constraint (II = 141, distance = 1, offset = 1) between bus response operation ('empty_69', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=126">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=126">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) and bus request operation ('gmem_load_8_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=128">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=128">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">31</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'top_level_Pipeline_VITIS_LOOP_249_1_VITIS_LOOP_252_2' (loop 'VITIS_LOOP_249_1_VITIS_LOOP_252_2'): Unable to enforce a carried dependence constraint (II = 130, distance = 1, offset = 1) between bus response operation ('empty_54', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=261">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=261">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) and bus request operation ('gmem_load_1_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=256">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=256">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=282">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=304">disparity.c</a>).
+<td align="left">Accelerator.integralImage2D2D.Throughput</td>
+<td align="left">The II Violation in module 'integralImage2D2D_Pipeline_VITIS_LOOP_30_2_VITIS_LOOP_33_3' (loop 'VITIS_LOOP_30_2_VITIS_LOOP_33_3'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between bus response operation ('gmem_addr_4_resp', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=36">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=36">disparity.c</a>) and bus request operation ('gmem_load_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=37">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=37">disparity.c</a>).
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
 <td align="left">1</td>
-<td align="left">Throughput</td>
+<td align="left">Interface</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
+<td align="left">HLS Interface Related</td>
+<td align="left">Accelerator.integralImage2D2D.Interface</td>
+<td align="left">Multiple burst reads of variable length and bit width 32 in loop 'VITIS_LOOP_24_1'(<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=24">disparity.c</a>) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=24">disparity.c</a>)
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left">Throughput</td>
+<td align="left">WARNING</td>
+<td align="left"><undefined></td>
 <td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 71, loop 'VITIS_LOOP_177_1'
+<td align="left">Accelerator.integralImage2D2D.Throughput</td>
+<td align="left">The II Violation in module 'integralImage2D2D_Pipeline_VITIS_LOOP_44_5' (loop 'VITIS_LOOP_44_5'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between bus response operation ('gmem_addr_6_resp', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=47">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=47">disparity.c</a>) and bus request operation ('gmem_load_3_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=49">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=49">disparity.c</a>).
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
@@ -3835,8 +3593,96 @@ window.onload = function () { addSorting(); }
 <td align="left">WARNING</td>
 <td align="left"><undefined></td>
 <td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.top_level.Throughput</td>
-<td align="left">The II Violation in module 'correlateSAD_2D_1_Pipeline_VITIS_LOOP_109_2_VITIS_LOOP_112_3' (loop 'VITIS_LOOP_109_2_VITIS_LOOP_112_3'): Unable to enforce a carried dependence constraint (II = 137, distance = 1, offset = 1) between bus response operation ('empty_75', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=115">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=115">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) and bus request operation ('gmem_load_5_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=116">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=116">disparity.c</a>-><a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparity/disparity/../src_nostruct_vga/disparity.c#line=226">disparity.c</a>).
+<td align="left">Accelerator.integralImage2D2D.Throughput</td>
+<td align="left">The II Violation in module 'integralImage2D2D_Pipeline_VITIS_LOOP_30_2_VITIS_LOOP_33_3' (loop 'VITIS_LOOP_30_2_VITIS_LOOP_33_3'): Unable to enforce a carried dependence constraint (II = 142, distance = 1, offset = 1) between bus response operation ('gmem_addr_4_resp', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=36">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=36">disparity.c</a>) and bus request operation ('gmem_load_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=37">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=37">disparity.c</a>).
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">22</td>
+<td align="left">Kernel</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Kernel Related</td>
+<td align="left">Accelerator.integralImage2D2D.Kernel</td>
+<td align="left">**** Loop Constraint Status: All loop constraints were NOT satisfied.
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">19</td>
+<td align="left">Throughput</td>
+<td align="left">WARNING</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.integralImage2D2D.Throughput</td>
+<td align="left">The II Violation in module 'integralImage2D2D_Pipeline_VITIS_LOOP_44_5' (loop 'VITIS_LOOP_44_5'): Unable to enforce a carried dependence constraint (II = 141, distance = 1, offset = 1) between bus response operation ('gmem_addr_6_resp', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=47">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=47">disparity.c</a>) and bus request operation ('gmem_load_3_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=49">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=49">disparity.c</a>).
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left">Throughput</td>
+<td align="left">WARNING</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.integralImage2D2D.Throughput</td>
+<td align="left">The II Violation in module 'integralImage2D2D_Pipeline_VITIS_LOOP_30_2_VITIS_LOOP_33_3' (loop 'VITIS_LOOP_30_2_VITIS_LOOP_33_3'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1) between bus response operation ('gmem_addr_4_resp', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=36">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=36">disparity.c</a>) and bus request operation ('gmem_load_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=37">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=37">disparity.c</a>).
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">Throughput</td>
+<td align="left">WARNING</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.integralImage2D2D.Throughput</td>
+<td align="left">The II Violation in module 'integralImage2D2D_Pipeline_VITIS_LOOP_30_2_VITIS_LOOP_33_3' (loop 'VITIS_LOOP_30_2_VITIS_LOOP_33_3'): Unable to enforce a carried dependence constraint (II = 141, distance = 1, offset = 1) between bus response operation ('gmem_addr_4_resp', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=36">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=36">disparity.c</a>) and bus request operation ('gmem_load_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=37">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=37">disparity.c</a>).
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">18</td>
+<td align="left">Throughput</td>
+<td align="left">WARNING</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.integralImage2D2D.Throughput</td>
+<td align="left">The II Violation in module 'integralImage2D2D_Pipeline_VITIS_LOOP_44_5' (loop 'VITIS_LOOP_44_5'): Unable to enforce a carried dependence constraint (II = 137, distance = 1, offset = 1) between bus response operation ('gmem_addr_6_resp', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=47">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=47">disparity.c</a>) and bus request operation ('gmem_load_3_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=49">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=49">disparity.c</a>).
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.integralImage2D2D.Throughput</td>
+<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'VITIS_LOOP_24_1'
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">Throughput</td>
+<td align="left">WARNING</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.integralImage2D2D.Throughput</td>
+<td align="left">The II Violation in module 'integralImage2D2D_Pipeline_VITIS_LOOP_30_2_VITIS_LOOP_33_3' (loop 'VITIS_LOOP_30_2_VITIS_LOOP_33_3'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between bus response operation ('gmem_addr_4_resp', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=36">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=36">disparity.c</a>) and bus request operation ('gmem_load_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=37">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=37">disparity.c</a>).
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left">Throughput</td>
+<td align="left">WARNING</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.integralImage2D2D.Throughput</td>
+<td align="left">The II Violation in module 'integralImage2D2D_Pipeline_VITIS_LOOP_44_5' (loop 'VITIS_LOOP_44_5'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between bus response operation ('gmem_addr_6_resp', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=47">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=47">disparity.c</a>) and bus request operation ('gmem_load_3_req', <a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=49">disparity.c</a>) on port 'gmem' (<a href="file:///home/tls/Dev/wonderland/AmdVitisProjects/VisionDisparityLimited/disparity/../../VisionDisparity/src_nostruct_vga/disparity.c#line=49">disparity.c</a>).
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>

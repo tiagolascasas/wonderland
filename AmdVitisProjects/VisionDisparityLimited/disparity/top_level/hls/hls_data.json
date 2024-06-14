@@ -1,8 +1,8 @@
 {
-  "Top": "top_level",
-  "RtlTop": "top_level",
+  "Top": "integralImage2D2D",
+  "RtlTop": "integralImage2D2D",
   "RtlPrefix": "",
-  "RtlSubPrefix": "top_level_",
+  "RtlSubPrefix": "integralImage2D2D_",
   "SourceLanguage": "c",
   "HostMachineBits": "64",
   "FunctionProtocol": "ap_ctrl_chain",
@@ -15,186 +15,8 @@
     "Triple": "fpga64-xilinx-none"
   },
   "Args": {
-    "Ileft_w": {
-      "index": "0",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "Ileft_w",
-          "usage": "data",
-          "direction": "in"
-        }]
-    },
-    "Ileft_h": {
-      "index": "1",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "Ileft_h",
-          "usage": "data",
-          "direction": "in"
-        }]
-    },
-    "Ileft_data": {
-      "index": "2",
-      "direction": "inout",
-      "srcType": "int*",
-      "srcSize": "32",
-      "hwRefs": [
-        {
-          "type": "interface",
-          "interface": "m_axi_gmem",
-          "name": "",
-          "usage": "data",
-          "direction": "inout"
-        },
-        {
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "Ileft_data_1",
-          "usage": "address",
-          "direction": "in"
-        },
-        {
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "Ileft_data_2",
-          "usage": "address",
-          "direction": "in"
-        }
-      ]
-    },
-    "Iright_w": {
-      "index": "3",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "Iright_w",
-          "usage": "data",
-          "direction": "in"
-        }]
-    },
-    "Iright_h": {
-      "index": "4",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "Iright_h",
-          "usage": "data",
-          "direction": "in"
-        }]
-    },
-    "Iright_data": {
-      "index": "5",
-      "direction": "inout",
-      "srcType": "int*",
-      "srcSize": "32",
-      "hwRefs": [
-        {
-          "type": "interface",
-          "interface": "m_axi_gmem",
-          "name": "",
-          "usage": "data",
-          "direction": "inout"
-        },
-        {
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "Iright_data_1",
-          "usage": "address",
-          "direction": "in"
-        },
-        {
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "Iright_data_2",
-          "usage": "address",
-          "direction": "in"
-        }
-      ]
-    },
-    "Iright_moved_w": {
-      "index": "6",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "Iright_moved_w",
-          "usage": "data",
-          "direction": "in"
-        }]
-    },
-    "Iright_moved_h": {
-      "index": "7",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "Iright_moved_h",
-          "usage": "data",
-          "direction": "in"
-        }]
-    },
-    "Iright_moved_data": {
-      "index": "8",
-      "direction": "inout",
-      "srcType": "int*",
-      "srcSize": "32",
-      "hwRefs": [
-        {
-          "type": "interface",
-          "interface": "m_axi_gmem",
-          "name": "",
-          "usage": "data",
-          "direction": "inout"
-        },
-        {
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "Iright_moved_data_1",
-          "usage": "address",
-          "direction": "in"
-        },
-        {
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "Iright_moved_data_2",
-          "usage": "address",
-          "direction": "in"
-        }
-      ]
-    },
-    "win_sz": {
-      "index": "9",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "win_sz",
-          "usage": "data",
-          "direction": "in"
-        }]
-    },
     "SAD_w": {
-      "index": "10",
+      "index": "0",
       "direction": "in",
       "srcType": "int",
       "srcSize": "32",
@@ -207,7 +29,7 @@
         }]
     },
     "SAD_h": {
-      "index": "11",
+      "index": "1",
       "direction": "in",
       "srcType": "int",
       "srcSize": "32",
@@ -220,7 +42,7 @@
         }]
     },
     "SAD_data": {
-      "index": "12",
+      "index": "2",
       "direction": "inout",
       "srcType": "int*",
       "srcSize": "32",
@@ -249,7 +71,7 @@
       ]
     },
     "integralImg_w": {
-      "index": "13",
+      "index": "3",
       "direction": "in",
       "srcType": "int",
       "srcSize": "32",
@@ -262,7 +84,7 @@
         }]
     },
     "integralImg_h": {
-      "index": "14",
+      "index": "4",
       "direction": "in",
       "srcType": "int",
       "srcSize": "32",
@@ -275,7 +97,7 @@
         }]
     },
     "integralImg_data": {
-      "index": "15",
+      "index": "5",
       "direction": "inout",
       "srcType": "int*",
       "srcSize": "32",
@@ -302,252 +124,6 @@
           "direction": "in"
         }
       ]
-    },
-    "retSAD_w": {
-      "index": "16",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "retSAD_w",
-          "usage": "data",
-          "direction": "in"
-        }]
-    },
-    "retSAD_h": {
-      "index": "17",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "retSAD_h",
-          "usage": "data",
-          "direction": "in"
-        }]
-    },
-    "retSAD_data": {
-      "index": "18",
-      "direction": "inout",
-      "srcType": "int*",
-      "srcSize": "32",
-      "hwRefs": [
-        {
-          "type": "interface",
-          "interface": "m_axi_gmem",
-          "name": "",
-          "usage": "data",
-          "direction": "inout"
-        },
-        {
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "retSAD_data_1",
-          "usage": "address",
-          "direction": "in"
-        },
-        {
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "retSAD_data_2",
-          "usage": "address",
-          "direction": "in"
-        }
-      ]
-    },
-    "minSAD_w": {
-      "index": "19",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "minSAD_w",
-          "usage": "data",
-          "direction": "in"
-        }]
-    },
-    "minSAD_h": {
-      "index": "20",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "minSAD_h",
-          "usage": "data",
-          "direction": "in"
-        }]
-    },
-    "minSAD_data": {
-      "index": "21",
-      "direction": "inout",
-      "srcType": "int*",
-      "srcSize": "32",
-      "hwRefs": [
-        {
-          "type": "interface",
-          "interface": "m_axi_gmem",
-          "name": "",
-          "usage": "data",
-          "direction": "inout"
-        },
-        {
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "minSAD_data_1",
-          "usage": "address",
-          "direction": "in"
-        },
-        {
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "minSAD_data_2",
-          "usage": "address",
-          "direction": "in"
-        }
-      ]
-    },
-    "retDisp_w": {
-      "index": "22",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "retDisp_w",
-          "usage": "data",
-          "direction": "in"
-        }]
-    },
-    "retDisp_h": {
-      "index": "23",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "retDisp_h",
-          "usage": "data",
-          "direction": "in"
-        }]
-    },
-    "retDisp_data": {
-      "index": "24",
-      "direction": "inout",
-      "srcType": "int*",
-      "srcSize": "32",
-      "hwRefs": [
-        {
-          "type": "interface",
-          "interface": "m_axi_gmem",
-          "name": "",
-          "usage": "data",
-          "direction": "inout"
-        },
-        {
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "retDisp_data_1",
-          "usage": "address",
-          "direction": "in"
-        },
-        {
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "retDisp_data_2",
-          "usage": "address",
-          "direction": "in"
-        }
-      ]
-    },
-    "nr": {
-      "index": "25",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "nr",
-          "usage": "data",
-          "direction": "in"
-        }]
-    },
-    "nc": {
-      "index": "26",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "nc",
-          "usage": "data",
-          "direction": "in"
-        }]
-    },
-    "range_w": {
-      "index": "27",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "range_w",
-          "usage": "data",
-          "direction": "in"
-        }]
-    },
-    "range_h": {
-      "index": "28",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "range_h",
-          "usage": "data",
-          "direction": "in"
-        }]
-    },
-    "range_data": {
-      "index": "29",
-      "direction": "inout",
-      "srcType": "int*",
-      "srcSize": "32",
-      "hwRefs": [
-        {
-          "type": "interface",
-          "interface": "m_axi_gmem",
-          "name": "",
-          "usage": "data",
-          "direction": "inout"
-        },
-        {
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "range_data_1",
-          "usage": "address",
-          "direction": "in"
-        },
-        {
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "range_data_2",
-          "usage": "address",
-          "direction": "in"
-        }
-      ]
     }
   },
   "HlsSolution": {
@@ -563,88 +139,72 @@
     ],
     "ProfileOption": "0",
     "ProfileType": "none",
-    "KernelName": "top_level"
+    "KernelName": "integralImage2D2D"
   },
   "ClockInfo": {
     "ClockName": "ap_clk",
     "ClockPeriod": "6.67",
     "Uncertainty": "1.8009",
     "IsCombinational": "0",
-    "II": "8023787266",
-    "Latency": "8023787265"
+    "II": "82790923",
+    "Latency": "82790922"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 6.670 [get_ports ap_clk]"]},
   "Ipx": {
     "Vendor": "xilinx.com",
     "Library": "hls",
-    "Name": "top_level",
+    "Name": "integralImage2D2D",
     "Version": "1.0",
-    "DisplayName": "Top_level",
-    "Revision": "2113596991",
+    "DisplayName": "Integralimage2d2d",
+    "Revision": "2113599952",
     "Description": "An IP generated by Vitis HLS",
     "Taxonomy": "\/VITIS_HLS_IP",
     "AutoFamilySupport": "",
-    "ZipFile": "xilinx_com_hls_top_level_1_0.zip"
+    "ZipFile": "xilinx_com_hls_integralImage2D2D_1_0.zip"
   },
   "Files": {
-    "CSource": ["..\/..\/..\/src_nostruct_vga\/disparity.c"],
+    "CSource": ["..\/..\/..\/..\/VisionDisparity\/src_nostruct_vga\/disparity.c"],
     "Vhdl": [
-      "impl\/vhdl\/top_level_control_s_axi.vhd",
-      "impl\/vhdl\/top_level_correlateSAD_2D_1.vhd",
-      "impl\/vhdl\/top_level_correlateSAD_2D_1_Pipeline_VITIS_LOOP_46_3_VITIS_LOOP_49_4.vhd",
-      "impl\/vhdl\/top_level_correlateSAD_2D_1_Pipeline_VITIS_LOOP_77_1_VITIS_LOOP_80_2.vhd",
-      "impl\/vhdl\/top_level_correlateSAD_2D_1_Pipeline_VITIS_LOOP_103_1.vhd",
-      "impl\/vhdl\/top_level_correlateSAD_2D_1_Pipeline_VITIS_LOOP_109_2_VITIS_LOOP_112_3.vhd",
-      "impl\/vhdl\/top_level_correlateSAD_2D_1_Pipeline_VITIS_LOOP_123_5.vhd",
-      "impl\/vhdl\/top_level_correlateSAD_2D_1_Pipeline_VITIS_LOOP_150_1_VITIS_LOOP_153_2.vhd",
-      "impl\/vhdl\/top_level_correlateSAD_2D_1_Pipeline_VITIS_LOOP_177_1.vhd",
-      "impl\/vhdl\/top_level_flow_control_loop_pipe_sequential_init.vhd",
-      "impl\/vhdl\/top_level_gmem_m_axi.vhd",
-      "impl\/vhdl\/top_level_mul_31ns_32s_62_1_1.vhd",
-      "impl\/vhdl\/top_level_mul_32ns_32ns_64_1_1.vhd",
-      "impl\/vhdl\/top_level_mul_32s_32s_32_1_1.vhd",
-      "impl\/vhdl\/top_level_mul_33s_32s_62_1_1.vhd",
-      "impl\/vhdl\/top_level_top_level_Pipeline_VITIS_LOOP_249_1_VITIS_LOOP_252_2.vhd",
-      "impl\/vhdl\/top_level.vhd"
+      "impl\/vhdl\/integralImage2D2D_control_s_axi.vhd",
+      "impl\/vhdl\/integralImage2D2D_flow_control_loop_pipe_sequential_init.vhd",
+      "impl\/vhdl\/integralImage2D2D_gmem_m_axi.vhd",
+      "impl\/vhdl\/integralImage2D2D_integralImage2D2D_Pipeline_VITIS_LOOP_24_1.vhd",
+      "impl\/vhdl\/integralImage2D2D_integralImage2D2D_Pipeline_VITIS_LOOP_30_2_VITIS_LOOP_33_3.vhd",
+      "impl\/vhdl\/integralImage2D2D_integralImage2D2D_Pipeline_VITIS_LOOP_44_5.vhd",
+      "impl\/vhdl\/integralImage2D2D_mul_31ns_32s_62_1_1.vhd",
+      "impl\/vhdl\/integralImage2D2D_mul_32ns_32ns_64_1_1.vhd",
+      "impl\/vhdl\/integralImage2D2D.vhd"
     ],
     "Verilog": [
-      "impl\/verilog\/top_level_control_s_axi.v",
-      "impl\/verilog\/top_level_correlateSAD_2D_1.v",
-      "impl\/verilog\/top_level_correlateSAD_2D_1_Pipeline_VITIS_LOOP_46_3_VITIS_LOOP_49_4.v",
-      "impl\/verilog\/top_level_correlateSAD_2D_1_Pipeline_VITIS_LOOP_77_1_VITIS_LOOP_80_2.v",
-      "impl\/verilog\/top_level_correlateSAD_2D_1_Pipeline_VITIS_LOOP_103_1.v",
-      "impl\/verilog\/top_level_correlateSAD_2D_1_Pipeline_VITIS_LOOP_109_2_VITIS_LOOP_112_3.v",
-      "impl\/verilog\/top_level_correlateSAD_2D_1_Pipeline_VITIS_LOOP_123_5.v",
-      "impl\/verilog\/top_level_correlateSAD_2D_1_Pipeline_VITIS_LOOP_150_1_VITIS_LOOP_153_2.v",
-      "impl\/verilog\/top_level_correlateSAD_2D_1_Pipeline_VITIS_LOOP_177_1.v",
-      "impl\/verilog\/top_level_flow_control_loop_pipe_sequential_init.v",
-      "impl\/verilog\/top_level_gmem_m_axi.v",
-      "impl\/verilog\/top_level_mul_31ns_32s_62_1_1.v",
-      "impl\/verilog\/top_level_mul_32ns_32ns_64_1_1.v",
-      "impl\/verilog\/top_level_mul_32s_32s_32_1_1.v",
-      "impl\/verilog\/top_level_mul_33s_32s_62_1_1.v",
-      "impl\/verilog\/top_level_top_level_Pipeline_VITIS_LOOP_249_1_VITIS_LOOP_252_2.v",
-      "impl\/verilog\/top_level.v"
+      "impl\/verilog\/integralImage2D2D_control_s_axi.v",
+      "impl\/verilog\/integralImage2D2D_flow_control_loop_pipe_sequential_init.v",
+      "impl\/verilog\/integralImage2D2D_gmem_m_axi.v",
+      "impl\/verilog\/integralImage2D2D_integralImage2D2D_Pipeline_VITIS_LOOP_24_1.v",
+      "impl\/verilog\/integralImage2D2D_integralImage2D2D_Pipeline_VITIS_LOOP_30_2_VITIS_LOOP_33_3.v",
+      "impl\/verilog\/integralImage2D2D_integralImage2D2D_Pipeline_VITIS_LOOP_44_5.v",
+      "impl\/verilog\/integralImage2D2D_mul_31ns_32s_62_1_1.v",
+      "impl\/verilog\/integralImage2D2D_mul_32ns_32ns_64_1_1.v",
+      "impl\/verilog\/integralImage2D2D.v"
     ],
     "SwDriver": [
-      "impl\/misc\/drivers\/top_level_v1_0\/data\/top_level.mdd",
-      "impl\/misc\/drivers\/top_level_v1_0\/data\/top_level.tcl",
-      "impl\/misc\/drivers\/top_level_v1_0\/data\/top_level.yaml",
-      "impl\/misc\/drivers\/top_level_v1_0\/src\/CMakeLists.txt",
-      "impl\/misc\/drivers\/top_level_v1_0\/src\/Makefile",
-      "impl\/misc\/drivers\/top_level_v1_0\/src\/xtop_level.c",
-      "impl\/misc\/drivers\/top_level_v1_0\/src\/xtop_level.h",
-      "impl\/misc\/drivers\/top_level_v1_0\/src\/xtop_level_hw.h",
-      "impl\/misc\/drivers\/top_level_v1_0\/src\/xtop_level_linux.c",
-      "impl\/misc\/drivers\/top_level_v1_0\/src\/xtop_level_sinit.c"
+      "impl\/misc\/drivers\/integralImage2D2D_v1_0\/data\/integralImage2D2D.mdd",
+      "impl\/misc\/drivers\/integralImage2D2D_v1_0\/data\/integralImage2D2D.tcl",
+      "impl\/misc\/drivers\/integralImage2D2D_v1_0\/data\/integralImage2D2D.yaml",
+      "impl\/misc\/drivers\/integralImage2D2D_v1_0\/src\/CMakeLists.txt",
+      "impl\/misc\/drivers\/integralImage2D2D_v1_0\/src\/Makefile",
+      "impl\/misc\/drivers\/integralImage2D2D_v1_0\/src\/xintegralimage2d2d.c",
+      "impl\/misc\/drivers\/integralImage2D2D_v1_0\/src\/xintegralimage2d2d.h",
+      "impl\/misc\/drivers\/integralImage2D2D_v1_0\/src\/xintegralimage2d2d_hw.h",
+      "impl\/misc\/drivers\/integralImage2D2D_v1_0\/src\/xintegralimage2d2d_linux.c",
+      "impl\/misc\/drivers\/integralImage2D2D_v1_0\/src\/xintegralimage2d2d_sinit.c"
     ],
     "IpMisc": ["impl\/misc\/logo.png"],
     "CsynthXml": "syn\/report\/csynth.xml",
     "DebugDir": ".debug",
     "KernelXml": "kernel.xml",
-    "Xo": "..\/top_level.xo",
+    "Xo": "..\/integralImage2D2D.xo",
     "XoHlsDir": "impl\/misc\/hls_files",
-    "ProtoInst": [".debug\/top_level.protoinst"]
+    "ProtoInst": [".debug\/integralImage2D2D.protoinst"]
   },
   "SubcoreInfo": {
     "HasXpmMemory": false,
@@ -657,7 +217,7 @@
       "busTypeName": "aximm",
       "mode": "slave",
       "dataWidth": "32",
-      "addrWidth": "9",
+      "addrWidth": "7",
       "portPrefix": "s_axi_control_",
       "paramPrefix": "C_S_AXI_CONTROL_",
       "offsetMasterName": "m_axi_gmem",
@@ -845,188 +405,6 @@
         },
         {
           "offset": "0x10",
-          "name": "Ileft_w",
-          "access": "W",
-          "description": "Data signal of Ileft_w",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "Ileft_w",
-              "access": "W",
-              "description": "Bit 31 to 0 of Ileft_w"
-            }]
-        },
-        {
-          "offset": "0x18",
-          "name": "Ileft_h",
-          "access": "W",
-          "description": "Data signal of Ileft_h",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "Ileft_h",
-              "access": "W",
-              "description": "Bit 31 to 0 of Ileft_h"
-            }]
-        },
-        {
-          "offset": "0x20",
-          "name": "Ileft_data_1",
-          "access": "W",
-          "description": "Data signal of Ileft_data",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "Ileft_data",
-              "access": "W",
-              "description": "Bit 31 to 0 of Ileft_data"
-            }]
-        },
-        {
-          "offset": "0x24",
-          "name": "Ileft_data_2",
-          "access": "W",
-          "description": "Data signal of Ileft_data",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "Ileft_data",
-              "access": "W",
-              "description": "Bit 63 to 32 of Ileft_data"
-            }]
-        },
-        {
-          "offset": "0x2c",
-          "name": "Iright_w",
-          "access": "W",
-          "description": "Data signal of Iright_w",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "Iright_w",
-              "access": "W",
-              "description": "Bit 31 to 0 of Iright_w"
-            }]
-        },
-        {
-          "offset": "0x34",
-          "name": "Iright_h",
-          "access": "W",
-          "description": "Data signal of Iright_h",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "Iright_h",
-              "access": "W",
-              "description": "Bit 31 to 0 of Iright_h"
-            }]
-        },
-        {
-          "offset": "0x3c",
-          "name": "Iright_data_1",
-          "access": "W",
-          "description": "Data signal of Iright_data",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "Iright_data",
-              "access": "W",
-              "description": "Bit 31 to 0 of Iright_data"
-            }]
-        },
-        {
-          "offset": "0x40",
-          "name": "Iright_data_2",
-          "access": "W",
-          "description": "Data signal of Iright_data",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "Iright_data",
-              "access": "W",
-              "description": "Bit 63 to 32 of Iright_data"
-            }]
-        },
-        {
-          "offset": "0x48",
-          "name": "Iright_moved_w",
-          "access": "W",
-          "description": "Data signal of Iright_moved_w",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "Iright_moved_w",
-              "access": "W",
-              "description": "Bit 31 to 0 of Iright_moved_w"
-            }]
-        },
-        {
-          "offset": "0x50",
-          "name": "Iright_moved_h",
-          "access": "W",
-          "description": "Data signal of Iright_moved_h",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "Iright_moved_h",
-              "access": "W",
-              "description": "Bit 31 to 0 of Iright_moved_h"
-            }]
-        },
-        {
-          "offset": "0x58",
-          "name": "Iright_moved_data_1",
-          "access": "W",
-          "description": "Data signal of Iright_moved_data",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "Iright_moved_data",
-              "access": "W",
-              "description": "Bit 31 to 0 of Iright_moved_data"
-            }]
-        },
-        {
-          "offset": "0x5c",
-          "name": "Iright_moved_data_2",
-          "access": "W",
-          "description": "Data signal of Iright_moved_data",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "Iright_moved_data",
-              "access": "W",
-              "description": "Bit 63 to 32 of Iright_moved_data"
-            }]
-        },
-        {
-          "offset": "0x64",
-          "name": "win_sz",
-          "access": "W",
-          "description": "Data signal of win_sz",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "win_sz",
-              "access": "W",
-              "description": "Bit 31 to 0 of win_sz"
-            }]
-        },
-        {
-          "offset": "0x6c",
           "name": "SAD_w",
           "access": "W",
           "description": "Data signal of SAD_w",
@@ -1040,7 +418,7 @@
             }]
         },
         {
-          "offset": "0x74",
+          "offset": "0x18",
           "name": "SAD_h",
           "access": "W",
           "description": "Data signal of SAD_h",
@@ -1054,7 +432,7 @@
             }]
         },
         {
-          "offset": "0x7c",
+          "offset": "0x20",
           "name": "SAD_data_1",
           "access": "W",
           "description": "Data signal of SAD_data",
@@ -1068,7 +446,7 @@
             }]
         },
         {
-          "offset": "0x80",
+          "offset": "0x24",
           "name": "SAD_data_2",
           "access": "W",
           "description": "Data signal of SAD_data",
@@ -1082,7 +460,7 @@
             }]
         },
         {
-          "offset": "0x88",
+          "offset": "0x2c",
           "name": "integralImg_w",
           "access": "W",
           "description": "Data signal of integralImg_w",
@@ -1096,7 +474,7 @@
             }]
         },
         {
-          "offset": "0x90",
+          "offset": "0x34",
           "name": "integralImg_h",
           "access": "W",
           "description": "Data signal of integralImg_h",
@@ -1110,7 +488,7 @@
             }]
         },
         {
-          "offset": "0x98",
+          "offset": "0x3c",
           "name": "integralImg_data_1",
           "access": "W",
           "description": "Data signal of integralImg_data",
@@ -1124,7 +502,7 @@
             }]
         },
         {
-          "offset": "0x9c",
+          "offset": "0x40",
           "name": "integralImg_data_2",
           "access": "W",
           "description": "Data signal of integralImg_data",
@@ -1136,258 +514,6 @@
               "access": "W",
               "description": "Bit 63 to 32 of integralImg_data"
             }]
-        },
-        {
-          "offset": "0xa4",
-          "name": "retSAD_w",
-          "access": "W",
-          "description": "Data signal of retSAD_w",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "retSAD_w",
-              "access": "W",
-              "description": "Bit 31 to 0 of retSAD_w"
-            }]
-        },
-        {
-          "offset": "0xac",
-          "name": "retSAD_h",
-          "access": "W",
-          "description": "Data signal of retSAD_h",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "retSAD_h",
-              "access": "W",
-              "description": "Bit 31 to 0 of retSAD_h"
-            }]
-        },
-        {
-          "offset": "0xb4",
-          "name": "retSAD_data_1",
-          "access": "W",
-          "description": "Data signal of retSAD_data",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "retSAD_data",
-              "access": "W",
-              "description": "Bit 31 to 0 of retSAD_data"
-            }]
-        },
-        {
-          "offset": "0xb8",
-          "name": "retSAD_data_2",
-          "access": "W",
-          "description": "Data signal of retSAD_data",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "retSAD_data",
-              "access": "W",
-              "description": "Bit 63 to 32 of retSAD_data"
-            }]
-        },
-        {
-          "offset": "0xc0",
-          "name": "minSAD_w",
-          "access": "W",
-          "description": "Data signal of minSAD_w",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "minSAD_w",
-              "access": "W",
-              "description": "Bit 31 to 0 of minSAD_w"
-            }]
-        },
-        {
-          "offset": "0xc8",
-          "name": "minSAD_h",
-          "access": "W",
-          "description": "Data signal of minSAD_h",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "minSAD_h",
-              "access": "W",
-              "description": "Bit 31 to 0 of minSAD_h"
-            }]
-        },
-        {
-          "offset": "0xd0",
-          "name": "minSAD_data_1",
-          "access": "W",
-          "description": "Data signal of minSAD_data",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "minSAD_data",
-              "access": "W",
-              "description": "Bit 31 to 0 of minSAD_data"
-            }]
-        },
-        {
-          "offset": "0xd4",
-          "name": "minSAD_data_2",
-          "access": "W",
-          "description": "Data signal of minSAD_data",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "minSAD_data",
-              "access": "W",
-              "description": "Bit 63 to 32 of minSAD_data"
-            }]
-        },
-        {
-          "offset": "0xdc",
-          "name": "retDisp_w",
-          "access": "W",
-          "description": "Data signal of retDisp_w",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "retDisp_w",
-              "access": "W",
-              "description": "Bit 31 to 0 of retDisp_w"
-            }]
-        },
-        {
-          "offset": "0xe4",
-          "name": "retDisp_h",
-          "access": "W",
-          "description": "Data signal of retDisp_h",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "retDisp_h",
-              "access": "W",
-              "description": "Bit 31 to 0 of retDisp_h"
-            }]
-        },
-        {
-          "offset": "0xec",
-          "name": "retDisp_data_1",
-          "access": "W",
-          "description": "Data signal of retDisp_data",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "retDisp_data",
-              "access": "W",
-              "description": "Bit 31 to 0 of retDisp_data"
-            }]
-        },
-        {
-          "offset": "0xf0",
-          "name": "retDisp_data_2",
-          "access": "W",
-          "description": "Data signal of retDisp_data",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "retDisp_data",
-              "access": "W",
-              "description": "Bit 63 to 32 of retDisp_data"
-            }]
-        },
-        {
-          "offset": "0xf8",
-          "name": "nr",
-          "access": "W",
-          "description": "Data signal of nr",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "nr",
-              "access": "W",
-              "description": "Bit 31 to 0 of nr"
-            }]
-        },
-        {
-          "offset": "0x100",
-          "name": "nc",
-          "access": "W",
-          "description": "Data signal of nc",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "nc",
-              "access": "W",
-              "description": "Bit 31 to 0 of nc"
-            }]
-        },
-        {
-          "offset": "0x108",
-          "name": "range_w",
-          "access": "W",
-          "description": "Data signal of range_w",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "range_w",
-              "access": "W",
-              "description": "Bit 31 to 0 of range_w"
-            }]
-        },
-        {
-          "offset": "0x110",
-          "name": "range_h",
-          "access": "W",
-          "description": "Data signal of range_h",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "range_h",
-              "access": "W",
-              "description": "Bit 31 to 0 of range_h"
-            }]
-        },
-        {
-          "offset": "0x118",
-          "name": "range_data_1",
-          "access": "W",
-          "description": "Data signal of range_data",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "range_data",
-              "access": "W",
-              "description": "Bit 31 to 0 of range_data"
-            }]
-        },
-        {
-          "offset": "0x11c",
-          "name": "range_data_2",
-          "access": "W",
-          "description": "Data signal of range_data",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "range_data",
-              "access": "W",
-              "description": "Bit 63 to 32 of range_data"
-            }]
         }
       ],
       "constraints": [
@@ -1396,210 +522,42 @@
           "mode": "s_axilite",
           "register_option": "0",
           "offset": "16",
-          "argName": "Ileft_w"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "24",
-          "argName": "Ileft_h"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "32",
-          "argName": "Ileft_data"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "44",
-          "argName": "Iright_w"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "52",
-          "argName": "Iright_h"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "60",
-          "argName": "Iright_data"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "72",
-          "argName": "Iright_moved_w"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "80",
-          "argName": "Iright_moved_h"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "88",
-          "argName": "Iright_moved_data"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "100",
-          "argName": "win_sz"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "108",
           "argName": "SAD_w"
         },
         {
           "constraint_type": "pragma interface",
           "mode": "s_axilite",
           "register_option": "0",
-          "offset": "116",
+          "offset": "24",
           "argName": "SAD_h"
         },
         {
           "constraint_type": "pragma interface",
           "mode": "s_axilite",
           "register_option": "0",
-          "offset": "124",
+          "offset": "32",
           "argName": "SAD_data"
         },
         {
           "constraint_type": "pragma interface",
           "mode": "s_axilite",
           "register_option": "0",
-          "offset": "136",
+          "offset": "44",
           "argName": "integralImg_w"
         },
         {
           "constraint_type": "pragma interface",
           "mode": "s_axilite",
           "register_option": "0",
-          "offset": "144",
+          "offset": "52",
           "argName": "integralImg_h"
         },
         {
           "constraint_type": "pragma interface",
           "mode": "s_axilite",
           "register_option": "0",
-          "offset": "152",
+          "offset": "60",
           "argName": "integralImg_data"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "164",
-          "argName": "retSAD_w"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "172",
-          "argName": "retSAD_h"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "180",
-          "argName": "retSAD_data"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "192",
-          "argName": "minSAD_w"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "200",
-          "argName": "minSAD_h"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "208",
-          "argName": "minSAD_data"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "220",
-          "argName": "retDisp_w"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "228",
-          "argName": "retDisp_h"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "236",
-          "argName": "retDisp_data"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "248",
-          "argName": "nr"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "256",
-          "argName": "nc"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "264",
-          "argName": "range_w"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "272",
-          "argName": "range_h"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "s_axilite",
-          "register_option": "0",
-          "offset": "280",
-          "argName": "range_data"
         }
       ]
     },
@@ -1635,7 +593,7 @@
       "type": "axi4full",
       "busTypeName": "aximm",
       "mode": "master",
-      "dataWidth": "64",
+      "dataWidth": "32",
       "addrWidth": "64",
       "portPrefix": "m_axi_gmem_",
       "paramPrefix": "C_M_AXI_GMEM_",
@@ -1712,72 +670,12 @@
           "max_write_burst_length": "16",
           "max_widen_bitwidth": "512",
           "channel_id": "0",
-          "argName": "Ileft_data"
-        },
-        {
-          "constraint_type": "bitwidth",
-          "orig_bitwidth": "32",
-          "final_bitwidth": "64",
-          "argName": "Ileft_data"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "m_axi",
-          "register_option": "0",
-          "offset": "slave",
-          "latency": "64",
-          "num_read_outstanding": "16",
-          "num_write_outstanding": "16",
-          "max_read_burst_length": "16",
-          "max_write_burst_length": "16",
-          "max_widen_bitwidth": "512",
-          "channel_id": "0",
-          "argName": "Iright_data"
-        },
-        {
-          "constraint_type": "bitwidth",
-          "orig_bitwidth": "32",
-          "final_bitwidth": "64",
-          "argName": "Iright_data"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "m_axi",
-          "register_option": "0",
-          "offset": "slave",
-          "latency": "64",
-          "num_read_outstanding": "16",
-          "num_write_outstanding": "16",
-          "max_read_burst_length": "16",
-          "max_write_burst_length": "16",
-          "max_widen_bitwidth": "512",
-          "channel_id": "0",
-          "argName": "Iright_moved_data"
-        },
-        {
-          "constraint_type": "bitwidth",
-          "orig_bitwidth": "32",
-          "final_bitwidth": "64",
-          "argName": "Iright_moved_data"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "m_axi",
-          "register_option": "0",
-          "offset": "slave",
-          "latency": "64",
-          "num_read_outstanding": "16",
-          "num_write_outstanding": "16",
-          "max_read_burst_length": "16",
-          "max_write_burst_length": "16",
-          "max_widen_bitwidth": "512",
-          "channel_id": "0",
           "argName": "SAD_data"
         },
         {
           "constraint_type": "bitwidth",
           "orig_bitwidth": "32",
-          "final_bitwidth": "64",
+          "final_bitwidth": "32",
           "argName": "SAD_data"
         },
         {
@@ -1797,88 +695,8 @@
         {
           "constraint_type": "bitwidth",
           "orig_bitwidth": "32",
-          "final_bitwidth": "64",
+          "final_bitwidth": "32",
           "argName": "integralImg_data"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "m_axi",
-          "register_option": "0",
-          "offset": "slave",
-          "latency": "64",
-          "num_read_outstanding": "16",
-          "num_write_outstanding": "16",
-          "max_read_burst_length": "16",
-          "max_write_burst_length": "16",
-          "max_widen_bitwidth": "512",
-          "channel_id": "0",
-          "argName": "retSAD_data"
-        },
-        {
-          "constraint_type": "bitwidth",
-          "orig_bitwidth": "32",
-          "final_bitwidth": "64",
-          "argName": "retSAD_data"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "m_axi",
-          "register_option": "0",
-          "offset": "slave",
-          "latency": "64",
-          "num_read_outstanding": "16",
-          "num_write_outstanding": "16",
-          "max_read_burst_length": "16",
-          "max_write_burst_length": "16",
-          "max_widen_bitwidth": "512",
-          "channel_id": "0",
-          "argName": "minSAD_data"
-        },
-        {
-          "constraint_type": "bitwidth",
-          "orig_bitwidth": "32",
-          "final_bitwidth": "64",
-          "argName": "minSAD_data"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "m_axi",
-          "register_option": "0",
-          "offset": "slave",
-          "latency": "64",
-          "num_read_outstanding": "16",
-          "num_write_outstanding": "16",
-          "max_read_burst_length": "16",
-          "max_write_burst_length": "16",
-          "max_widen_bitwidth": "512",
-          "channel_id": "0",
-          "argName": "retDisp_data"
-        },
-        {
-          "constraint_type": "bitwidth",
-          "orig_bitwidth": "32",
-          "final_bitwidth": "64",
-          "argName": "retDisp_data"
-        },
-        {
-          "constraint_type": "pragma interface",
-          "mode": "m_axi",
-          "register_option": "0",
-          "offset": "slave",
-          "latency": "64",
-          "num_read_outstanding": "16",
-          "num_write_outstanding": "16",
-          "max_read_burst_length": "16",
-          "max_write_burst_length": "16",
-          "max_widen_bitwidth": "512",
-          "channel_id": "0",
-          "argName": "range_data"
-        },
-        {
-          "constraint_type": "bitwidth",
-          "orig_bitwidth": "32",
-          "final_bitwidth": "64",
-          "argName": "range_data"
         }
       ]
     }
@@ -1894,7 +712,7 @@
     },
     "s_axi_control_AWADDR": {
       "dir": "in",
-      "width": "9"
+      "width": "7"
     },
     "s_axi_control_WVALID": {
       "dir": "in",
@@ -1922,7 +740,7 @@
     },
     "s_axi_control_ARADDR": {
       "dir": "in",
-      "width": "9"
+      "width": "7"
     },
     "s_axi_control_RVALID": {
       "dir": "out",
@@ -2028,11 +846,11 @@
     },
     "m_axi_gmem_WDATA": {
       "dir": "out",
-      "width": "64"
+      "width": "32"
     },
     "m_axi_gmem_WSTRB": {
       "dir": "out",
-      "width": "8"
+      "width": "4"
     },
     "m_axi_gmem_WLAST": {
       "dir": "out",
@@ -2112,7 +930,7 @@
     },
     "m_axi_gmem_RDATA": {
       "dir": "in",
-      "width": "64"
+      "width": "32"
     },
     "m_axi_gmem_RLAST": {
       "dir": "in",
@@ -2157,123 +975,49 @@
   },
   "ModuleInfo": {
     "Hierarchy": {
-      "ModuleName": "top_level",
-      "BindInstances": "mul_32ns_32ns_64_1_1_U93 icmp_ln302_fu_390_p2 add_ln302_fu_396_p2 control_s_axi_U gmem_m_axi_U",
+      "ModuleName": "integralImage2D2D",
+      "BindInstances": "icmp_ln24_fu_214_p2 empty_fu_234_p3 add_ln30_fu_339_p2 sub_ln30_fu_359_p2 icmp_fu_296_p2 add_ln30_1_fu_302_p2 select_ln30_fu_308_p3 mul_32ns_32ns_64_1_1_U20 add_ln41_1_fu_375_p2 icmp_ln41_fu_384_p2 add_ln41_fu_389_p2 empty_31_fu_403_p2 control_s_axi_U gmem_m_axi_U",
       "Instances": [
         {
-          "ModuleName": "correlateSAD_2D_1",
-          "InstanceName": "grp_correlateSAD_2D_1_fu_328",
-          "BindInstances": "mul_32s_32s_32_1_1_U60 sub20_i_fu_436_p2 mul_32ns_32ns_64_1_1_U59 mul_32ns_32ns_64_1_1_U59 icmp_fu_470_p2 add_ln109_fu_476_p2 select_ln109_fu_482_p3 mul_32ns_32ns_64_1_1_U59 add_ln120_1_fu_516_p2 icmp_ln120_fu_525_p2 add_ln120_fu_530_p2 empty_fu_544_p2 empty_78_fu_612_p2 sub_i22_fu_573_p2 sub2_i_fu_577_p2 mul_32ns_32ns_64_1_1_U59",
-          "Instances": [
-            {
-              "ModuleName": "correlateSAD_2D_1_Pipeline_VITIS_LOOP_177_1",
-              "InstanceName": "grp_correlateSAD_2D_1_Pipeline_VITIS_LOOP_177_1_fu_280",
-              "BindInstances": "icmp_ln177_fu_110_p2 add_ln177_fu_116_p2 add_ln180_fu_134_p2 shl_ln180_fu_162_p2"
-            },
-            {
-              "ModuleName": "correlateSAD_2D_1_Pipeline_VITIS_LOOP_46_3_VITIS_LOOP_49_4",
-              "InstanceName": "grp_correlateSAD_2D_1_Pipeline_VITIS_LOOP_46_3_VITIS_LOOP_49_4_fu_289",
-              "BindInstances": "icmp_ln49_fu_214_p2 icmp_ln46_fu_219_p2 add_ln46_fu_224_p2 select_ln46_fu_233_p3 add_ln46_1_fu_241_p2 select_ln46_1_fu_247_p3 mul_31ns_32s_62_1_1_U4 empty_61_fu_281_p2 mul_31ns_32s_62_1_1_U5 lshr_ln53_fu_382_p2 shl_ln52_fu_398_p2 shl_ln52_2_fu_415_p2 add_ln49_fu_255_p2"
-            },
-            {
-              "ModuleName": "correlateSAD_2D_1_Pipeline_VITIS_LOOP_77_1_VITIS_LOOP_80_2",
-              "InstanceName": "grp_correlateSAD_2D_1_Pipeline_VITIS_LOOP_77_1_VITIS_LOOP_80_2_fu_304",
-              "BindInstances": "icmp_ln80_fu_236_p2 icmp_ln77_fu_241_p2 add_ln77_fu_246_p2 select_ln77_fu_255_p3 add_ln77_1_fu_263_p2 select_ln77_1_fu_269_p3 mul_31ns_32s_62_1_1_U15 mul_31ns_32s_62_1_1_U15 mul_31ns_32s_62_1_1_U16 lshr_ln83_fu_417_p2 lshr_ln84_fu_461_p2 diff_fu_470_p2 mul_32s_32s_32_1_1_U17 shl_ln85_fu_478_p2 shl_ln85_2_fu_499_p2 add_ln80_fu_277_p2"
-            },
-            {
-              "ModuleName": "correlateSAD_2D_1_Pipeline_VITIS_LOOP_103_1",
-              "InstanceName": "grp_correlateSAD_2D_1_Pipeline_VITIS_LOOP_103_1_fu_321",
-              "BindInstances": "icmp_ln103_fu_135_p2 add_ln103_fu_141_p2 add_ln107_fu_159_p2 lshr_ln107_fu_225_p2 add_ln106_fu_179_p2 shl_ln106_fu_241_p2 shl_ln106_2_fu_258_p2"
-            },
-            {
-              "ModuleName": "correlateSAD_2D_1_Pipeline_VITIS_LOOP_109_2_VITIS_LOOP_112_3",
-              "InstanceName": "grp_correlateSAD_2D_1_Pipeline_VITIS_LOOP_109_2_VITIS_LOOP_112_3_fu_331",
-              "BindInstances": "icmp_ln112_fu_257_p2 icmp_ln109_fu_262_p2 add_ln109_fu_267_p2 select_ln109_fu_276_p3 add_ln109_1_fu_353_p2 select_ln109_1_fu_359_p3 add_ln109_2_fu_284_p2 select_ln109_2_fu_290_p3 mul_31ns_32s_62_1_1_U32 empty_70_fu_366_p2 mul_31ns_32s_62_1_1_U32 mul_31ns_32s_62_1_1_U32 add_ln116_fu_396_p2 add_ln116_1_fu_409_p2 lshr_ln116_fu_528_p2 tmp3_fu_302_p2 lshr_ln117_fu_548_p2 add_ln116_2_fu_557_p2 add_ln115_fu_466_p2 add_ln115_1_fu_488_p2 shl_ln115_fu_501_p2 shl_ln115_1_fu_577_p2 add_ln112_fu_329_p2"
-            },
-            {
-              "ModuleName": "correlateSAD_2D_1_Pipeline_VITIS_LOOP_123_5",
-              "InstanceName": "grp_correlateSAD_2D_1_Pipeline_VITIS_LOOP_123_5_fu_347",
-              "BindInstances": "icmp_ln123_fu_146_p2 add_ln128_fu_156_p2 add_ln128_1_fu_170_p2 lshr_ln128_fu_235_p2 add_ln127_fu_244_p2 shl_ln126_fu_194_p2 shl_ln126_1_fu_254_p2 add_ln123_fu_200_p2"
-            },
-            {
-              "ModuleName": "correlateSAD_2D_1_Pipeline_VITIS_LOOP_150_1_VITIS_LOOP_153_2",
-              "InstanceName": "grp_correlateSAD_2D_1_Pipeline_VITIS_LOOP_150_1_VITIS_LOOP_153_2_fu_357",
-              "BindInstances": "icmp_ln153_fu_248_p2 icmp_ln150_fu_253_p2 add_ln150_fu_258_p2 select_ln150_fu_269_p3 indvars_iv_next16_i24_mid1_fu_370_p2 indvars_iv_next16_i24216_fu_292_p2 select_ln150_1_fu_375_p3 select_ln150_2_fu_298_p3 empty_fu_309_p2 add_ln157_fu_279_p2 mul_33s_32s_62_1_1_U49 add_ln157_1_fu_318_p2 add_ln157_2_fu_331_p2 lshr_ln157_fu_537_p2 add_ln158_fu_350_p2 mul_31ns_32s_62_1_1_U48 add_ln158_1_fu_395_p2 add_ln158_2_fu_408_p2 lshr_ln158_fu_563_p2 add_ln157_3_fu_572_p2 add_ln159_fu_427_p2 add_ln159_1_fu_480_p2 lshr_ln159_fu_624_p2 add_ln160_fu_431_p2 add_ln160_1_fu_444_p2 lshr_ln160_fu_648_p2 mul_31ns_32s_62_1_1_U48 add_ln156_fu_546_p2 add_ln156_1_fu_584_p2 shl_ln156_fu_597_p2 shl_ln156_1_fu_678_p2"
-            }
-          ]
+          "ModuleName": "integralImage2D2D_Pipeline_VITIS_LOOP_24_1",
+          "InstanceName": "grp_integralImage2D2D_Pipeline_VITIS_LOOP_24_1_fu_177",
+          "BindInstances": "icmp_ln24_fu_109_p2 add_ln24_fu_115_p2"
         },
         {
-          "ModuleName": "top_level_Pipeline_VITIS_LOOP_249_1_VITIS_LOOP_252_2",
-          "InstanceName": "grp_top_level_Pipeline_VITIS_LOOP_249_1_VITIS_LOOP_252_2_fu_353",
-          "BindInstances": "icmp_ln252_fu_257_p2 icmp_ln249_fu_262_p2 add_ln249_fu_267_p2 select_ln249_fu_276_p3 add_ln249_1_fu_284_p2 select_ln249_1_fu_290_p3 mul_31ns_32s_62_1_1_U82 mul_31ns_32s_62_1_1_U82 mul_31ns_32s_62_1_1_U82 lshr_ln255_fu_434_p2 add_ln256_fu_380_p2 add_ln256_1_fu_394_p2 lshr_ln256_fu_454_p2 icmp_ln258_fu_463_p2 shl_ln261_fu_471_p2 shl_ln261_1_fu_512_p2 add_ln262_fu_477_p2 add_ln262_1_fu_490_p2 shl_ln262_fu_520_p2 shl_ln262_1_fu_537_p2 add_ln252_fu_298_p2"
+          "ModuleName": "integralImage2D2D_Pipeline_VITIS_LOOP_30_2_VITIS_LOOP_33_3",
+          "InstanceName": "grp_integralImage2D2D_Pipeline_VITIS_LOOP_30_2_VITIS_LOOP_33_3_fu_186",
+          "BindInstances": "icmp_ln33_fu_238_p2 icmp_ln30_fu_243_p2 add_ln30_fu_248_p2 select_ln30_fu_257_p3 add_ln30_1_fu_303_p2 select_ln30_1_fu_309_p3 add_ln30_2_fu_265_p2 select_ln30_2_fu_271_p3 mul_31ns_32s_62_1_1_U5 empty_25_fu_316_p2 mul_31ns_32s_62_1_1_U5 mul_31ns_32s_62_1_1_U5 add_ln37_4_fu_378_p2 add_ln37_2_fu_391_p2 add_ln38_fu_423_p2 add_ln37_3_fu_471_p2 add_ln36_fu_434_p2 add_ln36_1_fu_446_p2 add_ln33_fu_279_p2"
+        },
+        {
+          "ModuleName": "integralImage2D2D_Pipeline_VITIS_LOOP_44_5",
+          "InstanceName": "grp_integralImage2D2D_Pipeline_VITIS_LOOP_44_5_fu_200",
+          "BindInstances": "icmp_ln44_fu_145_p2 add_ln49_fu_155_p2 add_ln49_1_fu_169_p2 add_ln48_fu_209_p2 add_ln44_fu_195_p2"
         }
       ]
     },
     "Info": {
-      "correlateSAD_2D_1_Pipeline_VITIS_LOOP_177_1": {
+      "integralImage2D2D_Pipeline_VITIS_LOOP_24_1": {
         "FunctionProtocol": "ap_ctrl_hs",
         "isTaskLevelControl": "0",
         "isPipelined": "1",
         "isCombinational": "0",
         "isOneStateSeq": "0"
       },
-      "correlateSAD_2D_1_Pipeline_VITIS_LOOP_46_3_VITIS_LOOP_49_4": {
+      "integralImage2D2D_Pipeline_VITIS_LOOP_30_2_VITIS_LOOP_33_3": {
         "FunctionProtocol": "ap_ctrl_hs",
         "isTaskLevelControl": "0",
         "isPipelined": "1",
         "isCombinational": "0",
         "isOneStateSeq": "0"
       },
-      "correlateSAD_2D_1_Pipeline_VITIS_LOOP_77_1_VITIS_LOOP_80_2": {
+      "integralImage2D2D_Pipeline_VITIS_LOOP_44_5": {
         "FunctionProtocol": "ap_ctrl_hs",
         "isTaskLevelControl": "0",
         "isPipelined": "1",
         "isCombinational": "0",
         "isOneStateSeq": "0"
       },
-      "correlateSAD_2D_1_Pipeline_VITIS_LOOP_103_1": {
-        "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "0",
-        "isPipelined": "1",
-        "isCombinational": "0",
-        "isOneStateSeq": "0"
-      },
-      "correlateSAD_2D_1_Pipeline_VITIS_LOOP_109_2_VITIS_LOOP_112_3": {
-        "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "0",
-        "isPipelined": "1",
-        "isCombinational": "0",
-        "isOneStateSeq": "0"
-      },
-      "correlateSAD_2D_1_Pipeline_VITIS_LOOP_123_5": {
-        "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "0",
-        "isPipelined": "1",
-        "isCombinational": "0",
-        "isOneStateSeq": "0"
-      },
-      "correlateSAD_2D_1_Pipeline_VITIS_LOOP_150_1_VITIS_LOOP_153_2": {
-        "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "0",
-        "isPipelined": "1",
-        "isCombinational": "0",
-        "isOneStateSeq": "0"
-      },
-      "correlateSAD_2D_1": {
-        "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "0",
-        "isPipelined": "0",
-        "isCombinational": "0",
-        "isOneStateSeq": "0"
-      },
-      "top_level_Pipeline_VITIS_LOOP_249_1_VITIS_LOOP_252_2": {
-        "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "0",
-        "isPipelined": "1",
-        "isCombinational": "0",
-        "isOneStateSeq": "0"
-      },
-      "top_level": {
+      "integralImage2D2D": {
         "FunctionProtocol": "ap_ctrl_chain",
         "isTaskLevelControl": "0",
         "isPipelined": "0",
@@ -2282,128 +1026,11 @@
       }
     },
     "Metrics": {
-      "correlateSAD_2D_1_Pipeline_VITIS_LOOP_177_1": {
+      "integralImage2D2D_Pipeline_VITIS_LOOP_24_1": {
         "Latency": {
-          "LatencyBest": "290431",
-          "LatencyAvg": "290431",
-          "LatencyWorst": "290431",
-          "PipelineII": "290361",
-          "PipelineDepth": "",
-          "PipelineType": "loop auto-rewind (delay=0 clock cycles(s))"
-        },
-        "Timing": {
-          "Target": "6.67",
-          "Uncertainty": "1.80",
-          "Estimate": "4.869"
-        },
-        "Loops": [{
-            "Name": "VITIS_LOOP_177_1",
-            "TripCount": "290360",
-            "Latency": "290429",
-            "PipelineII": "1",
-            "PipelineDepth": "71"
-          }],
-        "Area": {
-          "FF": "244",
-          "AVAIL_FF": "548160",
-          "UTIL_FF": "~0",
-          "LUT": "233",
-          "AVAIL_LUT": "274080",
-          "UTIL_LUT": "~0",
-          "BRAM_18K": "0",
-          "AVAIL_BRAM": "1824",
-          "UTIL_BRAM": "0",
-          "DSP": "0",
-          "AVAIL_DSP": "2520",
-          "UTIL_DSP": "0",
-          "URAM": "0",
-          "AVAIL_URAM": "0",
-          "UTIL_URAM": "0"
-        }
-      },
-      "correlateSAD_2D_1_Pipeline_VITIS_LOOP_46_3_VITIS_LOOP_49_4": {
-        "Latency": {
-          "LatencyBest": "290504",
-          "LatencyAvg": "290504",
-          "LatencyWorst": "290504",
-          "PipelineII": "290361",
-          "PipelineDepth": "",
-          "PipelineType": "loop auto-rewind (delay=0 clock cycles(s))"
-        },
-        "Timing": {
-          "Target": "6.67",
-          "Uncertainty": "1.80",
-          "Estimate": "4.869"
-        },
-        "Loops": [{
-            "Name": "VITIS_LOOP_46_3_VITIS_LOOP_49_4",
-            "TripCount": "290360",
-            "Latency": "290502",
-            "PipelineII": "1",
-            "PipelineDepth": "144"
-          }],
-        "Area": {
-          "DSP": "8",
-          "AVAIL_DSP": "2520",
-          "UTIL_DSP": "~0",
-          "FF": "1155",
-          "AVAIL_FF": "548160",
-          "UTIL_FF": "~0",
-          "LUT": "1259",
-          "AVAIL_LUT": "274080",
-          "UTIL_LUT": "~0",
-          "BRAM_18K": "0",
-          "AVAIL_BRAM": "1824",
-          "UTIL_BRAM": "0",
-          "URAM": "0",
-          "AVAIL_URAM": "0",
-          "UTIL_URAM": "0"
-        }
-      },
-      "correlateSAD_2D_1_Pipeline_VITIS_LOOP_77_1_VITIS_LOOP_80_2": {
-        "Latency": {
-          "LatencyBest": "580865",
-          "LatencyAvg": "580865",
-          "LatencyWorst": "580865",
-          "PipelineII": "580722",
-          "PipelineDepth": "",
-          "PipelineType": "loop auto-rewind (delay=0 clock cycles(s))"
-        },
-        "Timing": {
-          "Target": "6.67",
-          "Uncertainty": "1.80",
-          "Estimate": "4.869"
-        },
-        "Loops": [{
-            "Name": "VITIS_LOOP_77_1_VITIS_LOOP_80_2",
-            "TripCount": "290360",
-            "Latency": "580863",
-            "PipelineII": "2",
-            "PipelineDepth": "146"
-          }],
-        "Area": {
-          "DSP": "11",
-          "AVAIL_DSP": "2520",
-          "UTIL_DSP": "~0",
-          "FF": "1424",
-          "AVAIL_FF": "548160",
-          "UTIL_FF": "~0",
-          "LUT": "2335",
-          "AVAIL_LUT": "274080",
-          "UTIL_LUT": "~0",
-          "BRAM_18K": "0",
-          "AVAIL_BRAM": "1824",
-          "UTIL_BRAM": "0",
-          "URAM": "0",
-          "AVAIL_URAM": "0",
-          "UTIL_URAM": "0"
-        }
-      },
-      "correlateSAD_2D_1_Pipeline_VITIS_LOOP_103_1": {
-        "Latency": {
-          "LatencyBest": "738",
-          "LatencyAvg": "738",
-          "LatencyWorst": "738",
+          "LatencyBest": "598",
+          "LatencyAvg": "598",
+          "LatencyWorst": "598",
           "PipelineII": "596",
           "PipelineDepth": "",
           "PipelineType": "loop auto-rewind (delay=0 clock cycles(s))"
@@ -2414,17 +1041,17 @@
           "Estimate": "4.869"
         },
         "Loops": [{
-            "Name": "VITIS_LOOP_103_1",
+            "Name": "VITIS_LOOP_24_1",
             "TripCount": "595",
-            "Latency": "736",
+            "Latency": "596",
             "PipelineII": "1",
-            "PipelineDepth": "143"
+            "PipelineDepth": "3"
           }],
         "Area": {
-          "FF": "772",
+          "FF": "68",
           "AVAIL_FF": "548160",
           "UTIL_FF": "~0",
-          "LUT": "776",
+          "LUT": "137",
           "AVAIL_LUT": "274080",
           "UTIL_LUT": "~0",
           "BRAM_18K": "0",
@@ -2438,7 +1065,7 @@
           "UTIL_URAM": "0"
         }
       },
-      "correlateSAD_2D_1_Pipeline_VITIS_LOOP_109_2_VITIS_LOOP_112_3": {
+      "integralImage2D2D_Pipeline_VITIS_LOOP_30_2_VITIS_LOOP_33_3": {
         "Latency": {
           "LatencyBest": "41521484",
           "LatencyAvg": "41521484",
@@ -2453,7 +1080,7 @@
           "Estimate": "4.869"
         },
         "Loops": [{
-            "Name": "VITIS_LOOP_109_2_VITIS_LOOP_112_3",
+            "Name": "VITIS_LOOP_30_2_VITIS_LOOP_33_3",
             "TripCount": "290360",
             "Latency": "41521482",
             "PipelineII": "143",
@@ -2463,10 +1090,10 @@
           "DSP": "4",
           "AVAIL_DSP": "2520",
           "UTIL_DSP": "~0",
-          "FF": "1295",
+          "FF": "1155",
           "AVAIL_FF": "548160",
           "UTIL_FF": "~0",
-          "LUT": "2562",
+          "LUT": "1912",
           "AVAIL_LUT": "274080",
           "UTIL_LUT": "~0",
           "BRAM_18K": "0",
@@ -2477,7 +1104,7 @@
           "UTIL_URAM": "0"
         }
       },
-      "correlateSAD_2D_1_Pipeline_VITIS_LOOP_123_5": {
+      "integralImage2D2D_Pipeline_VITIS_LOOP_44_5": {
         "Latency": {
           "LatencyBest": "84492",
           "LatencyAvg": "84492",
@@ -2492,17 +1119,17 @@
           "Estimate": "4.869"
         },
         "Loops": [{
-            "Name": "VITIS_LOOP_123_5",
+            "Name": "VITIS_LOOP_44_5",
             "TripCount": "595",
             "Latency": "84490",
             "PipelineII": "142",
             "PipelineDepth": "143"
           }],
         "Area": {
-          "FF": "473",
+          "FF": "337",
           "AVAIL_FF": "548160",
           "UTIL_FF": "~0",
-          "LUT": "1511",
+          "LUT": "1137",
           "AVAIL_LUT": "274080",
           "UTIL_LUT": "~0",
           "BRAM_18K": "0",
@@ -2516,51 +1143,12 @@
           "UTIL_URAM": "0"
         }
       },
-      "correlateSAD_2D_1_Pipeline_VITIS_LOOP_150_1_VITIS_LOOP_153_2": {
+      "integralImage2D2D": {
         "Latency": {
-          "LatencyBest": "1127185",
-          "LatencyAvg": "1127185",
-          "LatencyWorst": "1127185",
-          "PipelineII": "1127044",
-          "PipelineDepth": "",
-          "PipelineType": "loop auto-rewind (delay=0 clock cycles(s))"
-        },
-        "Timing": {
-          "Target": "6.67",
-          "Uncertainty": "1.80",
-          "Estimate": "4.869"
-        },
-        "Loops": [{
-            "Name": "VITIS_LOOP_150_1_VITIS_LOOP_153_2",
-            "TripCount": "281760",
-            "Latency": "1127183",
-            "PipelineII": "4",
-            "PipelineDepth": "148"
-          }],
-        "Area": {
-          "DSP": "8",
-          "AVAIL_DSP": "2520",
-          "UTIL_DSP": "~0",
-          "FF": "2021",
-          "AVAIL_FF": "548160",
-          "UTIL_FF": "~0",
-          "LUT": "2975",
-          "AVAIL_LUT": "274080",
-          "UTIL_LUT": "1",
-          "BRAM_18K": "0",
-          "AVAIL_BRAM": "1824",
-          "UTIL_BRAM": "0",
-          "URAM": "0",
-          "AVAIL_URAM": "0",
-          "UTIL_URAM": "0"
-        }
-      },
-      "correlateSAD_2D_1": {
-        "Latency": {
-          "LatencyBest": "85079985",
-          "LatencyAvg": "85079985",
-          "LatencyWorst": "85079985",
-          "PipelineII": "85079985",
+          "LatencyBest": "82790922",
+          "LatencyAvg": "82790922",
+          "LatencyWorst": "82790922",
+          "PipelineII": "82790923",
           "PipelineDepth": "",
           "PipelineType": "no"
         },
@@ -2570,103 +1158,25 @@
           "Estimate": "4.869"
         },
         "Loops": [{
-            "Name": "VITIS_LOOP_120_4",
+            "Name": "VITIS_LOOP_41_4",
             "TripCount": "488",
             "Latency": "41268696",
             "PipelineII": "",
             "PipelineDepth": "84567"
           }],
         "Area": {
-          "DSP": "38",
-          "AVAIL_DSP": "2520",
-          "UTIL_DSP": "1",
-          "FF": "8149",
-          "AVAIL_FF": "548160",
-          "UTIL_FF": "1",
-          "LUT": "14626",
-          "AVAIL_LUT": "274080",
-          "UTIL_LUT": "5",
-          "BRAM_18K": "0",
-          "AVAIL_BRAM": "1824",
-          "UTIL_BRAM": "0",
-          "URAM": "0",
-          "AVAIL_URAM": "0",
-          "UTIL_URAM": "0"
-        }
-      },
-      "top_level_Pipeline_VITIS_LOOP_249_1_VITIS_LOOP_252_2": {
-        "Latency": {
-          "LatencyBest": "40291686",
-          "LatencyAvg": "40291686",
-          "LatencyWorst": "40291686",
-          "PipelineII": "40291685",
-          "PipelineDepth": "",
-          "PipelineType": "loop auto-rewind (delay=0 clock cycles(s))"
-        },
-        "Timing": {
-          "Target": "6.67",
-          "Uncertainty": "1.80",
-          "Estimate": "4.869"
-        },
-        "Loops": [{
-            "Name": "VITIS_LOOP_249_1_VITIS_LOOP_252_2",
-            "TripCount": "281760",
-            "Latency": "40291684",
-            "PipelineII": "143",
-            "PipelineDepth": "148"
-          }],
-        "Area": {
-          "DSP": "4",
-          "AVAIL_DSP": "2520",
-          "UTIL_DSP": "~0",
-          "FF": "1213",
-          "AVAIL_FF": "548160",
-          "UTIL_FF": "~0",
-          "LUT": "2526",
-          "AVAIL_LUT": "274080",
-          "UTIL_LUT": "~0",
-          "BRAM_18K": "0",
-          "AVAIL_BRAM": "1824",
-          "UTIL_BRAM": "0",
-          "URAM": "0",
-          "AVAIL_URAM": "0",
-          "UTIL_URAM": "0"
-        }
-      },
-      "top_level": {
-        "Latency": {
-          "LatencyBest": "8023787265",
-          "LatencyAvg": "8023787265",
-          "LatencyWorst": "8023787265",
-          "PipelineII": "8023787266",
-          "PipelineDepth": "",
-          "PipelineType": "no"
-        },
-        "Timing": {
-          "Target": "6.67",
-          "Uncertainty": "1.80",
-          "Estimate": "4.869"
-        },
-        "Loops": [{
-            "Name": "VITIS_LOOP_302_1",
-            "TripCount": "64",
-            "Latency": "8023787264",
-            "PipelineII": "",
-            "PipelineDepth": "125371676"
-          }],
-        "Area": {
-          "BRAM_18K": "8",
+          "BRAM_18K": "4",
           "AVAIL_BRAM": "1824",
           "UTIL_BRAM": "~0",
-          "DSP": "46",
+          "DSP": "8",
           "AVAIL_DSP": "2520",
-          "UTIL_DSP": "1",
-          "FF": "11793",
+          "UTIL_DSP": "~0",
+          "FF": "3629",
           "AVAIL_FF": "548160",
-          "UTIL_FF": "2",
-          "LUT": "20816",
+          "UTIL_FF": "~0",
+          "LUT": "6461",
           "AVAIL_LUT": "274080",
-          "UTIL_LUT": "7",
+          "UTIL_LUT": "2",
           "URAM": "0",
           "AVAIL_URAM": "0",
           "UTIL_URAM": "0"
@@ -2677,7 +1187,7 @@
   "GenerateBdFiles": "0",
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2024-06-11 03:31:10 WEST",
+    "Time": "2024-06-13 04:52:48 WEST",
     "ToolName": "vitis_hls",
     "ToolVersion": "2024.1"
   }
