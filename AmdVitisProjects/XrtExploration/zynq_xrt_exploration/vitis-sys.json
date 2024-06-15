@@ -3,8 +3,8 @@
   "projectName": "zynq_xrt_exploration",
   "platform": "/tools/Xilinx/Vitis/2024.1/base_platforms/xilinx_zcu102_base_202410_1/xilinx_zcu102_base_202410_1.xpfm",
   "externalComponentRefs": [
-    "zynq_xrt_exploration_vadd",
-    "zynq_xrt_exploration_host"
+    "zynq_xrt_exploration_host",
+    "zynq_xrt_exploration_vadd"
   ],
   "components": [
     {

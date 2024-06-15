@@ -30,20 +30,13 @@ inline uint64_t get_cpu_counter() {
 #endif
 }
 
-void fill_random(int* array, size_t size) {
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(0, 100);
-
-    for (size_t i = 0; i < size; ++i) {
-        array[i] = dis(gen);
-    }
-}
-
 void wrapped_vadd(int* A, int* B, int* C, int size, xrt::device device, xrt::uuid uuid) {
+    uint64_t start;
+    uint64_t end;
 
     xrt::kernel kernel = xrt::kernel(device, uuid, "vadd");
 
+    start = get_cpu_counter();
     xrt::bo bo_A = xrt::bo(device, size * sizeof(A[0]), kernel.group_id(0));
     xrt::bo bo_B = xrt::bo(device, size * sizeof(A[0]), kernel.group_id(1));
     xrt::bo bo_C = xrt::bo(device, size * sizeof(A[0]), kernel.group_id(2));
@@ -54,17 +47,27 @@ void wrapped_vadd(int* A, int* B, int* C, int size, xrt::device device, xrt::uui
 
     memcpy(host_ptr_A, A, size * sizeof(A[0]));
     memcpy(host_ptr_B, B, size * sizeof(B[0]));
-    //memcpy(host_ptr_C, C, sizeof(C));
 
     bo_A.sync(XCL_BO_SYNC_BO_TO_DEVICE);
     bo_B.sync(XCL_BO_SYNC_BO_TO_DEVICE);
+    end = get_cpu_counter();
 
+    std::cout << "CPU->FPGA copy time: " << end - start << "us | " << (end - start) / 10e6  << "s" << std::endl;
+
+    start = get_cpu_counter();
     xrt::run kernel_execution = kernel(bo_A, bo_B, bo_C, size);
     kernel_execution.wait();
+    end = get_cpu_counter();
 
+    std::cout << "Kernel exec time: " << end - start << "us | " << (end - start) / 10e6  << "s" << std::endl;
+
+    start = get_cpu_counter();
     bo_C.sync(XCL_BO_SYNC_BO_FROM_DEVICE);
     
     memcpy(C, host_ptr_C, size * sizeof(C[0]));
+    end = get_cpu_counter();
+
+    std::cout << "FPGA->CPU time: " << end - start << "us | " << (end - start) / 10e6  << "s" << std::endl;
 }
 
 int main() {
@@ -72,7 +75,8 @@ int main() {
     char buffer[PATH_MAX];
     getcwd(buffer, sizeof(buffer));
 
-    auto xclbin = std::string(buffer).append("/").append("vadd.xclbin");
+    auto xclbin_path = std::string(buffer).append("/").append("vadd.xclbin");
+    auto xclbin = xrt::xclbin(xclbin_path);
     auto device_id = 0;
 
     auto device = xrt::device(device_id);
@@ -90,7 +94,7 @@ int main() {
     wrapped_vadd(A1, B1, C1, SIZE_1, device, uuid);
     std::cout << "C1 = [" << C1[0] << ", " << C1[1] << ", " << C1[2] << ", ... , " << C1[SIZE_1 - 1] << "]" << std::endl;
 
-    int SIZE_2 = 8132;
+    int SIZE_2 = 2e6;
     int *A2 = new int[SIZE_2];
     int *B2 = new int[SIZE_2];
     int *C2 = new int[SIZE_2];

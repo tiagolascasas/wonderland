@@ -37,12 +37,14 @@ endif()
 set(_AIE_ARCHIVES
 ""
 )
-
-
 # Below variables will be auto-updated based on the binary container.
+
 set(_vadd_XCLBIN_PATH
 hw_link/vadd.xclbin
 )
+
+
+
 set(HOST_MODE
 x86
 )

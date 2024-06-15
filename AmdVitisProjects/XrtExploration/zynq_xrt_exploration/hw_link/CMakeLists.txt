@@ -55,6 +55,16 @@ set(_vadd_OPTIONS
 
 # Below variables will be auto-updated based on kernels added/removed from the
 # binary container.
+set(_HW_LINK_PROJ
+hw_link
+)
+
+
+# AIE libadf.a library will be added to HW Linker if project has AIE component.
+set(_BINEXT
+.xclbin
+)
+set (TARGET_OPTION_STRING --target ${VITIS_TARGET})
 if( ${VITIS_TARGET} STREQUAL sw_emu )
 set(_vadd_KERNEL_XO_PATHS
 zynq_xrt_exploration_vadd/vadd/sw_emu/vadd.xo
@@ -79,16 +89,6 @@ set(_vadd_USER_LIBADF_PATHS
 set(_vadd_CFG
 hw_link/vadd-link.cfg
 )
-set(_HW_LINK_PROJ
-hw_link
-)
-
-
-# AIE libadf.a library will be added to HW Linker if project has AIE component.
-set(_BINEXT
-.xclbin
-)
-set (TARGET_OPTION_STRING --target ${VITIS_TARGET})
 
 ##  End of variables auto-updated by the tool ##
 

@@ -1,0 +1,52 @@
+Begin Function 'vadd'
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_1
+local gmem_addr <getelementptr_3> <integer> <> 'getelementptr' <vadd.cpp:3>
+gmem_addr /home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd.cpp:3
+reg: gmem_addr_reg_317[63:0] lv
+
+local zext_ln3 <zext_3> <integer> <> 'zext' <vadd.cpp:3>
+zext_ln3 /home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd.cpp:3
+reg: zext_ln3_reg_323[63:0] lv
+
+local first_iter_0 <icmp_3> <integer> <Comparator> 'icmp' <vadd.cpp:3>
+first_iter_0 /home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd.cpp:3
+reg: first_iter_0_reg_328[0:0] lv
+
+local icmp_ln3_1 <icmp_3> <integer> <Comparator> 'icmp' <vadd.cpp:3>
+icmp_ln3_1 /home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd.cpp:3
+reg: icmp_ln3_1_reg_332[0:0] lv
+
+local gmem_addr_1 <getelementptr_4> <integer> <> 'getelementptr' <vadd.cpp:4>
+gmem_addr_1 /home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd.cpp:4
+reg: gmem_addr_1_reg_336[63:0] lv
+
+local gmem_addr_2 <getelementptr_4> <integer> <> 'getelementptr' <vadd.cpp:4>
+gmem_addr_2 /home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd.cpp:4
+reg: gmem_addr_2_reg_342[63:0] lv
+
+local icmp_ln3_2 <icmp_3> <integer> <Comparator> 'icmp' <vadd.cpp:3>
+icmp_ln3_2 /home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd.cpp:3
+reg: icmp_ln3_2_reg_348[0:0] lv
+
+# ST_73
+local gmem_addr_1_read <read_4> <integer> <> 'read' <vadd.cpp:4>
+gmem_addr_1_read /home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd.cpp:4
+reg: gmem_addr_1_read_reg_352[31:0] lv
+
+# ST_75
+local add_ln4_2 <add_4> <integer> <Arithmetic> 'add' <vadd.cpp:4>
+add_ln4_2 /home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd.cpp:4
+reg: add_ln4_2_reg_362[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage1)
+# ST_74
+local gmem_addr_2_read <read_4> <integer> <> 'read' <vadd.cpp:4>
+gmem_addr_2_read /home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd.cpp:4
+reg: gmem_addr_2_read_reg_357[31:0] lv
+
+
+End Function 'vadd'
+

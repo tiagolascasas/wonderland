@@ -1,0 +1,145 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "edge_detect_O0_sw_emu",
+      "debugType": "sw_emu",
+      "type": "gdb",
+      "request": "launch",
+      "target": "${workspaceFolder}/edge_detect_O0_host/build/x86sim/edge_detect_O0_host",
+      "applicationProjectDir": "${workspaceFolder}/edge_detect_O0",
+      "arguments": "-x ${workspaceFolder}/edge_detect_O0/build/sw_emu/package/vadd.xclbin",
+      "cwd": "${workspaceFolder}/edge_detect_O0/build/sw_emu/edge_detect_O0_sw_emu",
+      "gdbpath": "${env:XILINX_VITIS}/bin/xgdb",
+      "valuesFormatting": "prettyPrinters",
+      "env": {
+        "XILINX_VITIS": "${env:XILINX_VITIS}",
+        "XILINX_HLS": "${env:XILINX_VITIS}",
+        "XCL_EMULATION_MODE": "sw_emu",
+        "ENABLE_KERNEL_DEBUG": "true",
+        "XRT_INI_PATH": "${workspaceFolder}/edge_detect_O0/edge_detect_O0_host/runtime/sw_emu_xrt.ini",
+        "XCL_BIN_PATH": "${workspaceFolder}/edge_detect_O0/build/sw_emu/package",
+        "LD_LIBRARY_PATH": "${env:XILINX_XRT}/lib"
+      }
+    },
+    {
+      "type": "tcf-debug",
+      "request": "launch",
+      "name": "edge_detect_O0_hw_emu",
+      "debugType": "tcf_hw_emu",
+      "target": {
+        "targetConnectionId": "LinuxEmulation",
+        "peersIniPath": "../../../.wsdata/.peers.ini",
+        "file": "${workspaceFolder}/edge_detect_O0_host/build/hw/edge_detect_O0_host",
+        "remoteFilePath": "/run/media/mmcblk0p1/edge_detect_O0_host"
+      },
+      "env": {
+        "XILINX_VITIS": "/run/media/mmcblk0p1",
+        "XILINX_XRT": "/usr",
+        "XCL_EMULATION_MODE": "hw_emu",
+        "XRT_INI_PATH": "/run/media/mmcblk0p1/hw_emu_xrt.ini",
+        "LD_LIBRARY_PATH": "/run/media/mmcblk0p1:/tmp:$LD_LIBRARY_PATH"
+      },
+      "copyToTarget": [
+        {
+          "source": "${workspaceFolder}/edge_detect_O0/edge_detect_O0_host/runtime/hw_emu_xrt.ini",
+          "destination": "/run/media/mmcblk0p1"
+        },
+        {
+          "source": "${workspaceFolder}/edge_detect_O0/build/hw_emu/package/vadd.xclbin",
+          "destination": "/run/media/mmcblk0p1"
+        }
+      ],
+      "copyFromTargetOnTermination": [
+        {
+          "pattern": ".txt",
+          "destination": "${workspaceFolder}/edge_detect_O0/build/hw_emu/edge_detect_O0_hw_emu"
+        },
+        {
+          "pattern": ".run_summary",
+          "destination": "${workspaceFolder}/edge_detect_O0/build/hw_emu/edge_detect_O0_hw_emu"
+        },
+        {
+          "pattern": ".json",
+          "destination": "${workspaceFolder}/edge_detect_O0/build/hw_emu/edge_detect_O0_hw_emu"
+        },
+        {
+          "pattern": ".csv",
+          "destination": "${workspaceFolder}/edge_detect_O0/build/hw_emu/edge_detect_O0_hw_emu"
+        }
+      ],
+      "pathMap": [
+        {
+          "source": "/home/tls/Dev/wonderland/AmdVitisProjects/EdgeDetectO0/edge_detect_O0/build/hw_emu/hw_link/vadd/vadd/int/xo/vadd/vadd/cpu_sources",
+          "destination": "/home/tls/Dev/wonderland/AmdVitisProjects/EdgeDetectO0/edge_detect_O0_vadd/src"
+        }
+      ],
+      "replaceNativeEnv": false,
+      "arguments": "-x ./vadd.xclbin",
+      "workingDirectory": "/run/media/mmcblk0p1",
+      "stopAtMain": true,
+      "stopAtProgramEntry": false,
+      "autoAttachProcessChildren": false,
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "type": "tcf-debug",
+      "request": "launch",
+      "name": "edge_detect_O0_hw",
+      "debugType": "tcf_hw",
+      "target": {
+        "targetConnectionId": "Linux Agent",
+        "peersIniPath": "../../../.wsdata/.peers.ini",
+        "file": "${workspaceFolder}/edge_detect_O0_host/build/hw/edge_detect_O0_host",
+        "remoteFilePath": "/run/media/mmcblk0p1/edge_detect_O0_host"
+      },
+      "env": {
+        "XILINX_VITIS": "/run/media/mmcblk0p1",
+        "XILINX_XRT": "/usr",
+        "XRT_INI_PATH": "/run/media/mmcblk0p1/hw_xrt.ini",
+        "LD_LIBRARY_PATH": "/run/media/mmcblk0p1:/tmp:$LD_LIBRARY_PATH"
+      },
+      "copyToTarget": [
+        {
+          "source": "${workspaceFolder}/edge_detect_O0/build/hw/package/vadd.xclbin",
+          "destination": "/run/media/mmcblk0p1"
+        },
+        {
+          "source": "${workspaceFolder}/edge_detect_O0/edge_detect_O0_host/runtime/hw_xrt.ini",
+          "destination": "/run/media/mmcblk0p1"
+        }
+      ],
+      "copyFromTargetOnTermination": [
+        {
+          "pattern": ".txt",
+          "destination": "${workspaceFolder}/edge_detect_O0/build/hw/edge_detect_O0_hw"
+        },
+        {
+          "pattern": ".run_summary",
+          "destination": "${workspaceFolder}/edge_detect_O0/build/hw/edge_detect_O0_hw"
+        },
+        {
+          "pattern": ".json",
+          "destination": "${workspaceFolder}/edge_detect_O0/build/hw/edge_detect_O0_hw"
+        },
+        {
+          "pattern": ".csv",
+          "destination": "${workspaceFolder}/edge_detect_O0/build/hw/edge_detect_O0_hw"
+        }
+      ],
+      "pathMap": [
+        {
+          "source": "/home/tls/Dev/wonderland/AmdVitisProjects/EdgeDetectO0/edge_detect_O0/build/hw/hw_link/vadd/vadd/int/xo/vadd/vadd/cpu_sources",
+          "destination": "/home/tls/Dev/wonderland/AmdVitisProjects/EdgeDetectO0/edge_detect_O0_vadd/src"
+        }
+      ],
+      "replaceNativeEnv": false,
+      "arguments": "-x ./vadd.xclbin",
+      "workingDirectory": "/run/media/mmcblk0p1",
+      "stopAtMain": true,
+      "stopAtProgramEntry": false,
+      "autoAttachProcessChildren": false,
+      "internalConsoleOptions": "openOnSessionStart"
+    }
+  ]
+}

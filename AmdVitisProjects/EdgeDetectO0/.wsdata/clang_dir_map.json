@@ -1,0 +1,6 @@
+{
+  "workspaceRoot": "/home/tls/Dev/wonderland/AmdVitisProjects/EdgeDetectO0",
+  "mapping": {
+    "edge_detect_O0_vadd/src/vadd.cpp": "edge_detect_O0_vadd"
+  }
+}

@@ -9,21 +9,21 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "Fri Jun 14 23:53:18 2024",
- "timestampMillis": "1718405598232",
+ "dateTimestamp": "Sat Jun 15 03:17:26 2024",
+ "timestampMillis": "1718417846262",
  "buildStep": {
-  "cmdId": "002f0931-69c3-4559-99d2-845a86d303c9",
+  "cmdId": "1c0cb868-cd79-4318-8fbd-2152ebe017af",
   "name": "v++",
   "logFile": "/home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd/sw_emu/vadd/vadd.steps.log",
-  "commandLine": "/tools/Xilinx/Vitis/2024.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -c -k vadd --target sw_emu -g /home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd.cpp --platform /tools/Xilinx/Vitis/2024.1/base_platforms/xilinx_zcu102_base_202410_1/xilinx_zcu102_base_202410_1.xpfm --temp_dir /home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd/sw_emu -o /home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd/sw_emu/vadd.xo ",
+  "commandLine": "/tools/Xilinx/Vitis/2024.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -c -k vadd --target sw_emu /home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd.cpp -g --platform /tools/Xilinx/Vitis/2024.1/base_platforms/xilinx_zcu102_base_202410_1/xilinx_zcu102_base_202410_1.xpfm --temp_dir /home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd/sw_emu -o /home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd/sw_emu/vadd.xo ",
   "args": [
    "-c",
    "-k",
    "vadd",
    "--target",
    "sw_emu",
-   "-g",
    "/home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd.cpp",
+   "-g",
    "--platform",
    "/tools/Xilinx/Vitis/2024.1/base_platforms/xilinx_zcu102_base_202410_1/xilinx_zcu102_base_202410_1.xpfm",
    "--temp_dir",
@@ -39,10 +39,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Jun 14 23:53:18 2024",
- "timestampMillis": "1718405598232",
+ "dateTimestamp": "Sat Jun 15 03:17:26 2024",
+ "timestampMillis": "1718417846262",
  "status": {
-  "cmdId": "002f0931-69c3-4559-99d2-845a86d303c9",
+  "cmdId": "1c0cb868-cd79-4318-8fbd-2152ebe017af",
   "state": "CS_RUNNING"
  }
 }
@@ -50,8 +50,8 @@
 <ENTRY>
 {
  "type": "ET_FlowMetaData",
- "dateTimestamp": "Fri Jun 14 23:53:18 2024",
- "timestampMillis": "1718405598621",
+ "dateTimestamp": "Sat Jun 15 03:17:26 2024",
+ "timestampMillis": "1718417846667",
  "buildSummary": {
   "hardwarePlatform": "xilinx_zcu102_base_202410_1.xpfm",
   "hardwareDsa": "hw.xsa",
@@ -86,10 +86,10 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Fri Jun 14 23:53:18 2024",
- "timestampMillis": "1718405598622",
+ "dateTimestamp": "Sat Jun 15 03:17:26 2024",
+ "timestampMillis": "1718417846669",
  "buildStep": {
-  "cmdId": "aead8f17-a210-410a-8201-03b50c9049b1",
+  "cmdId": "edb3fe71-3d35-474e-9cb7-fd05b26da081",
   "name": "vitis_hls",
   "logFile": "/home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd/sw_emu/vadd/vadd/vitis_hls.log",
   "commandLine": "vitis_hls -f /home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd/sw_emu/vadd/vadd/vadd.tcl -messageDb vitis_hls.pb",
@@ -108,10 +108,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Jun 14 23:53:18 2024",
- "timestampMillis": "1718405598623",
+ "dateTimestamp": "Sat Jun 15 03:17:26 2024",
+ "timestampMillis": "1718417846670",
  "status": {
-  "cmdId": "aead8f17-a210-410a-8201-03b50c9049b1",
+  "cmdId": "edb3fe71-3d35-474e-9cb7-fd05b26da081",
   "state": "CS_RUNNING"
  }
 }
@@ -119,10 +119,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Jun 14 23:53:31 2024",
- "timestampMillis": "1718405611066",
+ "dateTimestamp": "Sat Jun 15 03:17:39 2024",
+ "timestampMillis": "1718417859241",
  "status": {
-  "cmdId": "aead8f17-a210-410a-8201-03b50c9049b1",
+  "cmdId": "edb3fe71-3d35-474e-9cb7-fd05b26da081",
   "state": "CS_PASSED"
  }
 }
@@ -130,10 +130,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Jun 14 23:53:31 2024",
- "timestampMillis": "1718405611082",
+ "dateTimestamp": "Sat Jun 15 03:17:39 2024",
+ "timestampMillis": "1718417859259",
  "status": {
-  "cmdId": "002f0931-69c3-4559-99d2-845a86d303c9",
+  "cmdId": "1c0cb868-cd79-4318-8fbd-2152ebe017af",
   "state": "CS_PASSED"
  }
 }
@@ -141,8 +141,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Jun 14 23:53:31 2024",
- "timestampMillis": "1718405611134",
+ "dateTimestamp": "Sat Jun 15 03:17:39 2024",
+ "timestampMillis": "1718417859310",
  "report": {
   "path": "/home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd/sw_emu/reports/vadd/v++_compile_vadd_guidance.html",
   "name": "",
@@ -155,8 +155,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Jun 14 23:53:31 2024",
- "timestampMillis": "1718405611134",
+ "dateTimestamp": "Sat Jun 15 03:17:39 2024",
+ "timestampMillis": "1718417859310",
  "report": {
   "path": "/home/tls/Dev/wonderland/AmdVitisProjects/XrtExploration/zynq_xrt_exploration_vadd/vadd/sw_emu/v++_compile_vadd_guidance.pb3",
   "name": "",
