@@ -6,7 +6,7 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y openjdk-17-jdk
 RUN apt-get install -y wget
 RUN apt-get install -y unzip
-# RUN apt-get install -y clang-12
+RUN apt-get install -y clang-12
 
 # Check versions
 RUN java -version
@@ -25,5 +25,5 @@ COPY edgedetect ./edgedetect
 
 # Run Clava with the test files (no JS/aspects)
 RUN ./clava -p edgedetect -o . || true
-RUN ls woven_code/edgedetect
+# RUN ls woven_code/edgedetect
 
