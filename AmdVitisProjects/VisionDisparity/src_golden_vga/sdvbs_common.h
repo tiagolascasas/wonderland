@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define MAX_IMG_SIZE 640*480
+#define MAX_IMG_SIZE 640 * 480
 
 typedef struct
 {
@@ -113,4 +113,6 @@ unsigned int *photonEndTiming();
 unsigned int *photonStartTiming();
 unsigned int *photonReportTiming(unsigned int *startCycles, unsigned int *endCycles);
 void photonPrintTiming(unsigned int *elapsed);
+
+void save_bmp(const char *filename, int *pixels, int width, int height);
 #endif

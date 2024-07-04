@@ -47,6 +47,11 @@ int main(int argc, char *argv[])
     photonPrintTiming(elapsed);
     iFreeHandle(imleft);
     iFreeHandle(imright);
+
+    char outfile[100];
+    sprintf(outfile, "%s/disparity.bmp", argv[1]);
+    save_bmp(outfile, retDisparity->data, retDisparity->width, retDisparity->height);
+
     iFreeHandle(retDisparity);
     free(start);
     free(endC);
