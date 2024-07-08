@@ -1,3 +1,0 @@
-relativeroot=/home/tls/Dev/wonderland/VitisEdgedetect/hls_edgedetect
-original_argv=-c --mode hls --config /home/tls/Dev/wonderland/VitisEdgedetect/hls_edgedetect/hls_config.cfg --work_dir hls_edgedetect 
-

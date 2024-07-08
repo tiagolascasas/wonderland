@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'vadd'
 ================================================================
 + General Information: 
-    * Date:           Sat Jun 15 03:18:54 2024
+    * Date:           Sat Jun 15 03:34:37 2024
     * Version:        2024.1 (Build 5069499 on May 21 2024)
     * Project:        vadd
     * Solution:       hls (Vitis Kernel Flow Target)
