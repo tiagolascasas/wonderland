@@ -1,0 +1,11 @@
+{
+  "name": "DisparityMalloc_kernel",
+  "type": "HLS",
+  "configuration": {
+    "componentType": "HLS",
+    "configFiles": [
+      "hls_config.cfg"
+    ],
+    "work_dir": "DisparityMalloc_kernel"
+  }
+}

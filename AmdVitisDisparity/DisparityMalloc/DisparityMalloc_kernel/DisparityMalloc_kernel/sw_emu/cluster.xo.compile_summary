@@ -1,0 +1,168 @@
+<ENTRY>
+{
+ "thisFile": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/DisparityMalloc_kernel/sw_emu/cluster.xo.compile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Thu Jul 11 02:58:37 2024",
+ "timestampMillis": "1720663117553",
+ "buildStep": {
+  "cmdId": "29b88b3a-c214-4e94-9bd0-d6f93614c918",
+  "name": "v++",
+  "logFile": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/DisparityMalloc_kernel/sw_emu/cluster/cluster.steps.log",
+  "commandLine": "/tools/Xilinx/Vitis/2024.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -c -k cluster --target sw_emu -g /home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/cluster.c --platform /tools/Xilinx/Vitis/2024.1/base_platforms/xilinx_zcu102_base_202410_1/xilinx_zcu102_base_202410_1.xpfm --temp_dir /home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/DisparityMalloc_kernel/sw_emu -o /home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/DisparityMalloc_kernel/sw_emu/cluster.xo ",
+  "args": [
+   "-c",
+   "-k",
+   "cluster",
+   "--target",
+   "sw_emu",
+   "-g",
+   "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/cluster.c",
+   "--platform",
+   "/tools/Xilinx/Vitis/2024.1/base_platforms/xilinx_zcu102_base_202410_1/xilinx_zcu102_base_202410_1.xpfm",
+   "--temp_dir",
+   "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/DisparityMalloc_kernel/sw_emu",
+   "-o",
+   "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/DisparityMalloc_kernel/sw_emu/cluster.xo"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jul 11 02:58:37 2024",
+ "timestampMillis": "1720663117554",
+ "status": {
+  "cmdId": "29b88b3a-c214-4e94-9bd0-d6f93614c918",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Thu Jul 11 02:58:38 2024",
+ "timestampMillis": "1720663118027",
+ "buildSummary": {
+  "hardwarePlatform": "xilinx_zcu102_base_202410_1.xpfm",
+  "hardwareDsa": "hw.xsa",
+  "platformDirectory": "/tools/Xilinx/Vitis/2024.1/base_platforms/xilinx_zcu102_base_202410_1",
+  "runtime": "OpenCL",
+  "systemConfig": "Linux",
+  "flow": "BF_COMPILE",
+  "target": "TT_SW_EMU",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "cluster",
+     "file": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/DisparityMalloc_kernel/sw_emu/cluster.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/cluster.c"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "Vitis V++ Compiler Release 2024.1. SW Build 5074859 on 2024-05-20-23:21:20"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Jul 11 02:58:38 2024",
+ "timestampMillis": "1720663118029",
+ "buildStep": {
+  "cmdId": "4e3fd10a-0776-4092-a6b5-56dc858d778d",
+  "name": "vitis_hls",
+  "logFile": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/DisparityMalloc_kernel/sw_emu/cluster/cluster/vitis_hls.log",
+  "commandLine": "vitis_hls -f /home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/DisparityMalloc_kernel/sw_emu/cluster/cluster/cluster.tcl -messageDb vitis_hls.pb",
+  "args": [
+   "vitis_hls",
+   "-f",
+   "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/DisparityMalloc_kernel/sw_emu/cluster/cluster/cluster.tcl",
+   "-messageDb",
+   "vitis_hls.pb"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jul 11 02:58:38 2024",
+ "timestampMillis": "1720663118029",
+ "status": {
+  "cmdId": "4e3fd10a-0776-4092-a6b5-56dc858d778d",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jul 11 02:58:51 2024",
+ "timestampMillis": "1720663131732",
+ "status": {
+  "cmdId": "4e3fd10a-0776-4092-a6b5-56dc858d778d",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jul 11 02:58:51 2024",
+ "timestampMillis": "1720663131763",
+ "status": {
+  "cmdId": "29b88b3a-c214-4e94-9bd0-d6f93614c918",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jul 11 02:58:51 2024",
+ "timestampMillis": "1720663131831",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/DisparityMalloc_kernel/sw_emu/reports/cluster/v++_compile_cluster_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jul 11 02:58:51 2024",
+ "timestampMillis": "1720663131831",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/DisparityMalloc_kernel/sw_emu/v++_compile_cluster_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

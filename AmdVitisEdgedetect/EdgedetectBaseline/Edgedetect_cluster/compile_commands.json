@@ -1,6 +1,6 @@
 [
   {
-    "directory": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectFoo/Edgedetect_cluster",
+    "directory": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/Edgedetect_cluster",
     "arguments": [
       "/tools/Xilinx/Vitis_HLS/2024.1/vcxx/libexec/clang++",
       "-fhls",

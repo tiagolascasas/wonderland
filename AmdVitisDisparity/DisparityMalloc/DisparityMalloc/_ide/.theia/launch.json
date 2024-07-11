@@ -1,0 +1,85 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "DisparityMalloc_sw_emu",
+			"debugType": "sw_emu",
+			"type": "gdb",
+			"request": "launch",
+			"target": "${workspaceFolder}/DisparityMalloc_host/build/x86sim/DisparityMalloc_host",
+			"applicationProjectDir": "${workspaceFolder}/DisparityMalloc",
+			"arguments": "${workspaceFolder}/DisparityMalloc/build/sw_emu/package/binary_container_1.xclbin",
+			"cwd": "${workspaceFolder}/DisparityMalloc/build/sw_emu/DisparityMalloc_sw_emu_new",
+			"gdbpath": "${env:XILINX_VITIS}/bin/xgdb",
+			"valuesFormatting": "prettyPrinters",
+			"env": {
+				"XILINX_VITIS": "${env:XILINX_VITIS}",
+				"XILINX_HLS": "${env:XILINX_VITIS}",
+				"XCL_EMULATION_MODE": "sw_emu",
+				"ENABLE_KERNEL_DEBUG": "true",
+				"XCL_BIN_PATH": "${workspaceFolder}/DisparityMalloc/build/sw_emu/package",
+				"LD_LIBRARY_PATH": "${env:XILINX_XRT}/lib"
+			}
+		},
+		{
+			"type": "tcf-debug",
+			"request": "launch",
+			"name": "DisparityMalloc_hw_emu",
+			"debugType": "tcf_hw_emu",
+			"target": {
+				"targetConnectionId": "LinuxEmulation",
+				"peersIniPath": "../../../.wsdata/.peers.ini",
+				"file": "${workspaceFolder}/DisparityMalloc_host/build/hw/DisparityMalloc_host",
+				"remoteFilePath": "/run/media/mmcblk0p1/DisparityMalloc_host"
+			},
+			"env": {
+				"XILINX_VITIS": "/run/media/mmcblk0p1",
+				"XILINX_XRT": "/usr",
+				"XCL_EMULATION_MODE": "hw_emu",
+				"XRT_INI_PATH": "/run/media/mmcblk0p1/hw_emu_xrt.ini",
+				"LD_LIBRARY_PATH": "/run/media/mmcblk0p1:/tmp:$LD_LIBRARY_PATH"
+			},
+			"copyToTarget": [
+				{
+					"source": "${workspaceFolder}/DisparityMalloc/DisparityMalloc_host/runtime/hw_emu_xrt.ini",
+					"destination": "/run/media/mmcblk0p1"
+				},
+				{
+					"source": "${workspaceFolder}/DisparityMalloc/build/hw_emu/package/binary_container_1.xclbin",
+					"destination": "/run/media/mmcblk0p1"
+				}
+			],
+			"copyFromTargetOnTermination": [
+				{
+					"pattern": ".txt",
+					"destination": "${workspaceFolder}/DisparityMalloc/build/hw_emu/DisparityMalloc_hw_emu_new"
+				},
+				{
+					"pattern": ".run_summary",
+					"destination": "${workspaceFolder}/DisparityMalloc/build/hw_emu/DisparityMalloc_hw_emu_new"
+				},
+				{
+					"pattern": ".json",
+					"destination": "${workspaceFolder}/DisparityMalloc/build/hw_emu/DisparityMalloc_hw_emu_new"
+				},
+				{
+					"pattern": ".csv",
+					"destination": "${workspaceFolder}/DisparityMalloc/build/hw_emu/DisparityMalloc_hw_emu_new"
+				}
+			],
+			"pathMap": [
+				{
+					"source": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc/build/hw_emu/hw_link/binary_container_1/binary_container_1/int/xo/cluster/cluster/cpu_sources",
+					"destination": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel"
+				}
+			],
+			"replaceNativeEnv": false,
+			"arguments": "./binary_container_1.xclbin",
+			"workingDirectory": "/run/media/mmcblk0p1",
+			"stopAtMain": true,
+			"stopAtProgramEntry": false,
+			"autoAttachProcessChildren": false,
+			"internalConsoleOptions": "openOnSessionStart"
+		}
+	]
+}

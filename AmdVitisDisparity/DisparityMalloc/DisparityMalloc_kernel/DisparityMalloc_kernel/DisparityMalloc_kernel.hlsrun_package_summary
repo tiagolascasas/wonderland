@@ -1,0 +1,159 @@
+<ENTRY>
+{
+ "thisFile": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/DisparityMalloc_kernel/DisparityMalloc_kernel.hlsrun_package_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Thu Jul 11 02:52:36 2024",
+ "timestampMillis": "1720662756110",
+ "buildStep": {
+  "cmdId": "24efb6be-bc00-418f-b097-c3c5dd00a089",
+  "name": "vitis-run",
+  "logFile": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/DisparityMalloc_kernel/logs/DisparityMalloc_kernel.steps.log",
+  "commandLine": "/tools/Xilinx/Vitis/2024.1/bin/unwrapped/lnx64.o/vitis-run  --mode hls --package --config /home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/hls_config.cfg --work_dir DisparityMalloc_kernel ",
+  "args": [
+   "--mode",
+   "hls",
+   "--package",
+   "--config",
+   "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/hls_config.cfg",
+   "--work_dir",
+   "DisparityMalloc_kernel"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jul 11 02:52:36 2024",
+ "timestampMillis": "1720662756110",
+ "status": {
+  "cmdId": "24efb6be-bc00-418f-b097-c3c5dd00a089",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Thu Jul 11 02:52:40 2024",
+ "timestampMillis": "1720662760858",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_RUN",
+  "target": "TT_HLS_XO",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "cluster",
+     "file": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/DisparityMalloc_kernel/cluster.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/cluster.c"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2024.1"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Jul 11 02:52:40 2024",
+ "timestampMillis": "1720662760859",
+ "buildStep": {
+  "cmdId": "27369434-9147-4f3a-b0b2-89d75c3af574",
+  "name": "export_design",
+  "logFile": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/DisparityMalloc_kernel/hls/hls.log",
+  "commandLine": "export_design -flow none",
+  "args": [
+   "-flow",
+   "none"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jul 11 02:52:40 2024",
+ "timestampMillis": "1720662760860",
+ "status": {
+  "cmdId": "27369434-9147-4f3a-b0b2-89d75c3af574",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jul 11 02:53:02 2024",
+ "timestampMillis": "1720662782809",
+ "status": {
+  "cmdId": "27369434-9147-4f3a-b0b2-89d75c3af574",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jul 11 02:53:02 2024",
+ "timestampMillis": "1720662782989",
+ "status": {
+  "cmdId": "24efb6be-bc00-418f-b097-c3c5dd00a089",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jul 11 02:53:02 2024",
+ "timestampMillis": "1720662782990",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jul 11 02:53:02 2024",
+ "timestampMillis": "1720662782990",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

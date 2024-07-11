@@ -1,0 +1,12 @@
+[
+  {
+    "directory": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_host/_ide/_build",
+    "command": "/usr/bin/g++ -DVITIS_MAJOR_VERSION\u003d2024 -DVITIS_MINOR_VERSION\u003d1 -DVITIS_VERSION\u003d2024.1 -D__USE_XOPEN2K8 -I/tools/Xilinx/Vitis_HLS/2024.1/include -I/opt/xilinx/xrt/include -g -Wall -Wextra -O0 -g3 -std\u003dc++14 -o CMakeFiles/DisparityMalloc_host.dir/src/bitmap.cpp.o -c /home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_host/src/bitmap.cpp",
+    "file": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_host/src/bitmap.cpp"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_host/_ide/_build",
+    "command": "/usr/bin/g++ -DVITIS_MAJOR_VERSION\u003d2024 -DVITIS_MINOR_VERSION\u003d1 -DVITIS_VERSION\u003d2024.1 -D__USE_XOPEN2K8 -I/tools/Xilinx/Vitis_HLS/2024.1/include -I/opt/xilinx/xrt/include -g -Wall -Wextra -O0 -g3 -std\u003dc++14 -o CMakeFiles/DisparityMalloc_host.dir/src/disparity.cpp.o -c /home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_host/src/disparity.cpp",
+    "file": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_host/src/disparity.cpp"
+  }
+]
