@@ -1,0 +1,11 @@
+{
+  "name": "EdgedetectBaseline_cluster",
+  "type": "HLS",
+  "configuration": {
+    "componentType": "HLS",
+    "configFiles": [
+      "hls_config.cfg"
+    ],
+    "work_dir": "EdgedetectBaseline_cluster"
+  }
+}

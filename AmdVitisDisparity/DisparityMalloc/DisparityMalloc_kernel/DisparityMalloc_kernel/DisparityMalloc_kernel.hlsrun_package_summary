@@ -9,10 +9,10 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "Thu Jul 11 02:52:36 2024",
- "timestampMillis": "1720662756110",
+ "dateTimestamp": "Thu Jul 11 10:57:44 2024",
+ "timestampMillis": "1720691864910",
  "buildStep": {
-  "cmdId": "24efb6be-bc00-418f-b097-c3c5dd00a089",
+  "cmdId": "10f83234-b6a1-40eb-89df-4aa35879ec4c",
   "name": "vitis-run",
   "logFile": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/DisparityMalloc_kernel/logs/DisparityMalloc_kernel.steps.log",
   "commandLine": "/tools/Xilinx/Vitis/2024.1/bin/unwrapped/lnx64.o/vitis-run  --mode hls --package --config /home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/hls_config.cfg --work_dir DisparityMalloc_kernel ",
@@ -33,10 +33,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Thu Jul 11 02:52:36 2024",
- "timestampMillis": "1720662756110",
+ "dateTimestamp": "Thu Jul 11 10:57:44 2024",
+ "timestampMillis": "1720691864910",
  "status": {
-  "cmdId": "24efb6be-bc00-418f-b097-c3c5dd00a089",
+  "cmdId": "10f83234-b6a1-40eb-89df-4aa35879ec4c",
   "state": "CS_RUNNING"
  }
 }
@@ -44,8 +44,8 @@
 <ENTRY>
 {
  "type": "ET_FlowMetaData",
- "dateTimestamp": "Thu Jul 11 02:52:40 2024",
- "timestampMillis": "1720662760858",
+ "dateTimestamp": "Thu Jul 11 10:57:49 2024",
+ "timestampMillis": "1720691869362",
  "buildSummary": {
   "hardwarePlatform": "",
   "hardwareDsa": "",
@@ -80,10 +80,10 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Thu Jul 11 02:52:40 2024",
- "timestampMillis": "1720662760859",
+ "dateTimestamp": "Thu Jul 11 10:57:49 2024",
+ "timestampMillis": "1720691869363",
  "buildStep": {
-  "cmdId": "27369434-9147-4f3a-b0b2-89d75c3af574",
+  "cmdId": "55f4e34a-b0ba-4853-b160-6171e091e83d",
   "name": "export_design",
   "logFile": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc/DisparityMalloc_kernel/DisparityMalloc_kernel/hls/hls.log",
   "commandLine": "export_design -flow none",
@@ -99,10 +99,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Thu Jul 11 02:52:40 2024",
- "timestampMillis": "1720662760860",
+ "dateTimestamp": "Thu Jul 11 10:57:49 2024",
+ "timestampMillis": "1720691869363",
  "status": {
-  "cmdId": "27369434-9147-4f3a-b0b2-89d75c3af574",
+  "cmdId": "55f4e34a-b0ba-4853-b160-6171e091e83d",
   "state": "CS_RUNNING"
  }
 }
@@ -110,10 +110,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Thu Jul 11 02:53:02 2024",
- "timestampMillis": "1720662782809",
+ "dateTimestamp": "Thu Jul 11 10:58:09 2024",
+ "timestampMillis": "1720691889841",
  "status": {
-  "cmdId": "27369434-9147-4f3a-b0b2-89d75c3af574",
+  "cmdId": "55f4e34a-b0ba-4853-b160-6171e091e83d",
   "state": "CS_PASSED"
  }
 }
@@ -121,10 +121,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Thu Jul 11 02:53:02 2024",
- "timestampMillis": "1720662782989",
+ "dateTimestamp": "Thu Jul 11 10:58:10 2024",
+ "timestampMillis": "1720691890016",
  "status": {
-  "cmdId": "24efb6be-bc00-418f-b097-c3c5dd00a089",
+  "cmdId": "10f83234-b6a1-40eb-89df-4aa35879ec4c",
   "state": "CS_PASSED"
  }
 }
@@ -132,8 +132,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Thu Jul 11 02:53:02 2024",
- "timestampMillis": "1720662782990",
+ "dateTimestamp": "Thu Jul 11 10:58:10 2024",
+ "timestampMillis": "1720691890017",
  "report": {
   "path": "",
   "name": "",
@@ -146,8 +146,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Thu Jul 11 02:53:02 2024",
- "timestampMillis": "1720662782990",
+ "dateTimestamp": "Thu Jul 11 10:58:10 2024",
+ "timestampMillis": "1720691890017",
  "report": {
   "path": "",
   "name": "",

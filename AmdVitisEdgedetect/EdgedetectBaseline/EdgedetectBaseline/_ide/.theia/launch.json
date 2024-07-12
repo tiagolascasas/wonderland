@@ -1,0 +1,25 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "EdgedetectBaseline_sw_emu",
+			"debugType": "sw_emu",
+			"type": "gdb",
+			"request": "launch",
+			"target": "${workspaceFolder}/EdgedetectBaseline_host/build/x86sim/EdgedetectBaseline_host",
+			"applicationProjectDir": "${workspaceFolder}/EdgedetectBaseline",
+			"arguments": "${workspaceFolder}/EdgedetectBaseline/build/sw_emu/package/binary_container_1.xclbin",
+			"cwd": "${workspaceFolder}/EdgedetectBaseline/build/sw_emu/EdgedetectBaseline_sw_emu_new",
+			"gdbpath": "${env:XILINX_VITIS}/bin/xgdb",
+			"valuesFormatting": "prettyPrinters",
+			"env": {
+				"XILINX_VITIS": "${env:XILINX_VITIS}",
+				"XILINX_HLS": "${env:XILINX_VITIS}",
+				"XCL_EMULATION_MODE": "sw_emu",
+				"ENABLE_KERNEL_DEBUG": "true",
+				"XCL_BIN_PATH": "${workspaceFolder}/EdgedetectBaseline/build/sw_emu/package",
+				"LD_LIBRARY_PATH": "${env:XILINX_XRT}/lib"
+			}
+		}
+	]
+}

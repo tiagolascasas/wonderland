@@ -1,0 +1,159 @@
+<ENTRY>
+{
+ "thisFile": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/EdgedetectBaseline_cluster/EdgedetectBaseline_cluster.hlsrun_package_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Fri Jul 12 21:48:14 2024",
+ "timestampMillis": "1720817294019",
+ "buildStep": {
+  "cmdId": "4f10f433-3446-488e-9031-45b62ba6e74a",
+  "name": "vitis-run",
+  "logFile": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/EdgedetectBaseline_cluster/logs/EdgedetectBaseline_cluster.steps.log",
+  "commandLine": "/tools/Xilinx/Vitis/2024.1/bin/unwrapped/lnx64.o/vitis-run  --mode hls --package --config /home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/hls_config.cfg --work_dir EdgedetectBaseline_cluster ",
+  "args": [
+   "--mode",
+   "hls",
+   "--package",
+   "--config",
+   "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/hls_config.cfg",
+   "--work_dir",
+   "EdgedetectBaseline_cluster"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jul 12 21:48:14 2024",
+ "timestampMillis": "1720817294019",
+ "status": {
+  "cmdId": "4f10f433-3446-488e-9031-45b62ba6e74a",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Fri Jul 12 21:48:18 2024",
+ "timestampMillis": "1720817298200",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_RUN",
+  "target": "TT_HLS_XO",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "edgedetect",
+     "file": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/EdgedetectBaseline_cluster/edgedetect.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/edgedetect.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2024.1"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Fri Jul 12 21:48:18 2024",
+ "timestampMillis": "1720817298200",
+ "buildStep": {
+  "cmdId": "d0a82c78-01b4-4b7f-bf86-27ced6e703e3",
+  "name": "export_design",
+  "logFile": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/EdgedetectBaseline_cluster/hls/hls.log",
+  "commandLine": "export_design -flow none",
+  "args": [
+   "-flow",
+   "none"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jul 12 21:48:18 2024",
+ "timestampMillis": "1720817298200",
+ "status": {
+  "cmdId": "d0a82c78-01b4-4b7f-bf86-27ced6e703e3",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jul 12 21:48:37 2024",
+ "timestampMillis": "1720817317959",
+ "status": {
+  "cmdId": "d0a82c78-01b4-4b7f-bf86-27ced6e703e3",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jul 12 21:48:38 2024",
+ "timestampMillis": "1720817318124",
+ "status": {
+  "cmdId": "4f10f433-3446-488e-9031-45b62ba6e74a",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jul 12 21:48:38 2024",
+ "timestampMillis": "1720817318124",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jul 12 21:48:38 2024",
+ "timestampMillis": "1720817318125",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

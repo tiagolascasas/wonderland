@@ -1,0 +1,168 @@
+<ENTRY>
+{
+ "thisFile": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/EdgedetectBaseline_cluster/sw_emu/cluster_top_function.xo.compile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Thu Jul 11 03:12:15 2024",
+ "timestampMillis": "1720663935147",
+ "buildStep": {
+  "cmdId": "1c39b576-d719-4841-b148-6ad719416a48",
+  "name": "v++",
+  "logFile": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/EdgedetectBaseline_cluster/sw_emu/cluster_top_function/cluster_top_function.steps.log",
+  "commandLine": "/tools/Xilinx/Vitis/2024.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -c -k cluster_top_function --target sw_emu -g /home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/edgedetect.cpp --platform /tools/Xilinx/Vitis/2024.1/base_platforms/xilinx_zcu102_base_202410_1/xilinx_zcu102_base_202410_1.xpfm --temp_dir /home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/EdgedetectBaseline_cluster/sw_emu -o /home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/EdgedetectBaseline_cluster/sw_emu/cluster_top_function.xo ",
+  "args": [
+   "-c",
+   "-k",
+   "cluster_top_function",
+   "--target",
+   "sw_emu",
+   "-g",
+   "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/edgedetect.cpp",
+   "--platform",
+   "/tools/Xilinx/Vitis/2024.1/base_platforms/xilinx_zcu102_base_202410_1/xilinx_zcu102_base_202410_1.xpfm",
+   "--temp_dir",
+   "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/EdgedetectBaseline_cluster/sw_emu",
+   "-o",
+   "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/EdgedetectBaseline_cluster/sw_emu/cluster_top_function.xo"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jul 11 03:12:15 2024",
+ "timestampMillis": "1720663935147",
+ "status": {
+  "cmdId": "1c39b576-d719-4841-b148-6ad719416a48",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Thu Jul 11 03:12:15 2024",
+ "timestampMillis": "1720663935566",
+ "buildSummary": {
+  "hardwarePlatform": "xilinx_zcu102_base_202410_1.xpfm",
+  "hardwareDsa": "hw.xsa",
+  "platformDirectory": "/tools/Xilinx/Vitis/2024.1/base_platforms/xilinx_zcu102_base_202410_1",
+  "runtime": "OpenCL",
+  "systemConfig": "Linux",
+  "flow": "BF_COMPILE",
+  "target": "TT_SW_EMU",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "cluster_top_function",
+     "file": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/EdgedetectBaseline_cluster/sw_emu/cluster_top_function.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/edgedetect.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "Vitis V++ Compiler Release 2024.1. SW Build 5074859 on 2024-05-20-23:21:20"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Jul 11 03:12:15 2024",
+ "timestampMillis": "1720663935568",
+ "buildStep": {
+  "cmdId": "32f327ee-0a8d-49d3-a1e6-f086dfddb755",
+  "name": "vitis_hls",
+  "logFile": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/EdgedetectBaseline_cluster/sw_emu/cluster_top_function/cluster_top_function/vitis_hls.log",
+  "commandLine": "vitis_hls -f /home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/EdgedetectBaseline_cluster/sw_emu/cluster_top_function/cluster_top_function/cluster_top_function.tcl -messageDb vitis_hls.pb",
+  "args": [
+   "vitis_hls",
+   "-f",
+   "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/EdgedetectBaseline_cluster/sw_emu/cluster_top_function/cluster_top_function/cluster_top_function.tcl",
+   "-messageDb",
+   "vitis_hls.pb"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jul 11 03:12:15 2024",
+ "timestampMillis": "1720663935569",
+ "status": {
+  "cmdId": "32f327ee-0a8d-49d3-a1e6-f086dfddb755",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jul 11 03:12:28 2024",
+ "timestampMillis": "1720663948448",
+ "status": {
+  "cmdId": "32f327ee-0a8d-49d3-a1e6-f086dfddb755",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Jul 11 03:12:28 2024",
+ "timestampMillis": "1720663948464",
+ "status": {
+  "cmdId": "1c39b576-d719-4841-b148-6ad719416a48",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jul 11 03:12:28 2024",
+ "timestampMillis": "1720663948515",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/EdgedetectBaseline_cluster/sw_emu/reports/cluster_top_function/v++_compile_cluster_top_function_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Jul 11 03:12:28 2024",
+ "timestampMillis": "1720663948515",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_cluster/EdgedetectBaseline_cluster/sw_emu/v++_compile_cluster_top_function_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

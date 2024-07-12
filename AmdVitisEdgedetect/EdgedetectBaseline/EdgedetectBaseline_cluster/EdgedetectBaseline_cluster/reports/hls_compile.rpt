@@ -1,0 +1,618 @@
+
+
+================================================================
+== Synthesis Summary Report of 'edgedetect'
+================================================================
++ General Information: 
+    * Date:           Fri Jul 12 21:48:09 2024
+    * Version:        2024.1 (Build 5069499 on May 21 2024)
+    * Project:        EdgedetectBaseline_cluster
+    * Solution:       hls (Vitis Kernel Flow Target)
+    * Product family: zynquplus
+    * Target device:  xczu9eg-ffvb1156-2-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +----------------------------------------------------------+------+------+----------+-----------+----------+----------+--------+----------+---------+----------+-------------+--------------+-----+
+    |                          Modules                         | Issue|      | Latency  |  Latency  | Iteration|          |  Trip  |          |         |          |             |              |     |
+    |                          & Loops                         | Type | Slack| (cycles) |    (ns)   |  Latency | Interval |  Count | Pipelined|  BRAM   |    DSP   |      FF     |      LUT     | URAM|
+    +----------------------------------------------------------+------+------+----------+-----------+----------+----------+--------+----------+---------+----------+-------------+--------------+-----+
+    |+ edgedetect                                              |     -|  0.00|  18005295|  1.200e+08|         -|  18005296|       -|        no|  60 (3%)|   29 (1%)|  93251 (17%)|  159639 (58%)|    -|
+    | + edgedetect_Pipeline_VITIS_LOOP_10_1_VITIS_LOOP_13_2    |     -|  0.00|    921709|  6.145e+06|         -|    921709|       -|        no|  2 (~0%)|  14 (~0%)|   5357 (~0%)|    10869 (3%)|    -|
+    |  o VITIS_LOOP_10_1_VITIS_LOOP_13_2                       |    II|  4.87|    921707|  6.145e+06|       111|         3|  307200|       yes|        -|         -|            -|             -|    -|
+    | + edgedetect_Pipeline_VITIS_LOOP_41_1_VITIS_LOOP_43_2    |     -|  0.00|        83|    553.361|         -|        83|       -|        no|        -|         -|    872 (~0%)|    2592 (~0%)|    -|
+    |  o VITIS_LOOP_41_1_VITIS_LOOP_43_2                       |     -|  4.87|        81|    540.027|        74|         1|       9|       yes|        -|         -|            -|             -|    -|
+    | + edgedetect_Pipeline_VITIS_LOOP_52_3_VITIS_LOOP_54_4    |     -|  0.00|   5489522|  3.660e+07|         -|   5489522|       -|        no|        -|   5 (~0%)|   13395 (2%)|   44273 (16%)|    -|
+    |  o VITIS_LOOP_52_3_VITIS_LOOP_54_4                       |    II|  4.87|   5489520|  3.660e+07|       187|        18|  304964|       yes|        -|         -|            -|             -|    -|
+    | + edgedetect_Pipeline_VITIS_LOOP_84_1_VITIS_LOOP_86_2    |     -|  0.00|        83|    553.361|         -|        83|       -|        no|        -|         -|    872 (~0%)|    2592 (~0%)|    -|
+    |  o VITIS_LOOP_84_1_VITIS_LOOP_86_2                       |     -|  4.87|        81|    540.027|        74|         1|       9|       yes|        -|         -|            -|             -|    -|
+    | + edgedetect_Pipeline_VITIS_LOOP_95_3_VITIS_LOOP_97_4    |     -|  0.00|   5489522|  3.660e+07|         -|   5489522|       -|        no|        -|   5 (~0%)|   13395 (2%)|   44273 (16%)|    -|
+    |  o VITIS_LOOP_95_3_VITIS_LOOP_97_4                       |    II|  4.87|   5489520|  3.660e+07|       187|        18|  304964|       yes|        -|         -|            -|             -|    -|
+    | + edgedetect_Pipeline_VITIS_LOOP_127_1_VITIS_LOOP_129_2  |     -|  0.00|        83|    553.361|         -|        83|       -|        no|        -|         -|    872 (~0%)|    2592 (~0%)|    -|
+    |  o VITIS_LOOP_127_1_VITIS_LOOP_129_2                     |     -|  4.87|        81|    540.027|        74|         1|       9|       yes|        -|         -|            -|             -|    -|
+    | + edgedetect_Pipeline_VITIS_LOOP_138_3_VITIS_LOOP_140_4  |     -|  0.00|   5489522|  3.660e+07|         -|   5489522|       -|        no|        -|   5 (~0%)|   13395 (2%)|   44273 (16%)|    -|
+    |  o VITIS_LOOP_138_3_VITIS_LOOP_140_4                     |    II|  4.87|   5489520|  3.660e+07|       187|        18|  304964|       yes|        -|         -|            -|             -|    -|
+    | + edgedetect_Pipeline_VITIS_LOOP_162_1_VITIS_LOOP_164_2  |     -|  0.00|    614475|  4.097e+06|         -|    614475|       -|        no|        -|         -|   41528 (7%)|     3075 (1%)|    -|
+    |  o VITIS_LOOP_162_1_VITIS_LOOP_164_2                     |    II|  4.87|    614473|  4.097e+06|        76|         2|  307200|       yes|        -|         -|            -|             -|    -|
+    +----------------------------------------------------------+------+------+----------+-----------+----------+----------+--------+----------+---------+----------+-------------+--------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface  | Read/Write | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|            |            | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_gmem | READ_WRITE | 8 -> 512   | 64            | 64      | slave  | 0        | 512       | 16           | 16           | 16          | 16          | BRAM=58           |
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 7             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+--------------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| Interface     | Register     | Offset | Width | Access | Description                      | Bit Fields                                                                         |
++---------------+--------------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| s_axi_control | CTRL         | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 4=AP_CONTINUE 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER         | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                                           |
+| s_axi_control | IP_IER       | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                                      |
+| s_axi_control | IP_ISR       | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                                      |
+| s_axi_control | image_rgb_1  | 0x10   | 32    | W      | Data signal of image_rgb         |                                                                                    |
+| s_axi_control | image_rgb_2  | 0x14   | 32    | W      | Data signal of image_rgb         |                                                                                    |
+| s_axi_control | image_gray_1 | 0x1c   | 32    | W      | Data signal of image_gray        |                                                                                    |
+| s_axi_control | image_gray_2 | 0x20   | 32    | W      | Data signal of image_gray        |                                                                                    |
+| s_axi_control | temp_buf_1   | 0x28   | 32    | W      | Data signal of temp_buf          |                                                                                    |
+| s_axi_control | temp_buf_2   | 0x2c   | 32    | W      | Data signal of temp_buf          |                                                                                    |
+| s_axi_control | filter_1     | 0x34   | 32    | W      | Data signal of filter            |                                                                                    |
+| s_axi_control | filter_2     | 0x38   | 32    | W      | Data signal of filter            |                                                                                    |
+| s_axi_control | output_r_1   | 0x40   | 32    | W      | Data signal of output_r          |                                                                                    |
+| s_axi_control | output_r_2   | 0x44   | 32    | W      | Data signal of output_r          |                                                                                    |
++---------------+--------------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+---------------+-----------+
+| Interface | Type          | Ports     |
++-----------+---------------+-----------+
+| ap_clk    | clock         | ap_clk    |
+| ap_rst_n  | reset         | ap_rst_n  |
+| interrupt | interrupt     | interrupt |
+| ap_ctrl   | ap_ctrl_chain |           |
++-----------+---------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++------------+-----------+----------------+
+| Argument   | Direction | Datatype       |
++------------+-----------+----------------+
+| image_rgb  | inout     | unsigned char* |
+| image_gray | inout     | unsigned char* |
+| temp_buf   | inout     | unsigned char* |
+| filter     | inout     | unsigned char* |
+| output     | inout     | unsigned char* |
++------------+-----------+----------------+
+
+* SW-to-HW Mapping
++------------+---------------+-----------+----------+----------------------------------------+
+| Argument   | HW Interface  | HW Type   | HW Usage | HW Info                                |
++------------+---------------+-----------+----------+----------------------------------------+
+| image_rgb  | m_axi_gmem    | interface |          | channel=0                              |
+| image_rgb  | s_axi_control | register  | offset   | name=image_rgb_1 offset=0x10 range=32  |
+| image_rgb  | s_axi_control | register  | offset   | name=image_rgb_2 offset=0x14 range=32  |
+| image_gray | m_axi_gmem    | interface |          | channel=0                              |
+| image_gray | s_axi_control | register  | offset   | name=image_gray_1 offset=0x1c range=32 |
+| image_gray | s_axi_control | register  | offset   | name=image_gray_2 offset=0x20 range=32 |
+| temp_buf   | m_axi_gmem    | interface |          | channel=0                              |
+| temp_buf   | s_axi_control | register  | offset   | name=temp_buf_1 offset=0x28 range=32   |
+| temp_buf   | s_axi_control | register  | offset   | name=temp_buf_2 offset=0x2c range=32   |
+| filter     | m_axi_gmem    | interface |          | channel=0                              |
+| filter     | s_axi_control | register  | offset   | name=filter_1 offset=0x34 range=32     |
+| filter     | s_axi_control | register  | offset   | name=filter_2 offset=0x38 range=32     |
+| output     | m_axi_gmem    | interface |          | channel=0                              |
+| output     | s_axi_control | register  | offset   | name=output_r_1 offset=0x40 range=32   |
+| output     | s_axi_control | register  | offset   | name=output_r_2 offset=0x44 range=32   |
++------------+---------------+-----------+----------+----------------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++--------------+-----------+--------+-------+
+| HW Interface | Direction | Length | Width |
++--------------+-----------+--------+-------+
+| m_axi_gmem   | write     | 4800   | 512   |
++--------------+-----------+--------+-------+
+
+* All M_AXI Variable Accesses
++--------------+------------+-----------------------+-----------+--------------+--------+------------------+-----------------------+------------+----------------------------------------------------------------------------------------+
+| HW Interface | Variable   | Access Location       | Direction | Burst Status | Length | Loop             | Loop Location         | Resolution | Problem                                                                                |
++--------------+------------+-----------------------+-----------+--------------+--------+------------------+-----------------------+------------+----------------------------------------------------------------------------------------+
+| m_axi_gmem   | image_rgb  | edgedetect.cpp:15:31  | read      | Inferred     | 921600 | VITIS_LOOP_10_1  | edgedetect.cpp:10:22  |            |                                                                                        |
+| m_axi_gmem   | image_rgb  | edgedetect.cpp:16:31  | read      | Inferred     | 921600 | VITIS_LOOP_10_1  | edgedetect.cpp:10:22  |            |                                                                                        |
+| m_axi_gmem   | image_rgb  | edgedetect.cpp:17:31  | read      | Inferred     | 921600 | VITIS_LOOP_10_1  | edgedetect.cpp:10:22  |            |                                                                                        |
+| m_axi_gmem   | image_gray | edgedetect.cpp:21:39  | write     | Widened      | 4800   | VITIS_LOOP_13_2  | edgedetect.cpp:13:26  |            |                                                                                        |
+| m_axi_gmem   | image_gray | edgedetect.cpp:21:39  | write     | Inferred     | 307200 | VITIS_LOOP_10_1  | edgedetect.cpp:10:22  |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:45:34  | read      | Widen Fail   |        | VITIS_LOOP_43_2  | edgedetect.cpp:43:26  | 214-235    | Start index of the access is unaligned                                                 |
+| m_axi_gmem   | filter     | edgedetect.cpp:45:34  | read      | Widen Fail   |        | VITIS_LOOP_43_2  | edgedetect.cpp:43:26  | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:45:34  | read      | Inferred     | 9      | VITIS_LOOP_41_1  | edgedetect.cpp:41:22  |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:61:67  | read      | Widen Fail   |        | VITIS_LOOP_59_6  | edgedetect.cpp:59:34  | 214-235    | Start index of the access is unaligned                                                 |
+| m_axi_gmem   | filter     | edgedetect.cpp:61:67  | read      | Widen Fail   |        | VITIS_LOOP_59_6  | edgedetect.cpp:59:34  | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | image_gray | edgedetect.cpp:61:28  | read      | Widen Fail   |        | VITIS_LOOP_59_6  | edgedetect.cpp:59:34  | 214-307    | Could not widen since type i8 size is greater than or equal to alignment 1(bytes)      |
+| m_axi_gmem   | filter     | edgedetect.cpp:61:67  | read      | Fail         |        | VITIS_LOOP_54_4  | edgedetect.cpp:54:26  | 214-229    | Could not analyze pattern                                                              |
+| m_axi_gmem   | image_gray | edgedetect.cpp:61:28  | read      | Fail         |        | VITIS_LOOP_57_5  | edgedetect.cpp:57:30  | 214-230    | Stride is incompatible                                                                 |
+| m_axi_gmem   | filter     | edgedetect.cpp:61:67  | read      | Inferred     | 9      | VITIS_LOOP_57_5  | edgedetect.cpp:57:30  |            |                                                                                        |
+| m_axi_gmem   | image_gray | edgedetect.cpp:61:28  | read      | Inferred     | 3      | VITIS_LOOP_59_6  | edgedetect.cpp:59:34  |            |                                                                                        |
+| m_axi_gmem   | output     | edgedetect.cpp:64:67  | write     | Widen Fail   |        | VITIS_LOOP_54_4  | edgedetect.cpp:54:26  | 214-307    | Could not widen since type i8 size is greater than or equal to alignment 1(bytes)      |
+| m_axi_gmem   | output     | edgedetect.cpp:64:67  | write     | Fail         |        | VITIS_LOOP_52_3  | edgedetect.cpp:52:22  | 214-230    | Stride is incompatible                                                                 |
+| m_axi_gmem   | output     | edgedetect.cpp:64:67  | write     | Inferred     | 638    | VITIS_LOOP_54_4  | edgedetect.cpp:54:26  |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:88:34  | read      | Widen Fail   |        | VITIS_LOOP_86_2  | edgedetect.cpp:86:26  | 214-235    | Start index of the access is unaligned                                                 |
+| m_axi_gmem   | filter     | edgedetect.cpp:88:34  | read      | Widen Fail   |        | VITIS_LOOP_86_2  | edgedetect.cpp:86:26  | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:88:34  | read      | Inferred     | 9      | VITIS_LOOP_84_1  | edgedetect.cpp:84:22  |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:104:67 | read      | Widen Fail   |        | VITIS_LOOP_102_6 | edgedetect.cpp:102:35 | 214-235    | Start index of the access is unaligned                                                 |
+| m_axi_gmem   | filter     | edgedetect.cpp:104:67 | read      | Widen Fail   |        | VITIS_LOOP_102_6 | edgedetect.cpp:102:35 | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | output     | edgedetect.cpp:104:28 | read      | Widen Fail   |        | VITIS_LOOP_102_6 | edgedetect.cpp:102:35 | 214-307    | Could not widen since type i8 size is greater than or equal to alignment 1(bytes)      |
+| m_axi_gmem   | filter     | edgedetect.cpp:104:67 | read      | Fail         |        | VITIS_LOOP_97_4  | edgedetect.cpp:97:26  | 214-229    | Could not analyze pattern                                                              |
+| m_axi_gmem   | output     | edgedetect.cpp:104:28 | read      | Fail         |        | VITIS_LOOP_100_5 | edgedetect.cpp:100:31 | 214-230    | Stride is incompatible                                                                 |
+| m_axi_gmem   | filter     | edgedetect.cpp:104:67 | read      | Inferred     | 9      | VITIS_LOOP_100_5 | edgedetect.cpp:100:31 |            |                                                                                        |
+| m_axi_gmem   | output     | edgedetect.cpp:104:28 | read      | Inferred     | 3      | VITIS_LOOP_102_6 | edgedetect.cpp:102:35 |            |                                                                                        |
+| m_axi_gmem   | image_gray | edgedetect.cpp:107:67 | write     | Widen Fail   |        | VITIS_LOOP_97_4  | edgedetect.cpp:97:26  | 214-307    | Could not widen since type i8 size is greater than or equal to alignment 1(bytes)      |
+| m_axi_gmem   | image_gray | edgedetect.cpp:107:67 | write     | Fail         |        | VITIS_LOOP_95_3  | edgedetect.cpp:95:22  | 214-230    | Stride is incompatible                                                                 |
+| m_axi_gmem   | image_gray | edgedetect.cpp:107:67 | write     | Inferred     | 638    | VITIS_LOOP_97_4  | edgedetect.cpp:97:26  |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:131:34 | read      | Widen Fail   |        | VITIS_LOOP_129_2 | edgedetect.cpp:129:27 | 214-235    | Start index of the access is unaligned                                                 |
+| m_axi_gmem   | filter     | edgedetect.cpp:131:34 | read      | Widen Fail   |        | VITIS_LOOP_129_2 | edgedetect.cpp:129:27 | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:131:34 | read      | Inferred     | 9      | VITIS_LOOP_127_1 | edgedetect.cpp:127:23 |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:147:67 | read      | Widen Fail   |        | VITIS_LOOP_145_6 | edgedetect.cpp:145:35 | 214-235    | Start index of the access is unaligned                                                 |
+| m_axi_gmem   | filter     | edgedetect.cpp:147:67 | read      | Widen Fail   |        | VITIS_LOOP_145_6 | edgedetect.cpp:145:35 | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | output     | edgedetect.cpp:147:28 | read      | Widen Fail   |        | VITIS_LOOP_145_6 | edgedetect.cpp:145:35 | 214-307    | Could not widen since type i8 size is greater than or equal to alignment 1(bytes)      |
+| m_axi_gmem   | filter     | edgedetect.cpp:147:67 | read      | Fail         |        | VITIS_LOOP_140_4 | edgedetect.cpp:140:27 | 214-229    | Could not analyze pattern                                                              |
+| m_axi_gmem   | output     | edgedetect.cpp:147:28 | read      | Fail         |        | VITIS_LOOP_143_5 | edgedetect.cpp:143:31 | 214-230    | Stride is incompatible                                                                 |
+| m_axi_gmem   | filter     | edgedetect.cpp:147:67 | read      | Inferred     | 9      | VITIS_LOOP_143_5 | edgedetect.cpp:143:31 |            |                                                                                        |
+| m_axi_gmem   | output     | edgedetect.cpp:147:28 | read      | Inferred     | 3      | VITIS_LOOP_145_6 | edgedetect.cpp:145:35 |            |                                                                                        |
+| m_axi_gmem   | temp_buf   | edgedetect.cpp:150:67 | write     | Widen Fail   |        | VITIS_LOOP_140_4 | edgedetect.cpp:140:27 | 214-307    | Could not widen since type i8 size is greater than or equal to alignment 1(bytes)      |
+| m_axi_gmem   | temp_buf   | edgedetect.cpp:150:67 | write     | Fail         |        | VITIS_LOOP_138_3 | edgedetect.cpp:138:23 | 214-230    | Stride is incompatible                                                                 |
+| m_axi_gmem   | temp_buf   | edgedetect.cpp:150:67 | write     | Inferred     | 638    | VITIS_LOOP_140_4 | edgedetect.cpp:140:27 |            |                                                                                        |
+| m_axi_gmem   |            | edgedetect.cpp:162:23 | read      | Fail         |        |                  |                       | 214-224    | Could not burst due to multiple potential reads to the same bundle in the same region. |
+| m_axi_gmem   | image_gray | edgedetect.cpp:167:14 | read      | Widened      | 4800   | VITIS_LOOP_164_2 | edgedetect.cpp:164:27 |            |                                                                                        |
+| m_axi_gmem   | image_gray | edgedetect.cpp:167:14 | read      | Inferred     | 307200 | VITIS_LOOP_162_1 | edgedetect.cpp:162:23 |            |                                                                                        |
+| m_axi_gmem   | temp_buf   | edgedetect.cpp:168:25 | read      | Widened      | 4800   | VITIS_LOOP_164_2 | edgedetect.cpp:164:27 |            |                                                                                        |
+| m_axi_gmem   | temp_buf   | edgedetect.cpp:168:25 | read      | Inferred     | 307200 | VITIS_LOOP_162_1 | edgedetect.cpp:162:23 |            |                                                                                        |
+| m_axi_gmem   | output     | edgedetect.cpp:170:33 | write     | Widened      | 4800   | VITIS_LOOP_164_2 | edgedetect.cpp:164:27 |            |                                                                                        |
+| m_axi_gmem   | output     | edgedetect.cpp:170:33 | write     | Inferred     | 307200 | VITIS_LOOP_162_1 | edgedetect.cpp:162:23 |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:177:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:177:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:178:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:178:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:179:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:179:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:180:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:180:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:181:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:181:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:182:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:182:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:183:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:183:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:184:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:184:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:185:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:185:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:190:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:190:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:191:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:191:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:192:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:192:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:193:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:193:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:194:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:194:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:195:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:195:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:196:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:196:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:197:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:197:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:198:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:198:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:203:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:203:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:204:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:204:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:205:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:205:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:206:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:206:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:207:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:207:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:208:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:208:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:209:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:209:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:210:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:210:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
+| m_axi_gmem   | filter     | edgedetect.cpp:211:15 | write     | Widen Fail   |        |                  |                       | 214-234    | Sequential access length is not divisible by 2                                         |
+| m_axi_gmem   | filter     | edgedetect.cpp:211:15 | write     | Inferred     | 9      |                  |                       |            |                                                                                        |
++--------------+------------+-----------------------+-----------+--------------+--------+------------------+-----------------------+------------+----------------------------------------------------------------------------------------+
+
+    * Resolution URL: docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=XXX-YYY.html (replace XXX-YYY with column value)
+
+================================================================
+== Bind Op Report
+================================================================
++----------------------------------------------------------+-----+--------+------------------------------+-----------+-----------+---------+
+| Name                                                     | DSP | Pragma | Variable                     | Op        | Impl      | Latency |
++----------------------------------------------------------+-----+--------+------------------------------+-----------+-----------+---------+
+| + edgedetect                                             | 29  |        |                              |           |           |         |
+|   icmp_ln49_fu_408_p2                                    |     |        | icmp_ln49                    | seteq     | auto      | 0       |
+|   empty_52_fu_423_p2                                     |     |        | empty_52                     | add       | fabric    | 0       |
+|   empty_54_fu_452_p2                                     |     |        | empty_54                     | add       | fabric    | 0       |
+|   empty_56_fu_481_p2                                     |     |        | empty_56                     | add       | fabric    | 0       |
+|   empty_58_fu_510_p2                                     |     |        | empty_58                     | add       | fabric    | 0       |
+|   empty_60_fu_539_p2                                     |     |        | empty_60                     | add       | fabric    | 0       |
+|   empty_62_fu_568_p2                                     |     |        | empty_62                     | add       | fabric    | 0       |
+|   empty_64_fu_597_p2                                     |     |        | empty_64                     | add       | fabric    | 0       |
+|   empty_66_fu_626_p2                                     |     |        | empty_66                     | add       | fabric    | 0       |
+|   icmp_ln92_fu_659_p2                                    |     |        | icmp_ln92                    | seteq     | auto      | 0       |
+|   icmp_ln135_fu_670_p2                                   |     |        | icmp_ln135                   | seteq     | auto      | 0       |
+|  + edgedetect_Pipeline_VITIS_LOOP_10_1_VITIS_LOOP_13_2   | 14  |        |                              |           |           |         |
+|    icmp_ln10_fu_325_p2                                   |     |        | icmp_ln10                    | seteq     | auto      | 0       |
+|    add_ln10_fu_331_p2                                    |     |        | add_ln10                     | add       | fabric    | 0       |
+|    icmp_ln13_fu_346_p2                                   |     |        | icmp_ln13                    | seteq     | auto      | 0       |
+|    select_ln10_fu_352_p3                                 |     |        | select_ln10                  | select    | auto_sel  | 0       |
+|    select_ln10_1_fu_360_p3                               |     |        | select_ln10_1                | select    | auto_sel  | 0       |
+|    select_ln10_2_fu_991_p3                               |     |        | select_ln10_2                | select    | auto_sel  | 0       |
+|    add_ln10_1_fu_368_p2                                  |     |        | add_ln10_1                   | add       | fabric    | 0       |
+|    select_ln10_3_fu_374_p3                               |     |        | select_ln10_3                | select    | auto_sel  | 0       |
+|    empty_fu_402_p2                                       |     |        | empty                        | sub       | fabric    | 0       |
+|    add_ln15_fu_440_p2                                    |     |        | add_ln15                     | add       | fabric    | 0       |
+|    add_ln15_1_fu_445_p2                                  |     |        | add_ln15_1                   | add       | fabric    | 0       |
+|    lshr_ln15_fu_604_p2                                   |     |        | lshr_ln15                    | lshr      | auto_pipe | 0       |
+|    add_ln15_2_fu_535_p2                                  |     |        | add_ln15_2                   | add       | fabric    | 0       |
+|    lshr_ln15_1_fu_624_p2                                 |     |        | lshr_ln15_1                  | lshr      | auto_pipe | 0       |
+|    add_ln15_3_fu_554_p2                                  |     |        | add_ln15_3                   | add       | fabric    | 0       |
+|    lshr_ln15_2_fu_648_p2                                 |     |        | lshr_ln15_2                  | lshr      | auto_pipe | 0       |
+|    add_ln18_fu_465_p2                                    |     |        | add_ln18                     | add       | fabric    | 0       |
+|    sitodp_32ns_64_5_no_dsp_1_U5                          |     |        | conv19_i                     | sitodp    | auto      | 4       |
+|    dmul_64ns_64ns_64_7_max_dsp_1_U4                      | 11  |        | mul20_i                      | dmul      | maxdsp    | 6       |
+|    sitodp_32ns_64_5_no_dsp_1_U5                          |     |        | conv22_i                     | sitodp    | auto      | 4       |
+|    dmul_64ns_64ns_64_7_max_dsp_1_U4                      | 11  |        | mul23_i                      | dmul      | maxdsp    | 6       |
+|    dadd_64ns_64ns_64_8_full_dsp_1_U3                     | 3   |        | add24_i                      | dadd      | fulldsp   | 7       |
+|    sitodp_32ns_64_5_no_dsp_1_U5                          |     |        | conv26_i                     | sitodp    | auto      | 4       |
+|    dmul_64ns_64ns_64_7_max_dsp_1_U4                      | 11  |        | mul27_i                      | dmul      | maxdsp    | 6       |
+|    dadd_64ns_64ns_64_8_full_dsp_1_U3                     | 3   |        | add28_i                      | dadd      | fulldsp   | 7       |
+|    fptrunc_64ns_32_2_no_dsp_1_U1                         |     |        | gray                         | fptrunc   | auto      | 1       |
+|    fpext_32ns_64_2_no_dsp_1_U2                           |     |        | dc                           | fpext     | auto      | 1       |
+|    icmp_ln18_fu_710_p2                                   |     |        | icmp_ln18                    | setlt     | auto      | 0       |
+|    icmp_ln24_fu_715_p2                                   |     |        | icmp_ln24                    | setgt     | auto      | 0       |
+|    add_ln36_fu_742_p2                                    |     |        | add_ln36                     | add       | fabric    | 0       |
+|    xs_sign_2_fu_770_p2                                   |     |        | xs_sign_2                    | and       | auto      | 0       |
+|    xs_exp_2_fu_775_p3                                    |     |        | xs_exp_2                     | select    | auto_sel  | 0       |
+|    xs_sig_2_fu_781_p3                                    |     |        | xs_sig_2                     | select    | auto_sel  | 0       |
+|    xor_ln39_fu_787_p2                                    |     |        | xor_ln39                     | xor       | auto      | 0       |
+|    xs_sig_3_fu_793_p2                                    |     |        | xs_sig_3                     | and       | auto      | 0       |
+|    xor_ln18_fu_813_p2                                    |     |        | xor_ln18                     | xor       | auto      | 0       |
+|    and_ln24_fu_819_p2                                    |     |        | and_ln24                     | and       | auto      | 0       |
+|    or_ln24_fu_825_p2                                     |     |        | or_ln24                      | or        | auto      | 0       |
+|    xor_ln24_fu_831_p2                                    |     |        | xor_ln24                     | xor       | auto      | 0       |
+|    icmp_ln19_fu_837_p2                                   |     |        | icmp_ln19                    | setne     | auto      | 0       |
+|    icmp_ln19_1_fu_842_p2                                 |     |        | icmp_ln19_1                  | setne     | auto      | 0       |
+|    or_ln19_fu_847_p2                                     |     |        | or_ln19                      | or        | auto      | 0       |
+|    and_ln19_fu_853_p2                                    |     |        | and_ln19                     | and       | auto      | 0       |
+|    and_ln19_1_fu_858_p2                                  |     |        | and_ln19_1                   | and       | auto      | 0       |
+|    sparsemux_9_3_64_1_1_U6                               |     |        | dc_1                         | sparsemux | auto      | 0       |
+|    add_ln486_fu_932_p2                                   |     |        | add_ln486                    | add       | fabric    | 0       |
+|    sub_ln71_fu_946_p2                                    |     |        | sub_ln71                     | sub       | fabric    | 0       |
+|    select_ln71_fu_956_p3                                 |     |        | select_ln71                  | select    | auto_sel  | 0       |
+|    lshr_ln71_fu_972_p2                                   |     |        | lshr_ln71                    | lshr      | auto_pipe | 0       |
+|    shl_ln71_fu_998_p2                                    |     |        | shl_ln71                     | shl       | auto_pipe | 0       |
+|    icmp_ln21_fu_471_p2                                   |     |        | icmp_ln21                    | seteq     | auto      | 0       |
+|    select_ln71_1_fu_1012_p3                              |     |        | select_ln71_1                | select    | auto_sel  | 0       |
+|    add_ln13_fu_477_p2                                    |     |        | add_ln13                     | add       | fabric    | 0       |
+|    select_ln21_fu_1044_p3                                |     |        | select_ln21                  | select    | auto_sel  | 0       |
+|  + edgedetect_Pipeline_VITIS_LOOP_41_1_VITIS_LOOP_43_2   | 0   |        |                              |           |           |         |
+|    icmp_ln41_fu_140_p2                                   |     |        | icmp_ln41                    | seteq     | auto      | 0       |
+|    add_ln41_fu_146_p2                                    |     |        | add_ln41                     | add       | fabric    | 0       |
+|    icmp_ln43_fu_158_p2                                   |     |        | icmp_ln43                    | seteq     | auto      | 0       |
+|    select_ln31_fu_164_p3                                 |     |        | select_ln31                  | select    | auto_sel  | 0       |
+|    add_ln41_1_fu_172_p2                                  |     |        | add_ln41_1                   | add       | fabric    | 0       |
+|    select_ln41_fu_178_p3                                 |     |        | select_ln41                  | select    | auto_sel  | 0       |
+|    empty_fu_198_p2                                       |     |        | empty                        | sub       | fabric    | 0       |
+|    lshr_ln45_fu_283_p2                                   |     |        | lshr_ln45                    | lshr      | auto_pipe | 0       |
+|    neg_fu_292_p2                                         |     |        | neg                          | sub       | fabric    | 0       |
+|    abscond_fu_298_p2                                     |     |        | abscond                      | setne     | auto      | 0       |
+|    abs_fu_304_p3                                         |     |        | abs                          | select    | auto_sel  | 0       |
+|    normal_factor_fu_316_p2                               |     |        | normal_factor                | add       | fabric    | 0       |
+|    add_ln43_fu_238_p2                                    |     |        | add_ln43                     | add       | fabric    | 0       |
+|  + edgedetect_Pipeline_VITIS_LOOP_52_3_VITIS_LOOP_54_4   | 5   |        |                              |           |           |         |
+|    icmp_ln52_fu_607_p2                                   |     |        | icmp_ln52                    | seteq     | auto      | 0       |
+|    add_ln52_fu_613_p2                                    |     |        | add_ln52                     | add       | fabric    | 0       |
+|    icmp_ln54_fu_625_p2                                   |     |        | icmp_ln54                    | seteq     | auto      | 0       |
+|    select_ln31_fu_631_p3                                 |     |        | select_ln31                  | select    | auto_sel  | 0       |
+|    indvars_iv_next25_i_dup443_fu_639_p2                  |     |        | indvars_iv_next25_i_dup443   | add       | fabric    | 0       |
+|    select_ln52_fu_645_p3                                 |     |        | select_ln52                  | select    | auto_sel  | 0       |
+|    empty_fu_677_p2                                       |     |        | empty                        | add       | fabric    | 0       |
+|    add_ln57_fu_687_p2                                    |     |        | add_ln57                     | add       | fabric    | 0       |
+|    empty_36_fu_697_p2                                    |     |        | empty_36                     | add       | fabric    | 0       |
+|    lshr_ln61_fu_1062_p2                                  |     |        | lshr_ln61                    | lshr      | auto_pipe | 0       |
+|    lshr_ln61_1_fu_1074_p2                                |     |        | lshr_ln61_1                  | lshr      | auto_pipe | 0       |
+|    add_ln61_fu_753_p2                                    |     |        | add_ln61                     | add       | fabric    | 0       |
+|    lshr_ln61_2_fu_1097_p2                                |     |        | lshr_ln61_2                  | lshr      | auto_pipe | 0       |
+|    lshr_ln61_3_fu_1109_p2                                |     |        | lshr_ln61_3                  | lshr      | auto_pipe | 0       |
+|    add_ln61_1_fu_788_p2                                  |     |        | add_ln61_1                   | add       | fabric    | 0       |
+|    lshr_ln61_4_fu_1142_p2                                |     |        | lshr_ln61_4                  | lshr      | auto_pipe | 0       |
+|    lshr_ln61_5_fu_1154_p2                                |     |        | lshr_ln61_5                  | lshr      | auto_pipe | 0       |
+|    tmp7_fu_823_p2                                        |     |        | tmp7                         | add       | fabric    | 0       |
+|    empty_37_fu_832_p2                                    |     |        | empty_37                     | add       | fabric    | 0       |
+|    lshr_ln61_6_fu_1183_p2                                |     |        | lshr_ln61_6                  | lshr      | auto_pipe | 0       |
+|    lshr_ln61_7_fu_1195_p2                                |     |        | lshr_ln61_7                  | lshr      | auto_pipe | 0       |
+|    add_ln61_2_fu_867_p2                                  |     |        | add_ln61_2                   | add       | fabric    | 0       |
+|    lshr_ln61_8_fu_1218_p2                                |     |        | lshr_ln61_8                  | lshr      | auto_pipe | 0       |
+|    lshr_ln61_9_fu_1230_p2                                |     |        | lshr_ln61_9                  | lshr      | auto_pipe | 0       |
+|    add_ln61_3_fu_902_p2                                  |     |        | add_ln61_3                   | add       | fabric    | 0       |
+|    lshr_ln61_10_fu_1262_p2                               |     |        | lshr_ln61_10                 | lshr      | auto_pipe | 0       |
+|    lshr_ln61_11_fu_1286_p2                               |     |        | lshr_ln61_11                 | lshr      | auto_pipe | 0       |
+|    tmp8_fu_937_p2                                        |     |        | tmp8                         | add       | fabric    | 0       |
+|    empty_38_fu_946_p2                                    |     |        | empty_38                     | add       | fabric    | 0       |
+|    lshr_ln61_12_fu_1309_p2                               |     |        | lshr_ln61_12                 | lshr      | auto_pipe | 0       |
+|    lshr_ln61_13_fu_1318_p2                               |     |        | lshr_ln61_13                 | lshr      | auto_pipe | 0       |
+|    add_ln61_4_fu_981_p2                                  |     |        | add_ln61_4                   | add       | fabric    | 0       |
+|    lshr_ln61_14_fu_1340_p2                               |     |        | lshr_ln61_14                 | lshr      | auto_pipe | 0       |
+|    lshr_ln61_15_fu_1352_p2                               |     |        | lshr_ln61_15                 | lshr      | auto_pipe | 0       |
+|    add_ln61_5_fu_1016_p2                                 |     |        | add_ln61_5                   | add       | fabric    | 0       |
+|    lshr_ln61_16_fu_1381_p2                               |     |        | lshr_ln61_16                 | lshr      | auto_pipe | 0       |
+|    lshr_ln61_17_fu_1393_p2                               |     |        | lshr_ln61_17                 | lshr      | auto_pipe | 0       |
+|    mul_8ns_8ns_16_1_1_U23                                |     |        | mul_ln61                     | mul       | auto      | 0       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U28                    | 1   |        | mul_ln61_1                   | mul       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U28                    | 1   |        | zext_ln61_26                 | zext      | dsp_slice | 3       |
+|    mul_8ns_8ns_16_1_1_U21                                |     |        | mul_ln61_2                   | mul       | auto      | 0       |
+|    mul_8ns_8ns_16_1_1_U20                                |     |        | mul_ln61_3                   | mul       | auto      | 0       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U27                    | 1   |        | mul_ln61_4                   | mul       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U27                    | 1   |        | zext_ln61_29                 | zext      | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U26                    | 1   |        | mul_ln61_5                   | mul       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U26                    | 1   |        | zext_ln61_30                 | zext      | dsp_slice | 3       |
+|    mul_8ns_8ns_16_1_1_U22                                |     |        | mul_ln61_6                   | mul       | auto      | 0       |
+|    mac_muladd_8ns_8ns_17ns_18_4_1_U29                    | 1   |        | mul_ln61_7                   | mul       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_17ns_18_4_1_U29                    | 1   |        | zext_ln61_32                 | zext      | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U25                    | 1   |        | mul_ln61_8                   | mul       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U25                    | 1   |        | zext_ln61_33                 | zext      | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U25                    | 1   |        | add_ln61_6                   | add       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U26                    | 1   |        | add_ln61_7                   | add       | dsp_slice | 3       |
+|    add_ln61_8_fu_1277_p2                                 |     |        | add_ln61_8                   | add       | fabric    | 0       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U27                    | 1   |        | add_ln61_9                   | add       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U28                    | 1   |        | add_ln61_10                  | add       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_17ns_18_4_1_U29                    | 1   |        | add_ln61_11                  | add       | dsp_slice | 3       |
+|    add_ln61_12_fu_1426_p2                                |     |        | add_ln61_12                  | add       | fabric    | 0       |
+|    grp_fu_1452_p0                                        |     |        | sum                          | add       | fabric    | 0       |
+|    select_ln64_fu_1442_p3                                |     |        | select_ln64                  | select    | auto_sel  | 0       |
+|    udiv_20ns_12ns_8_24_1_U24                             |     |        | udiv_ln64                    | udiv      | auto      | 23      |
+|    add_ln64_fu_716_p2                                    |     |        | add_ln64                     | add       | fabric    | 0       |
+|    add_ln64_3_fu_1469_p2                                 |     |        | add_ln64_3                   | add       | fabric    | 0       |
+|    shl_ln64_fu_1493_p2                                   |     |        | shl_ln64                     | shl       | auto_pipe | 0       |
+|    shl_ln64_2_fu_1528_p2                                 |     |        | shl_ln64_2                   | shl       | auto_pipe | 0       |
+|  + edgedetect_Pipeline_VITIS_LOOP_84_1_VITIS_LOOP_86_2   | 0   |        |                              |           |           |         |
+|    icmp_ln84_fu_140_p2                                   |     |        | icmp_ln84                    | seteq     | auto      | 0       |
+|    add_ln84_fu_146_p2                                    |     |        | add_ln84                     | add       | fabric    | 0       |
+|    icmp_ln86_fu_158_p2                                   |     |        | icmp_ln86                    | seteq     | auto      | 0       |
+|    select_ln74_fu_164_p3                                 |     |        | select_ln74                  | select    | auto_sel  | 0       |
+|    add_ln84_1_fu_172_p2                                  |     |        | add_ln84_1                   | add       | fabric    | 0       |
+|    select_ln84_fu_178_p3                                 |     |        | select_ln84                  | select    | auto_sel  | 0       |
+|    empty_fu_198_p2                                       |     |        | empty                        | sub       | fabric    | 0       |
+|    lshr_ln88_fu_283_p2                                   |     |        | lshr_ln88                    | lshr      | auto_pipe | 0       |
+|    neg2_fu_292_p2                                        |     |        | neg2                         | sub       | fabric    | 0       |
+|    abscond3_fu_298_p2                                    |     |        | abscond3                     | setne     | auto      | 0       |
+|    abs4_fu_304_p3                                        |     |        | abs4                         | select    | auto_sel  | 0       |
+|    normal_factor_2_fu_316_p2                             |     |        | normal_factor_2              | add       | fabric    | 0       |
+|    add_ln86_fu_238_p2                                    |     |        | add_ln86                     | add       | fabric    | 0       |
+|  + edgedetect_Pipeline_VITIS_LOOP_95_3_VITIS_LOOP_97_4   | 5   |        |                              |           |           |         |
+|    icmp_ln95_fu_607_p2                                   |     |        | icmp_ln95                    | seteq     | auto      | 0       |
+|    add_ln95_fu_613_p2                                    |     |        | add_ln95                     | add       | fabric    | 0       |
+|    icmp_ln97_fu_625_p2                                   |     |        | icmp_ln97                    | seteq     | auto      | 0       |
+|    select_ln74_fu_631_p3                                 |     |        | select_ln74                  | select    | auto_sel  | 0       |
+|    indvars_iv_next25_i33_dup449_fu_639_p2                |     |        | indvars_iv_next25_i33_dup449 | add       | fabric    | 0       |
+|    select_ln95_fu_645_p3                                 |     |        | select_ln95                  | select    | auto_sel  | 0       |
+|    empty_fu_677_p2                                       |     |        | empty                        | add       | fabric    | 0       |
+|    add_ln100_fu_687_p2                                   |     |        | add_ln100                    | add       | fabric    | 0       |
+|    empty_31_fu_697_p2                                    |     |        | empty_31                     | add       | fabric    | 0       |
+|    lshr_ln104_fu_1062_p2                                 |     |        | lshr_ln104                   | lshr      | auto_pipe | 0       |
+|    lshr_ln104_1_fu_1074_p2                               |     |        | lshr_ln104_1                 | lshr      | auto_pipe | 0       |
+|    add_ln104_fu_753_p2                                   |     |        | add_ln104                    | add       | fabric    | 0       |
+|    lshr_ln104_2_fu_1097_p2                               |     |        | lshr_ln104_2                 | lshr      | auto_pipe | 0       |
+|    lshr_ln104_3_fu_1109_p2                               |     |        | lshr_ln104_3                 | lshr      | auto_pipe | 0       |
+|    add_ln104_1_fu_788_p2                                 |     |        | add_ln104_1                  | add       | fabric    | 0       |
+|    lshr_ln104_4_fu_1142_p2                               |     |        | lshr_ln104_4                 | lshr      | auto_pipe | 0       |
+|    lshr_ln104_5_fu_1154_p2                               |     |        | lshr_ln104_5                 | lshr      | auto_pipe | 0       |
+|    tmp20_fu_823_p2                                       |     |        | tmp20                        | add       | fabric    | 0       |
+|    empty_32_fu_832_p2                                    |     |        | empty_32                     | add       | fabric    | 0       |
+|    lshr_ln104_6_fu_1183_p2                               |     |        | lshr_ln104_6                 | lshr      | auto_pipe | 0       |
+|    lshr_ln104_7_fu_1195_p2                               |     |        | lshr_ln104_7                 | lshr      | auto_pipe | 0       |
+|    add_ln104_2_fu_867_p2                                 |     |        | add_ln104_2                  | add       | fabric    | 0       |
+|    lshr_ln104_8_fu_1218_p2                               |     |        | lshr_ln104_8                 | lshr      | auto_pipe | 0       |
+|    lshr_ln104_9_fu_1230_p2                               |     |        | lshr_ln104_9                 | lshr      | auto_pipe | 0       |
+|    add_ln104_3_fu_902_p2                                 |     |        | add_ln104_3                  | add       | fabric    | 0       |
+|    lshr_ln104_10_fu_1262_p2                              |     |        | lshr_ln104_10                | lshr      | auto_pipe | 0       |
+|    lshr_ln104_11_fu_1286_p2                              |     |        | lshr_ln104_11                | lshr      | auto_pipe | 0       |
+|    tmp21_fu_937_p2                                       |     |        | tmp21                        | add       | fabric    | 0       |
+|    empty_33_fu_946_p2                                    |     |        | empty_33                     | add       | fabric    | 0       |
+|    lshr_ln104_12_fu_1309_p2                              |     |        | lshr_ln104_12                | lshr      | auto_pipe | 0       |
+|    lshr_ln104_13_fu_1318_p2                              |     |        | lshr_ln104_13                | lshr      | auto_pipe | 0       |
+|    add_ln104_4_fu_981_p2                                 |     |        | add_ln104_4                  | add       | fabric    | 0       |
+|    lshr_ln104_14_fu_1340_p2                              |     |        | lshr_ln104_14                | lshr      | auto_pipe | 0       |
+|    lshr_ln104_15_fu_1352_p2                              |     |        | lshr_ln104_15                | lshr      | auto_pipe | 0       |
+|    add_ln104_5_fu_1016_p2                                |     |        | add_ln104_5                  | add       | fabric    | 0       |
+|    lshr_ln104_16_fu_1381_p2                              |     |        | lshr_ln104_16                | lshr      | auto_pipe | 0       |
+|    lshr_ln104_17_fu_1393_p2                              |     |        | lshr_ln104_17                | lshr      | auto_pipe | 0       |
+|    mul_8ns_8ns_16_1_1_U63                                |     |        | mul_ln104                    | mul       | auto      | 0       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U68                    | 1   |        | mul_ln104_1                  | mul       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U68                    | 1   |        | zext_ln104_26                | zext      | dsp_slice | 3       |
+|    mul_8ns_8ns_16_1_1_U61                                |     |        | mul_ln104_2                  | mul       | auto      | 0       |
+|    mul_8ns_8ns_16_1_1_U60                                |     |        | mul_ln104_3                  | mul       | auto      | 0       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U67                    | 1   |        | mul_ln104_4                  | mul       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U67                    | 1   |        | zext_ln104_29                | zext      | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U66                    | 1   |        | mul_ln104_5                  | mul       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U66                    | 1   |        | zext_ln104_30                | zext      | dsp_slice | 3       |
+|    mul_8ns_8ns_16_1_1_U62                                |     |        | mul_ln104_6                  | mul       | auto      | 0       |
+|    mac_muladd_8ns_8ns_17ns_18_4_1_U69                    | 1   |        | mul_ln104_7                  | mul       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_17ns_18_4_1_U69                    | 1   |        | zext_ln104_32                | zext      | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U65                    | 1   |        | mul_ln104_8                  | mul       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U65                    | 1   |        | zext_ln104_33                | zext      | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U65                    | 1   |        | add_ln104_6                  | add       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U66                    | 1   |        | add_ln104_7                  | add       | dsp_slice | 3       |
+|    add_ln104_8_fu_1277_p2                                |     |        | add_ln104_8                  | add       | fabric    | 0       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U67                    | 1   |        | add_ln104_9                  | add       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U68                    | 1   |        | add_ln104_10                 | add       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_17ns_18_4_1_U69                    | 1   |        | add_ln104_11                 | add       | dsp_slice | 3       |
+|    add_ln104_12_fu_1426_p2                               |     |        | add_ln104_12                 | add       | fabric    | 0       |
+|    grp_fu_1452_p0                                        |     |        | sum                          | add       | fabric    | 0       |
+|    select_ln107_fu_1442_p3                               |     |        | select_ln107                 | select    | auto_sel  | 0       |
+|    udiv_20ns_12ns_8_24_1_U64                             |     |        | udiv_ln107                   | udiv      | auto      | 23      |
+|    add_ln107_fu_716_p2                                   |     |        | add_ln107                    | add       | fabric    | 0       |
+|    add_ln107_3_fu_1469_p2                                |     |        | add_ln107_3                  | add       | fabric    | 0       |
+|    shl_ln107_fu_1493_p2                                  |     |        | shl_ln107                    | shl       | auto_pipe | 0       |
+|    shl_ln107_2_fu_1528_p2                                |     |        | shl_ln107_2                  | shl       | auto_pipe | 0       |
+|  + edgedetect_Pipeline_VITIS_LOOP_127_1_VITIS_LOOP_129_2 | 0   |        |                              |           |           |         |
+|    icmp_ln127_fu_140_p2                                  |     |        | icmp_ln127                   | seteq     | auto      | 0       |
+|    add_ln127_fu_146_p2                                   |     |        | add_ln127                    | add       | fabric    | 0       |
+|    icmp_ln129_fu_158_p2                                  |     |        | icmp_ln129                   | seteq     | auto      | 0       |
+|    select_ln117_fu_164_p3                                |     |        | select_ln117                 | select    | auto_sel  | 0       |
+|    add_ln127_1_fu_172_p2                                 |     |        | add_ln127_1                  | add       | fabric    | 0       |
+|    select_ln127_fu_178_p3                                |     |        | select_ln127                 | select    | auto_sel  | 0       |
+|    empty_fu_198_p2                                       |     |        | empty                        | sub       | fabric    | 0       |
+|    lshr_ln131_fu_283_p2                                  |     |        | lshr_ln131                   | lshr      | auto_pipe | 0       |
+|    neg5_fu_292_p2                                        |     |        | neg5                         | sub       | fabric    | 0       |
+|    abscond6_fu_298_p2                                    |     |        | abscond6                     | setne     | auto      | 0       |
+|    abs7_fu_304_p3                                        |     |        | abs7                         | select    | auto_sel  | 0       |
+|    normal_factor_4_fu_316_p2                             |     |        | normal_factor_4              | add       | fabric    | 0       |
+|    add_ln129_fu_238_p2                                   |     |        | add_ln129                    | add       | fabric    | 0       |
+|  + edgedetect_Pipeline_VITIS_LOOP_138_3_VITIS_LOOP_140_4 | 5   |        |                              |           |           |         |
+|    icmp_ln138_fu_607_p2                                  |     |        | icmp_ln138                   | seteq     | auto      | 0       |
+|    add_ln138_fu_613_p2                                   |     |        | add_ln138                    | add       | fabric    | 0       |
+|    icmp_ln140_fu_625_p2                                  |     |        | icmp_ln140                   | seteq     | auto      | 0       |
+|    select_ln117_fu_631_p3                                |     |        | select_ln117                 | select    | auto_sel  | 0       |
+|    indvars_iv_next25_i85_dup455_fu_639_p2                |     |        | indvars_iv_next25_i85_dup455 | add       | fabric    | 0       |
+|    select_ln138_fu_645_p3                                |     |        | select_ln138                 | select    | auto_sel  | 0       |
+|    empty_fu_677_p2                                       |     |        | empty                        | add       | fabric    | 0       |
+|    add_ln143_fu_687_p2                                   |     |        | add_ln143                    | add       | fabric    | 0       |
+|    empty_43_fu_697_p2                                    |     |        | empty_43                     | add       | fabric    | 0       |
+|    lshr_ln147_fu_1062_p2                                 |     |        | lshr_ln147                   | lshr      | auto_pipe | 0       |
+|    lshr_ln147_1_fu_1074_p2                               |     |        | lshr_ln147_1                 | lshr      | auto_pipe | 0       |
+|    add_ln147_fu_753_p2                                   |     |        | add_ln147                    | add       | fabric    | 0       |
+|    lshr_ln147_2_fu_1097_p2                               |     |        | lshr_ln147_2                 | lshr      | auto_pipe | 0       |
+|    lshr_ln147_3_fu_1109_p2                               |     |        | lshr_ln147_3                 | lshr      | auto_pipe | 0       |
+|    add_ln147_1_fu_788_p2                                 |     |        | add_ln147_1                  | add       | fabric    | 0       |
+|    lshr_ln147_4_fu_1142_p2                               |     |        | lshr_ln147_4                 | lshr      | auto_pipe | 0       |
+|    lshr_ln147_5_fu_1154_p2                               |     |        | lshr_ln147_5                 | lshr      | auto_pipe | 0       |
+|    tmp33_fu_823_p2                                       |     |        | tmp33                        | add       | fabric    | 0       |
+|    empty_44_fu_832_p2                                    |     |        | empty_44                     | add       | fabric    | 0       |
+|    lshr_ln147_6_fu_1183_p2                               |     |        | lshr_ln147_6                 | lshr      | auto_pipe | 0       |
+|    lshr_ln147_7_fu_1195_p2                               |     |        | lshr_ln147_7                 | lshr      | auto_pipe | 0       |
+|    add_ln147_2_fu_867_p2                                 |     |        | add_ln147_2                  | add       | fabric    | 0       |
+|    lshr_ln147_8_fu_1218_p2                               |     |        | lshr_ln147_8                 | lshr      | auto_pipe | 0       |
+|    lshr_ln147_9_fu_1230_p2                               |     |        | lshr_ln147_9                 | lshr      | auto_pipe | 0       |
+|    add_ln147_3_fu_902_p2                                 |     |        | add_ln147_3                  | add       | fabric    | 0       |
+|    lshr_ln147_10_fu_1262_p2                              |     |        | lshr_ln147_10                | lshr      | auto_pipe | 0       |
+|    lshr_ln147_11_fu_1286_p2                              |     |        | lshr_ln147_11                | lshr      | auto_pipe | 0       |
+|    tmp34_fu_937_p2                                       |     |        | tmp34                        | add       | fabric    | 0       |
+|    empty_45_fu_946_p2                                    |     |        | empty_45                     | add       | fabric    | 0       |
+|    lshr_ln147_12_fu_1309_p2                              |     |        | lshr_ln147_12                | lshr      | auto_pipe | 0       |
+|    lshr_ln147_13_fu_1318_p2                              |     |        | lshr_ln147_13                | lshr      | auto_pipe | 0       |
+|    add_ln147_4_fu_981_p2                                 |     |        | add_ln147_4                  | add       | fabric    | 0       |
+|    lshr_ln147_14_fu_1340_p2                              |     |        | lshr_ln147_14                | lshr      | auto_pipe | 0       |
+|    lshr_ln147_15_fu_1352_p2                              |     |        | lshr_ln147_15                | lshr      | auto_pipe | 0       |
+|    add_ln147_5_fu_1016_p2                                |     |        | add_ln147_5                  | add       | fabric    | 0       |
+|    lshr_ln147_16_fu_1381_p2                              |     |        | lshr_ln147_16                | lshr      | auto_pipe | 0       |
+|    lshr_ln147_17_fu_1393_p2                              |     |        | lshr_ln147_17                | lshr      | auto_pipe | 0       |
+|    mul_8ns_8ns_16_1_1_U99                                |     |        | mul_ln147                    | mul       | auto      | 0       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U104                   | 1   |        | mul_ln147_1                  | mul       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U104                   | 1   |        | zext_ln147_26                | zext      | dsp_slice | 3       |
+|    mul_8ns_8ns_16_1_1_U97                                |     |        | mul_ln147_2                  | mul       | auto      | 0       |
+|    mul_8ns_8ns_16_1_1_U96                                |     |        | mul_ln147_3                  | mul       | auto      | 0       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U103                   | 1   |        | mul_ln147_4                  | mul       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U103                   | 1   |        | zext_ln147_29                | zext      | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U102                   | 1   |        | mul_ln147_5                  | mul       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U102                   | 1   |        | zext_ln147_30                | zext      | dsp_slice | 3       |
+|    mul_8ns_8ns_16_1_1_U98                                |     |        | mul_ln147_6                  | mul       | auto      | 0       |
+|    mac_muladd_8ns_8ns_17ns_18_4_1_U105                   | 1   |        | mul_ln147_7                  | mul       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_17ns_18_4_1_U105                   | 1   |        | zext_ln147_32                | zext      | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U101                   | 1   |        | mul_ln147_8                  | mul       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U101                   | 1   |        | zext_ln147_33                | zext      | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U101                   | 1   |        | add_ln147_6                  | add       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U102                   | 1   |        | add_ln147_7                  | add       | dsp_slice | 3       |
+|    add_ln147_8_fu_1277_p2                                |     |        | add_ln147_8                  | add       | fabric    | 0       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U103                   | 1   |        | add_ln147_9                  | add       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_16ns_17_4_1_U104                   | 1   |        | add_ln147_10                 | add       | dsp_slice | 3       |
+|    mac_muladd_8ns_8ns_17ns_18_4_1_U105                   | 1   |        | add_ln147_11                 | add       | dsp_slice | 3       |
+|    add_ln147_12_fu_1426_p2                               |     |        | add_ln147_12                 | add       | fabric    | 0       |
+|    grp_fu_1452_p0                                        |     |        | sum                          | add       | fabric    | 0       |
+|    select_ln150_fu_1442_p3                               |     |        | select_ln150                 | select    | auto_sel  | 0       |
+|    udiv_20ns_12ns_8_24_1_U100                            |     |        | udiv_ln150                   | udiv      | auto      | 23      |
+|    add_ln150_fu_716_p2                                   |     |        | add_ln150                    | add       | fabric    | 0       |
+|    add_ln150_3_fu_1469_p2                                |     |        | add_ln150_3                  | add       | fabric    | 0       |
+|    shl_ln150_fu_1493_p2                                  |     |        | shl_ln150                    | shl       | auto_pipe | 0       |
+|    shl_ln150_2_fu_1528_p2                                |     |        | shl_ln150_2                  | shl       | auto_pipe | 0       |
+|  + edgedetect_Pipeline_VITIS_LOOP_162_1_VITIS_LOOP_164_2 | 0   |        |                              |           |           |         |
+|    icmp_ln162_fu_243_p2                                  |     |        | icmp_ln162                   | seteq     | auto      | 0       |
+|    add_ln162_fu_249_p2                                   |     |        | add_ln162                    | add       | fabric    | 0       |
+|    icmp_ln164_fu_261_p2                                  |     |        | icmp_ln164                   | seteq     | auto      | 0       |
+|    select_ln157_fu_267_p3                                |     |        | select_ln157                 | select    | auto_sel  | 0       |
+|    select_ln157_1_fu_419_p3                              |     |        | select_ln157_1               | select    | auto_sel  | 0       |
+|    select_ln157_2_fu_426_p3                              |     |        | select_ln157_2               | select    | auto_sel  | 0       |
+|    select_ln157_3_fu_433_p3                              |     |        | select_ln157_3               | select    | auto_sel  | 0       |
+|    add_ln162_1_fu_275_p2                                 |     |        | add_ln162_1                  | add       | fabric    | 0       |
+|    select_ln162_fu_281_p3                                |     |        | select_ln162                 | select    | auto_sel  | 0       |
+|    icmp_ln167_fu_347_p2                                  |     |        | icmp_ln167                   | seteq     | auto      | 0       |
+|    add_ln167_1_fu_353_p2                                 |     |        | add_ln167_1                  | add       | fabric    | 0       |
+|    add_ln168_fu_358_p2                                   |     |        | add_ln168                    | add       | fabric    | 0       |
+|    neg8_fu_462_p2                                        |     |        | neg8                         | sub       | fabric    | 0       |
+|    abscond9_fu_468_p2                                    |     |        | abscond9                     | setne     | auto      | 0       |
+|    temp1_fu_474_p3                                       |     |        | temp1                        | select    | auto_sel  | 0       |
+|    neg11_fu_496_p2                                       |     |        | neg11                        | sub       | fabric    | 0       |
+|    abscond12_fu_502_p2                                   |     |        | abscond12                    | setne     | auto      | 0       |
+|    temp2_fu_508_p3                                       |     |        | temp2                        | select    | auto_sel  | 0       |
+|    icmp_ln169_fu_516_p2                                  |     |        | icmp_ln169                   | setgt     | auto      | 0       |
+|    temp3_fu_522_p3                                       |     |        | temp3                        | select    | auto_sel  | 0       |
+|    icmp_ln170_fu_530_p2                                  |     |        | icmp_ln170                   | setgt     | auto      | 0       |
+|    icmp_ln170_1_fu_363_p2                                |     |        | icmp_ln170_1                 | seteq     | auto      | 0       |
+|    add_ln164_fu_369_p2                                   |     |        | add_ln164                    | add       | fabric    | 0       |
+|    select_ln170_fu_557_p3                                |     |        | select_ln170                 | select    | auto_sel  | 0       |
++----------------------------------------------------------+-----+--------+------------------------------+-----------+-----------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++--------------------------------------------------------+-----------+-----------+------+------+--------+------------+------+---------+------------------+
+| Name                                                   | Usage     | Type      | BRAM | URAM | Pragma | Variable   | Impl | Latency | Bitwidth, Depth, |
+|                                                        |           |           |      |      |        |            |      |         | Banks            |
++--------------------------------------------------------+-----------+-----------+------+------+--------+------------+------+---------+------------------+
+| + edgedetect                                           |           |           | 60   | 0    |        |            |      |         |                  |
+|   control_s_axi_U                                      | interface | s_axilite |      |      |        |            |      |         |                  |
+|   gmem_m_axi_U                                         | interface | m_axi     | 58   |      |        |            |      |         |                  |
+|  + edgedetect_Pipeline_VITIS_LOOP_10_1_VITIS_LOOP_13_2 |           |           | 2    | 0    |        |            |      |         |                  |
+|    mask_table_U                                        | rom_1p    |           | 2    |      |        | mask_table | auto | 1       | 52, 64, 1        |
++--------------------------------------------------------+-----------+-----------+------+------+--------+------------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++----------+---------+-------------------------------------+
+| Type     | Options | Location                            |
++----------+---------+-------------------------------------+
+| pipeline |         | edgedetect.cpp:166 in combthreshold |
++----------+---------+-------------------------------------+
+
+

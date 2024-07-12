@@ -1,3 +1,0 @@
-XILINX_HLS=/tools/Xilinx/Vitis_HLS/2024.1
-XILINX_VITIS=/tools/Xilinx/Vitis/2024.1
-cmdline: /tools/Xilinx/Vitis/2024.1/bin/xcd -p 42449 -t 993b6842-3e24-11ef-95d5-8372314ffa84

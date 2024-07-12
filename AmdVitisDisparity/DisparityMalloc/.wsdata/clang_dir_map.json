@@ -1,7 +1,6 @@
 {
   "workspaceRoot": "/home/tls/Dev/wonderland/AmdVitisDisparity/DisparityMalloc",
   "mapping": {
-    "Kernel/cluster.c": "Kernel",
     "DisparityMalloc_kernel/cluster.c": "DisparityMalloc_kernel"
   }
 }

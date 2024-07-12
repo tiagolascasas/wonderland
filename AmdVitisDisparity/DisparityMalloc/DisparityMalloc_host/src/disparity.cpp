@@ -219,13 +219,13 @@ int main(int argc, char **argv) {
 
   int Ileft_w = 587;
   int Ileft_h = 480;
-  int *Ileft_data = (int *)malloc(sizeof(int) * Ileft_w * Ileft_h);
-  // int *Ileft_data = readBMP("./1.bmp", &Ileft_w, &Ileft_h);
+  //int *Ileft_data = (int *)malloc(sizeof(int) * Ileft_w * Ileft_h);
+  int *Ileft_data = readBMP("./1.bmp", &Ileft_w, &Ileft_h);
 
   int Iright_w = 587;
   int Iright_h = 480;
-  int *Iright_data = (int *)malloc(sizeof(int) * Iright_w * Iright_h);
-  // int *Iright_data = readBMP("./2.bmp", &Iright_w, &Iright_h);
+  //int *Iright_data = (int *)malloc(sizeof(int) * Iright_w * Iright_h);
+  int *Iright_data = readBMP("./2.bmp", &Iright_w, &Iright_h);
 
   int retDisp_w = 595;
   int retDisp_h = 488;
@@ -254,6 +254,6 @@ int main(int argc, char **argv) {
   }
   printf("sum = %ld\n", sum);
 
-  // writeBMP("./output.bmp", retDisp_w, retDisp_h, retDisp_data);
+  writeBMP("./output.bmp", retDisp_w, retDisp_h, retDisp_data);
   return 0;
 }

@@ -1,0 +1,12 @@
+[
+  {
+    "directory": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_host/_ide/_build",
+    "command": "/usr/bin/g++ -DVITIS_MAJOR_VERSION\u003d2024 -DVITIS_MINOR_VERSION\u003d1 -DVITIS_VERSION\u003d2024.1 -D__USE_XOPEN2K8 -I/tools/Xilinx/Vitis_HLS/2024.1/include -I/opt/xilinx/xrt/include -g -Wall -Wextra -O0 -g3 -std\u003dc++14 -o CMakeFiles/EdgedetectBaseline_host.dir/src/main.cpp.o -c /home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_host/src/main.cpp",
+    "file": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_host/src/main.cpp"
+  },
+  {
+    "directory": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_host/_ide/_build",
+    "command": "/usr/bin/g++ -DVITIS_MAJOR_VERSION\u003d2024 -DVITIS_MINOR_VERSION\u003d1 -DVITIS_VERSION\u003d2024.1 -D__USE_XOPEN2K8 -I/tools/Xilinx/Vitis_HLS/2024.1/include -I/opt/xilinx/xrt/include -g -Wall -Wextra -O0 -g3 -std\u003dc++14 -o CMakeFiles/EdgedetectBaseline_host.dir/src/util.cpp.o -c /home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_host/src/util.cpp",
+    "file": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline/EdgedetectBaseline_host/src/util.cpp"
+  }
+]
