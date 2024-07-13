@@ -1,0 +1,168 @@
+<ENTRY>
+{
+ "thisFile": "/home/tls/Dev/wonderland/AmdVitisVadd/vadd_vadd/vadd/sw_emu/vadd.xo.compile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Fri Jul 12 23:56:06 2024",
+ "timestampMillis": "1720824966072",
+ "buildStep": {
+  "cmdId": "9ccda94f-364d-423d-9eed-1b32750ce1e4",
+  "name": "v++",
+  "logFile": "/home/tls/Dev/wonderland/AmdVitisVadd/vadd_vadd/vadd/sw_emu/vadd/vadd.steps.log",
+  "commandLine": "/tools/Xilinx/Vitis/2024.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -c -k vadd --target sw_emu /home/tls/Dev/wonderland/AmdVitisVadd/vadd_vadd/src/vadd.cpp -g --platform /tools/Xilinx/Vitis/2024.1/base_platforms/xilinx_zcu102_base_202410_1/xilinx_zcu102_base_202410_1.xpfm --temp_dir /home/tls/Dev/wonderland/AmdVitisVadd/vadd_vadd/vadd/sw_emu -o /home/tls/Dev/wonderland/AmdVitisVadd/vadd_vadd/vadd/sw_emu/vadd.xo ",
+  "args": [
+   "-c",
+   "-k",
+   "vadd",
+   "--target",
+   "sw_emu",
+   "/home/tls/Dev/wonderland/AmdVitisVadd/vadd_vadd/src/vadd.cpp",
+   "-g",
+   "--platform",
+   "/tools/Xilinx/Vitis/2024.1/base_platforms/xilinx_zcu102_base_202410_1/xilinx_zcu102_base_202410_1.xpfm",
+   "--temp_dir",
+   "/home/tls/Dev/wonderland/AmdVitisVadd/vadd_vadd/vadd/sw_emu",
+   "-o",
+   "/home/tls/Dev/wonderland/AmdVitisVadd/vadd_vadd/vadd/sw_emu/vadd.xo"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/AmdVitisVadd/vadd_vadd"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jul 12 23:56:06 2024",
+ "timestampMillis": "1720824966073",
+ "status": {
+  "cmdId": "9ccda94f-364d-423d-9eed-1b32750ce1e4",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Fri Jul 12 23:56:06 2024",
+ "timestampMillis": "1720824966465",
+ "buildSummary": {
+  "hardwarePlatform": "xilinx_zcu102_base_202410_1.xpfm",
+  "hardwareDsa": "hw.xsa",
+  "platformDirectory": "/tools/Xilinx/Vitis/2024.1/base_platforms/xilinx_zcu102_base_202410_1",
+  "runtime": "OpenCL",
+  "systemConfig": "Linux",
+  "flow": "BF_COMPILE",
+  "target": "TT_SW_EMU",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "vadd",
+     "file": "/home/tls/Dev/wonderland/AmdVitisVadd/vadd_vadd/vadd/sw_emu/vadd.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/tls/Dev/wonderland/AmdVitisVadd/vadd_vadd/src/vadd.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "Vitis V++ Compiler Release 2024.1. SW Build 5074859 on 2024-05-20-23:21:20"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Fri Jul 12 23:56:06 2024",
+ "timestampMillis": "1720824966467",
+ "buildStep": {
+  "cmdId": "199c1d95-0e75-4e8a-b800-3cdc36c8079e",
+  "name": "vitis_hls",
+  "logFile": "/home/tls/Dev/wonderland/AmdVitisVadd/vadd_vadd/vadd/sw_emu/vadd/vadd/vitis_hls.log",
+  "commandLine": "vitis_hls -f /home/tls/Dev/wonderland/AmdVitisVadd/vadd_vadd/vadd/sw_emu/vadd/vadd/vadd.tcl -messageDb vitis_hls.pb",
+  "args": [
+   "vitis_hls",
+   "-f",
+   "/home/tls/Dev/wonderland/AmdVitisVadd/vadd_vadd/vadd/sw_emu/vadd/vadd/vadd.tcl",
+   "-messageDb",
+   "vitis_hls.pb"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/AmdVitisVadd/vadd_vadd"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jul 12 23:56:06 2024",
+ "timestampMillis": "1720824966467",
+ "status": {
+  "cmdId": "199c1d95-0e75-4e8a-b800-3cdc36c8079e",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jul 12 23:56:19 2024",
+ "timestampMillis": "1720824979195",
+ "status": {
+  "cmdId": "199c1d95-0e75-4e8a-b800-3cdc36c8079e",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Fri Jul 12 23:56:19 2024",
+ "timestampMillis": "1720824979212",
+ "status": {
+  "cmdId": "9ccda94f-364d-423d-9eed-1b32750ce1e4",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jul 12 23:56:19 2024",
+ "timestampMillis": "1720824979266",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisVadd/vadd_vadd/vadd/sw_emu/reports/vadd/v++_compile_vadd_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Fri Jul 12 23:56:19 2024",
+ "timestampMillis": "1720824979267",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisVadd/vadd_vadd/vadd/sw_emu/v++_compile_vadd_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

@@ -1,0 +1,6 @@
+{
+  "workspaceRoot": "/home/tls/Dev/wonderland/AmdVitisVadd",
+  "mapping": {
+    "vadd_vadd/src/vadd.cpp": "vadd_vadd"
+  }
+}
