@@ -1,0 +1,372 @@
+<ENTRY>
+{
+ "thisFile": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/vadd.hlscompile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Sat Jul 27 04:21:15 2024",
+ "timestampMillis": "1722050475664",
+ "buildStep": {
+  "cmdId": "eccd79a3-baa0-46ab-9cb3-aeebf72d171b",
+  "name": "v++",
+  "logFile": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/logs/vadd.steps.log",
+  "commandLine": "/tools/Xilinx/Vitis/2024.1/bin/unwrapped/lnx64.o/v++  -c --mode hls --config /home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/hls_config.cfg --work_dir vadd ",
+  "args": [
+   "-c",
+   "--mode",
+   "hls",
+   "--config",
+   "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/hls_config.cfg",
+   "--work_dir",
+   "vadd"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/hls_config.cfg",
+    "content": "part=xczu9eg-ffvb1156-2-e\n\n[hls]\nclock=6.667ns\nflow_target=vitis\nsyn.file=src/vadd.cpp\nsyn.file_cflags=src/vadd.cpp,-g\nsyn.top=vadd\npackage.ip.name=vadd\npackage.output.format=xo\nsyn.dataflow.strict_mode=warning\nsyn.debug.enable=1\nsyn.interface.m_axi_addr64=1\nsyn.interface.m_axi_auto_max_ports=0\nsyn.interface.m_axi_conservative_mode=1\nsyn.rtl.deadlock_detection=sim\nsyn.rtl.kernel_profile=1\npackage.output.syn=true"
+   }
+  ],
+  "cwd": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Jul 27 04:21:15 2024",
+ "timestampMillis": "1722050475664",
+ "status": {
+  "cmdId": "eccd79a3-baa0-46ab-9cb3-aeebf72d171b",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Sat Jul 27 04:21:19 2024",
+ "timestampMillis": "1722050479758",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_COMPILE",
+  "target": "TT_HW",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "vadd",
+     "file": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/vadd.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/src/vadd.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2024.1"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sat Jul 27 04:21:19 2024",
+ "timestampMillis": "1722050479758",
+ "buildStep": {
+  "cmdId": "b07cb889-fef7-45b9-a726-74b08a38ce19",
+  "name": "csynth_design",
+  "logFile": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/hls/hls.log",
+  "commandLine": "csynth_design",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Jul 27 04:21:19 2024",
+ "timestampMillis": "1722050479759",
+ "status": {
+  "cmdId": "b07cb889-fef7-45b9-a726-74b08a38ce19",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Jul 27 04:21:19 2024",
+ "timestampMillis": "1722050479759",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/hls/hls_data.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Jul 27 04:21:19 2024",
+ "timestampMillis": "1722050479759",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/hls/syn/report/csynth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Jul 27 04:21:19 2024",
+ "timestampMillis": "1722050479759",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/hls/syn/report/csynth.xml",
+  "name": "",
+  "fileType": "XML",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Jul 27 04:21:28 2024",
+ "timestampMillis": "1722050488547",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_DATAFLOW",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Jul 27 04:21:28 2024",
+ "timestampMillis": "1722050488548",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_FUNCTION_CALL_GRAPH",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Jul 27 04:21:28 2024",
+ "timestampMillis": "1722050488548",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_SCHEDULE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Jul 27 04:21:28 2024",
+ "timestampMillis": "1722050488548",
+ "status": {
+  "cmdId": "b07cb889-fef7-45b9-a726-74b08a38ce19",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sat Jul 27 04:21:28 2024",
+ "timestampMillis": "1722050488548",
+ "buildStep": {
+  "cmdId": "9fa644fd-40e2-4a4a-a842-46baee558eb5",
+  "name": "export_design",
+  "logFile": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/hls/hls.log",
+  "commandLine": "export_design -flow none -format xo",
+  "args": [
+   "-flow",
+   "none",
+   "-format",
+   "xo"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Jul 27 04:21:28 2024",
+ "timestampMillis": "1722050488549",
+ "status": {
+  "cmdId": "9fa644fd-40e2-4a4a-a842-46baee558eb5",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Jul 27 04:21:28 2024",
+ "timestampMillis": "1722050488549",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/hls/hls_data.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Jul 27 04:21:28 2024",
+ "timestampMillis": "1722050488549",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/hls/syn/report/csynth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Jul 27 04:21:28 2024",
+ "timestampMillis": "1722050488549",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/hls/syn/report/csynth.xml",
+  "name": "",
+  "fileType": "XML",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Jul 27 04:21:42 2024",
+ "timestampMillis": "1722050502320",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_DATAFLOW",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Jul 27 04:21:42 2024",
+ "timestampMillis": "1722050502321",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_FUNCTION_CALL_GRAPH",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Jul 27 04:21:42 2024",
+ "timestampMillis": "1722050502321",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_SCHEDULE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Jul 27 04:21:42 2024",
+ "timestampMillis": "1722050502321",
+ "status": {
+  "cmdId": "9fa644fd-40e2-4a4a-a842-46baee558eb5",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Jul 27 04:21:42 2024",
+ "timestampMillis": "1722050502511",
+ "status": {
+  "cmdId": "eccd79a3-baa0-46ab-9cb3-aeebf72d171b",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Jul 27 04:21:42 2024",
+ "timestampMillis": "1722050502571",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/reports/v++_compile_vadd_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Jul 27 04:21:42 2024",
+ "timestampMillis": "1722050502571",
+ "report": {
+  "path": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases/hello_world_vadd/vadd/reports/.db/v++_compile_vadd_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

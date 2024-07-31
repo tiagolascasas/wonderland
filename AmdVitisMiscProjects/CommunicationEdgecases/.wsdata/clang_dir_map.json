@@ -1,0 +1,6 @@
+{
+  "workspaceRoot": "/home/tls/Dev/wonderland/AmdVitisMiscProjects/CommunicationEdgecases",
+  "mapping": {
+    "hello_world_vadd/src/vadd.cpp": "hello_world_vadd"
+  }
+}
