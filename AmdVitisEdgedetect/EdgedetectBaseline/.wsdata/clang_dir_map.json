@@ -1,6 +1,0 @@
-{
-  "workspaceRoot": "/home/tls/Dev/wonderland/AmdVitisEdgedetect/EdgedetectBaseline",
-  "mapping": {
-    "EdgedetectBaseline_cluster/edgedetect.cpp": "EdgedetectBaseline_cluster"
-  }
-}
