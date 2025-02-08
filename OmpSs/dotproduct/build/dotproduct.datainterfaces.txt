@@ -1,0 +1,6 @@
+/bitInfo_BRAM_Ctrl/S_AXI	1
+/managed_reset/S_AXI	1
+/Hardware_Runtime/S_AXI_GP	1
+/dotProduct_0/mcxx_result	0
+/dotProduct_0/mcxx_v1	1
+/dotProduct_0/mcxx_v2	2

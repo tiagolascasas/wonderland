@@ -1,0 +1,4 @@
+BRAM           13 used |    1824 available -   0.71% utilization
+DSP             5 used |    2520 available -   0.20% utilization
+FF           9675 used |  548160 available -   1.76% utilization
+LUT          7721 used |  274080 available -   2.82% utilization
