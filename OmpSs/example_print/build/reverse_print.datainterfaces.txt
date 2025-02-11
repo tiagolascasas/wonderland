@@ -1,0 +1,7 @@
+/bitInfo_BRAM_Ctrl/S_AXI	1
+/managed_reset/S_AXI	1
+/Hardware_Runtime/S_AXI_GP	1
+/foo_0/mcxx_dst	0
+/foo_0/mcxx_src	1
+/bar_0/mcxx_dst	2
+/bar_0/mcxx_src	3
