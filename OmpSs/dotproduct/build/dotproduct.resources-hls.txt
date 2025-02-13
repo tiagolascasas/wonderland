@@ -1,4 +1,0 @@
-BRAM_18K        8 used |    1824 available -   0.44% utilization
-DSP             5 used |    2520 available -    0.2% utilization
-FF           3393 used |  548160 available -   0.62% utilization
-LUT          4100 used |  274080 available -    1.5% utilization
