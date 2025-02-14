@@ -26,7 +26,6 @@ echo "Starting Docker container as root with name: $CONTAINER_NAME..."
 docker run -itd \
     -v $HOST_XILINX_TOOLS:/opt/xilinx/ \
     -v $HOST_PETALINUX:/opt/petalinux/ \
-    -v $HOST_XILINX_LIC:/home/ompss/.Xilinx/Xilinx.lic \
     -e DISPLAY=$DISPLAY \
     -e PATH="/opt/xilinx/Vivado/2024.2/bin/:/opt/xilinx/Vitis_HLS/2024.2/bin/:$PATH" \
     --network host \
@@ -42,6 +41,7 @@ fi
 # Copy each folder from the host to the container
 echo "Copying apps from host to container..."
 docker cp $HOST_APPS_SRC $CONTAINER_NAME:$CONTAINER_APPS_DEST
+docker cp Xilinx.lic $CONTAINER_NAME:/home/$CONTAINER_USER/Xilinx.lic
 
 # Check if the copy was successful
 if [ $? -eq 0 ]; then
@@ -54,6 +54,10 @@ fi
 # Adjust permissions inside the container as root
 echo "Adjusting permissions inside the container as root..."
 docker exec -u root $CONTAINER_NAME chown -R $CONTAINER_USER:$CONTAINER_GROUP $CONTAINER_APPS_DEST
+
+# Move the Xilinx license to the appropriate location
+docker exec $CONTAINER_NAME mkdir -p /home/$CONTAINER_USER/.Xilinx
+docker exec $CONTAINER_NAME mv /home/$CONTAINER_USER/Xilinx.lic /home/$CONTAINER_USER/.Xilinx/Xilinx.lic
 docker exec -u root $CONTAINER_NAME chown $CONTAINER_USER:$CONTAINER_GROUP /home/$CONTAINER_USER/.Xilinx
 
 # Attach to the container interactively as the specified user
