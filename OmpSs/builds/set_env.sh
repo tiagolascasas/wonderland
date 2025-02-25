@@ -1,0 +1,1 @@
+export NANOS6_CONFIG_OVERRIDE="devices.fpga.reverse_offload=true,devices.fpga.requested_fpga_memory=0x800000"

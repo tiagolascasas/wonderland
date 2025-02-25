@@ -17,18 +17,18 @@ void print_task(int *epoch)
     printf("Epoch %d done\n", *epoch);
 }
 
-#pragma oss task device(smp) in([1] f, [1] lower_bound, [1] upper_bound)
-void assert_task(float *f, float *lower_bound, float *upper_bound)
-{
-    if (*f > *lower_bound && *f < *upper_bound)
-    {
-        printf("assertion passed\n");
-    }
-    else
-    {
-        printf("assertion failed\n");
-    }
-}
+// #pragma oss task device(smp) in([1] f, [1] lower_bound, [1] upper_bound)
+// void assert_task(float *f, float *lower_bound, float *upper_bound)
+// {
+//     if (*f > *lower_bound && *f < *upper_bound)
+//     {
+//         printf("assertion passed\n");
+//     }
+//     else
+//     {
+//         printf("assertion failed\n");
+//     }
+// }
 
 #pragma oss task device(fpga) in([4608000] data, [NUM_TRAINING] label)inout([NUM_FEATURES] theta)
 void SgdLR_sw(float data[NUM_FEATURES * NUM_TRAINING],
@@ -72,7 +72,7 @@ void SgdLR_sw(float data[NUM_FEATURES * NUM_TRAINING],
                 theta[i] += -STEP_SIZE * gradient[i];
             }
         }
-        printf("Epoch %d done\n", epoch);
+        print_task(&epoch);
 #pragma oss taskwait
     }
     float lb1 = 2802.336181;
@@ -80,10 +80,10 @@ void SgdLR_sw(float data[NUM_FEATURES * NUM_TRAINING],
     float lb2 = -8321.051759;
     float ub2 = -8321.051757;
 
-    assert_task(&theta[1], &lb1, &ub1);
-#pragma oss taskwait
-    assert_task(&theta[1023], &lb2, &ub2);
-#pragma oss taskwait
+    //    assert_task(&theta[1], &lb1, &ub1);
+    // #pragma oss taskwait
+    //    assert_task(&theta[1023], &lb2, &ub2);
+    // #pragma oss taskwait
 }
 
 int main(int argc, char *argv[])

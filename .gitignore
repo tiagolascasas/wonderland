@@ -41,4 +41,6 @@ OmpSs/example_print/vivado.jou
 
 OmpSs/example_print/vivado.log
 
-OmpSs/builds/
+OmpSs/builds/reverse_print/reverse_print_ait/
+
+OmpSs/builds/dotproduct/dotproduct_ait/
