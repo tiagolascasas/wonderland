@@ -11,26 +11,7 @@ const int DATA_SET_SIZE = NUM_FEATURES * NUM_SAMPLES;
 
 #define PAR_FACTOR 32
 
-#pragma oss task device(smp) in([1] epoch)
-void print_task(int *epoch)
-{
-    printf("Epoch %d done\n", *epoch);
-}
-
-// #pragma oss task device(smp) in([1] f, [1] lower_bound, [1] upper_bound)
-// void assert_task(float *f, float *lower_bound, float *upper_bound)
-// {
-//     if (*f > *lower_bound && *f < *upper_bound)
-//     {
-//         printf("assertion passed\n");
-//     }
-//     else
-//     {
-//         printf("assertion failed\n");
-//     }
-// }
-
-#pragma oss task device(fpga) in([4608000] data, [NUM_TRAINING] label)inout([NUM_FEATURES] theta)
+#pragma oss task device(fpga) in([4608000] data, [4500] label)inout([1024] theta)
 void SgdLR_sw(float data[NUM_FEATURES * NUM_TRAINING],
               unsigned char label[NUM_TRAINING],
               float theta[NUM_FEATURES])
@@ -72,18 +53,7 @@ void SgdLR_sw(float data[NUM_FEATURES * NUM_TRAINING],
                 theta[i] += -STEP_SIZE * gradient[i];
             }
         }
-        print_task(&epoch);
-#pragma oss taskwait
     }
-    float lb1 = 2802.336181;
-    float ub1 = 2802.336183;
-    float lb2 = -8321.051759;
-    float ub2 = -8321.051757;
-
-    //    assert_task(&theta[1], &lb1, &ub1);
-    // #pragma oss taskwait
-    //    assert_task(&theta[1023], &lb2, &ub2);
-    // #pragma oss taskwait
 }
 
 int main(int argc, char *argv[])
@@ -92,8 +62,64 @@ int main(int argc, char *argv[])
     unsigned char *labels = (unsigned char *)malloc(NUM_SAMPLES * sizeof(unsigned char));
     float *param_vector = (float *)malloc(NUM_FEATURES * sizeof(float));
 
+    const char *str_points_filepath = "shuffledfeats.dat";
+    const char *str_labels_filepath = "shuffledlabels.dat";
+
+    FILE *data_file;
+    FILE *label_file;
+
+    data_file = fopen(str_points_filepath, "r");
+    if (!data_file)
+    {
+        printf("Failed to open data file %s, replacing with synthetic data\n", str_points_filepath);
+        for (int i = 0; i < DATA_SET_SIZE; i++)
+        {
+            data_points[i] = (float)(rand() % 100);
+        }
+    }
+    else
+    {
+        for (int i = 0; i < DATA_SET_SIZE; i++)
+        {
+            float tmp;
+            fscanf(data_file, "%f", &tmp);
+            data_points[i] = tmp;
+        }
+        fclose(data_file);
+    }
+
+    label_file = fopen(str_labels_filepath, "r");
+    if (!label_file)
+    {
+        printf("Failed to open label file %s, replacing with synthetic data\n", str_labels_filepath);
+        for (int i = 0; i < NUM_SAMPLES; i++)
+        {
+            labels[i] = (unsigned char)(rand() % 2);
+        }
+    }
+    else
+    {
+        for (int i = 0; i < NUM_SAMPLES; i++)
+        {
+            int tmp;
+            fscanf(label_file, "%d", &tmp);
+            labels[i] = tmp;
+        }
+        fclose(label_file);
+    }
+
+    for (size_t i = 0; i < NUM_FEATURES; i++)
+    {
+        param_vector[i] = 0;
+    }
+
     SgdLR_sw(data_points, labels, param_vector);
 #pragma oss taskwait
+
+    for (int i = 0; i < NUM_FEATURES; i += 64)
+    {
+        printf("param_vector[%i] = %f\n", i, param_vector[i]);
+    }
 
     return EXIT_SUCCESS;
 }
