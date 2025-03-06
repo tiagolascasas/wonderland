@@ -4,17 +4,20 @@
 
 #define SAMPLES 64
 #define VEC_SIZE 1024
+#define DATASET SAMPLES *VEC_SIZE
 
 int compare(const void *a, const void *b)
 {
     return (*(int *)a - *(int *)b);
 }
 
+#pragma oss task device(smp) inout([SAMPLES] res)
 void qsort_task(int *res)
 {
-    qsort(res, 2048, sizeof(int), compare);
+    qsort(res, SAMPLES, sizeof(int), compare);
 }
 
+#pragma oss task device(fpga) in([DATASET] v1, [DATASET] v2)inout([SAMPLES] c, [SAMPLES] d)
 void dotprod_task(int *a, int *b, int *c, int *d)
 {
     for (int i = 0; i < SAMPLES; i++)
@@ -24,29 +27,41 @@ void dotprod_task(int *a, int *b, int *c, int *d)
             c[i] += a[i * VEC_SIZE + j] * b[i * VEC_SIZE + j];
         }
     }
+
     qsort_task(c);
+#pragma oss taskwait
+
+    for (int i = 0; i < SAMPLES; i++)
+    {
+        d[i] = c[i] - d[i];
+    }
 }
 
 int main()
 {
-    int a[SAMPLES * VEC_SIZE];
-    int b[SAMPLES * VEC_SIZE];
+    int a[DATASET];
+    int b[DATASET];
     int c[SAMPLES];
     int d[SAMPLES];
 
     srand(42);
-    for (int i = 0; i < SAMPLES * VEC_SIZE; i++)
+    for (int i = 0; i < DATASET; i++)
     {
-        a[i] = rand() % 10;
-        b[i] = rand() % 10;
+        a[i] = rand() % 16;
+        b[i] = rand() % 16;
     }
-    memset(res, 0, SAMPLES * sizeof(int));
+    for (int i = 0; i < SAMPLES; i++)
+    {
+        c[i] = 0;
+        d[i] = 54415;
+    }
 
     dotprod_task(a, b, c, d);
+#pragma oss taskwait
 
     for (int i = 0; i < SAMPLES; i++)
     {
-        printf("res[%d] = %d\n", i, res[i]);
+        printf("c[%d] = %d, d[%d] = %d\n", i, c[i], i, d[i]);
     }
 
     return 0;

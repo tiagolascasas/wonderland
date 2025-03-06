@@ -1,7 +1,7 @@
 .PHONY: clean
 all: help
 
-PROGRAM_ = reverse_print
+PROGRAM_ = reverse_sort
 
 common-help:
 	@echo 'Supported targets:          $(PROGRAM_)-p, $(PROGRAM_)-i, $(PROGRAM_)-d, $(PROGRAM_)-seq, design-p, design-i, design-d, bitstream-p, bitstream-i, bitstream-d, clean, help'
