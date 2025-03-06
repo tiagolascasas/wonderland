@@ -86,7 +86,7 @@ AIT_FLAGS_DESIGN_ = -fompss-fpga-ait-flags "$(AIT_FLAGS_DESIGN__)"
 AIT_FLAGS_D_      = -fompss-fpga-ait-flags "$(AIT_FLAGS_D__)"
 
 PROGRAM_SRC = \
-    reverse-print.cpp
+    reverse_sort.cpp
 
 $(PROGRAM_)-p: $(PROGRAM_SRC)
 	$(COMPILER_) $(COMPILER_FLAGS_) $^ -o $@ $(LINKER_FLAGS_)
