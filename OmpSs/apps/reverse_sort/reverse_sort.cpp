@@ -6,18 +6,30 @@
 #define VEC_SIZE 1024
 #define DATASET SAMPLES *VEC_SIZE
 
-int compare(const void *a, const void *b)
+// int compare(const void *a, const void *b)
+// {
+//     return (*(int *)a - *(int *)b);
+// }
+
+#pragma oss task device(smp) inout([SAMPLES] arr)
+void qsort_task(int *arr)
 {
-    return (*(int *)a - *(int *)b);
+    // qsort(c, SAMPLES, sizeof(int), compare);
+    for (int i = 0; i < SAMPLES - 1; i++)
+    {
+        for (int j = 0; j < SAMPLES - i - 1; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
 }
 
-#pragma oss task device(smp) inout([SAMPLES] res)
-void qsort_task(int *res)
-{
-    qsort(res, SAMPLES, sizeof(int), compare);
-}
-
-#pragma oss task device(fpga) in([DATASET] v1, [DATASET] v2)inout([SAMPLES] c, [SAMPLES] d)
+#pragma oss task device(fpga) in([DATASET] a, [DATASET] b)inout([SAMPLES] c, [SAMPLES] d)
 void dotprod_task(int *a, int *b, int *c, int *d)
 {
     for (int i = 0; i < SAMPLES; i++)
