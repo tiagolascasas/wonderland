@@ -6,3 +6,4 @@ _x
 *.elf
 /build
 /kernel_synthesis
+/kernel_linking

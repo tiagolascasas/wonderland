@@ -1,10 +1,12 @@
 #!/bin/bash
 
-# Defaults, change these if needed
+# System defaults, change these if needed
 DEFAULT_VITIS_DIR="/tools/Xilinx/Vitis/2024.2"
 SYSROOT="/home/tls/xilinx/sysroots/xilinx-zynqmp-common-v2024.2/sysroots/cortexa72-cortexa53-xilinx-linux"
 PLATFORM="xilinx_zcu102_base_202420_1"
+FREQ="300MHz"
 
+# App specific variables, change these if needed
 APP_NAME="edge_detect"
 HOST_CODE="edge_detect.cpp"
 KERNEL_CODE="cluster0.cpp"
@@ -81,8 +83,21 @@ $ARM_COMP $HOST_CODE $BRIDGE_CODE --sysroot=$SYSROOT -O3 -o "${BUILD_DIR}/${APP_
 echo "Host code compiled successfully."
 
 # Step 3.2: Compile the kernel
+echo "Compiling kernel code..."
 mkdir -p ./kernel_synthesis
 cd ./kernel_synthesis
-v++ -c -t hw --platform $PLATFORM -k $TOP_FUNCTION -I . -o "../${BUILD_DIR}/${TOP_FUNCTION}.xo" ../$KERNEL_CODE --temp_dir syn
+v++ -c -t hw --platform $PLATFORM -k $TOP_FUNCTION -I . -o "../${BUILD_DIR}/${TOP_FUNCTION}.xo" ../$KERNEL_CODE --temp_dir syn --kernel_frequency $FREQ
 mv ../${BUILD_DIR}/${TOP_FUNCTION}.xo.compile_summary .
 cd ..
+echo "Kernel code compiled successfully."
+
+# Step 3.3: Link the host and kernel
+echo "Linking host and kernel..."
+mkdir -p ./kernel_linking
+cd ./kernel_linking
+v++ -l -t hw --platform $PLATFORM -o "../${BUILD_DIR}/${TOP_FUNCTION}.xclbin" "../${BUILD_DIR}/${TOP_FUNCTION}.xo" --temp_dir ./link
+mv ../${BUILD_DIR}/${TOP_FUNCTION}.xclbin.link_summary .
+mv ../${BUILD_DIR}/${TOP_FUNCTION}.xclbin.info .
+rm ../${BUILD_DIR}/${TOP_FUNCTION}.xo
+cd ..
+echo "SW-HW version compiled successfully."
