@@ -1,0 +1,8 @@
+_x
+.Xil
+*.compile_summary
+*.log
+*.xo
+*.elf
+/build
+/kernel_synthesis

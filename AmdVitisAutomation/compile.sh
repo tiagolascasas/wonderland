@@ -3,11 +3,14 @@
 # Defaults, change these if needed
 DEFAULT_VITIS_DIR="/tools/Xilinx/Vitis/2024.2"
 SYSROOT="/home/tls/xilinx/sysroots/xilinx-zynqmp-common-v2024.2/sysroots/cortexa72-cortexa53-xilinx-linux"
+PLATFORM="xilinx_zcu102_base_202420_1"
 
 APP_NAME="edge_detect"
 HOST_CODE="edge_detect.cpp"
 KERNEL_CODE="cluster0.cpp"
 BRIDGE_CODE="cluster0_bridge.cpp"
+TOP_FUNCTION="cluster0"
+BUILD_DIR="build"
 
 # Step 1: verify environment
 echo "Verifying environment..."
@@ -50,9 +53,18 @@ if [ ! -d "$SYSROOT" ]; then
 fi
 echo "Sysroot directory verified: $SYSROOT"
 
+# Step 1.5: create build directory, or empty it if it exists
+if [ -d "$BUILD_DIR" ]; then
+  echo "Build directory $BUILD_DIR exists, emptying it..."
+  rm -rf "$BUILD_DIR"/*
+else
+  echo "Creating build directory $BUILD_DIR..."
+  mkdir -p "$BUILD_DIR"
+fi
+
 # Step 2: Compile SW-only version
 echo "Compiling SW-only version..."
-$ARM_COMP $HOST_CODE -O3 -o "${APP_NAME}_sw.elf" -lm
+$ARM_COMP $HOST_CODE -O3 -o "${BUILD_DIR}/${APP_NAME}_sw.elf" -lm
 echo "SW-only version compiled successfully."
 
 # Step 3: Compile SW-HW version
@@ -65,5 +77,12 @@ XRT_INCLUDES="$SYSROOT/usr/include/xrt"
 LIBS="$SYSROOT/lib"
 LINK="-lxrt++ -lxrt_core -lxrt_coreutil -lm"
 
-$ARM_COMP $HOST_CODE $BRIDGE_CODE --sysroot=$SYSROOT -O3 -o "${APP_NAME}_host.elf" -DOFFLOAD -I$ARM_INCLUDES -I$XRT_INCLUDES -L$LIBS $LINK
+$ARM_COMP $HOST_CODE $BRIDGE_CODE --sysroot=$SYSROOT -O3 -o "${BUILD_DIR}/${APP_NAME}_host.elf" -DOFFLOAD -I$ARM_INCLUDES -I$XRT_INCLUDES -L$LIBS $LINK
 echo "Host code compiled successfully."
+
+# Step 3.2: Compile the kernel
+mkdir -p ./kernel_synthesis
+cd ./kernel_synthesis
+v++ -c -t hw --platform $PLATFORM -k $TOP_FUNCTION -I . -o "../${BUILD_DIR}/${TOP_FUNCTION}.xo" ../$KERNEL_CODE --temp_dir syn
+mv ../${BUILD_DIR}/${TOP_FUNCTION}.xo.compile_summary .
+cd ..
