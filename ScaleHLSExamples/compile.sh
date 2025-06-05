@@ -1,3 +1,4 @@
+#!/bin/bash
 DEFAULT_CXX_PATH=/edgedetect/edge_detect.c
 DEFAULT_TOP_FUNCTION=rgbToGrayscale
 DEFAULT_SCALEHLS_DIR=~/dev/scalehls
