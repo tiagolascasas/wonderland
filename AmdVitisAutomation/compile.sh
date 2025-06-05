@@ -62,7 +62,8 @@ echo "Compiling SW-HW version..."
 echo "Compiling host code..."
 ARM_INCLUDES="$SYSROOT/usr/include/"
 XRT_INCLUDES="$SYSROOT/usr/include/xrt"
-XRT_LIBS="$SYSROOT/usr/lib/xrt"
+LIBS="$SYSROOT/lib"
+LINK="-lxrt++ -lxrt_core -lxrt_coreutil -lm"
 
-$ARM_COMP $HOST_CODE $BRIDGE_CODE -O3 -o "${APP_NAME}_host.elf" -lm -DOFFLOAD -I$ARM_INCLUDES -I$XRT_INCLUDES -I$XILINX_VITIS/include -L$XRT_LIBS -lxrt_coreutil -lxrt_host -luuid
+$ARM_COMP $HOST_CODE $BRIDGE_CODE --sysroot=$SYSROOT -O3 -o "${APP_NAME}_host.elf" -DOFFLOAD -I$ARM_INCLUDES -I$XRT_INCLUDES -L$LIBS $LINK
 echo "Host code compiled successfully."
