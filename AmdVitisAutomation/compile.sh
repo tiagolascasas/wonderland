@@ -2,8 +2,10 @@
 
 # System defaults, change these if needed
 DEFAULT_VITIS_DIR="/tools/Xilinx/Vitis/2024.2"
-SYSROOT="/home/tls/xilinx/sysroots/xilinx-zynqmp-common-v2024.2/sysroots/cortexa72-cortexa53-xilinx-linux"
-PLATFORM="xilinx_zcu102_base_202420_1"
+#SYSROOT="/home/tls/xilinx/sysroots/xilinx-zynqmp-common-v2024.2/sysroots/cortexa72-cortexa53-xilinx-linux"
+SYSROOT="/home/tls/xilinx/sysroots/kria-ubuntu-24.04/sysroot"
+#PLATFORM="xilinx_zcu102_base_202420_1"
+PLATFORM="/home/tls/xilinx/platforms/xilinx_kv260_bist_202410_1/kv260_bist.xpfm"
 FREQ="300MHz"
 
 # App specific variables, change these if needed
@@ -74,12 +76,29 @@ echo "Compiling SW-HW version..."
 
 # Step 3.1: Compile the host
 echo "Compiling host code..."
-ARM_INCLUDES="$SYSROOT/usr/include/"
-XRT_INCLUDES="$SYSROOT/usr/include/xrt"
-LIBS="$SYSROOT/lib"
-LINK="-lxrt++ -lxrt_core -lxrt_coreutil -lm"
+HOST_FLAGS="-O3 -DOFFLOAD -fno-lto"
+CPP_INCLUDES="-I$SYSROOT/usr/include/c++/13 \
+                -I$SYSROOT/usr/include/c++/13 \
+                -I$SYSROOT/usr/include/aarch64-linux-gnu/c++/13 \
+                -I$SYSROOT/usr/include/c++/13/backward \
+                -I$SYSROOT/usr/lib/gcc/aarch64-linux-gnu/13/include \
+                -I$SYSROOT/usr/local/include \
+                -I$SYSROOT/usr/include/aarch64-linux-gnu \
+                -I$SYSROOT/usr/include"
+XRT_INCLUDES="-I$SYSROOT/usr/include/xrt"
 
-$ARM_COMP $HOST_CODE $BRIDGE_CODE --sysroot=$SYSROOT -O3 -o "${BUILD_DIR}/${APP_NAME}_host.elf" -DOFFLOAD -I$ARM_INCLUDES -I$XRT_INCLUDES -L$LIBS $LINK
+STARTUP_FILES="-B$SYSROOT/usr/lib/aarch64-linux-gnu \
+                -B$SYSROOT/usr/lib/gcc/aarch64-linux-gnu/13"
+
+LIBS_PATH="-L$SYSROOT/lib \
+            -L$SYSROOT/usr/lib \
+            -L$SYSROOT/usr/lib/aarch64-linux-gnu \
+            -L$SYSROOT/usr/local/lib \
+            -L$SYSROOT/usr/local/lib/aarch64-linux-gnu"
+LIBS_LINK="-lxrt++ -lxrt_core -lxrt_coreutil -lm -luuid"
+COMPILER_PATH=$SYSROOT/usr/libexec/gcc/aarch64-linux-gnu/13
+
+$ARM_COMP $HOST_CODE $BRIDGE_CODE --sysroot=$SYSROOT $HOST_FLAGS -o "${BUILD_DIR}/${APP_NAME}_host.elf" $CPP_INCLUDES $XRT_INCLUDES $STARTUP_FILES $LIBS_PATH $LIBS_LINK
 echo "Host code compiled successfully."
 
 # Step 3.2: Compile the kernel
