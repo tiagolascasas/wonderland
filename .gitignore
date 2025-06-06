@@ -46,3 +46,5 @@ OmpSs/builds/reverse_print/reverse_print_ait/
 OmpSs/builds/dotproduct/dotproduct_ait/
 
 ScaleHLSExamples/output/
+
+AmdVitisAutomation/kria/app_exec_time.csv

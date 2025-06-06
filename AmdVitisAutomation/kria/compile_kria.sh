@@ -7,8 +7,8 @@ PLATFORM="/home/tls/xilinx/platforms/xilinx_kv260_bist_202410_1/kv260_bist.xpfm"
 FREQ="300MHz"
 
 # App specific variables, change these if needed
-APP_NAME="edge_detect"
-HOST_CODE="edge_detect.cpp"
+APP_NAME="vadd"
+HOST_CODE="vadd.cpp"
 KERNEL_CODE="cluster0.cpp"
 BRIDGE_CODE="cluster0_bridge.cpp"
 TOP_FUNCTION="cluster0"
