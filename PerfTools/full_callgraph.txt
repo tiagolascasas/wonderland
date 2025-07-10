@@ -1,0 +1,3364 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 153  of event 'cycles:P'
+# Event count (approx.): 2150524
+#
+# Children      Self  Symbol                              IPC   [IPC Coverage]
+# ........  ........  ..................................  ....................
+#
+    79.42%     0.00%  [.] _start                          -      -            
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               |          
+               |--31.53%--writeMatrix
+               |          |          
+               |          |--30.04%--__fprintf (inlined)
+               |          |          __vfprintf_internal
+               |          |          |          
+               |          |          |--22.36%--__printf_buffer
+               |          |          |          |          
+               |          |          |          |--7.42%--__find_specmb (inlined)
+               |          |          |          |          |          
+               |          |          |          |           --5.52%--__strchrnul_avx2
+               |          |          |          |          
+               |          |          |          |--7.12%--__printf_buffer_write
+               |          |          |          |          __GI_memcpy (inlined)
+               |          |          |          |          __memcpy_avx_unaligned_erms (inlined)
+               |          |          |          |          
+               |          |          |           --1.48%--_itoa_word
+               |          |          |          
+               |          |          |--3.74%--__printf_buffer_to_file_switch
+               |          |          |          
+               |          |           --2.01%--__printf_buffer_to_file_init
+               |          |                     __printf_buffer_init (inlined)
+               |          |                     __printf_buffer_init_end (inlined)
+               |          |          
+               |           --1.49%--_dl_runtime_resolve_xsavec
+               |          
+               |--22.75%--selfCheck
+               |          |          
+               |          |--20.77%--__isoc99_fscanf
+               |          |          __vfscanf_internal
+               |          |          |          
+               |          |          |--2.01%--read_int (inlined)
+               |          |          |          
+               |          |           --1.97%--__GI_____strtol_l_internal (inlined)
+               |          |          
+               |           --1.98%--_dl_runtime_resolve_xsavec
+               |                     _dl_fixup
+               |                     _dl_lookup_symbol_x
+               |                     do_lookup_x
+               |                     check_match
+               |          
+               |--16.87%--readImage
+               |          |          
+               |          |--15.08%--__GI__IO_fread (inlined)
+               |          |          |          
+               |          |          |--3.57%--__GI__IO_file_xsgetn (inlined)
+               |          |          |          |          
+               |          |          |           --1.13%--__GI_memcpy (inlined)
+               |          |          |                     __memcpy_avx_unaligned_erms (inlined)
+               |          |          |          
+               |          |           --1.74%--__GI__IO_sgetn (inlined)
+               |          |          
+               |          |--0.93%--_dl_runtime_resolve_xsavec
+               |          |          
+               |           --0.86%--__GI_fseek (inlined)
+               |                     _IO_new_file_seekoff (inlined)
+               |                     __GI__IO_free_backup_area (inlined)
+               |          
+               |--5.73%--getDisparity
+               |          |          
+               |          |--4.39%--correlateSAD_2D
+               |          |          |          
+               |          |          |--2.99%--finalSAD
+               |          |          |          
+               |          |           --1.39%--integralImage2D2D
+               |          |          
+               |           --1.35%--findDisparity
+               |          
+               |--1.53%--__printf (inlined)
+               |          __vfprintf_internal
+               |          __printf_buffer
+               |          
+                --1.01%--__sprintf (inlined)
+                          __vsprintf_internal
+                          __printf_buffer
+
+    79.42%     0.00%  [.] __libc_start_main_impl (inlined)  -      -            
+            |
+            ---__libc_start_call_main
+               main
+               |          
+               |--31.53%--writeMatrix
+               |          |          
+               |          |--30.04%--__fprintf (inlined)
+               |          |          __vfprintf_internal
+               |          |          |          
+               |          |          |--22.36%--__printf_buffer
+               |          |          |          |          
+               |          |          |          |--7.42%--__find_specmb (inlined)
+               |          |          |          |          |          
+               |          |          |          |           --5.52%--__strchrnul_avx2
+               |          |          |          |          
+               |          |          |          |--7.12%--__printf_buffer_write
+               |          |          |          |          __GI_memcpy (inlined)
+               |          |          |          |          __memcpy_avx_unaligned_erms (inlined)
+               |          |          |          |          
+               |          |          |           --1.48%--_itoa_word
+               |          |          |          
+               |          |          |--3.74%--__printf_buffer_to_file_switch
+               |          |          |          
+               |          |           --2.01%--__printf_buffer_to_file_init
+               |          |                     __printf_buffer_init (inlined)
+               |          |                     __printf_buffer_init_end (inlined)
+               |          |          
+               |           --1.49%--_dl_runtime_resolve_xsavec
+               |          
+               |--22.75%--selfCheck
+               |          |          
+               |          |--20.77%--__isoc99_fscanf
+               |          |          __vfscanf_internal
+               |          |          |          
+               |          |          |--2.01%--read_int (inlined)
+               |          |          |          
+               |          |           --1.97%--__GI_____strtol_l_internal (inlined)
+               |          |          
+               |           --1.98%--_dl_runtime_resolve_xsavec
+               |                     _dl_fixup
+               |                     _dl_lookup_symbol_x
+               |                     do_lookup_x
+               |                     check_match
+               |          
+               |--16.87%--readImage
+               |          |          
+               |          |--15.08%--__GI__IO_fread (inlined)
+               |          |          |          
+               |          |          |--3.57%--__GI__IO_file_xsgetn (inlined)
+               |          |          |          |          
+               |          |          |           --1.13%--__GI_memcpy (inlined)
+               |          |          |                     __memcpy_avx_unaligned_erms (inlined)
+               |          |          |          
+               |          |           --1.74%--__GI__IO_sgetn (inlined)
+               |          |          
+               |          |--0.93%--_dl_runtime_resolve_xsavec
+               |          |          
+               |           --0.86%--__GI_fseek (inlined)
+               |                     _IO_new_file_seekoff (inlined)
+               |                     __GI__IO_free_backup_area (inlined)
+               |          
+               |--5.73%--getDisparity
+               |          |          
+               |          |--4.39%--correlateSAD_2D
+               |          |          |          
+               |          |          |--2.99%--finalSAD
+               |          |          |          
+               |          |           --1.39%--integralImage2D2D
+               |          |          
+               |           --1.35%--findDisparity
+               |          
+               |--1.53%--__printf (inlined)
+               |          __vfprintf_internal
+               |          __printf_buffer
+               |          
+                --1.01%--__sprintf (inlined)
+                          __vsprintf_internal
+                          __printf_buffer
+
+    79.42%     0.00%  [.] __libc_start_call_main          -      -            
+            |
+            ---main
+               |          
+               |--31.53%--writeMatrix
+               |          |          
+               |          |--30.04%--__fprintf (inlined)
+               |          |          __vfprintf_internal
+               |          |          |          
+               |          |          |--22.36%--__printf_buffer
+               |          |          |          |          
+               |          |          |          |--7.42%--__find_specmb (inlined)
+               |          |          |          |          |          
+               |          |          |          |           --5.52%--__strchrnul_avx2
+               |          |          |          |          
+               |          |          |          |--7.12%--__printf_buffer_write
+               |          |          |          |          __GI_memcpy (inlined)
+               |          |          |          |          __memcpy_avx_unaligned_erms (inlined)
+               |          |          |          |          
+               |          |          |           --1.48%--_itoa_word
+               |          |          |          
+               |          |          |--3.74%--__printf_buffer_to_file_switch
+               |          |          |          
+               |          |           --2.01%--__printf_buffer_to_file_init
+               |          |                     __printf_buffer_init (inlined)
+               |          |                     __printf_buffer_init_end (inlined)
+               |          |          
+               |           --1.49%--_dl_runtime_resolve_xsavec
+               |          
+               |--22.75%--selfCheck
+               |          |          
+               |          |--20.77%--__isoc99_fscanf
+               |          |          __vfscanf_internal
+               |          |          |          
+               |          |          |--2.01%--read_int (inlined)
+               |          |          |          
+               |          |           --1.97%--__GI_____strtol_l_internal (inlined)
+               |          |          
+               |           --1.98%--_dl_runtime_resolve_xsavec
+               |                     _dl_fixup
+               |                     _dl_lookup_symbol_x
+               |                     do_lookup_x
+               |                     check_match
+               |          
+               |--16.87%--readImage
+               |          |          
+               |          |--15.08%--__GI__IO_fread (inlined)
+               |          |          |          
+               |          |          |--3.57%--__GI__IO_file_xsgetn (inlined)
+               |          |          |          |          
+               |          |          |           --1.13%--__GI_memcpy (inlined)
+               |          |          |                     __memcpy_avx_unaligned_erms (inlined)
+               |          |          |          
+               |          |           --1.74%--__GI__IO_sgetn (inlined)
+               |          |          
+               |          |--0.93%--_dl_runtime_resolve_xsavec
+               |          |          
+               |           --0.86%--__GI_fseek (inlined)
+               |                     _IO_new_file_seekoff (inlined)
+               |                     __GI__IO_free_backup_area (inlined)
+               |          
+               |--5.73%--getDisparity
+               |          |          
+               |          |--4.39%--correlateSAD_2D
+               |          |          |          
+               |          |          |--2.99%--finalSAD
+               |          |          |          
+               |          |           --1.39%--integralImage2D2D
+               |          |          
+               |           --1.35%--findDisparity
+               |          
+               |--1.53%--__printf (inlined)
+               |          __vfprintf_internal
+               |          __printf_buffer
+               |          
+                --1.01%--__sprintf (inlined)
+                          __vsprintf_internal
+                          __printf_buffer
+
+    79.42%     0.00%  [.] main                            -      -            
+            |          
+            |--31.53%--writeMatrix
+            |          |          
+            |          |--30.04%--__fprintf (inlined)
+            |          |          __vfprintf_internal
+            |          |          |          
+            |          |          |--22.36%--__printf_buffer
+            |          |          |          |          
+            |          |          |          |--7.42%--__find_specmb (inlined)
+            |          |          |          |          |          
+            |          |          |          |           --5.52%--__strchrnul_avx2
+            |          |          |          |          
+            |          |          |          |--7.12%--__printf_buffer_write
+            |          |          |          |          __GI_memcpy (inlined)
+            |          |          |          |          __memcpy_avx_unaligned_erms (inlined)
+            |          |          |          |          
+            |          |          |           --1.48%--_itoa_word
+            |          |          |          
+            |          |          |--3.74%--__printf_buffer_to_file_switch
+            |          |          |          
+            |          |           --2.01%--__printf_buffer_to_file_init
+            |          |                     __printf_buffer_init (inlined)
+            |          |                     __printf_buffer_init_end (inlined)
+            |          |          
+            |           --1.49%--_dl_runtime_resolve_xsavec
+            |          
+            |--22.75%--selfCheck
+            |          |          
+            |          |--20.77%--__isoc99_fscanf
+            |          |          __vfscanf_internal
+            |          |          |          
+            |          |          |--2.01%--read_int (inlined)
+            |          |          |          
+            |          |           --1.97%--__GI_____strtol_l_internal (inlined)
+            |          |          
+            |           --1.98%--_dl_runtime_resolve_xsavec
+            |                     _dl_fixup
+            |                     _dl_lookup_symbol_x
+            |                     do_lookup_x
+            |                     check_match
+            |          
+            |--16.87%--readImage
+            |          |          
+            |          |--15.08%--__GI__IO_fread (inlined)
+            |          |          |          
+            |          |          |--3.57%--__GI__IO_file_xsgetn (inlined)
+            |          |          |          |          
+            |          |          |           --1.13%--__GI_memcpy (inlined)
+            |          |          |                     __memcpy_avx_unaligned_erms (inlined)
+            |          |          |          
+            |          |           --1.74%--__GI__IO_sgetn (inlined)
+            |          |          
+            |          |--0.93%--_dl_runtime_resolve_xsavec
+            |          |          
+            |           --0.86%--__GI_fseek (inlined)
+            |                     _IO_new_file_seekoff (inlined)
+            |                     __GI__IO_free_backup_area (inlined)
+            |          
+            |--5.73%--getDisparity
+            |          |          
+            |          |--4.39%--correlateSAD_2D
+            |          |          |          
+            |          |          |--2.99%--finalSAD
+            |          |          |          
+            |          |           --1.39%--integralImage2D2D
+            |          |          
+            |           --1.35%--findDisparity
+            |          
+            |--1.53%--__printf (inlined)
+            |          __vfprintf_internal
+            |          __printf_buffer
+            |          
+             --1.01%--__sprintf (inlined)
+                       __vsprintf_internal
+                       __printf_buffer
+
+    31.57%     1.94%  [.] __vfprintf_internal             -      -            
+            |          
+            |--29.63%--__vfprintf_internal
+            |          |          
+            |          |--23.88%--__printf_buffer
+            |          |          |          
+            |          |          |--7.42%--__find_specmb (inlined)
+            |          |          |          |          
+            |          |          |           --5.52%--__strchrnul_avx2
+            |          |          |          
+            |          |          |--7.12%--__printf_buffer_write
+            |          |          |          __GI_memcpy (inlined)
+            |          |          |          __memcpy_avx_unaligned_erms (inlined)
+            |          |          |          
+            |          |           --1.48%--_itoa_word
+            |          |          
+            |          |--3.74%--__printf_buffer_to_file_switch
+            |          |          
+            |           --2.01%--__printf_buffer_to_file_init
+            |                     __printf_buffer_init (inlined)
+            |                     __printf_buffer_init_end (inlined)
+            |          
+             --1.94%--_start
+                       __libc_start_main_impl (inlined)
+                       __libc_start_call_main
+                       main
+                       writeMatrix
+                       __fprintf (inlined)
+                       __vfprintf_internal
+
+    31.53%     0.00%  [.] writeMatrix                     -      -            
+            |          
+            |--30.04%--__fprintf (inlined)
+            |          __vfprintf_internal
+            |          |          
+            |          |--22.36%--__printf_buffer
+            |          |          |          
+            |          |          |--7.42%--__find_specmb (inlined)
+            |          |          |          |          
+            |          |          |           --5.52%--__strchrnul_avx2
+            |          |          |          
+            |          |          |--7.12%--__printf_buffer_write
+            |          |          |          __GI_memcpy (inlined)
+            |          |          |          __memcpy_avx_unaligned_erms (inlined)
+            |          |          |          
+            |          |           --1.48%--_itoa_word
+            |          |          
+            |          |--3.74%--__printf_buffer_to_file_switch
+            |          |          
+            |           --2.01%--__printf_buffer_to_file_init
+            |                     __printf_buffer_init (inlined)
+            |                     __printf_buffer_init_end (inlined)
+            |          
+             --1.49%--_dl_runtime_resolve_xsavec
+
+    30.04%     0.00%  [.] __fprintf (inlined)             -      -            
+            |
+            ---__vfprintf_internal
+               |          
+               |--22.36%--__printf_buffer
+               |          |          
+               |          |--7.42%--__find_specmb (inlined)
+               |          |          |          
+               |          |           --5.52%--__strchrnul_avx2
+               |          |          
+               |          |--7.12%--__printf_buffer_write
+               |          |          __GI_memcpy (inlined)
+               |          |          __memcpy_avx_unaligned_erms (inlined)
+               |          |          
+               |           --1.48%--_itoa_word
+               |          
+               |--3.74%--__printf_buffer_to_file_switch
+               |          
+                --2.01%--__printf_buffer_to_file_init
+                          __printf_buffer_init (inlined)
+                          __printf_buffer_init_end (inlined)
+
+    24.89%    10.77%  [.] __printf_buffer                 -      -            
+            |          
+            |--14.12%--__printf_buffer
+            |          |          
+            |          |--7.12%--__printf_buffer_write
+            |          |          __GI_memcpy (inlined)
+            |          |          __memcpy_avx_unaligned_erms (inlined)
+            |          |          
+            |          |--5.52%--__find_specmb (inlined)
+            |          |          __strchrnul_avx2
+            |          |          
+            |           --1.48%--_itoa_word
+            |          
+             --10.77%--_start
+                       __libc_start_main_impl (inlined)
+                       __libc_start_call_main
+                       main
+                       |          
+                       |--8.23%--writeMatrix
+                       |          __fprintf (inlined)
+                       |          __vfprintf_internal
+                       |          __printf_buffer
+                       |          |          
+                       |           --1.90%--__find_specmb (inlined)
+                       |          
+                       |--1.53%--__printf (inlined)
+                       |          __vfprintf_internal
+                       |          __printf_buffer
+                       |          
+                        --1.01%--__sprintf (inlined)
+                                  __vsprintf_internal
+                                  __printf_buffer
+
+    24.83%     0.00%  [.] selfCheck                       -      -            
+            |          
+            |--22.85%--__isoc99_fscanf
+            |          |          
+            |           --20.77%--__vfscanf_internal
+            |                     |          
+            |                     |--2.01%--read_int (inlined)
+            |                     |          
+            |                      --1.97%--__GI_____strtol_l_internal (inlined)
+            |          
+             --1.98%--_dl_runtime_resolve_xsavec
+                       _dl_fixup
+                       _dl_lookup_symbol_x
+                       do_lookup_x
+                       check_match
+
+    22.85%     2.08%  [.] __isoc99_fscanf                 -      -            
+            |          
+            |--20.77%--__isoc99_fscanf
+            |          __vfscanf_internal
+            |          |          
+            |          |--2.01%--read_int (inlined)
+            |          |          
+            |           --1.97%--__GI_____strtol_l_internal (inlined)
+            |          
+             --2.08%--selfCheck
+                       __isoc99_fscanf
+
+    20.77%    18.80%  [.] __vfscanf_internal              -      -            
+            |          
+            |--18.80%--_start
+            |          __libc_start_main_impl (inlined)
+            |          __libc_start_call_main
+            |          main
+            |          selfCheck
+            |          __isoc99_fscanf
+            |          __vfscanf_internal
+            |          |          
+            |           --2.01%--read_int (inlined)
+            |          
+             --1.97%--__vfscanf_internal
+                       __GI_____strtol_l_internal (inlined)
+
+    18.50%     0.00%  [.] _start                          -      -            
+            |          
+            |--18.50%--_dl_start
+            |          _dl_start_final (inlined)
+            |          |          
+            |          |--18.50%--_dl_sysdep_start
+            |          |          |          
+            |          |          |--18.09%--dl_main
+            |          |          |          |          
+            |          |          |          |--9.02%--_dl_relocate_object
+            |          |          |          |          |          
+            |          |          |          |          |--8.98%--elf_dynamic_do_Rela (inlined)
+            |          |          |          |          |          |          
+            |          |          |          |          |           --7.73%--elf_machine_rela (inlined)
+            |          |          |          |          |                     |          
+            |          |          |          |          |                      --7.68%--resolve_map (inlined)
+            |          |          |          |          |                                |          
+            |          |          |          |          |                                |--7.01%--_dl_lookup_symbol_x
+            |          |          |          |          |                                |          |          
+            |          |          |          |          |                                |          |--4.02%--do_lookup_x
+            |          |          |          |          |                                |          |          |          
+            |          |          |          |          |                                |          |           --1.18%--check_match
+            |          |          |          |          |                                |          |                     strcmp
+            |          |          |          |          |                                |          |          
+            |          |          |          |          |                                |           --2.96%--_dl_new_hash (inlined)
+            |          |          |          |          |                                |          
+            |          |          |          |          |                                 --0.02%--0xffffffff83800bb7
+            |          |          |          |          |                                           0xffffffff8369e495
+            |          |          |          |          |                                           0xffffffff824dbdbc
+            |          |          |          |          |                                           0xffffffff825ad2f9
+            |          |          |          |          |          
+            |          |          |          |          |--0.01%--0xffffffff83800b90
+            |          |          |          |          |          
+            |          |          |          |           --0.00%--0xffffffff8369a1de
+            |          |          |          |          
+            |          |          |          |--3.31%--_dl_map_object_deps
+            |          |          |          |          |          
+            |          |          |          |           --2.86%--__GI__dl_catch_exception (inlined)
+            |          |          |          |                     openaux
+            |          |          |          |                     _dl_map_object
+            |          |          |          |                     |          
+            |          |          |          |                     |--1.27%--_dl_load_cache_lookup
+            |          |          |          |                     |          |          
+            |          |          |          |                     |          |--0.82%--search_cache (inlined)
+            |          |          |          |                     |          |          _dl_cache_libcmp
+            |          |          |          |                     |          |          |          
+            |          |          |          |                     |          |           --0.45%--0xffffffff83800bb7
+            |          |          |          |                     |          |                     0xffffffff8369e495
+            |          |          |          |                     |          |                     0xffffffff824dbd40
+            |          |          |          |                     |          |          
+            |          |          |          |                     |           --0.44%--_dl_sysdep_read_whole_file
+            |          |          |          |                     |                     __mmap64 (inlined)
+            |          |          |          |                     |                     __mmap64 (inlined)
+            |          |          |          |                     |                     0xffffffff8380012b
+            |          |          |          |                     |                     0xffffffff8369797e
+            |          |          |          |                     |                     0xffffffff8240bd84
+            |          |          |          |                     |                     0xffffffff82466963
+            |          |          |          |                     |                     0xffffffff8285a7ba
+            |          |          |          |                     |                     0xffffffff8281a376
+            |          |          |          |                     |                     0xffffffff82b1b9e5
+            |          |          |          |                     |                     0xffffffff82b8f75b
+            |          |          |          |                     |                     0xffffffff82b95b22
+            |          |          |          |                     |          
+            |          |          |          |                     |--1.21%--_dl_map_object_from_fd
+            |          |          |          |                     |          |          
+            |          |          |          |                     |          |--0.81%--_dl_map_segments (inlined)
+            |          |          |          |                     |          |          |          
+            |          |          |          |                     |          |          |--0.43%--__mmap64 (inlined)
+            |          |          |          |                     |          |          |          __mmap64 (inlined)
+            |          |          |          |                     |          |          |          0xffffffff83800080
+            |          |          |          |                     |          |          |          
+            |          |          |          |                     |          |           --0.38%--_dl_map_segment (inlined)
+            |          |          |          |                     |          |                     __mmap64 (inlined)
+            |          |          |          |                     |          |                     __mmap64 (inlined)
+            |          |          |          |                     |          |                     0xffffffff8380012b
+            |          |          |          |                     |          |                     0xffffffff8369797e
+            |          |          |          |                     |          |                     0xffffffff8240bd84
+            |          |          |          |                     |          |                     0xffffffff82466963
+            |          |          |          |                     |          |                     0xffffffff8285a7ba
+            |          |          |          |                     |          |                     0xffffffff8281a376
+            |          |          |          |                     |          |                     0xffffffff82b1b9e5
+            |          |          |          |                     |          |                     0xffffffff82bb23d8
+            |          |          |          |                     |          |                     0xffffffff82b18ef3
+            |          |          |          |                     |          |          
+            |          |          |          |                     |           --0.40%--0xffffffff83800bb7
+            |          |          |          |                     |                     0xffffffff8369e495
+            |          |          |          |                     |                     0xffffffff824dbe42
+            |          |          |          |                     |                     0xffffffff82852639
+            |          |          |          |                     |                     0xffffffff82852081
+            |          |          |          |                     |          
+            |          |          |          |                      --0.38%--_dl_name_match_p
+            |          |          |          |          
+            |          |          |          |--1.21%--_dl_receive_error
+            |          |          |          |          version_check_doit
+            |          |          |          |          _dl_check_all_versions
+            |          |          |          |          _dl_check_map_versions
+            |          |          |          |          match_symbol (inlined)
+            |          |          |          |          |          
+            |          |          |          |           --0.87%--strcmp
+            |          |          |          |          
+            |          |          |          |--1.15%--__GI__dl_allocate_tls_init (inlined)
+            |          |          |          |          
+            |          |          |          |--1.09%--__libc_early_init
+            |          |          |          |          __pthread_early_init (inlined)
+            |          |          |          |          __pthread_tunables_init
+            |          |          |          |          __GI___tunable_get_val (inlined)
+            |          |          |          |          
+            |          |          |          |--0.47%--rtld_setup_main_map (inlined)
+            |          |          |          |          |          
+            |          |          |          |           --0.25%--0xffffffff838015d7
+            |          |          |          |          
+            |          |          |          |--0.45%--init_tls
+            |          |          |          |          |          
+            |          |          |          |          |--0.45%--_dl_tls_static_surplus_init
+            |          |          |          |          |          0xffffffff83800f4b
+            |          |          |          |          |          0xffffffff824bf872
+            |          |          |          |          |          
+            |          |          |          |          |--0.00%--call_tls_init_tp (inlined)
+            |          |          |          |          |          |          
+            |          |          |          |          |          |--0.00%--__tls_init_tp
+            |          |          |          |          |          |          |          
+            |          |          |          |          |          |          |--0.00%--0xffffffff83800083
+            |          |          |          |          |          |          |          
+            |          |          |          |          |          |           --0.00%--0xffffffff8380012b
+            |          |          |          |          |          |                     0xffffffff8369798a
+            |          |          |          |          |          |                     0xffffffff82471501
+            |          |          |          |          |          |          
+            |          |          |          |          |           --0.00%--0xffffffff8380012b
+            |          |          |          |          |                     0xffffffff8369797e
+            |          |          |          |          |                     0xffffffff8245ab65
+            |          |          |          |          |          
+            |          |          |          |          |--0.00%--_dl_allocate_tls_storage
+            |          |          |          |          |          |          
+            |          |          |          |          |          |--0.00%--0xffffffff83800bb7
+            |          |          |          |          |          |          |          
+            |          |          |          |          |          |          |--0.00%--0xffffffff8369eb61
+            |          |          |          |          |          |          |          
+            |          |          |          |          |          |           --0.00%--0xffffffff8369e495
+            |          |          |          |          |          |                     0xffffffff824dbdbc
+            |          |          |          |          |          |                     0xffffffff8284d5e1
+            |          |          |          |          |          |                     0xffffffff835fa73f
+            |          |          |          |          |          |          
+            |          |          |          |          |           --0.00%--malloc (inlined)
+            |          |          |          |          |                     __minimal_malloc
+            |          |          |          |          |                     __mmap64 (inlined)
+            |          |          |          |          |                     |          
+            |          |          |          |          |                      --0.00%--__mmap64 (inlined)
+            |          |          |          |          |                                0xffffffff8380012b
+            |          |          |          |          |                                0xffffffff8369797e
+            |          |          |          |          |                                0xffffffff8240bd84
+            |          |          |          |          |                                0xffffffff82466963
+            |          |          |          |          |                                0xffffffff8285a689
+            |          |          |          |          |                                0xffffffff82b1b975
+            |          |          |          |          |          
+            |          |          |          |           --0.00%--_dl_determine_tlsoffset
+            |          |          |          |          
+            |          |          |          |--0.38%--_dl_new_object
+            |          |          |          |          |          
+            |          |          |          |          |--0.16%--memcpy (inlined)
+            |          |          |          |          |          0xffffffff83800bb7
+            |          |          |          |          |          0xffffffff8369e450
+            |          |          |          |          |          
+            |          |          |          |           --0.12%--calloc (inlined)
+            |          |          |          |                     __minimal_malloc
+            |          |          |          |          
+            |          |          |          |--0.36%--call_init_paths (inlined)
+            |          |          |          |          _dl_init_paths
+            |          |          |          |          _dl_important_hwcaps
+            |          |          |          |          sort_priorities_by_name (inlined)
+            |          |          |          |          bcmp (inlined)
+            |          |          |          |          
+            |          |          |          |--0.33%--setup_vdso_pointers (inlined)
+            |          |          |          |          dl_vdso_vsym (inlined)
+            |          |          |          |          _dl_lookup_symbol_x
+            |          |          |          |          do_lookup_x
+            |          |          |          |          check_match
+            |          |          |          |          strcmp
+            |          |          |          |          
+            |          |          |          |--0.32%--setup_vdso (inlined)
+            |          |          |          |          0xffffffff83800bb7
+            |          |          |          |          0xffffffff8369e45b
+            |          |          |          |          
+            |          |          |           --0.00%--_rtld_main_check (inlined)
+            |          |          |                     _dl_cet_check
+            |          |          |          
+            |          |          |--0.25%--dl_platform_init (inlined)
+            |          |          |          init_cpu_features (inlined)
+            |          |          |          |          
+            |          |          |          |--0.21%--dl_init_cacheinfo (inlined)
+            |          |          |          |          |          
+            |          |          |          |          |--0.14%--handle_amd
+            |          |          |          |          |          
+            |          |          |          |           --0.06%--__GI___tunable_set_val
+            |          |          |          |                     do_tunable_update_val (inlined)
+            |          |          |          |          
+            |          |          |          |--0.02%--update_active (inlined)
+            |          |          |          |          
+            |          |          |          |--0.01%--get_extended_indices (inlined)
+            |          |          |          |          
+            |          |          |           --0.00%--get_common_indices (inlined)
+            |          |          |          
+            |          |          |--0.15%--strlen
+            |          |          |          |          
+            |          |          |           --0.08%--0xffffffff83800b90
+            |          |          |          
+            |          |          |--0.01%--__GI___tunables_init
+            |          |          |          |          
+            |          |          |          |--0.00%--get_next_env (inlined)
+            |          |          |          |          |          
+            |          |          |          |           --0.00%--0xffffffff83800b93
+            |          |          |          |          
+            |          |          |           --0.00%--tunable_is_name (inlined)
+            |          |          |          
+            |          |           --0.00%--__brk (inlined)
+            |          |                     0xffffffff8380012b
+            |          |                     0xffffffff8369797e
+            |          |                     0xffffffff8240a6ff
+            |          |          
+            |           --0.00%--_dl_setup_hash
+            |          
+            |--0.00%--0xffffffff83800bb7
+            |          0xffffffff8369e495
+            |          0xffffffff824dbdbc
+            |          0xffffffff8284d5d8
+            |          
+             --0.00%--0xffffffff83800b90
+
+    18.50%     0.00%  [.] _dl_start                       -      -            
+            |          
+             --18.50%--_dl_start
+                       _dl_start_final (inlined)
+                       |          
+                       |--18.50%--_dl_sysdep_start
+                       |          |          
+                       |          |--18.09%--dl_main
+                       |          |          |          
+                       |          |          |--9.02%--_dl_relocate_object
+                       |          |          |          |          
+                       |          |          |          |--8.98%--elf_dynamic_do_Rela (inlined)
+                       |          |          |          |          |          
+                       |          |          |          |           --7.73%--elf_machine_rela (inlined)
+                       |          |          |          |                     |          
+                       |          |          |          |                      --7.68%--resolve_map (inlined)
+                       |          |          |          |                                |          
+                       |          |          |          |                                |--7.01%--_dl_lookup_symbol_x
+                       |          |          |          |                                |          |          
+                       |          |          |          |                                |          |--4.02%--do_lookup_x
+                       |          |          |          |                                |          |          |          
+                       |          |          |          |                                |          |           --1.18%--check_match
+                       |          |          |          |                                |          |                     strcmp
+                       |          |          |          |                                |          |          
+                       |          |          |          |                                |           --2.96%--_dl_new_hash (inlined)
+                       |          |          |          |                                |          
+                       |          |          |          |                                 --0.02%--0xffffffff83800bb7
+                       |          |          |          |                                           0xffffffff8369e495
+                       |          |          |          |                                           0xffffffff824dbdbc
+                       |          |          |          |                                           0xffffffff825ad2f9
+                       |          |          |          |          
+                       |          |          |          |--0.01%--0xffffffff83800b90
+                       |          |          |          |          
+                       |          |          |           --0.00%--0xffffffff8369a1de
+                       |          |          |          
+                       |          |          |--3.31%--_dl_map_object_deps
+                       |          |          |          |          
+                       |          |          |           --2.86%--__GI__dl_catch_exception (inlined)
+                       |          |          |                     openaux
+                       |          |          |                     _dl_map_object
+                       |          |          |                     |          
+                       |          |          |                     |--1.27%--_dl_load_cache_lookup
+                       |          |          |                     |          |          
+                       |          |          |                     |          |--0.82%--search_cache (inlined)
+                       |          |          |                     |          |          _dl_cache_libcmp
+                       |          |          |                     |          |          |          
+                       |          |          |                     |          |           --0.45%--0xffffffff83800bb7
+                       |          |          |                     |          |                     0xffffffff8369e495
+                       |          |          |                     |          |                     0xffffffff824dbd40
+                       |          |          |                     |          |          
+                       |          |          |                     |           --0.44%--_dl_sysdep_read_whole_file
+                       |          |          |                     |                     __mmap64 (inlined)
+                       |          |          |                     |                     __mmap64 (inlined)
+                       |          |          |                     |                     0xffffffff8380012b
+                       |          |          |                     |                     0xffffffff8369797e
+                       |          |          |                     |                     0xffffffff8240bd84
+                       |          |          |                     |                     0xffffffff82466963
+                       |          |          |                     |                     0xffffffff8285a7ba
+                       |          |          |                     |                     0xffffffff8281a376
+                       |          |          |                     |                     0xffffffff82b1b9e5
+                       |          |          |                     |                     0xffffffff82b8f75b
+                       |          |          |                     |                     0xffffffff82b95b22
+                       |          |          |                     |          
+                       |          |          |                     |--1.21%--_dl_map_object_from_fd
+                       |          |          |                     |          |          
+                       |          |          |                     |          |--0.81%--_dl_map_segments (inlined)
+                       |          |          |                     |          |          |          
+                       |          |          |                     |          |          |--0.43%--__mmap64 (inlined)
+                       |          |          |                     |          |          |          __mmap64 (inlined)
+                       |          |          |                     |          |          |          0xffffffff83800080
+                       |          |          |                     |          |          |          
+                       |          |          |                     |          |           --0.38%--_dl_map_segment (inlined)
+                       |          |          |                     |          |                     __mmap64 (inlined)
+                       |          |          |                     |          |                     __mmap64 (inlined)
+                       |          |          |                     |          |                     0xffffffff8380012b
+                       |          |          |                     |          |                     0xffffffff8369797e
+                       |          |          |                     |          |                     0xffffffff8240bd84
+                       |          |          |                     |          |                     0xffffffff82466963
+                       |          |          |                     |          |                     0xffffffff8285a7ba
+                       |          |          |                     |          |                     0xffffffff8281a376
+                       |          |          |                     |          |                     0xffffffff82b1b9e5
+                       |          |          |                     |          |                     0xffffffff82bb23d8
+                       |          |          |                     |          |                     0xffffffff82b18ef3
+                       |          |          |                     |          |          
+                       |          |          |                     |           --0.40%--0xffffffff83800bb7
+                       |          |          |                     |                     0xffffffff8369e495
+                       |          |          |                     |                     0xffffffff824dbe42
+                       |          |          |                     |                     0xffffffff82852639
+                       |          |          |                     |                     0xffffffff82852081
+                       |          |          |                     |          
+                       |          |          |                      --0.38%--_dl_name_match_p
+                       |          |          |          
+                       |          |          |--1.21%--_dl_receive_error
+                       |          |          |          version_check_doit
+                       |          |          |          _dl_check_all_versions
+                       |          |          |          _dl_check_map_versions
+                       |          |          |          match_symbol (inlined)
+                       |          |          |          |          
+                       |          |          |           --0.87%--strcmp
+                       |          |          |          
+                       |          |          |--1.15%--__GI__dl_allocate_tls_init (inlined)
+                       |          |          |          
+                       |          |          |--1.09%--__libc_early_init
+                       |          |          |          __pthread_early_init (inlined)
+                       |          |          |          __pthread_tunables_init
+                       |          |          |          __GI___tunable_get_val (inlined)
+                       |          |          |          
+                       |          |          |--0.47%--rtld_setup_main_map (inlined)
+                       |          |          |          |          
+                       |          |          |           --0.25%--0xffffffff838015d7
+                       |          |          |          
+                       |          |          |--0.45%--init_tls
+                       |          |          |          |          
+                       |          |          |          |--0.45%--_dl_tls_static_surplus_init
+                       |          |          |          |          0xffffffff83800f4b
+                       |          |          |          |          0xffffffff824bf872
+                       |          |          |          |          
+                       |          |          |          |--0.00%--call_tls_init_tp (inlined)
+                       |          |          |          |          |          
+                       |          |          |          |          |--0.00%--__tls_init_tp
+                       |          |          |          |          |          |          
+                       |          |          |          |          |          |--0.00%--0xffffffff83800083
+                       |          |          |          |          |          |          
+                       |          |          |          |          |           --0.00%--0xffffffff8380012b
+                       |          |          |          |          |                     0xffffffff8369798a
+                       |          |          |          |          |                     0xffffffff82471501
+                       |          |          |          |          |          
+                       |          |          |          |           --0.00%--0xffffffff8380012b
+                       |          |          |          |                     0xffffffff8369797e
+                       |          |          |          |                     0xffffffff8245ab65
+                       |          |          |          |          
+                       |          |          |          |--0.00%--_dl_allocate_tls_storage
+                       |          |          |          |          |          
+                       |          |          |          |          |--0.00%--0xffffffff83800bb7
+                       |          |          |          |          |          |          
+                       |          |          |          |          |          |--0.00%--0xffffffff8369eb61
+                       |          |          |          |          |          |          
+                       |          |          |          |          |           --0.00%--0xffffffff8369e495
+                       |          |          |          |          |                     0xffffffff824dbdbc
+                       |          |          |          |          |                     0xffffffff8284d5e1
+                       |          |          |          |          |                     0xffffffff835fa73f
+                       |          |          |          |          |          
+                       |          |          |          |           --0.00%--malloc (inlined)
+                       |          |          |          |                     __minimal_malloc
+                       |          |          |          |                     __mmap64 (inlined)
+                       |          |          |          |                     |          
+                       |          |          |          |                      --0.00%--__mmap64 (inlined)
+                       |          |          |          |                                0xffffffff8380012b
+                       |          |          |          |                                0xffffffff8369797e
+                       |          |          |          |                                0xffffffff8240bd84
+                       |          |          |          |                                0xffffffff82466963
+                       |          |          |          |                                0xffffffff8285a689
+                       |          |          |          |                                0xffffffff82b1b975
+                       |          |          |          |          
+                       |          |          |           --0.00%--_dl_determine_tlsoffset
+                       |          |          |          
+                       |          |          |--0.38%--_dl_new_object
+                       |          |          |          |          
+                       |          |          |          |--0.16%--memcpy (inlined)
+                       |          |          |          |          0xffffffff83800bb7
+                       |          |          |          |          0xffffffff8369e450
+                       |          |          |          |          
+                       |          |          |           --0.12%--calloc (inlined)
+                       |          |          |                     __minimal_malloc
+                       |          |          |          
+                       |          |          |--0.36%--call_init_paths (inlined)
+                       |          |          |          _dl_init_paths
+                       |          |          |          _dl_important_hwcaps
+                       |          |          |          sort_priorities_by_name (inlined)
+                       |          |          |          bcmp (inlined)
+                       |          |          |          
+                       |          |          |--0.33%--setup_vdso_pointers (inlined)
+                       |          |          |          dl_vdso_vsym (inlined)
+                       |          |          |          _dl_lookup_symbol_x
+                       |          |          |          do_lookup_x
+                       |          |          |          check_match
+                       |          |          |          strcmp
+                       |          |          |          
+                       |          |          |--0.32%--setup_vdso (inlined)
+                       |          |          |          0xffffffff83800bb7
+                       |          |          |          0xffffffff8369e45b
+                       |          |          |          
+                       |          |           --0.00%--_rtld_main_check (inlined)
+                       |          |                     _dl_cet_check
+                       |          |          
+                       |          |--0.25%--dl_platform_init (inlined)
+                       |          |          init_cpu_features (inlined)
+                       |          |          |          
+                       |          |          |--0.21%--dl_init_cacheinfo (inlined)
+                       |          |          |          |          
+                       |          |          |          |--0.14%--handle_amd
+                       |          |          |          |          
+                       |          |          |           --0.06%--__GI___tunable_set_val
+                       |          |          |                     do_tunable_update_val (inlined)
+                       |          |          |          
+                       |          |          |--0.02%--update_active (inlined)
+                       |          |          |          
+                       |          |          |--0.01%--get_extended_indices (inlined)
+                       |          |          |          
+                       |          |           --0.00%--get_common_indices (inlined)
+                       |          |          
+                       |          |--0.15%--strlen
+                       |          |          |          
+                       |          |           --0.08%--0xffffffff83800b90
+                       |          |          
+                       |          |--0.01%--__GI___tunables_init
+                       |          |          |          
+                       |          |          |--0.00%--get_next_env (inlined)
+                       |          |          |          |          
+                       |          |          |           --0.00%--0xffffffff83800b93
+                       |          |          |          
+                       |          |           --0.00%--tunable_is_name (inlined)
+                       |          |          
+                       |           --0.00%--__brk (inlined)
+                       |                     0xffffffff8380012b
+                       |                     0xffffffff8369797e
+                       |                     0xffffffff8240a6ff
+                       |          
+                        --0.00%--_dl_setup_hash
+
+    18.50%     0.00%  [.] _dl_sysdep_start                -      -            
+            |          
+            |--18.09%--dl_main
+            |          |          
+            |          |--9.02%--_dl_relocate_object
+            |          |          |          
+            |          |          |--8.98%--elf_dynamic_do_Rela (inlined)
+            |          |          |          |          
+            |          |          |           --7.73%--elf_machine_rela (inlined)
+            |          |          |                     |          
+            |          |          |                      --7.68%--resolve_map (inlined)
+            |          |          |                                |          
+            |          |          |                                |--7.01%--_dl_lookup_symbol_x
+            |          |          |                                |          |          
+            |          |          |                                |          |--4.02%--do_lookup_x
+            |          |          |                                |          |          |          
+            |          |          |                                |          |           --1.18%--check_match
+            |          |          |                                |          |                     strcmp
+            |          |          |                                |          |          
+            |          |          |                                |           --2.96%--_dl_new_hash (inlined)
+            |          |          |                                |          
+            |          |          |                                 --0.02%--0xffffffff83800bb7
+            |          |          |                                           0xffffffff8369e495
+            |          |          |                                           0xffffffff824dbdbc
+            |          |          |                                           0xffffffff825ad2f9
+            |          |          |          
+            |          |          |--0.01%--0xffffffff83800b90
+            |          |          |          
+            |          |           --0.00%--0xffffffff8369a1de
+            |          |          
+            |          |--3.31%--_dl_map_object_deps
+            |          |          |          
+            |          |           --2.86%--__GI__dl_catch_exception (inlined)
+            |          |                     openaux
+            |          |                     _dl_map_object
+            |          |                     |          
+            |          |                     |--1.27%--_dl_load_cache_lookup
+            |          |                     |          |          
+            |          |                     |          |--0.82%--search_cache (inlined)
+            |          |                     |          |          _dl_cache_libcmp
+            |          |                     |          |          |          
+            |          |                     |          |           --0.45%--0xffffffff83800bb7
+            |          |                     |          |                     0xffffffff8369e495
+            |          |                     |          |                     0xffffffff824dbd40
+            |          |                     |          |          
+            |          |                     |           --0.44%--_dl_sysdep_read_whole_file
+            |          |                     |                     __mmap64 (inlined)
+            |          |                     |                     __mmap64 (inlined)
+            |          |                     |                     0xffffffff8380012b
+            |          |                     |                     0xffffffff8369797e
+            |          |                     |                     0xffffffff8240bd84
+            |          |                     |                     0xffffffff82466963
+            |          |                     |                     0xffffffff8285a7ba
+            |          |                     |                     0xffffffff8281a376
+            |          |                     |                     0xffffffff82b1b9e5
+            |          |                     |                     0xffffffff82b8f75b
+            |          |                     |                     0xffffffff82b95b22
+            |          |                     |          
+            |          |                     |--1.21%--_dl_map_object_from_fd
+            |          |                     |          |          
+            |          |                     |          |--0.81%--_dl_map_segments (inlined)
+            |          |                     |          |          |          
+            |          |                     |          |          |--0.43%--__mmap64 (inlined)
+            |          |                     |          |          |          __mmap64 (inlined)
+            |          |                     |          |          |          0xffffffff83800080
+            |          |                     |          |          |          
+            |          |                     |          |           --0.38%--_dl_map_segment (inlined)
+            |          |                     |          |                     __mmap64 (inlined)
+            |          |                     |          |                     __mmap64 (inlined)
+            |          |                     |          |                     0xffffffff8380012b
+            |          |                     |          |                     0xffffffff8369797e
+            |          |                     |          |                     0xffffffff8240bd84
+            |          |                     |          |                     0xffffffff82466963
+            |          |                     |          |                     0xffffffff8285a7ba
+            |          |                     |          |                     0xffffffff8281a376
+            |          |                     |          |                     0xffffffff82b1b9e5
+            |          |                     |          |                     0xffffffff82bb23d8
+            |          |                     |          |                     0xffffffff82b18ef3
+            |          |                     |          |          
+            |          |                     |           --0.40%--0xffffffff83800bb7
+            |          |                     |                     0xffffffff8369e495
+            |          |                     |                     0xffffffff824dbe42
+            |          |                     |                     0xffffffff82852639
+            |          |                     |                     0xffffffff82852081
+            |          |                     |          
+            |          |                      --0.38%--_dl_name_match_p
+            |          |          
+            |          |--1.21%--_dl_receive_error
+            |          |          version_check_doit
+            |          |          _dl_check_all_versions
+            |          |          _dl_check_map_versions
+            |          |          match_symbol (inlined)
+            |          |          |          
+            |          |           --0.87%--strcmp
+            |          |          
+            |          |--1.15%--__GI__dl_allocate_tls_init (inlined)
+            |          |          
+            |          |--1.09%--__libc_early_init
+            |          |          __pthread_early_init (inlined)
+            |          |          __pthread_tunables_init
+            |          |          __GI___tunable_get_val (inlined)
+            |          |          
+            |          |--0.47%--rtld_setup_main_map (inlined)
+            |          |          |          
+            |          |           --0.25%--0xffffffff838015d7
+            |          |          
+            |          |--0.45%--init_tls
+            |          |          |          
+            |          |          |--0.45%--_dl_tls_static_surplus_init
+            |          |          |          0xffffffff83800f4b
+            |          |          |          0xffffffff824bf872
+            |          |          |          
+            |          |          |--0.00%--call_tls_init_tp (inlined)
+            |          |          |          |          
+            |          |          |          |--0.00%--__tls_init_tp
+            |          |          |          |          |          
+            |          |          |          |          |--0.00%--0xffffffff83800083
+            |          |          |          |          |          
+            |          |          |          |           --0.00%--0xffffffff8380012b
+            |          |          |          |                     0xffffffff8369798a
+            |          |          |          |                     0xffffffff82471501
+            |          |          |          |          
+            |          |          |           --0.00%--0xffffffff8380012b
+            |          |          |                     0xffffffff8369797e
+            |          |          |                     0xffffffff8245ab65
+            |          |          |          
+            |          |          |--0.00%--_dl_allocate_tls_storage
+            |          |          |          |          
+            |          |          |          |--0.00%--0xffffffff83800bb7
+            |          |          |          |          |          
+            |          |          |          |          |--0.00%--0xffffffff8369eb61
+            |          |          |          |          |          
+            |          |          |          |           --0.00%--0xffffffff8369e495
+            |          |          |          |                     0xffffffff824dbdbc
+            |          |          |          |                     0xffffffff8284d5e1
+            |          |          |          |                     0xffffffff835fa73f
+            |          |          |          |          
+            |          |          |           --0.00%--malloc (inlined)
+            |          |          |                     __minimal_malloc
+            |          |          |                     __mmap64 (inlined)
+            |          |          |                     |          
+            |          |          |                      --0.00%--__mmap64 (inlined)
+            |          |          |                                0xffffffff8380012b
+            |          |          |                                0xffffffff8369797e
+            |          |          |                                0xffffffff8240bd84
+            |          |          |                                0xffffffff82466963
+            |          |          |                                0xffffffff8285a689
+            |          |          |                                0xffffffff82b1b975
+            |          |          |          
+            |          |           --0.00%--_dl_determine_tlsoffset
+            |          |          
+            |          |--0.38%--_dl_new_object
+            |          |          |          
+            |          |          |--0.16%--memcpy (inlined)
+            |          |          |          0xffffffff83800bb7
+            |          |          |          0xffffffff8369e450
+            |          |          |          
+            |          |           --0.12%--calloc (inlined)
+            |          |                     __minimal_malloc
+            |          |          
+            |          |--0.36%--call_init_paths (inlined)
+            |          |          _dl_init_paths
+            |          |          _dl_important_hwcaps
+            |          |          sort_priorities_by_name (inlined)
+            |          |          bcmp (inlined)
+            |          |          
+            |          |--0.33%--setup_vdso_pointers (inlined)
+            |          |          dl_vdso_vsym (inlined)
+            |          |          _dl_lookup_symbol_x
+            |          |          do_lookup_x
+            |          |          check_match
+            |          |          strcmp
+            |          |          
+            |          |--0.32%--setup_vdso (inlined)
+            |          |          0xffffffff83800bb7
+            |          |          0xffffffff8369e45b
+            |          |          
+            |           --0.00%--_rtld_main_check (inlined)
+            |                     _dl_cet_check
+            |          
+            |--0.25%--dl_platform_init (inlined)
+            |          init_cpu_features (inlined)
+            |          |          
+            |          |--0.21%--dl_init_cacheinfo (inlined)
+            |          |          |          
+            |          |          |--0.14%--handle_amd
+            |          |          |          
+            |          |           --0.06%--__GI___tunable_set_val
+            |          |                     do_tunable_update_val (inlined)
+            |          |          
+            |          |--0.02%--update_active (inlined)
+            |          |          
+            |          |--0.01%--get_extended_indices (inlined)
+            |          |          
+            |           --0.00%--get_common_indices (inlined)
+            |          
+            |--0.15%--strlen
+            |          |          
+            |           --0.08%--0xffffffff83800b90
+            |          
+            |--0.01%--__GI___tunables_init
+            |          |          
+            |          |--0.00%--get_next_env (inlined)
+            |          |          |          
+            |          |           --0.00%--0xffffffff83800b93
+            |          |          
+            |           --0.00%--tunable_is_name (inlined)
+            |          
+             --0.00%--__brk (inlined)
+                       0xffffffff8380012b
+                       0xffffffff8369797e
+                       0xffffffff8240a6ff
+
+    18.09%     0.22%  [.] dl_main                         -      -            
+            |          
+            |--17.87%--dl_main
+            |          |          
+            |          |--9.02%--_dl_relocate_object
+            |          |          |          
+            |          |          |--8.98%--elf_dynamic_do_Rela (inlined)
+            |          |          |          |          
+            |          |          |           --7.73%--elf_machine_rela (inlined)
+            |          |          |                     |          
+            |          |          |                      --7.68%--resolve_map (inlined)
+            |          |          |                                |          
+            |          |          |                                |--7.01%--_dl_lookup_symbol_x
+            |          |          |                                |          |          
+            |          |          |                                |          |--4.02%--do_lookup_x
+            |          |          |                                |          |          |          
+            |          |          |                                |          |           --1.18%--check_match
+            |          |          |                                |          |                     strcmp
+            |          |          |                                |          |          
+            |          |          |                                |           --2.96%--_dl_new_hash (inlined)
+            |          |          |                                |          
+            |          |          |                                 --0.02%--0xffffffff83800bb7
+            |          |          |                                           0xffffffff8369e495
+            |          |          |                                           0xffffffff824dbdbc
+            |          |          |                                           0xffffffff825ad2f9
+            |          |          |          
+            |          |          |--0.01%--0xffffffff83800b90
+            |          |          |          
+            |          |           --0.00%--0xffffffff8369a1de
+            |          |          
+            |          |--3.31%--_dl_map_object_deps
+            |          |          |          
+            |          |           --2.86%--__GI__dl_catch_exception (inlined)
+            |          |                     openaux
+            |          |                     _dl_map_object
+            |          |                     |          
+            |          |                     |--1.27%--_dl_load_cache_lookup
+            |          |                     |          |          
+            |          |                     |          |--0.82%--search_cache (inlined)
+            |          |                     |          |          _dl_cache_libcmp
+            |          |                     |          |          |          
+            |          |                     |          |           --0.45%--0xffffffff83800bb7
+            |          |                     |          |                     0xffffffff8369e495
+            |          |                     |          |                     0xffffffff824dbd40
+            |          |                     |          |          
+            |          |                     |           --0.44%--_dl_sysdep_read_whole_file
+            |          |                     |                     __mmap64 (inlined)
+            |          |                     |                     __mmap64 (inlined)
+            |          |                     |                     0xffffffff8380012b
+            |          |                     |                     0xffffffff8369797e
+            |          |                     |                     0xffffffff8240bd84
+            |          |                     |                     0xffffffff82466963
+            |          |                     |                     0xffffffff8285a7ba
+            |          |                     |                     0xffffffff8281a376
+            |          |                     |                     0xffffffff82b1b9e5
+            |          |                     |                     0xffffffff82b8f75b
+            |          |                     |                     0xffffffff82b95b22
+            |          |                     |          
+            |          |                     |--1.21%--_dl_map_object_from_fd
+            |          |                     |          |          
+            |          |                     |          |--0.81%--_dl_map_segments (inlined)
+            |          |                     |          |          |          
+            |          |                     |          |          |--0.43%--__mmap64 (inlined)
+            |          |                     |          |          |          __mmap64 (inlined)
+            |          |                     |          |          |          0xffffffff83800080
+            |          |                     |          |          |          
+            |          |                     |          |           --0.38%--_dl_map_segment (inlined)
+            |          |                     |          |                     __mmap64 (inlined)
+            |          |                     |          |                     __mmap64 (inlined)
+            |          |                     |          |                     0xffffffff8380012b
+            |          |                     |          |                     0xffffffff8369797e
+            |          |                     |          |                     0xffffffff8240bd84
+            |          |                     |          |                     0xffffffff82466963
+            |          |                     |          |                     0xffffffff8285a7ba
+            |          |                     |          |                     0xffffffff8281a376
+            |          |                     |          |                     0xffffffff82b1b9e5
+            |          |                     |          |                     0xffffffff82bb23d8
+            |          |                     |          |                     0xffffffff82b18ef3
+            |          |                     |          |          
+            |          |                     |           --0.40%--0xffffffff83800bb7
+            |          |                     |                     0xffffffff8369e495
+            |          |                     |                     0xffffffff824dbe42
+            |          |                     |                     0xffffffff82852639
+            |          |                     |                     0xffffffff82852081
+            |          |                     |          
+            |          |                      --0.38%--_dl_name_match_p
+            |          |          
+            |          |--1.21%--_dl_receive_error
+            |          |          version_check_doit
+            |          |          _dl_check_all_versions
+            |          |          _dl_check_map_versions
+            |          |          match_symbol (inlined)
+            |          |          |          
+            |          |           --0.87%--strcmp
+            |          |          
+            |          |--1.15%--__GI__dl_allocate_tls_init (inlined)
+            |          |          
+            |          |--1.09%--__libc_early_init
+            |          |          __pthread_early_init (inlined)
+            |          |          __pthread_tunables_init
+            |          |          __GI___tunable_get_val (inlined)
+            |          |          
+            |          |--0.45%--init_tls
+            |          |          |          
+            |          |          |--0.45%--_dl_tls_static_surplus_init
+            |          |          |          0xffffffff83800f4b
+            |          |          |          0xffffffff824bf872
+            |          |          |          
+            |          |          |--0.00%--call_tls_init_tp (inlined)
+            |          |          |          |          
+            |          |          |          |--0.00%--__tls_init_tp
+            |          |          |          |          |          
+            |          |          |          |          |--0.00%--0xffffffff83800083
+            |          |          |          |          |          
+            |          |          |          |           --0.00%--0xffffffff8380012b
+            |          |          |          |                     0xffffffff8369798a
+            |          |          |          |                     0xffffffff82471501
+            |          |          |          |          
+            |          |          |           --0.00%--0xffffffff8380012b
+            |          |          |                     0xffffffff8369797e
+            |          |          |                     0xffffffff8245ab65
+            |          |          |          
+            |          |          |--0.00%--_dl_allocate_tls_storage
+            |          |          |          |          
+            |          |          |          |--0.00%--0xffffffff83800bb7
+            |          |          |          |          |          
+            |          |          |          |          |--0.00%--0xffffffff8369eb61
+            |          |          |          |          |          
+            |          |          |          |           --0.00%--0xffffffff8369e495
+            |          |          |          |                     0xffffffff824dbdbc
+            |          |          |          |                     0xffffffff8284d5e1
+            |          |          |          |                     0xffffffff835fa73f
+            |          |          |          |          
+            |          |          |           --0.00%--malloc (inlined)
+            |          |          |                     __minimal_malloc
+            |          |          |                     __mmap64 (inlined)
+            |          |          |                     |          
+            |          |          |                      --0.00%--__mmap64 (inlined)
+            |          |          |                                0xffffffff8380012b
+            |          |          |                                0xffffffff8369797e
+            |          |          |                                0xffffffff8240bd84
+            |          |          |                                0xffffffff82466963
+            |          |          |                                0xffffffff8285a689
+            |          |          |                                0xffffffff82b1b975
+            |          |          |          
+            |          |           --0.00%--_dl_determine_tlsoffset
+            |          |          
+            |          |--0.38%--_dl_new_object
+            |          |          |          
+            |          |          |--0.16%--memcpy (inlined)
+            |          |          |          0xffffffff83800bb7
+            |          |          |          0xffffffff8369e450
+            |          |          |          
+            |          |           --0.12%--calloc (inlined)
+            |          |                     __minimal_malloc
+            |          |          
+            |          |--0.36%--call_init_paths (inlined)
+            |          |          _dl_init_paths
+            |          |          _dl_important_hwcaps
+            |          |          sort_priorities_by_name (inlined)
+            |          |          bcmp (inlined)
+            |          |          
+            |          |--0.33%--setup_vdso_pointers (inlined)
+            |          |          dl_vdso_vsym (inlined)
+            |          |          _dl_lookup_symbol_x
+            |          |          do_lookup_x
+            |          |          check_match
+            |          |          strcmp
+            |          |          
+            |          |--0.32%--setup_vdso (inlined)
+            |          |          0xffffffff83800bb7
+            |          |          0xffffffff8369e45b
+            |          |          
+            |          |--0.25%--rtld_setup_main_map (inlined)
+            |          |          0xffffffff838015d7
+            |          |          
+            |           --0.00%--_rtld_main_check (inlined)
+            |                     _dl_cet_check
+            |          
+             --0.22%--_start
+                       _dl_start
+                       _dl_start_final (inlined)
+                       _dl_sysdep_start
+                       dl_main
+                       rtld_setup_main_map (inlined)
+
+    16.92%     0.00%  [.] _dl_start_final (inlined)       -      -            
+            |
+            ---_dl_sysdep_start
+               dl_main
+               |          
+               |--9.02%--_dl_relocate_object
+               |          |          
+               |          |--8.98%--elf_dynamic_do_Rela (inlined)
+               |          |          |          
+               |          |           --7.73%--elf_machine_rela (inlined)
+               |          |                     |          
+               |          |                      --7.68%--resolve_map (inlined)
+               |          |                                |          
+               |          |                                |--7.01%--_dl_lookup_symbol_x
+               |          |                                |          |          
+               |          |                                |          |--4.02%--do_lookup_x
+               |          |                                |          |          |          
+               |          |                                |          |           --1.18%--check_match
+               |          |                                |          |                     strcmp
+               |          |                                |          |          
+               |          |                                |           --2.96%--_dl_new_hash (inlined)
+               |          |                                |          
+               |          |                                 --0.02%--0xffffffff83800bb7
+               |          |                                           0xffffffff8369e495
+               |          |                                           0xffffffff824dbdbc
+               |          |                                           0xffffffff825ad2f9
+               |          |          
+               |          |--0.01%--0xffffffff83800b90
+               |          |          
+               |           --0.00%--0xffffffff8369a1de
+               |          
+               |--3.31%--_dl_map_object_deps
+               |          |          
+               |           --2.86%--__GI__dl_catch_exception (inlined)
+               |                     openaux
+               |                     _dl_map_object
+               |                     |          
+               |                     |--1.27%--_dl_load_cache_lookup
+               |                     |          |          
+               |                     |          |--0.82%--search_cache (inlined)
+               |                     |          |          _dl_cache_libcmp
+               |                     |          |          |          
+               |                     |          |           --0.45%--0xffffffff83800bb7
+               |                     |          |                     0xffffffff8369e495
+               |                     |          |                     0xffffffff824dbd40
+               |                     |          |          
+               |                     |           --0.44%--_dl_sysdep_read_whole_file
+               |                     |                     __mmap64 (inlined)
+               |                     |                     __mmap64 (inlined)
+               |                     |                     0xffffffff8380012b
+               |                     |                     0xffffffff8369797e
+               |                     |                     0xffffffff8240bd84
+               |                     |                     0xffffffff82466963
+               |                     |                     0xffffffff8285a7ba
+               |                     |                     0xffffffff8281a376
+               |                     |                     0xffffffff82b1b9e5
+               |                     |                     0xffffffff82b8f75b
+               |                     |                     0xffffffff82b95b22
+               |                     |          
+               |                     |--1.21%--_dl_map_object_from_fd
+               |                     |          |          
+               |                     |          |--0.81%--_dl_map_segments (inlined)
+               |                     |          |          |          
+               |                     |          |          |--0.43%--__mmap64 (inlined)
+               |                     |          |          |          __mmap64 (inlined)
+               |                     |          |          |          0xffffffff83800080
+               |                     |          |          |          
+               |                     |          |           --0.38%--_dl_map_segment (inlined)
+               |                     |          |                     __mmap64 (inlined)
+               |                     |          |                     __mmap64 (inlined)
+               |                     |          |                     0xffffffff8380012b
+               |                     |          |                     0xffffffff8369797e
+               |                     |          |                     0xffffffff8240bd84
+               |                     |          |                     0xffffffff82466963
+               |                     |          |                     0xffffffff8285a7ba
+               |                     |          |                     0xffffffff8281a376
+               |                     |          |                     0xffffffff82b1b9e5
+               |                     |          |                     0xffffffff82bb23d8
+               |                     |          |                     0xffffffff82b18ef3
+               |                     |          |          
+               |                     |           --0.40%--0xffffffff83800bb7
+               |                     |                     0xffffffff8369e495
+               |                     |                     0xffffffff824dbe42
+               |                     |                     0xffffffff82852639
+               |                     |                     0xffffffff82852081
+               |                     |          
+               |                      --0.38%--_dl_name_match_p
+               |          
+               |--1.21%--_dl_receive_error
+               |          version_check_doit
+               |          _dl_check_all_versions
+               |          _dl_check_map_versions
+               |          match_symbol (inlined)
+               |          |          
+               |           --0.87%--strcmp
+               |          
+               |--1.15%--__GI__dl_allocate_tls_init (inlined)
+               |          
+               |--1.09%--__libc_early_init
+               |          __pthread_early_init (inlined)
+               |          __pthread_tunables_init
+               |          __GI___tunable_get_val (inlined)
+               |          
+               |--0.45%--init_tls
+               |          |          
+               |          |--0.45%--_dl_tls_static_surplus_init
+               |          |          0xffffffff83800f4b
+               |          |          0xffffffff824bf872
+               |          |          
+               |          |--0.00%--call_tls_init_tp (inlined)
+               |          |          |          
+               |          |          |--0.00%--__tls_init_tp
+               |          |          |          |          
+               |          |          |          |--0.00%--0xffffffff83800083
+               |          |          |          |          
+               |          |          |           --0.00%--0xffffffff8380012b
+               |          |          |                     0xffffffff8369798a
+               |          |          |                     0xffffffff82471501
+               |          |          |          
+               |          |           --0.00%--0xffffffff8380012b
+               |          |                     0xffffffff8369797e
+               |          |                     0xffffffff8245ab65
+               |          |          
+               |          |--0.00%--_dl_allocate_tls_storage
+               |          |          |          
+               |          |          |--0.00%--0xffffffff83800bb7
+               |          |          |          |          
+               |          |          |          |--0.00%--0xffffffff8369eb61
+               |          |          |          |          
+               |          |          |           --0.00%--0xffffffff8369e495
+               |          |          |                     0xffffffff824dbdbc
+               |          |          |                     0xffffffff8284d5e1
+               |          |          |                     0xffffffff835fa73f
+               |          |          |          
+               |          |           --0.00%--malloc (inlined)
+               |          |                     __minimal_malloc
+               |          |                     __mmap64 (inlined)
+               |          |                     |          
+               |          |                      --0.00%--__mmap64 (inlined)
+               |          |                                0xffffffff8380012b
+               |          |                                0xffffffff8369797e
+               |          |                                0xffffffff8240bd84
+               |          |                                0xffffffff82466963
+               |          |                                0xffffffff8285a689
+               |          |                                0xffffffff82b1b975
+               |          |          
+               |           --0.00%--_dl_determine_tlsoffset
+               |          
+               |--0.36%--call_init_paths (inlined)
+               |          _dl_init_paths
+               |          _dl_important_hwcaps
+               |          sort_priorities_by_name (inlined)
+               |          bcmp (inlined)
+               |          
+               |--0.33%--setup_vdso_pointers (inlined)
+               |          dl_vdso_vsym (inlined)
+               |          _dl_lookup_symbol_x
+               |          do_lookup_x
+               |          check_match
+               |          strcmp
+               |          
+                --0.00%--_rtld_main_check (inlined)
+                          _dl_cet_check
+
+    16.87%     0.00%  [.] readImage                       -      -            
+            |          
+            |--15.08%--__GI__IO_fread (inlined)
+            |          |          
+            |          |--3.57%--__GI__IO_file_xsgetn (inlined)
+            |          |          |          
+            |          |           --1.13%--__GI_memcpy (inlined)
+            |          |                     __memcpy_avx_unaligned_erms (inlined)
+            |          |          
+            |           --1.74%--__GI__IO_sgetn (inlined)
+            |          
+            |--0.93%--_dl_runtime_resolve_xsavec
+            |          
+             --0.86%--__GI_fseek (inlined)
+                       _IO_new_file_seekoff (inlined)
+                       __GI__IO_free_backup_area (inlined)
+
+    15.08%     0.00%  [.] __GI__IO_fread (inlined)        -      -            
+            |          
+            |--3.57%--__GI__IO_file_xsgetn (inlined)
+            |          |          
+            |           --1.13%--__GI_memcpy (inlined)
+            |                     __memcpy_avx_unaligned_erms (inlined)
+            |          
+             --1.74%--__GI__IO_sgetn (inlined)
+
+     9.77%     9.77%  [.] _IO_fread                       -      -            
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               readImage
+               __GI__IO_fread (inlined)
+
+     9.31%     2.99%  [.] _dl_lookup_symbol_x             -      -            
+            |          
+            |--6.33%--_dl_lookup_symbol_x
+            |          do_lookup_x
+            |          |          
+            |           --3.48%--check_match
+            |                     |          
+            |                      --1.51%--strcmp
+            |          
+             --2.99%--_start
+                       _dl_start
+                       _dl_start_final (inlined)
+                       _dl_sysdep_start
+                       dl_main
+                       _dl_relocate_object
+                       elf_dynamic_do_Rela (inlined)
+                       elf_machine_rela (inlined)
+                       resolve_map (inlined)
+                       _dl_lookup_symbol_x
+                       |          
+                        --2.96%--_dl_new_hash (inlined)
+
+     9.02%     1.99%  [.] _dl_relocate_object             -      -            
+            |          
+            |--7.04%--_dl_relocate_object
+            |          |          
+            |          |--7.03%--elf_dynamic_do_Rela (inlined)
+            |          |          elf_machine_rela (inlined)
+            |          |          resolve_map (inlined)
+            |          |          |          
+            |          |          |--7.01%--_dl_lookup_symbol_x
+            |          |          |          |          
+            |          |          |          |--4.02%--do_lookup_x
+            |          |          |          |          |          
+            |          |          |          |           --1.18%--check_match
+            |          |          |          |                     strcmp
+            |          |          |          |          
+            |          |          |           --2.96%--_dl_new_hash (inlined)
+            |          |          |          
+            |          |           --0.02%--0xffffffff83800bb7
+            |          |                     0xffffffff8369e495
+            |          |                     0xffffffff824dbdbc
+            |          |                     0xffffffff825ad2f9
+            |          |          
+            |          |--0.01%--0xffffffff83800b90
+            |          |          
+            |           --0.00%--0xffffffff8369a1de
+            |          
+             --1.99%--_start
+                       _dl_start
+                       _dl_start_final (inlined)
+                       _dl_sysdep_start
+                       dl_main
+                       _dl_relocate_object
+                       |          
+                        --1.95%--elf_dynamic_do_Rela (inlined)
+                                  |          
+                                   --0.70%--elf_machine_rela (inlined)
+                                             |          
+                                              --0.65%--resolve_map (inlined)
+
+     8.98%     0.00%  [.] elf_dynamic_do_Rela (inlined)   -      -            
+            |          
+             --7.73%--elf_machine_rela (inlined)
+                       |          
+                        --7.68%--resolve_map (inlined)
+                                  |          
+                                  |--7.01%--_dl_lookup_symbol_x
+                                  |          |          
+                                  |          |--4.02%--do_lookup_x
+                                  |          |          |          
+                                  |          |           --1.18%--check_match
+                                  |          |                     strcmp
+                                  |          |          
+                                  |           --2.96%--_dl_new_hash (inlined)
+                                  |          
+                                   --0.02%--0xffffffff83800bb7
+                                             0xffffffff8369e495
+                                             0xffffffff824dbdbc
+                                             0xffffffff825ad2f9
+
+     8.25%     8.25%  [.] __memmove_avx_unaligned_erms    -      -            
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               |          
+               |--7.12%--writeMatrix
+               |          __fprintf (inlined)
+               |          __vfprintf_internal
+               |          __printf_buffer
+               |          __printf_buffer_write
+               |          __GI_memcpy (inlined)
+               |          __memcpy_avx_unaligned_erms (inlined)
+               |          
+                --1.13%--readImage
+                          __GI__IO_fread (inlined)
+                          __GI__IO_file_xsgetn (inlined)
+                          __GI_memcpy (inlined)
+                          __memcpy_avx_unaligned_erms (inlined)
+
+     8.25%     0.00%  [.] __memcpy_avx_unaligned_erms (inlined)  -      -            
+     7.73%     0.00%  [.] elf_machine_rela (inlined)      -      -            
+            |          
+             --7.68%--resolve_map (inlined)
+                       |          
+                       |--7.01%--_dl_lookup_symbol_x
+                       |          |          
+                       |          |--4.02%--do_lookup_x
+                       |          |          |          
+                       |          |           --1.18%--check_match
+                       |          |                     strcmp
+                       |          |          
+                       |           --2.96%--_dl_new_hash (inlined)
+                       |          
+                        --0.02%--0xffffffff83800bb7
+                                  0xffffffff8369e495
+                                  0xffffffff824dbdbc
+                                  0xffffffff825ad2f9
+
+     7.68%     0.00%  [.] resolve_map (inlined)           -      -            
+            |          
+            |--7.01%--_dl_lookup_symbol_x
+            |          |          
+            |          |--4.02%--do_lookup_x
+            |          |          |          
+            |          |           --1.18%--check_match
+            |          |                     strcmp
+            |          |          
+            |           --2.96%--_dl_new_hash (inlined)
+            |          
+             --0.02%--0xffffffff83800bb7
+                       0xffffffff8369e495
+                       0xffffffff824dbdbc
+                       0xffffffff825ad2f9
+
+     7.42%     0.00%  [.] __find_specmb (inlined)         -      -            
+            |          
+             --5.52%--__strchrnul_avx2
+
+     7.12%     0.00%  [.] __printf_buffer_write           -      -            
+            |
+            ---__GI_memcpy (inlined)
+               __memcpy_avx_unaligned_erms (inlined)
+
+     7.12%     0.00%  [.] __GI_memcpy (inlined)           -      -            
+            |
+            ---__memcpy_avx_unaligned_erms (inlined)
+
+     6.33%     2.84%  [.] do_lookup_x                     -      -            
+            |          
+            |--3.48%--do_lookup_x
+            |          check_match
+            |          |          
+            |           --1.51%--strcmp
+            |          
+             --2.84%--_start
+                       _dl_start
+                       _dl_start_final (inlined)
+                       _dl_sysdep_start
+                       dl_main
+                       _dl_relocate_object
+                       elf_dynamic_do_Rela (inlined)
+                       elf_machine_rela (inlined)
+                       resolve_map (inlined)
+                       _dl_lookup_symbol_x
+                       do_lookup_x
+
+     5.73%     0.00%  [.] getDisparity                    -      -            
+            |          
+            |--4.39%--correlateSAD_2D
+            |          |          
+            |          |--2.99%--finalSAD
+            |          |          
+            |           --1.39%--integralImage2D2D
+            |          
+             --1.35%--findDisparity
+
+     5.52%     5.52%  [.] __strchrnul_avx2                -      -            
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               writeMatrix
+               __fprintf (inlined)
+               __vfprintf_internal
+               __printf_buffer
+               __find_specmb (inlined)
+               __strchrnul_avx2
+
+     4.40%     2.42%  [.] _dl_runtime_resolve_xsavec      -      -            
+            |          
+            |--2.42%--_start
+            |          __libc_start_main_impl (inlined)
+            |          __libc_start_call_main
+            |          main
+            |          |          
+            |          |--1.49%--writeMatrix
+            |          |          _dl_runtime_resolve_xsavec
+            |          |          
+            |           --0.93%--readImage
+            |                     _dl_runtime_resolve_xsavec
+            |          
+             --1.98%--_dl_runtime_resolve_xsavec
+                       _dl_fixup
+                       _dl_lookup_symbol_x
+                       do_lookup_x
+                       check_match
+
+     4.39%     0.00%  [.] correlateSAD_2D                 -      -            
+            |          
+            |--2.99%--finalSAD
+            |          
+             --1.39%--integralImage2D2D
+
+     3.74%     3.74%  [.] __printf_buffer_to_file_switch  -      -            
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               writeMatrix
+               __fprintf (inlined)
+               __vfprintf_internal
+               __printf_buffer_to_file_switch
+
+     3.57%     0.00%  [.] __GI__IO_file_xsgetn (inlined)  -      -            
+            |          
+             --1.13%--__GI_memcpy (inlined)
+                       __memcpy_avx_unaligned_erms (inlined)
+
+     3.31%     0.45%  [.] _dl_map_object_deps             -      -            
+            |          
+            |--2.86%--_dl_map_object_deps
+            |          __GI__dl_catch_exception (inlined)
+            |          openaux
+            |          _dl_map_object
+            |          |          
+            |          |--1.27%--_dl_load_cache_lookup
+            |          |          |          
+            |          |          |--0.82%--search_cache (inlined)
+            |          |          |          _dl_cache_libcmp
+            |          |          |          |          
+            |          |          |           --0.45%--0xffffffff83800bb7
+            |          |          |                     0xffffffff8369e495
+            |          |          |                     0xffffffff824dbd40
+            |          |          |          
+            |          |           --0.44%--_dl_sysdep_read_whole_file
+            |          |                     __mmap64 (inlined)
+            |          |                     __mmap64 (inlined)
+            |          |                     0xffffffff8380012b
+            |          |                     0xffffffff8369797e
+            |          |                     0xffffffff8240bd84
+            |          |                     0xffffffff82466963
+            |          |                     0xffffffff8285a7ba
+            |          |                     0xffffffff8281a376
+            |          |                     0xffffffff82b1b9e5
+            |          |                     0xffffffff82b8f75b
+            |          |                     0xffffffff82b95b22
+            |          |          
+            |          |--1.21%--_dl_map_object_from_fd
+            |          |          |          
+            |          |          |--0.81%--_dl_map_segments (inlined)
+            |          |          |          |          
+            |          |          |          |--0.43%--__mmap64 (inlined)
+            |          |          |          |          __mmap64 (inlined)
+            |          |          |          |          0xffffffff83800080
+            |          |          |          |          
+            |          |          |           --0.38%--_dl_map_segment (inlined)
+            |          |          |                     __mmap64 (inlined)
+            |          |          |                     __mmap64 (inlined)
+            |          |          |                     0xffffffff8380012b
+            |          |          |                     0xffffffff8369797e
+            |          |          |                     0xffffffff8240bd84
+            |          |          |                     0xffffffff82466963
+            |          |          |                     0xffffffff8285a7ba
+            |          |          |                     0xffffffff8281a376
+            |          |          |                     0xffffffff82b1b9e5
+            |          |          |                     0xffffffff82bb23d8
+            |          |          |                     0xffffffff82b18ef3
+            |          |          |          
+            |          |           --0.40%--0xffffffff83800bb7
+            |          |                     0xffffffff8369e495
+            |          |                     0xffffffff824dbe42
+            |          |                     0xffffffff82852639
+            |          |                     0xffffffff82852081
+            |          |          
+            |           --0.38%--_dl_name_match_p
+            |          
+             --0.45%--_start
+                       _dl_start
+                       _dl_start_final (inlined)
+                       _dl_sysdep_start
+                       dl_main
+                       _dl_map_object_deps
+
+     3.16%     1.98%  [.] check_match                     -      -            
+            |          
+            |--1.98%--_start
+            |          __libc_start_main_impl (inlined)
+            |          __libc_start_call_main
+            |          main
+            |          selfCheck
+            |          _dl_runtime_resolve_xsavec
+            |          _dl_fixup
+            |          _dl_lookup_symbol_x
+            |          do_lookup_x
+            |          check_match
+            |          
+             --1.18%--check_match
+                       strcmp
+
+     2.99%     2.99%  [.] finalSAD                        -      -            
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               getDisparity
+               correlateSAD_2D
+               finalSAD
+
+     2.96%     0.00%  [.] _dl_new_hash (inlined)          -      -            
+     2.86%     0.00%  [.] __GI__dl_catch_exception (inlined)  -      -            
+            |
+            ---openaux
+               _dl_map_object
+               |          
+               |--1.27%--_dl_load_cache_lookup
+               |          |          
+               |          |--0.82%--search_cache (inlined)
+               |          |          _dl_cache_libcmp
+               |          |          |          
+               |          |           --0.45%--0xffffffff83800bb7
+               |          |                     0xffffffff8369e495
+               |          |                     0xffffffff824dbd40
+               |          |          
+               |           --0.44%--_dl_sysdep_read_whole_file
+               |                     __mmap64 (inlined)
+               |                     __mmap64 (inlined)
+               |                     0xffffffff8380012b
+               |                     0xffffffff8369797e
+               |                     0xffffffff8240bd84
+               |                     0xffffffff82466963
+               |                     0xffffffff8285a7ba
+               |                     0xffffffff8281a376
+               |                     0xffffffff82b1b9e5
+               |                     0xffffffff82b8f75b
+               |                     0xffffffff82b95b22
+               |          
+               |--1.21%--_dl_map_object_from_fd
+               |          |          
+               |          |--0.81%--_dl_map_segments (inlined)
+               |          |          |          
+               |          |          |--0.43%--__mmap64 (inlined)
+               |          |          |          __mmap64 (inlined)
+               |          |          |          0xffffffff83800080
+               |          |          |          
+               |          |           --0.38%--_dl_map_segment (inlined)
+               |          |                     __mmap64 (inlined)
+               |          |                     __mmap64 (inlined)
+               |          |                     0xffffffff8380012b
+               |          |                     0xffffffff8369797e
+               |          |                     0xffffffff8240bd84
+               |          |                     0xffffffff82466963
+               |          |                     0xffffffff8285a7ba
+               |          |                     0xffffffff8281a376
+               |          |                     0xffffffff82b1b9e5
+               |          |                     0xffffffff82bb23d8
+               |          |                     0xffffffff82b18ef3
+               |          |          
+               |           --0.40%--0xffffffff83800bb7
+               |                     0xffffffff8369e495
+               |                     0xffffffff824dbe42
+               |                     0xffffffff82852639
+               |                     0xffffffff82852081
+               |          
+                --0.38%--_dl_name_match_p
+
+     2.86%     0.00%  [.] openaux                         -      -            
+            |
+            ---_dl_map_object
+               |          
+               |--1.27%--_dl_load_cache_lookup
+               |          |          
+               |          |--0.82%--search_cache (inlined)
+               |          |          _dl_cache_libcmp
+               |          |          |          
+               |          |           --0.45%--0xffffffff83800bb7
+               |          |                     0xffffffff8369e495
+               |          |                     0xffffffff824dbd40
+               |          |          
+               |           --0.44%--_dl_sysdep_read_whole_file
+               |                     __mmap64 (inlined)
+               |                     __mmap64 (inlined)
+               |                     0xffffffff8380012b
+               |                     0xffffffff8369797e
+               |                     0xffffffff8240bd84
+               |                     0xffffffff82466963
+               |                     0xffffffff8285a7ba
+               |                     0xffffffff8281a376
+               |                     0xffffffff82b1b9e5
+               |                     0xffffffff82b8f75b
+               |                     0xffffffff82b95b22
+               |          
+               |--1.21%--_dl_map_object_from_fd
+               |          |          
+               |          |--0.81%--_dl_map_segments (inlined)
+               |          |          |          
+               |          |          |--0.43%--__mmap64 (inlined)
+               |          |          |          __mmap64 (inlined)
+               |          |          |          0xffffffff83800080
+               |          |          |          
+               |          |           --0.38%--_dl_map_segment (inlined)
+               |          |                     __mmap64 (inlined)
+               |          |                     __mmap64 (inlined)
+               |          |                     0xffffffff8380012b
+               |          |                     0xffffffff8369797e
+               |          |                     0xffffffff8240bd84
+               |          |                     0xffffffff82466963
+               |          |                     0xffffffff8285a7ba
+               |          |                     0xffffffff8281a376
+               |          |                     0xffffffff82b1b9e5
+               |          |                     0xffffffff82bb23d8
+               |          |                     0xffffffff82b18ef3
+               |          |          
+               |           --0.40%--0xffffffff83800bb7
+               |                     0xffffffff8369e495
+               |                     0xffffffff824dbe42
+               |                     0xffffffff82852639
+               |                     0xffffffff82852081
+               |          
+                --0.38%--_dl_name_match_p
+
+     2.86%     0.00%  [.] _dl_map_object                  -      -            
+            |          
+            |--1.27%--_dl_load_cache_lookup
+            |          |          
+            |          |--0.82%--search_cache (inlined)
+            |          |          _dl_cache_libcmp
+            |          |          |          
+            |          |           --0.45%--0xffffffff83800bb7
+            |          |                     0xffffffff8369e495
+            |          |                     0xffffffff824dbd40
+            |          |          
+            |           --0.44%--_dl_sysdep_read_whole_file
+            |                     __mmap64 (inlined)
+            |                     __mmap64 (inlined)
+            |                     0xffffffff8380012b
+            |                     0xffffffff8369797e
+            |                     0xffffffff8240bd84
+            |                     0xffffffff82466963
+            |                     0xffffffff8285a7ba
+            |                     0xffffffff8281a376
+            |                     0xffffffff82b1b9e5
+            |                     0xffffffff82b8f75b
+            |                     0xffffffff82b95b22
+            |          
+            |--1.21%--_dl_map_object_from_fd
+            |          |          
+            |          |--0.81%--_dl_map_segments (inlined)
+            |          |          |          
+            |          |          |--0.43%--__mmap64 (inlined)
+            |          |          |          __mmap64 (inlined)
+            |          |          |          0xffffffff83800080
+            |          |          |          
+            |          |           --0.38%--_dl_map_segment (inlined)
+            |          |                     __mmap64 (inlined)
+            |          |                     __mmap64 (inlined)
+            |          |                     0xffffffff8380012b
+            |          |                     0xffffffff8369797e
+            |          |                     0xffffffff8240bd84
+            |          |                     0xffffffff82466963
+            |          |                     0xffffffff8285a7ba
+            |          |                     0xffffffff8281a376
+            |          |                     0xffffffff82b1b9e5
+            |          |                     0xffffffff82bb23d8
+            |          |                     0xffffffff82b18ef3
+            |          |          
+            |           --0.40%--0xffffffff83800bb7
+            |                     0xffffffff8369e495
+            |                     0xffffffff824dbe42
+            |                     0xffffffff82852639
+            |                     0xffffffff82852081
+            |          
+             --0.38%--_dl_name_match_p
+
+     2.43%     2.43%  [.] _IO_file_xsgetn                 -      -            
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               readImage
+               __GI__IO_fread (inlined)
+               __GI__IO_file_xsgetn (inlined)
+
+     2.38%     2.38%  [.] strcmp                          -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               |          
+               |--1.18%--_dl_relocate_object
+               |          elf_dynamic_do_Rela (inlined)
+               |          elf_machine_rela (inlined)
+               |          resolve_map (inlined)
+               |          _dl_lookup_symbol_x
+               |          do_lookup_x
+               |          check_match
+               |          strcmp
+               |          
+               |--0.87%--_dl_receive_error
+               |          version_check_doit
+               |          _dl_check_all_versions
+               |          _dl_check_map_versions
+               |          match_symbol (inlined)
+               |          strcmp
+               |          
+                --0.33%--setup_vdso_pointers (inlined)
+                          dl_vdso_vsym (inlined)
+                          _dl_lookup_symbol_x
+                          do_lookup_x
+                          check_match
+                          strcmp
+
+     2.01%     0.00%  [.] read_int (inlined)              -      -            
+     2.01%     2.01%  [.] __printf_buffer_to_file_init    -      -            
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               writeMatrix
+               __fprintf (inlined)
+               __vfprintf_internal
+               __printf_buffer_to_file_init
+               __printf_buffer_init (inlined)
+               __printf_buffer_init_end (inlined)
+
+     2.01%     0.00%  [.] __printf_buffer_init (inlined)  -      -            
+            |
+            ---__printf_buffer_init_end (inlined)
+
+     2.01%     0.00%  [.] __printf_buffer_init_end (inlined)  -      -            
+     1.98%     0.00%  [.] _dl_fixup                       -      -            
+            |
+            ---_dl_lookup_symbol_x
+               do_lookup_x
+               check_match
+
+     1.97%     1.97%  [.] __GI_____strtoll_l_internal     -      -            
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               selfCheck
+               __isoc99_fscanf
+               __vfscanf_internal
+               __GI_____strtol_l_internal (inlined)
+
+     1.97%     0.00%  [.] __GI_____strtol_l_internal (inlined)  -      -            
+     1.74%     1.74%  [.] _IO_sgetn                       -      -            
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               readImage
+               __GI__IO_fread (inlined)
+               __GI__IO_sgetn (inlined)
+
+     1.74%     0.00%  [.] __GI__IO_sgetn (inlined)        -      -            
+     1.58%     0.00%  [.] _dl_start_final (inlined)       -      -            
+            |          
+            |--1.58%--_dl_sysdep_start
+            |          |          
+            |          |--1.17%--dl_main
+            |          |          |          
+            |          |          |--0.47%--rtld_setup_main_map (inlined)
+            |          |          |          |          
+            |          |          |           --0.25%--0xffffffff838015d7
+            |          |          |          
+            |          |          |--0.38%--_dl_new_object
+            |          |          |          |          
+            |          |          |          |--0.16%--memcpy (inlined)
+            |          |          |          |          0xffffffff83800bb7
+            |          |          |          |          0xffffffff8369e450
+            |          |          |          |          
+            |          |          |           --0.12%--calloc (inlined)
+            |          |          |                     __minimal_malloc
+            |          |          |          
+            |          |           --0.32%--setup_vdso (inlined)
+            |          |                     0xffffffff83800bb7
+            |          |                     0xffffffff8369e45b
+            |          |          
+            |          |--0.25%--dl_platform_init (inlined)
+            |          |          init_cpu_features (inlined)
+            |          |          |          
+            |          |          |--0.21%--dl_init_cacheinfo (inlined)
+            |          |          |          |          
+            |          |          |          |--0.14%--handle_amd
+            |          |          |          |          
+            |          |          |           --0.06%--__GI___tunable_set_val
+            |          |          |                     do_tunable_update_val (inlined)
+            |          |          |          
+            |          |          |--0.02%--update_active (inlined)
+            |          |          |          
+            |          |          |--0.01%--get_extended_indices (inlined)
+            |          |          |          
+            |          |           --0.00%--get_common_indices (inlined)
+            |          |          
+            |          |--0.15%--strlen
+            |          |          |          
+            |          |           --0.08%--0xffffffff83800b90
+            |          |          
+            |          |--0.01%--__GI___tunables_init
+            |          |          |          
+            |          |          |--0.00%--get_next_env (inlined)
+            |          |          |          |          
+            |          |          |           --0.00%--0xffffffff83800b93
+            |          |          |          
+            |          |           --0.00%--tunable_is_name (inlined)
+            |          |          
+            |           --0.00%--__brk (inlined)
+            |                     0xffffffff8380012b
+            |                     0xffffffff8369797e
+            |                     0xffffffff8240a6ff
+            |          
+             --0.00%--_dl_setup_hash
+
+     1.53%     0.00%  [.] __printf (inlined)              -      -            
+            |
+            ---__vfprintf_internal
+               __printf_buffer
+
+     1.48%     1.48%  [.] _itoa_word                      -      -            
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               writeMatrix
+               __fprintf (inlined)
+               __vfprintf_internal
+               __printf_buffer
+               _itoa_word
+
+     1.39%     1.39%  [.] integralImage2D2D               -      -            
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               getDisparity
+               correlateSAD_2D
+               integralImage2D2D
+
+     1.35%     0.00%  [.] 0xffffffff83800bb7              -      -            
+            |          
+            |--0.88%--0xffffffff8369e495
+            |          |          
+            |          |--0.45%--0xffffffff824dbd40
+            |          |          
+            |          |--0.40%--0xffffffff824dbe42
+            |          |          0xffffffff82852639
+            |          |          0xffffffff82852081
+            |          |          
+            |           --0.02%--0xffffffff824dbdbc
+            |                     |          
+            |                     |--0.02%--0xffffffff825ad2f9
+            |                     |          
+            |                     |--0.00%--0xffffffff8284d5e1
+            |                     |          |          
+            |                     |          |--0.00%--0xffffffff835fa73f
+            |                     |          |          
+            |                     |           --0.00%--0xffffffff835fa858
+            |                     |          
+            |                      --0.00%--0xffffffff8284d5d8
+            |          
+            |--0.32%--0xffffffff8369e45b
+            |          
+            |--0.16%--0xffffffff8369e450
+            |          
+             --0.00%--0xffffffff8369eb61
+
+     1.35%     1.35%  [.] findDisparity                   -      -            
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               getDisparity
+               findDisparity
+
+     1.27%     0.00%  [.] _dl_load_cache_lookup           -      -            
+            |          
+            |--0.82%--search_cache (inlined)
+            |          _dl_cache_libcmp
+            |          |          
+            |           --0.45%--0xffffffff83800bb7
+            |                     0xffffffff8369e495
+            |                     0xffffffff824dbd40
+            |          
+             --0.44%--_dl_sysdep_read_whole_file
+                       __mmap64 (inlined)
+                       __mmap64 (inlined)
+                       0xffffffff8380012b
+                       0xffffffff8369797e
+                       0xffffffff8240bd84
+                       0xffffffff82466963
+                       0xffffffff8285a7ba
+                       0xffffffff8281a376
+                       0xffffffff82b1b9e5
+                       0xffffffff82b8f75b
+                       0xffffffff82b95b22
+
+     1.25%     0.00%  [.] __mmap64 (inlined)              -      -            
+            |          
+             --1.25%--__mmap64 (inlined)
+                       |          
+                       |--0.83%--0xffffffff8380012b
+                       |          0xffffffff8369797e
+                       |          0xffffffff8240bd84
+                       |          0xffffffff82466963
+                       |          |          
+                       |          |--0.83%--0xffffffff8285a7ba
+                       |          |          0xffffffff8281a376
+                       |          |          0xffffffff82b1b9e5
+                       |          |          |          
+                       |          |          |--0.44%--0xffffffff82b8f75b
+                       |          |          |          0xffffffff82b95b22
+                       |          |          |          
+                       |          |           --0.38%--0xffffffff82bb23d8
+                       |          |                     0xffffffff82b18ef3
+                       |          |          
+                       |           --0.00%--0xffffffff8285a689
+                       |                     0xffffffff82b1b975
+                       |          
+                        --0.43%--0xffffffff83800080
+
+     1.21%     0.34%  [.] _dl_check_map_versions          -      -            
+            |          
+            |--0.87%--_dl_check_map_versions
+            |          match_symbol (inlined)
+            |          strcmp
+            |          
+             --0.34%--_start
+                       _dl_start
+                       _dl_start_final (inlined)
+                       _dl_sysdep_start
+                       dl_main
+                       _dl_receive_error
+                       version_check_doit
+                       _dl_check_all_versions
+                       _dl_check_map_versions
+                       match_symbol (inlined)
+
+     1.21%     0.00%  [.] _dl_receive_error               -      -            
+            |
+            ---version_check_doit
+               _dl_check_all_versions
+               _dl_check_map_versions
+               match_symbol (inlined)
+               |          
+                --0.87%--strcmp
+
+     1.21%     0.00%  [.] version_check_doit              -      -            
+            |
+            ---_dl_check_all_versions
+               _dl_check_map_versions
+               match_symbol (inlined)
+               |          
+                --0.87%--strcmp
+
+     1.21%     0.00%  [.] _dl_check_all_versions          -      -            
+            |
+            ---_dl_check_map_versions
+               match_symbol (inlined)
+               |          
+                --0.87%--strcmp
+
+     1.21%     0.00%  [.] match_symbol (inlined)          -      -            
+            |          
+             --0.87%--strcmp
+
+     1.21%     0.00%  [.] _dl_map_object_from_fd          -      -            
+            |          
+            |--0.81%--_dl_map_segments (inlined)
+            |          |          
+            |          |--0.43%--__mmap64 (inlined)
+            |          |          __mmap64 (inlined)
+            |          |          0xffffffff83800080
+            |          |          
+            |           --0.38%--_dl_map_segment (inlined)
+            |                     __mmap64 (inlined)
+            |                     __mmap64 (inlined)
+            |                     0xffffffff8380012b
+            |                     0xffffffff8369797e
+            |                     0xffffffff8240bd84
+            |                     0xffffffff82466963
+            |                     0xffffffff8285a7ba
+            |                     0xffffffff8281a376
+            |                     0xffffffff82b1b9e5
+            |                     0xffffffff82bb23d8
+            |                     0xffffffff82b18ef3
+            |          
+             --0.40%--0xffffffff83800bb7
+                       0xffffffff8369e495
+                       0xffffffff824dbe42
+                       0xffffffff82852639
+                       0xffffffff82852081
+
+     1.15%     1.15%  [.] _dl_allocate_tls_init           -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               __GI__dl_allocate_tls_init (inlined)
+
+     1.15%     0.00%  [.] __GI__dl_allocate_tls_init (inlined)  -      -            
+     1.13%     0.00%  [.] __GI_memcpy (inlined)           -      -            
+            |
+            ---__memcpy_avx_unaligned_erms (inlined)
+
+     1.09%     1.09%  [.] __tunable_get_val               -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               __libc_early_init
+               __pthread_early_init (inlined)
+               __pthread_tunables_init
+               __GI___tunable_get_val (inlined)
+
+     1.09%     0.00%  [.] __libc_early_init               -      -            
+            |
+            ---__pthread_early_init (inlined)
+               __pthread_tunables_init
+               __GI___tunable_get_val (inlined)
+
+     1.09%     0.00%  [.] __pthread_early_init (inlined)  -      -            
+            |
+            ---__pthread_tunables_init
+               __GI___tunable_get_val (inlined)
+
+     1.09%     0.00%  [.] __pthread_tunables_init         -      -            
+            |
+            ---__GI___tunable_get_val (inlined)
+
+     1.09%     0.00%  [.] __GI___tunable_get_val (inlined)  -      -            
+     1.01%     0.00%  [.] __sprintf (inlined)             -      -            
+            |
+            ---__vsprintf_internal
+               __printf_buffer
+
+     1.01%     0.00%  [.] __vsprintf_internal             -      -            
+            |
+            ---__printf_buffer
+
+     0.88%     0.00%  [.] 0xffffffff8369e495              -      -            
+            |          
+            |--0.45%--0xffffffff824dbd40
+            |          
+            |--0.40%--0xffffffff824dbe42
+            |          0xffffffff82852639
+            |          0xffffffff82852081
+            |          
+             --0.02%--0xffffffff824dbdbc
+                       |          
+                       |--0.02%--0xffffffff825ad2f9
+                       |          
+                       |--0.00%--0xffffffff8284d5e1
+                       |          |          
+                       |          |--0.00%--0xffffffff835fa73f
+                       |          |          
+                       |           --0.00%--0xffffffff835fa858
+                       |          
+                        --0.00%--0xffffffff8284d5d8
+
+     0.86%     0.86%  [.] _IO_free_backup_area            -      -            
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               readImage
+               __GI_fseek (inlined)
+               _IO_new_file_seekoff (inlined)
+               __GI__IO_free_backup_area (inlined)
+
+     0.86%     0.00%  [.] __GI_fseek (inlined)            -      -            
+            |
+            ---_IO_new_file_seekoff (inlined)
+               __GI__IO_free_backup_area (inlined)
+
+     0.86%     0.00%  [.] _IO_new_file_seekoff (inlined)  -      -            
+            |
+            ---__GI__IO_free_backup_area (inlined)
+
+     0.86%     0.00%  [.] __GI__IO_free_backup_area (inlined)  -      -            
+     0.83%     0.00%  [.] 0xffffffff8380012b              -      -            
+            |          
+            |--0.83%--0xffffffff8369797e
+            |          |          
+            |          |--0.83%--0xffffffff8240bd84
+            |          |          0xffffffff82466963
+            |          |          |          
+            |          |          |--0.83%--0xffffffff8285a7ba
+            |          |          |          0xffffffff8281a376
+            |          |          |          0xffffffff82b1b9e5
+            |          |          |          |          
+            |          |          |          |--0.44%--0xffffffff82b8f75b
+            |          |          |          |          0xffffffff82b95b22
+            |          |          |          |          
+            |          |          |           --0.38%--0xffffffff82bb23d8
+            |          |          |                     0xffffffff82b18ef3
+            |          |          |          
+            |          |           --0.00%--0xffffffff8285a689
+            |          |                     0xffffffff82b1b975
+            |          |          
+            |          |--0.00%--0xffffffff8240a6ff
+            |          |          
+            |           --0.00%--0xffffffff8245ab65
+            |          
+             --0.00%--0xffffffff8369798a
+                       0xffffffff82471501
+
+     0.83%     0.00%  [.] 0xffffffff8369797e              -      -            
+            |          
+            |--0.83%--0xffffffff8240bd84
+            |          0xffffffff82466963
+            |          |          
+            |          |--0.83%--0xffffffff8285a7ba
+            |          |          0xffffffff8281a376
+            |          |          0xffffffff82b1b9e5
+            |          |          |          
+            |          |          |--0.44%--0xffffffff82b8f75b
+            |          |          |          0xffffffff82b95b22
+            |          |          |          
+            |          |           --0.38%--0xffffffff82bb23d8
+            |          |                     0xffffffff82b18ef3
+            |          |          
+            |           --0.00%--0xffffffff8285a689
+            |                     0xffffffff82b1b975
+            |          
+            |--0.00%--0xffffffff8240a6ff
+            |          
+             --0.00%--0xffffffff8245ab65
+
+     0.83%     0.00%  [.] 0xffffffff8240bd84              -      -            
+            |
+            ---0xffffffff82466963
+               |          
+               |--0.83%--0xffffffff8285a7ba
+               |          0xffffffff8281a376
+               |          0xffffffff82b1b9e5
+               |          |          
+               |          |--0.44%--0xffffffff82b8f75b
+               |          |          0xffffffff82b95b22
+               |          |          
+               |           --0.38%--0xffffffff82bb23d8
+               |                     0xffffffff82b18ef3
+               |          
+                --0.00%--0xffffffff8285a689
+                          0xffffffff82b1b975
+
+     0.83%     0.00%  [.] 0xffffffff82466963              -      -            
+            |          
+            |--0.83%--0xffffffff8285a7ba
+            |          0xffffffff8281a376
+            |          0xffffffff82b1b9e5
+            |          |          
+            |          |--0.44%--0xffffffff82b8f75b
+            |          |          0xffffffff82b95b22
+            |          |          
+            |           --0.38%--0xffffffff82bb23d8
+            |                     0xffffffff82b18ef3
+            |          
+             --0.00%--0xffffffff8285a689
+                       0xffffffff82b1b975
+
+     0.83%     0.00%  [.] 0xffffffff8285a7ba              -      -            
+            |
+            ---0xffffffff8281a376
+               0xffffffff82b1b9e5
+               |          
+               |--0.44%--0xffffffff82b8f75b
+               |          0xffffffff82b95b22
+               |          
+                --0.38%--0xffffffff82bb23d8
+                          0xffffffff82b18ef3
+
+     0.83%     0.00%  [.] 0xffffffff8281a376              -      -            
+            |
+            ---0xffffffff82b1b9e5
+               |          
+               |--0.44%--0xffffffff82b8f75b
+               |          0xffffffff82b95b22
+               |          
+                --0.38%--0xffffffff82bb23d8
+                          0xffffffff82b18ef3
+
+     0.83%     0.00%  [.] 0xffffffff82b1b9e5              -      -            
+            |          
+            |--0.44%--0xffffffff82b8f75b
+            |          0xffffffff82b95b22
+            |          
+             --0.38%--0xffffffff82bb23d8
+                       0xffffffff82b18ef3
+
+     0.82%     0.37%  [.] _dl_cache_libcmp                -      -            
+            |          
+            |--0.45%--_dl_cache_libcmp
+            |          0xffffffff83800bb7
+            |          0xffffffff8369e495
+            |          0xffffffff824dbd40
+            |          
+             --0.37%--_start
+                       _dl_start
+                       _dl_start_final (inlined)
+                       _dl_sysdep_start
+                       dl_main
+                       _dl_map_object_deps
+                       __GI__dl_catch_exception (inlined)
+                       openaux
+                       _dl_map_object
+                       _dl_load_cache_lookup
+                       search_cache (inlined)
+                       _dl_cache_libcmp
+
+     0.82%     0.00%  [.] search_cache (inlined)          -      -            
+            |
+            ---_dl_cache_libcmp
+               |          
+                --0.45%--0xffffffff83800bb7
+                          0xffffffff8369e495
+                          0xffffffff824dbd40
+
+     0.81%     0.00%  [.] _dl_map_segments (inlined)      -      -            
+            |          
+            |--0.43%--__mmap64 (inlined)
+            |          __mmap64 (inlined)
+            |          0xffffffff83800080
+            |          
+             --0.38%--_dl_map_segment (inlined)
+                       __mmap64 (inlined)
+                       __mmap64 (inlined)
+                       0xffffffff8380012b
+                       0xffffffff8369797e
+                       0xffffffff8240bd84
+                       0xffffffff82466963
+                       0xffffffff8285a7ba
+                       0xffffffff8281a376
+                       0xffffffff82b1b9e5
+                       0xffffffff82bb23d8
+                       0xffffffff82b18ef3
+
+     0.47%     0.00%  [.] rtld_setup_main_map (inlined)   -      -            
+            |          
+             --0.25%--0xffffffff838015d7
+
+     0.45%     0.45%  [k] 0xffffffff824dbd40              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               _dl_map_object_deps
+               __GI__dl_catch_exception (inlined)
+               openaux
+               _dl_map_object
+               _dl_load_cache_lookup
+               search_cache (inlined)
+               _dl_cache_libcmp
+               0xffffffff83800bb7
+               0xffffffff8369e495
+               0xffffffff824dbd40
+
+     0.45%     0.00%  [.] init_tls                        -      -            
+            |          
+            |--0.45%--_dl_tls_static_surplus_init
+            |          0xffffffff83800f4b
+            |          0xffffffff824bf872
+            |          
+            |--0.00%--call_tls_init_tp (inlined)
+            |          |          
+            |          |--0.00%--__tls_init_tp
+            |          |          |          
+            |          |          |--0.00%--0xffffffff83800083
+            |          |          |          
+            |          |           --0.00%--0xffffffff8380012b
+            |          |                     0xffffffff8369798a
+            |          |                     0xffffffff82471501
+            |          |          
+            |           --0.00%--0xffffffff8380012b
+            |                     0xffffffff8369797e
+            |                     0xffffffff8245ab65
+            |          
+            |--0.00%--_dl_allocate_tls_storage
+            |          |          
+            |          |--0.00%--0xffffffff83800bb7
+            |          |          |          
+            |          |          |--0.00%--0xffffffff8369eb61
+            |          |          |          
+            |          |           --0.00%--0xffffffff8369e495
+            |          |                     0xffffffff824dbdbc
+            |          |                     0xffffffff8284d5e1
+            |          |                     0xffffffff835fa73f
+            |          |          
+            |           --0.00%--malloc (inlined)
+            |                     __minimal_malloc
+            |                     __mmap64 (inlined)
+            |                     |          
+            |                      --0.00%--__mmap64 (inlined)
+            |                                0xffffffff8380012b
+            |                                0xffffffff8369797e
+            |                                0xffffffff8240bd84
+            |                                0xffffffff82466963
+            |                                0xffffffff8285a689
+            |                                0xffffffff82b1b975
+            |          
+             --0.00%--_dl_determine_tlsoffset
+
+     0.45%     0.45%  [k] 0xffffffff824bf872              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               init_tls
+               _dl_tls_static_surplus_init
+               0xffffffff83800f4b
+               0xffffffff824bf872
+
+     0.45%     0.00%  [.] _dl_tls_static_surplus_init     -      -            
+            |
+            ---0xffffffff83800f4b
+               0xffffffff824bf872
+
+     0.45%     0.00%  [.] 0xffffffff83800f4b              -      -            
+            |
+            ---0xffffffff824bf872
+
+     0.44%     0.44%  [k] 0xffffffff82b95b22              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               _dl_map_object_deps
+               __GI__dl_catch_exception (inlined)
+               openaux
+               _dl_map_object
+               _dl_load_cache_lookup
+               _dl_sysdep_read_whole_file
+               __mmap64 (inlined)
+               __mmap64 (inlined)
+               0xffffffff8380012b
+               0xffffffff8369797e
+               0xffffffff8240bd84
+               0xffffffff82466963
+               0xffffffff8285a7ba
+               0xffffffff8281a376
+               0xffffffff82b1b9e5
+               0xffffffff82b8f75b
+               0xffffffff82b95b22
+
+     0.44%     0.00%  [.] _dl_sysdep_read_whole_file      -      -            
+            |
+            ---__mmap64 (inlined)
+               __mmap64 (inlined)
+               0xffffffff8380012b
+               0xffffffff8369797e
+               0xffffffff8240bd84
+               0xffffffff82466963
+               0xffffffff8285a7ba
+               0xffffffff8281a376
+               0xffffffff82b1b9e5
+               0xffffffff82b8f75b
+               0xffffffff82b95b22
+
+     0.44%     0.00%  [.] 0xffffffff82b8f75b              -      -            
+            |
+            ---0xffffffff82b95b22
+
+     0.43%     0.43%  [k] 0xffffffff83800080              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               _dl_map_object_deps
+               __GI__dl_catch_exception (inlined)
+               openaux
+               _dl_map_object
+               _dl_map_object_from_fd
+               _dl_map_segments (inlined)
+               __mmap64 (inlined)
+               __mmap64 (inlined)
+               0xffffffff83800080
+
+     0.40%     0.40%  [k] 0xffffffff82852081              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               _dl_map_object_deps
+               __GI__dl_catch_exception (inlined)
+               openaux
+               _dl_map_object
+               _dl_map_object_from_fd
+               0xffffffff83800bb7
+               0xffffffff8369e495
+               0xffffffff824dbe42
+               0xffffffff82852639
+               0xffffffff82852081
+
+     0.40%     0.00%  [.] 0xffffffff824dbe42              -      -            
+            |
+            ---0xffffffff82852639
+               0xffffffff82852081
+
+     0.40%     0.00%  [.] 0xffffffff82852639              -      -            
+            |
+            ---0xffffffff82852081
+
+     0.38%     0.38%  [k] 0xffffffff82b18ef3              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               _dl_map_object_deps
+               __GI__dl_catch_exception (inlined)
+               openaux
+               _dl_map_object
+               _dl_map_object_from_fd
+               _dl_map_segments (inlined)
+               _dl_map_segment (inlined)
+               __mmap64 (inlined)
+               __mmap64 (inlined)
+               0xffffffff8380012b
+               0xffffffff8369797e
+               0xffffffff8240bd84
+               0xffffffff82466963
+               0xffffffff8285a7ba
+               0xffffffff8281a376
+               0xffffffff82b1b9e5
+               0xffffffff82bb23d8
+               0xffffffff82b18ef3
+
+     0.38%     0.00%  [.] _dl_map_segment (inlined)       -      -            
+            |
+            ---__mmap64 (inlined)
+               __mmap64 (inlined)
+               0xffffffff8380012b
+               0xffffffff8369797e
+               0xffffffff8240bd84
+               0xffffffff82466963
+               0xffffffff8285a7ba
+               0xffffffff8281a376
+               0xffffffff82b1b9e5
+               0xffffffff82bb23d8
+               0xffffffff82b18ef3
+
+     0.38%     0.00%  [.] 0xffffffff82bb23d8              -      -            
+            |
+            ---0xffffffff82b18ef3
+
+     0.38%     0.10%  [.] _dl_new_object                  -      -            
+            |          
+            |--0.28%--_dl_new_object
+            |          |          
+            |          |--0.16%--memcpy (inlined)
+            |          |          0xffffffff83800bb7
+            |          |          0xffffffff8369e450
+            |          |          
+            |           --0.12%--calloc (inlined)
+            |                     __minimal_malloc
+            |          
+             --0.10%--_start
+                       _dl_start
+                       _dl_start_final (inlined)
+                       _dl_sysdep_start
+                       dl_main
+                       _dl_new_object
+
+     0.38%     0.38%  [.] _dl_name_match_p                -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               _dl_map_object_deps
+               __GI__dl_catch_exception (inlined)
+               openaux
+               _dl_map_object
+               _dl_name_match_p
+
+     0.36%     0.36%  [.] memcmp                          -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               call_init_paths (inlined)
+               _dl_init_paths
+               _dl_important_hwcaps
+               sort_priorities_by_name (inlined)
+               bcmp (inlined)
+
+     0.36%     0.00%  [.] call_init_paths (inlined)       -      -            
+            |
+            ---_dl_init_paths
+               _dl_important_hwcaps
+               sort_priorities_by_name (inlined)
+               bcmp (inlined)
+
+     0.36%     0.00%  [.] _dl_init_paths                  -      -            
+            |
+            ---_dl_important_hwcaps
+               sort_priorities_by_name (inlined)
+               bcmp (inlined)
+
+     0.36%     0.00%  [.] _dl_important_hwcaps            -      -            
+            |
+            ---sort_priorities_by_name (inlined)
+               bcmp (inlined)
+
+     0.36%     0.00%  [.] sort_priorities_by_name (inlined)  -      -            
+            |
+            ---bcmp (inlined)
+
+     0.36%     0.00%  [.] bcmp (inlined)                  -      -            
+     0.33%     0.00%  [.] setup_vdso_pointers (inlined)   -      -            
+            |
+            ---dl_vdso_vsym (inlined)
+               _dl_lookup_symbol_x
+               do_lookup_x
+               check_match
+               strcmp
+
+     0.33%     0.00%  [.] dl_vdso_vsym (inlined)          -      -            
+            |
+            ---_dl_lookup_symbol_x
+               do_lookup_x
+               check_match
+               strcmp
+
+     0.33%     0.00%  [.] check_match                     -      -            
+            |
+            ---strcmp
+
+     0.32%     0.32%  [k] 0xffffffff8369e45b              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               setup_vdso (inlined)
+               0xffffffff83800bb7
+               0xffffffff8369e45b
+
+     0.32%     0.00%  [.] setup_vdso (inlined)            -      -            
+            |
+            ---0xffffffff83800bb7
+               0xffffffff8369e45b
+
+     0.25%     0.00%  [.] dl_platform_init (inlined)      -      -            
+            |
+            ---init_cpu_features (inlined)
+               |          
+               |--0.21%--dl_init_cacheinfo (inlined)
+               |          |          
+               |          |--0.14%--handle_amd
+               |          |          
+               |           --0.06%--__GI___tunable_set_val
+               |                     do_tunable_update_val (inlined)
+               |          
+               |--0.02%--update_active (inlined)
+               |          
+               |--0.01%--get_extended_indices (inlined)
+               |          
+                --0.00%--get_common_indices (inlined)
+
+     0.25%     0.00%  [.] init_cpu_features (inlined)     -      -            
+            |          
+            |--0.21%--dl_init_cacheinfo (inlined)
+            |          |          
+            |          |--0.14%--handle_amd
+            |          |          
+            |           --0.06%--__GI___tunable_set_val
+            |                     do_tunable_update_val (inlined)
+            |          
+            |--0.02%--update_active (inlined)
+            |          
+            |--0.01%--get_extended_indices (inlined)
+            |          
+             --0.00%--get_common_indices (inlined)
+
+     0.25%     0.25%  [k] 0xffffffff838015d7              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               rtld_setup_main_map (inlined)
+               0xffffffff838015d7
+
+     0.21%     0.00%  [.] dl_init_cacheinfo (inlined)     -      -            
+            |          
+            |--0.14%--handle_amd
+            |          
+             --0.06%--__GI___tunable_set_val
+                       do_tunable_update_val (inlined)
+
+     0.16%     0.16%  [k] 0xffffffff8369e450              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               _dl_new_object
+               memcpy (inlined)
+               0xffffffff83800bb7
+               0xffffffff8369e450
+
+     0.16%     0.00%  [.] memcpy (inlined)                -      -            
+            |
+            ---0xffffffff83800bb7
+               0xffffffff8369e450
+
+     0.15%     0.07%  [.] strlen                          -      -            
+            |          
+            |--0.08%--strlen
+            |          0xffffffff83800b90
+            |          
+             --0.07%--_start
+                       _dl_start
+                       _dl_start_final (inlined)
+                       _dl_sysdep_start
+                       strlen
+
+     0.14%     0.14%  [.] handle_amd                      -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_platform_init (inlined)
+               init_cpu_features (inlined)
+               dl_init_cacheinfo (inlined)
+               handle_amd
+
+     0.12%     0.12%  [.] __minimal_malloc                -      -            
+            |          
+            |--0.12%--_start
+            |          _dl_start
+            |          _dl_start_final (inlined)
+            |          _dl_sysdep_start
+            |          dl_main
+            |          _dl_new_object
+            |          calloc (inlined)
+            |          __minimal_malloc
+            |          
+             --0.00%--__minimal_malloc
+                       __mmap64 (inlined)
+                       |          
+                        --0.00%--__mmap64 (inlined)
+                                  0xffffffff8380012b
+                                  0xffffffff8369797e
+                                  0xffffffff8240bd84
+                                  0xffffffff82466963
+                                  0xffffffff8285a689
+                                  0xffffffff82b1b975
+
+     0.12%     0.00%  [.] calloc (inlined)                -      -            
+            |
+            ---__minimal_malloc
+
+     0.09%     0.09%  [k] 0xffffffff83800b90              -      -            
+            |          
+            |--0.09%--_start
+            |          |          
+            |          |--0.09%--_dl_start
+            |          |          _dl_start_final (inlined)
+            |          |          _dl_sysdep_start
+            |          |          |          
+            |          |          |--0.08%--strlen
+            |          |          |          0xffffffff83800b90
+            |          |          |          
+            |          |           --0.01%--dl_main
+            |          |                     _dl_relocate_object
+            |          |                     0xffffffff83800b90
+            |          |          
+            |           --0.00%--0xffffffff83800b90
+            |          
+             --0.00%--0xffffffff83800b90
+
+     0.06%     0.06%  [.] __GI___tunable_set_val          -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_platform_init (inlined)
+               init_cpu_features (inlined)
+               dl_init_cacheinfo (inlined)
+               __GI___tunable_set_val
+               do_tunable_update_val (inlined)
+
+     0.06%     0.00%  [.] do_tunable_update_val (inlined)  -      -            
+     0.02%     0.00%  [.] 0xffffffff824dbdbc              -      -            
+            |          
+            |--0.02%--0xffffffff825ad2f9
+            |          
+            |--0.00%--0xffffffff8284d5e1
+            |          |          
+            |          |--0.00%--0xffffffff835fa73f
+            |          |          
+            |           --0.00%--0xffffffff835fa858
+            |          
+             --0.00%--0xffffffff8284d5d8
+
+     0.02%     0.02%  [k] 0xffffffff825ad2f9              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               _dl_relocate_object
+               elf_dynamic_do_Rela (inlined)
+               elf_machine_rela (inlined)
+               resolve_map (inlined)
+               0xffffffff83800bb7
+               0xffffffff8369e495
+               0xffffffff824dbdbc
+               0xffffffff825ad2f9
+
+     0.02%     0.02%  [.] update_active.constprop.0       -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_platform_init (inlined)
+               init_cpu_features (inlined)
+               update_active (inlined)
+
+     0.02%     0.00%  [.] update_active (inlined)         -      -            
+     0.01%     0.01%  [.] init_cpu_features.constprop.0   -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_platform_init (inlined)
+               init_cpu_features (inlined)
+               |          
+                --0.01%--get_extended_indices (inlined)
+
+     0.01%     0.01%  [.] init_cpu_features.constprop.0   -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_platform_init (inlined)
+               init_cpu_features (inlined)
+               dl_init_cacheinfo (inlined)
+
+     0.01%     0.01%  [.] __GI___tunables_init            -      -            
+            |          
+            |--0.01%--_start
+            |          _dl_start
+            |          _dl_start_final (inlined)
+            |          _dl_sysdep_start
+            |          __GI___tunables_init
+            |          |          
+            |          |--0.00%--get_next_env (inlined)
+            |          |          
+            |           --0.00%--tunable_is_name (inlined)
+            |          
+             --0.00%--__GI___tunables_init
+                       get_next_env (inlined)
+                       0xffffffff83800b93
+
+     0.01%     0.00%  [.] get_extended_indices (inlined)  -      -            
+     0.00%     0.00%  [.] get_common_indices.constprop.0  -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_platform_init (inlined)
+               init_cpu_features (inlined)
+               get_common_indices (inlined)
+
+     0.00%     0.00%  [.] get_common_indices (inlined)    -      -            
+     0.00%     0.00%  [.] get_next_env (inlined)          -      -            
+            |          
+             --0.00%--0xffffffff83800b93
+
+     0.00%     0.00%  [k] 0xffffffff8240a6ff              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               __brk (inlined)
+               0xffffffff8380012b
+               0xffffffff8369797e
+               0xffffffff8240a6ff
+
+     0.00%     0.00%  [.] __brk (inlined)                 -      -            
+            |
+            ---0xffffffff8380012b
+               0xffffffff8369797e
+               0xffffffff8240a6ff
+
+     0.00%     0.00%  [k] 0xffffffff83800b93              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               __GI___tunables_init
+               get_next_env (inlined)
+               0xffffffff83800b93
+
+     0.00%     0.00%  [.] tunable_is_name (inlined)       -      -            
+     0.00%     0.00%  [k] 0xffffffff8369a1de              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               _dl_relocate_object
+               0xffffffff8369a1de
+
+     0.00%     0.00%  [.] call_tls_init_tp (inlined)      -      -            
+            |          
+            |--0.00%--__tls_init_tp
+            |          |          
+            |          |--0.00%--0xffffffff83800083
+            |          |          
+            |           --0.00%--0xffffffff8380012b
+            |                     0xffffffff8369798a
+            |                     0xffffffff82471501
+            |          
+             --0.00%--0xffffffff8380012b
+                       0xffffffff8369797e
+                       0xffffffff8245ab65
+
+     0.00%     0.00%  [.] _dl_allocate_tls_storage        -      -            
+            |          
+            |--0.00%--0xffffffff83800bb7
+            |          |          
+            |          |--0.00%--0xffffffff8369eb61
+            |          |          
+            |           --0.00%--0xffffffff8369e495
+            |                     0xffffffff824dbdbc
+            |                     0xffffffff8284d5e1
+            |                     0xffffffff835fa73f
+            |          
+             --0.00%--malloc (inlined)
+                       __minimal_malloc
+                       __mmap64 (inlined)
+                       |          
+                        --0.00%--__mmap64 (inlined)
+                                  0xffffffff8380012b
+                                  0xffffffff8369797e
+                                  0xffffffff8240bd84
+                                  0xffffffff82466963
+                                  0xffffffff8285a689
+                                  0xffffffff82b1b975
+
+     0.00%     0.00%  [.] __tls_init_tp                   -      -            
+            |          
+            |--0.00%--0xffffffff83800083
+            |          
+             --0.00%--0xffffffff8380012b
+                       0xffffffff8369798a
+                       0xffffffff82471501
+
+     0.00%     0.00%  [.] _dl_cet_check                   -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               _rtld_main_check (inlined)
+               _dl_cet_check
+
+     0.00%     0.00%  [.] _rtld_main_check (inlined)      -      -            
+            |
+            ---_dl_cet_check
+
+     0.00%     0.00%  [k] 0xffffffff83800083              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               init_tls
+               call_tls_init_tp (inlined)
+               __tls_init_tp
+               0xffffffff83800083
+
+     0.00%     0.00%  [.] _dl_setup_hash                  -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_setup_hash
+
+     0.00%     0.00%  [k] 0xffffffff82471501              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               init_tls
+               call_tls_init_tp (inlined)
+               __tls_init_tp
+               0xffffffff8380012b
+               0xffffffff8369798a
+               0xffffffff82471501
+
+     0.00%     0.00%  [.] malloc (inlined)                -      -            
+            |
+            ---__minimal_malloc
+               __mmap64 (inlined)
+               |          
+                --0.00%--__mmap64 (inlined)
+                          0xffffffff8380012b
+                          0xffffffff8369797e
+                          0xffffffff8240bd84
+                          0xffffffff82466963
+                          0xffffffff8285a689
+                          0xffffffff82b1b975
+
+     0.00%     0.00%  [k] 0xffffffff8369eb61              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               init_tls
+               _dl_allocate_tls_storage
+               0xffffffff83800bb7
+               0xffffffff8369eb61
+
+     0.00%     0.00%  [k] 0xffffffff8284d5e1              -      -            
+            |          
+            |--0.00%--0xffffffff835fa73f
+            |          
+             --0.00%--0xffffffff835fa858
+
+     0.00%     0.00%  [.] 0xffffffff8369798a              -      -            
+            |
+            ---0xffffffff82471501
+
+     0.00%     0.00%  [k] 0xffffffff82b1b975              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               init_tls
+               _dl_allocate_tls_storage
+               malloc (inlined)
+               __minimal_malloc
+               __mmap64 (inlined)
+               __mmap64 (inlined)
+               0xffffffff8380012b
+               0xffffffff8369797e
+               0xffffffff8240bd84
+               0xffffffff82466963
+               0xffffffff8285a689
+               0xffffffff82b1b975
+
+     0.00%     0.00%  [k] 0xffffffff835fa73f              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               init_tls
+               _dl_allocate_tls_storage
+               0xffffffff83800bb7
+               0xffffffff8369e495
+               0xffffffff824dbdbc
+               0xffffffff8284d5e1
+               0xffffffff835fa73f
+
+     0.00%     0.00%  [k] 0xffffffff8245ab65              -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               init_tls
+               call_tls_init_tp (inlined)
+               0xffffffff8380012b
+               0xffffffff8369797e
+               0xffffffff8245ab65
+
+     0.00%     0.00%  [.] 0xffffffff8285a689              -      -            
+            |
+            ---0xffffffff82b1b975
+
+     0.00%     0.00%  [.] mmap64                          -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               init_tls
+               _dl_allocate_tls_storage
+               malloc (inlined)
+               __minimal_malloc
+               __mmap64 (inlined)
+
+     0.00%     0.00%  [.] _dl_determine_tlsoffset         -      -            
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               init_tls
+               _dl_determine_tlsoffset
+
+     0.00%     0.00%  [k] 0xffffffff8284d5d8              -      -            
+            |
+            ---0xffffffff83800bb7
+               0xffffffff8369e495
+               0xffffffff824dbdbc
+               0xffffffff8284d5d8
+
+     0.00%     0.00%  [k] 0xffffffff835fa858              -      -            
+            |
+            ---0xffffffff8369e495
+               0xffffffff824dbdbc
+               0xffffffff8284d5e1
+               0xffffffff835fa858
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#
