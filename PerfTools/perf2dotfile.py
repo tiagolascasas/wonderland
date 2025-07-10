@@ -12,7 +12,6 @@ def main():
     print(f"Input: {input}, Output: {output}, Filter: {filter_kernel}")
 
     functions, edges = build_graph(input, filter_kernel)
-    graph_cleanup(functions, edges)
     generate_dotfile(functions, edges, output)
 
 
@@ -53,11 +52,12 @@ def build_graph(input, filter_kernel):
     valid_functions = set()
     edges = {}
 
-    valid_line = re.compile(r"^(\d{1,3}(?:\.\d{1,2}))% ([_\w]+[_\w\W;]*)")
+    pattern_1 = re.compile(r"^(\d{1,3}(?:\.\d{1,2}))% ([_\w]+[_\w\W;]*)")
+    pattern_2 = re.compile(r"^(\d{1,3}(?:\.\d{1,2}))%.*\[\.\]\s([\w_]+)")
     with open(input, "r") as file:
         for line in file:
             line = line.strip()
-            match = valid_line.match(line)
+            match = pattern_1.match(line)
             if match:
                 percentage, fun_chain = match.groups()
                 discrete_funs = fun_chain.split(";")
@@ -84,12 +84,21 @@ def build_graph(input, filter_kernel):
                     else:
                         edges[source].add(target)
                     valid_functions.add(target)
-    functions = {k: v for k, v in functions.items() if k in valid_functions}
+            else:
+                match = pattern_2.match(line)
+                if match:
+                    percentage, fun = match.groups()
+                    n_percent = float(percentage)
+                    if filter_kernel and is_kernel_function(fun):
+                        continue
+                    if fun not in functions:
+                        functions[fun] = n_percent
+                    else:
+                        functions[fun] += n_percent
+                    valid_functions.add(fun)
+
+    # functions = {k: v for k, v in functions.items() if k in valid_functions}
     return functions, edges
-
-
-def graph_cleanup(functions, edges):
-    pass
 
 
 def generate_dotfile(functions, edges, output):
@@ -98,13 +107,18 @@ def generate_dotfile(functions, edges, output):
         file.write("  rankdir=LR;\n")
         file.write("  node [shape=box];\n")
 
-        for fun, percent in functions.items():
-            file.write(f'  "{fun}" [label="{fun}\n({percent:.2f}%)"];\n')
-
-        for source in edges:
-            targets = edges[source]
-            for target in targets:
-                file.write(f'  "{source}" -> "{target}";\n')
+        fun_stack = set()
+        fun_stack.add("main")
+        while len(fun_stack) > 0:
+            fun = fun_stack.pop()
+            if fun not in functions:
+                file.write(f'  "{fun}" [label="{fun}\n(??.??%)"];\n')
+            else:
+                file.write(f'  "{fun}" [label="{fun}\n({functions[fun]:.2f}%)"];\n')
+            if fun in edges:
+                for target in edges[fun]:
+                    file.write(f'  "{fun}" -> "{target}";\n')
+                    fun_stack.add(target)
 
         file.write("}\n")
 
