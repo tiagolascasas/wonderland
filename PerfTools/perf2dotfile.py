@@ -12,6 +12,7 @@ def main():
     print(f"Input: {input}, Output: {output}, Filter: {filter_kernel}")
 
     functions, edges = build_graph(input, filter_kernel)
+    graph_cleanup(functions, edges)
     generate_dotfile(functions, edges, output)
 
 
@@ -49,7 +50,8 @@ def is_kernel_function(name):
 
 def build_graph(input, filter_kernel):
     functions = {}
-    edges = []
+    valid_functions = set()
+    edges = {}
 
     valid_line = re.compile(r"^(\d{1,3}(?:\.\d{1,2}))% ([_\w]+[_\w\W;]*)")
     with open(input, "r") as file:
@@ -72,13 +74,22 @@ def build_graph(input, filter_kernel):
                     for i in range(len(discrete_funs) - 1)
                 ]
                 for pair in pairs:
-                    if filter_kernel:
-                        if is_kernel_function(pair[0]):
-                            continue
-
-                    if edges.count((pair[0], pair[1])) == 0:
-                        edges.append((pair[0], pair[1]))
+                    source, target = pair
+                    if filter_kernel and is_kernel_function(source):
+                        continue
+                    if source not in edges:
+                        edges[source] = set()
+                        edges[source].add(target)
+                        valid_functions.add(source)
+                    else:
+                        edges[source].add(target)
+                    valid_functions.add(target)
+    functions = {k: v for k, v in functions.items() if k in valid_functions}
     return functions, edges
+
+
+def graph_cleanup(functions, edges):
+    pass
 
 
 def generate_dotfile(functions, edges, output):
@@ -88,10 +99,12 @@ def generate_dotfile(functions, edges, output):
         file.write("  node [shape=box];\n")
 
         for fun, percent in functions.items():
-            file.write(f'  "{fun}" [label="{fun} ({percent:.2f}%)"];\n')
+            file.write(f'  "{fun}" [label="{fun}\n({percent:.2f}%)"];\n')
 
-        for edge in edges:
-            file.write(f'  "{edge[0]}" -> "{edge[1]}";\n')
+        for source in edges:
+            targets = edges[source]
+            for target in targets:
+                file.write(f'  "{source}" -> "{target}";\n')
 
         file.write("}\n")
 

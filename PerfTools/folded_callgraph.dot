@@ -1,76 +1,71 @@
 digraph G {
   rankdir=LR;
   node [shape=box];
-  "__vfscanf_internal" [label="__vfscanf_internal (89.60%)"];
-  "__GI__IO_fread (inlined)" [label="__GI__IO_fread (inlined) (60.62%)"];
-  "__GI__IO_file_xsgetn (inlined)" [label="__GI__IO_file_xsgetn (inlined) (62.16%)"];
-  "__printf_buffer" [label="__printf_buffer (55.28%)"];
-  "readImage" [label="readImage (30.70%)"];
-  "findDisparity" [label="findDisparity (32.28%)"];
-  "integralImage2D2D" [label="integralImage2D2D (27.51%)"];
-  "__strchrnul_avx2" [label="__strchrnul_avx2 (28.90%)"];
-  "__GI__IO_sputbackc (inlined)" [label="__GI__IO_sputbackc (inlined) (24.21%)"];
-  "__GI__IO_sgetn (inlined)" [label="__GI__IO_sgetn (inlined) (21.30%)"];
-  "_IO_acquire_lock_fct (inlined)" [label="_IO_acquire_lock_fct (inlined) (13.68%)"];
-  "0xffffffff96a97954" [label="0xffffffff96a97954 (12.88%)"];
-  "__GI___uflow (inlined)" [label="__GI___uflow (inlined) (14.31%)"];
-  "selfCheck" [label="selfCheck (7.70%)"];
-  "padarray2" [label="padarray2 (8.94%)"];
-  "__printf_buffer_flush_to_file (inlined)" [label="__printf_buffer_flush_to_file (inlined) (13.05%)"];
-  "0xffffffff95f957ba" [label="0xffffffff95f957ba (31.90%)"];
-  "__printf_buffer_done" [label="__printf_buffer_done (11.36%)"];
-  "__fprintf (inlined)" [label="__fprintf (inlined) (9.87%)"];
-  "__printf_buffer_to_file_switch" [label="__printf_buffer_to_file_switch (10.96%)"];
-  "0xffffffff96c00b90" [label="0xffffffff96c00b90 (14.96%)"];
-  "__printf_buffer_to_file_done" [label="__printf_buffer_to_file_done (10.72%)"];
-  "writeMatrix" [label="writeMatrix (6.70%)"];
-  "computeSAD" [label="computeSAD (9.38%)"];
-  "__isoc99_fscanf" [label="__isoc99_fscanf (7.86%)"];
-  "__GI__IO_file_seek (inlined)" [label="__GI__IO_file_seek (inlined) (11.79%)"];
-  "__vfprintf_internal" [label="__vfprintf_internal (9.10%)"];
-  "__memcpy_avx_unaligned_erms (inlined)" [label="__memcpy_avx_unaligned_erms (inlined) (12.60%)"];
-  "0xffffffff95c5d255" [label="0xffffffff95c5d255 (14.40%)"];
-  "do_lookup_x" [label="do_lookup_x (30.05%)"];
-  "resolve_map (inlined)" [label="resolve_map (inlined) (13.14%)"];
-  "_dl_new_hash (inlined)" [label="_dl_new_hash (inlined) (14.96%)"];
-  "elf_machine_rela (inlined)" [label="elf_machine_rela (inlined) (10.32%)"];
-  "memmove_chk_ifunc_selector (inlined)" [label="memmove_chk_ifunc_selector (inlined) (10.67%)"];
-  "0xffffffff969fa768" [label="0xffffffff969fa768 (8.80%)"];
+  "__GI__IO_fread (inlined)" [label="__GI__IO_fread (inlined)
+(60.62%)"];
+  "readImage" [label="readImage
+(30.70%)"];
+  "findDisparity" [label="findDisparity
+(32.28%)"];
+  "integralImage2D2D" [label="integralImage2D2D
+(27.51%)"];
+  "selfCheck" [label="selfCheck
+(7.70%)"];
+  "padarray2" [label="padarray2
+(8.94%)"];
+  "__fprintf (inlined)" [label="__fprintf (inlined)
+(9.87%)"];
+  "0xffffffff96c00b90" [label="0xffffffff96c00b90
+(14.96%)"];
+  "writeMatrix" [label="writeMatrix
+(6.70%)"];
+  "computeSAD" [label="computeSAD
+(9.38%)"];
+  "__isoc99_fscanf" [label="__isoc99_fscanf
+(7.86%)"];
+  "do_lookup_x" [label="do_lookup_x
+(30.05%)"];
+  "resolve_map (inlined)" [label="resolve_map (inlined)
+(13.14%)"];
+  "_dl_new_hash (inlined)" [label="_dl_new_hash (inlined)
+(14.96%)"];
+  "elf_machine_rela (inlined)" [label="elf_machine_rela (inlined)
+(10.32%)"];
+  "_start" -> "_dl_start";
   "_start" -> "__libc_start_main_impl (inlined)";
   "main" -> "selfCheck";
-  "selfCheck" -> "__isoc99_fscanf";
   "main" -> "readImage";
-  "readImage" -> "__GI__IO_fread (inlined)";
-  "main" -> "writeMatrix";
-  "writeMatrix" -> "__fprintf (inlined)";
   "main" -> "getDisparity";
-  "getDisparity" -> "findDisparity";
-  "getDisparity" -> "correlateSAD_2D";
-  "correlateSAD_2D" -> "integralImage2D2D";
+  "main" -> "writeMatrix";
+  "selfCheck" -> "__isoc99_fscanf";
+  "readImage" -> "_IO_new_fopen (inlined)";
+  "readImage" -> "__GI__IO_fread (inlined)";
+  "readImage" -> "__GI_fseek (inlined)";
+  "writeMatrix" -> "__fprintf (inlined)";
   "getDisparity" -> "padarray2";
   "getDisparity" -> "iSetArray";
+  "getDisparity" -> "findDisparity";
+  "getDisparity" -> "correlateSAD_2D";
+  "correlateSAD_2D" -> "computeSAD";
+  "correlateSAD_2D" -> "integralImage2D2D";
   "iSetArray" -> "iMallocHandle";
   "iMallocHandle" -> "__GI___libc_malloc (inlined)";
   "_int_malloc" -> "sysmalloc (inlined)";
   "sysmalloc (inlined)" -> "0xffffffff96c00b90";
-  "correlateSAD_2D" -> "computeSAD";
-  "readImage" -> "__GI_fseek (inlined)";
-  "readImage" -> "_IO_new_fopen (inlined)";
+  "sysmalloc (inlined)" -> "__glibc_morecore (inlined)";
   "tcache_init (inlined)" -> "tcache_init (inlined)";
   "tcache_init (inlined)" -> "_int_malloc";
-  "sysmalloc (inlined)" -> "__glibc_morecore (inlined)";
-  "_start" -> "_dl_start";
   "_dl_start" -> "_dl_start_final (inlined)";
   "_dl_start_final (inlined)" -> "_dl_sysdep_start";
   "_dl_sysdep_start" -> "dl_main";
   "dl_main" -> "_dl_relocate_object";
   "_dl_relocate_object" -> "elf_dynamic_do_Rela (inlined)";
   "elf_dynamic_do_Rela (inlined)" -> "elf_machine_rela (inlined)";
+  "elf_machine_rela (inlined)" -> "__memmove_chk_ifunc (inlined)";
   "elf_machine_rela (inlined)" -> "resolve_map (inlined)";
   "resolve_map (inlined)" -> "_dl_lookup_symbol_x";
-  "_dl_lookup_symbol_x" -> "do_lookup_x";
   "_dl_lookup_symbol_x" -> "_dl_new_hash (inlined)";
-  "elf_machine_rela (inlined)" -> "__memmove_chk_ifunc (inlined)";
+  "_dl_lookup_symbol_x" -> "do_lookup_x";
   "_dl_start_user" -> "_dl_init";
   "_dl_init" -> "call_init (inlined)";
   "call_init (inlined)" -> "call_init (inlined)";
