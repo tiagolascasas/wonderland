@@ -48,26 +48,38 @@ def is_kernel_function(name):
 
 
 def build_graph(input, filter_kernel):
-    functions = {}
-    valid_functions = set()
-    edges = {}
+    functions = build_nodes(input)
+    edges = build_edges(input, functions, filter_kernel)
 
-    pattern_1 = re.compile(r"^(\d{1,3}(?:\.\d{1,2}))% ([_\w]+[_\w\W;]*)")
-    pattern_2 = re.compile(r"^(\d{1,3}(?:\.\d{1,2}))%.*\[\.\]\s([\w_]+)")
+    return functions, edges
+
+
+def build_nodes(input):
+    functions = {}
+
+    pattern = re.compile(r"^(\d{1,3}(?:\.\d{1,2}))%.*\[\.\]\s([\w_]+)")
     with open(input, "r") as file:
         for line in file:
             line = line.strip()
-            match = pattern_1.match(line)
+            match = pattern.match(line)
             if match:
-                percentage, fun_chain = match.groups()
-                discrete_funs = fun_chain.split(";")
+                percentage, fun = match.groups()
                 n_percent = float(percentage)
+                functions[fun] = n_percent
+    return functions
 
-                leaf = discrete_funs[-1]
-                if leaf not in functions:
-                    functions[leaf] = n_percent
-                else:
-                    functions[leaf] += n_percent
+
+def build_edges(input, nodes, filter_kernel):
+    edges = {}
+
+    pattern = re.compile(r"^(\d{1,3}(?:\.\d{1,2}))% ([_\w]+[_\w\W;]*)")
+    with open(input, "r") as file:
+        for line in file:
+            line = line.strip()
+            match = pattern.match(line)
+            if match:
+                _, fun_chain = match.groups()
+                discrete_funs = fun_chain.split(";")
 
                 pairs = [
                     [discrete_funs[i], discrete_funs[i + 1]]
@@ -79,26 +91,8 @@ def build_graph(input, filter_kernel):
                         continue
                     if source not in edges:
                         edges[source] = set()
-                        edges[source].add(target)
-                        valid_functions.add(source)
-                    else:
-                        edges[source].add(target)
-                    valid_functions.add(target)
-            else:
-                match = pattern_2.match(line)
-                if match:
-                    percentage, fun = match.groups()
-                    n_percent = float(percentage)
-                    if filter_kernel and is_kernel_function(fun):
-                        continue
-                    if fun not in functions:
-                        functions[fun] = n_percent
-                    else:
-                        functions[fun] += n_percent
-                    valid_functions.add(fun)
-
-    # functions = {k: v for k, v in functions.items() if k in valid_functions}
-    return functions, edges
+                    edges[source].add(target)
+    return edges
 
 
 def generate_dotfile(functions, edges, output):
